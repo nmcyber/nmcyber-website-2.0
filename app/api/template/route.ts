@@ -9,9 +9,9 @@ export async function GET(req: NextRequest) {
     );
   }
 
-  const ip = req.ip ?? "127.0.0.1";
+  const ip = req.headers.get('x-forwarded-for') || req.headers.get('x-real-ip') || "127.0.0.1";
   const isLocal = process.env.NODE_ENV === "development";
-  const country = isLocal ? "CA" : req.geo?.country ?? "unknown";
+  const country = isLocal ? "CA" : req.headers.get('x-vercel-ip-country') ?? "unknown";
 
   const { success, pending, limit, reset, remaining } =
     await ratelimitConfig.ratelimit.limit(ip, {

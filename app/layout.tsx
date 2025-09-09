@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/react"
 import { GeistSans } from 'geist/font/sans'
@@ -47,17 +46,10 @@ export default function RootLayout({
           as="image"
         />
       </head>
-      <body className={GeistSans.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={`${GeistSans.className} dark overflow-hidden`}>
           {children}
           <Toaster />
-        </ThemeProvider>
-        <Analytics />
+          <Analytics />
       </body>
     </html>
   )
