@@ -2,9 +2,7 @@ const config = {
   auth: {
     enabled: false,
   },
-  payments: {
-    enabled: true,
-  },
+  // payments config removed
 };
 
 export default config;

@@ -4,13 +4,10 @@ import * as React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { Button } from "../ui/button";
 import { SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet";
-import { UserProfile } from "../user-profile";
 import ModeToggle from "../mode-toggle";
 import { BlocksIcon } from "lucide-react";
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
-import config from "@/config";
 import { cn } from "@/lib/utils";
-import { useAuth } from "@clerk/nextjs";
 import { Dialog, DialogClose } from "@radix-ui/react-dialog";
 
 const components: { title: string; href: string; description: string }[] = [
@@ -32,12 +29,6 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 export default function NavBar() {
-    let userId = null;
-    if (config?.auth?.enabled) {
-        const user = useAuth();
-        userId = user?.userId;
-    }
-
     return (
         <div className="flex min-w-full fixed justify-between p-2 border-b z-10 dark:bg-black dark:bg-opacity-50 bg-white">
             <div className="flex justify-between w-full min-[825px]:hidden">
@@ -105,7 +96,6 @@ export default function NavBar() {
                 </NavigationMenuList>
             </NavigationMenu>
             <div className="flex items-center gap-2 max-[825px]:hidden">
-                {userId && <UserProfile />}
                 <ModeToggle />
             </div>
         </div>
