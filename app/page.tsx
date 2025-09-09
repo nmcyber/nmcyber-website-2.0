@@ -3,7 +3,7 @@ import PageWrapper from "@/components/wrapper/page-wrapper";
 export default function Home() {
   return (
     <PageWrapper>
-      <section className="flex flex-col justify-center items-center w-full max-w-4xl mx-auto py-20 px-6">
+      <section className="flex z-20 flex-col justify-center items-center w-full max-w-4xl mx-auto py-20 px-6">
         <div className="text-center space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             Welcome to 
