@@ -1,30 +1,96 @@
 import { Toaster } from "@/components/ui/sonner"
 import { Analytics } from "@vercel/analytics/react"
 import { GeistSans } from 'geist/font/sans'
+import { Plus_Jakarta_Sans } from 'next/font/google'
 import type { Metadata } from 'next'
 import './globals.css'
 
+const plusJakartaSans = Plus_Jakarta_Sans({ 
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plus-jakarta-sans'
+})
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://starter.rasmic.xyz"),
+  metadataBase: new URL("https://nmcyber.com.au"),
   title: {
-    default: 'Nextjs Starter Kit',
-    template: `%s | Nextjs Starter Kit`
+    default: 'NMCYBER | Human-Centric Cybersecurity Training for SMBs',
+    template: `%s | NMCYBER`
   },
-  description: 'The Ultimate Nextjs 14 Starter Kit for quickly building your SaaS, giving you time to focus on what really matters',
+  description: 'NMCYBER helps Small and Medium Businesses transform employees into cyber-aware defenders through custom, human-centric cybersecurity training that builds real behavioral change.',
+  keywords: [
+    'cybersecurity training',
+    'human-centric cybersecurity',
+    'SMB security awareness',
+    'cybersecurity for small business',
+    'phishing simulation',
+    'security culture',
+    'cyber awareness',
+    'employee security training',
+    'cyber risk management',
+    'human firewall'
+  ],
+  authors: [
+    { name: 'NMCYBER' }
+  ],
+  creator: 'NMCYBER',
+  publisher: 'NMCYBER',
+  formatDetection: {
+    email: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-AU': '/',
+    },
+  },
   openGraph: {
-    description: 'The Ultimate Nextjs 14 Starter Kit for quickly building your SaaS, giving you time to focus on what really matters',
-    images: ['https://utfs.io/f/8a428f85-ae83-4ca7-9237-6f8b65411293-eun6ii.png'],
-    url: 'https://starter.rasmic.xyz/'
+    type: 'website',
+    locale: 'en_AU',
+    url: 'https://nmcyber.com.au',
+    title: 'NMCYBER | Empowering Humans. Protecting Businesses.',
+    description: 'Custom Human-Centric Cybersecurity Training for Small and Medium Businesses. Transform your team into cyber-aware defenders.',
+    siteName: 'NMCYBER',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'NMCYBER - Human-Centric Cybersecurity',
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nextjs Starter Kit',
-    description: 'The Ultimate Nextjs 14 Starter Kit for quickly building your SaaS, giving you time to focus on what really matters',
-    siteId: "",
-    creator: "@rasmic",
-    creatorId: "",
-    images: ['https://utfs.io/f/8a428f85-ae83-4ca7-9237-6f8b65411293-eun6ii.png'],
+    title: 'NMCYBER | Human-Centric Cybersecurity for SMBs',
+    description: 'Custom cybersecurity awareness training built for humans, not hackers. Transform your team into cyber-aware defenders.',
+    images: ['/twitter-image.jpg'],
+    creator: '@nmcyber',
   },
+  category: 'Cybersecurity',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
+  verification: {
+    google: 'google-site-verification-code', // Replace with actual verification code when available
+  },
+  other: {
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'theme-color': '#086082',
+  }
 }
 
 export default function RootLayout({
@@ -46,7 +112,7 @@ export default function RootLayout({
           as="image"
         />
       </head>
-      <body className={`${GeistSans.className} dark overflow-hidden`}>
+      <body className={`${GeistSans.className} ${plusJakartaSans.variable} dark`}>
           {children}
           <Toaster />
           <Analytics />
