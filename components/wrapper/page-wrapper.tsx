@@ -28,10 +28,9 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
           blur="80px"
           className="right-[15%]" 
         />
-        
         {children}
       </main>
-      <Footer />
+      <Footer className="relative w-full" />
     </>
   )
 }
