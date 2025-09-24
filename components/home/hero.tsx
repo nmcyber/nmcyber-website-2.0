@@ -2,21 +2,24 @@ import { Download } from "lucide-react";
 import { COMPANY_INFO } from "@/utils/constants";
 import Link from "next/link";
 import Image from "next/image";
+import React from 'react';
+import BlurElement from '../shared/blur-element';
 
 export default function Hero() {
   return (
-    <section className="flex z-20 flex-col justify-center items-center w-full max-w-7xl mx-auto py-20 px-6">
-    <div className="text-center space-y-6">
+    <section className="flex z-20 flex-col relative justify-center items-center w-full py-20 px-6">
+    <div className="text-center space-y-10 max-w-7xl mx-auto">
+      <div className='space-y-6'>
       {/* Main hero heading with gradient effect */}
-      <h1 className="gradient-heading">
+      <h1 className="gradient-heading py-2">
         {COMPANY_INFO.tagline}
       </h1>
       
       {/* Subheading with call to action */}
-      <h2 className="text-2xl md:text-2xl font-semibold mt-4">
+      <h2 className="text-2xl md:text-2xl font-semibold">
       {COMPANY_INFO.shortDescription}
       </h2>
-      
+      </div>
       {/* Company description optimized for SEO */}
       <p className="text-lg text-muted-foreground lg:max-w-5xl mx-auto">
         {COMPANY_INFO.longDescription}
@@ -86,7 +89,34 @@ export default function Hero() {
             <Image src="/images/Proofpoint_R_Logo-2048x417.svg" alt="Proofpoint" width={190} height={38.687} className="h-[38.687px] w-[190px] object-contain" />
          </div>
         </div>
+
       </div>
+      {/* IMAGE LAYER */}
+      <Image src="/images/hero-bg.svg" alt="Hero Background" fill style={{ objectFit: 'contain', objectPosition: 'center bottom' }} quality={100} priority className='-z-10 translate-y-10' />
+
+      {/* ECLIPSE  BLUR */}
+      <BlurElement 
+          position="top" 
+          positionValue="10%" 
+          zIndex={-5}
+          opacity={0.8}
+          size="150px" 
+          blur="60px"
+          className="left-[35%] top-[2%] bg-amber-600" 
+        />
+      <BlurElement 
+          position="top" 
+          positionValue="10%" 
+          zIndex={-5}
+          opacity={0.3}
+          size="650px" 
+          blur="60px"
+          className="right-[0] top-[2%] bg-amber-600" 
+        />
+        {/* binary image layer */}
+        <div className="absolute -z-10 !h-[90dvh] w-3/10 right-0 top-0">
+        <Image src="/images/binary.svg" alt="Eclipse Background" fill style={{ objectFit: 'contain' }} />
+        </div>
     </section>
   );
 }
