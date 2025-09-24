@@ -92,7 +92,7 @@ export default function Hero() {
 
       </div>
       {/* IMAGE LAYER */}
-      <Image src="/images/hero-bg.svg" alt="Hero Background" fill style={{ objectFit: 'contain', objectPosition: 'center bottom' }} quality={100} priority className='-z-10 translate-y-10' />
+      <Image src="/images/hero-bg.svg" alt="Hero Background" fill style={{ objectFit: 'contain', objectPosition: 'center bottom' }} quality={90} priority className='-z-10 translate-y-10' />
 
       {/* ECLIPSE  BLUR */}
       <BlurElement 
