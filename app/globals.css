@@ -14,7 +14,7 @@
   --color-secondary-foreground: hsl(0 0% 98%);
   --color-muted: hsl(240 3.7% 15.9%);
   --color-muted-foreground: hsl(240 5% 64.9%);
-  --color-accent: hsl(240 3.7% 15.9%);
+  --color-accent: hsl(198, 72%, 52%);
   --color-accent-foreground: hsl(0 0% 98%);
   --color-destructive: hsl(0 62.8% 30.6%);
   --color-destructive-foreground: hsl(0 0% 98%);
@@ -31,18 +31,10 @@
 
   /* Custom NMCyber Figma Design Color Palette */
   --color-additional-blury-blue: hsla(214, 100%, 9%, 0.51);
-  --color-primary-green-80: hsla(189, 100%, 23%, 1);
-  --color-primary-green-70: hsla(184, 99%, 39%, 1);
-  --color-primary-green-60: hsla(184, 99%, 39%, 1);
-  --color-primary-green-50: hsla(184, 99%, 39%, 1);
-  --color-primary-green-40: hsla(183, 60%, 66%, 1);
-  --color-primary-green-30: hsla(184, 61%, 80%, 1);
-  --color-primary-green-20: hsla(189, 53%, 87%, 1);
-  --color-primary-green-10: hsla(185, 43%, 95%, 1);
   
   /* Blur Element Gradient Colors */
   --blur-gradient-start: #086082;
-  --blur-gradient-end: #62CBF4;
+  --blur-gradient-end: var(--color-accent);
   
   /* Text Gradient Colors */
   --heading-gradient: linear-gradient(121deg, #FFF 31.34%, rgba(255, 255, 255, 0.00) 99.04%);
@@ -52,6 +44,9 @@
   --color-secondary-pink-30: hsla(338, 90%, 88%, 1);
   --color-secondary-pink-20: hsla(339, 88%, 94%, 1);
   --color-secondary-pink-10: hsla(339, 88%, 97%, 1);
+
+  /* Custom radius */
+  --radius-5xl: 56px;
 }
 
 @layer base {
