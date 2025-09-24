@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex z-20 flex-col justify-center items-center w-full max-w-4xl mx-auto py-20 px-6">
+    <section className="flex z-20 flex-col justify-center items-center w-full max-w-7xl mx-auto py-20 px-6">
     <div className="text-center space-y-6">
       {/* Main hero heading with gradient effect */}
       <h1 className="gradient-heading">
@@ -13,17 +13,17 @@ export default function Hero() {
       </h1>
       
       {/* Subheading with call to action */}
-      <h2 className="text-2xl md:text-3xl font-semibold mt-4">
+      <h2 className="text-2xl md:text-2xl font-semibold mt-4">
       {COMPANY_INFO.shortDescription}
       </h2>
       
       {/* Company description optimized for SEO */}
-      <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+      <p className="text-lg text-muted-foreground lg:max-w-5xl mx-auto">
         {COMPANY_INFO.longDescription}
       </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+        <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
             <Link
               href="/contact-us"
               className="w-[426px] h-[74px] rounded-[56px] text-white text-[20px] font-semibold leading-[14px] flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:opacity-95"
@@ -31,24 +31,18 @@ export default function Hero() {
               >
               Book a Free Strategy Call Today
             </Link>
+
             <Link
               href="/resources/checklist"
-              className="flex items-stretch rounded-[56px] overflow-hidden border border-[#2CA8DC] transition-opacity duration-200 hover:opacity-95"
+              className="flex items-stretch p-0  transition-opacity duration-200 hover:opacity-95"
               aria-label="Download the Cybersecurity Risk Checklist"
             >
               {/* Left text background (498 + 74 = total 572) */}
               <div
-                className="flex items-center justify-center rounded-l-[56px]"
-                style={{
-                  width: 498,
-                  height: 74,
-                  background: '#FFFFFF0A',
-                  backdropFilter: 'blur(8.4px)',
-                  WebkitBackdropFilter: 'blur(8.4px)',
-                }}
+                className="flex flex-nowrap text-nowrap justify-center"
               >
                 <span
-                  className="text-center"
+                  className="flex items-center text-center rounded-l-5xl outline outline-accent w-full backdrop-blur-sm px-8 "
                   style={{
                     fontFamily: 'Poppins, sans-serif',
                     fontWeight: 600,
@@ -64,10 +58,9 @@ export default function Hero() {
 
               {/* Right pill (keeps total height 74) */}
               <div
-                className="flex items-center justify-center rounded-r-[56px]"
-                style={{ width: 74, height: 74, background: "#2CA8DC" }}
+                className="flex items-center justify-center aspect-square outline outline-accent rounded-r-5xl w-18 bg-accent"
               >
-                <Download className="w-6 h-6 text-white" />
+                <Image src="/images/download-icon.svg" alt="Download" width={40} height={40} />
               </div>
             </Link>
         </div>
@@ -86,7 +79,7 @@ export default function Hero() {
           </div>
           
           {/* Partner Logos */}
-          <div className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-[63px] w-[867px] max-w-full">
+          <div className="mx-auto flex flex-wrap items-center justify-center gap-16 max-w-full">
             <Image src="/images/sophos.svg" alt="SOPHOS" width={154} height={27.181} className="h-[27.181px] w-[154px] object-contain" />
             <Image src="/images/chartere-accountants-australia-logo-2-1024x236_1.svg" alt="CA ANZ" width={192} height={44} className="h-[44px] w-[192px] object-contain" />
             <Image src="/images/huntress_security.svg" alt="Huntress" width={142} height={35} className="h-[35px] w-[142px] object-contain" />
