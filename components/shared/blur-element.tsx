@@ -5,6 +5,7 @@ interface BlurElementProps {
   position?: "left" | "top" | "right" | "bottom" | "inset";
   positionValue?: string;
   zIndex?: number;
+  opacity?: number;
   size?: string;
   blur?: string;
   className?: string;
@@ -14,6 +15,7 @@ export const BlurElement = ({
   position = "inset",
   positionValue = "0",
   zIndex = 0,
+  opacity = 0.5,
   size = "100px",
   blur = "40px",
   className,
@@ -29,7 +31,7 @@ export const BlurElement = ({
 
   // Custom gradient background style
   const gradientStyle = {
-    opacity: 0.5,
+    opacity: opacity,
     background: "linear-gradient(180deg, var(--blur-gradient-start) 0%, var(--blur-gradient-end) 100%)",
     filter: `blur(${blur})`,
     width: size,

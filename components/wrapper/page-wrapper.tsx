@@ -11,23 +11,23 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
         <div className='absolute inset-0 bg-additional-blury-blue z-10 w-full h-full' />
         
         {/* Example of using the BlurElement component */}
-        <BlurElement 
+        {/* <BlurElement 
           position="bottom" 
           positionValue="10%" 
-          zIndex={0} 
+          zIndex={30} 
           size="150px" 
           blur="60px"
-          className="left-[10%]" 
-        />
+          className="left-[10%] bg-amber-600" 
+        /> */}
         
-        <BlurElement 
+        {/* <BlurElement 
           position="top" 
           positionValue="20%" 
-          zIndex={0} 
+          zIndex={10} 
           size="200px" 
           blur="80px"
-          className="right-[15%]" 
-        />
+          className="right-[15%] bg-amber-600" 
+        /> */}
         {children}
       </main>
       <Footer className="relative w-full" />
