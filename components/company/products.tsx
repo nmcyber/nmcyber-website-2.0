@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PRODUCTS } from "@/utils/constants";
 import Image from "next/image";
 import {Check} from "lucide-react";
+import { BlurElement } from "../shared/blur-element";
 
 export default function Products() {
   return (
@@ -19,13 +20,36 @@ export default function Products() {
 
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 md:gradient-text">
             {PRODUCTS.title}
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             {PRODUCTS.description}
           </p>
         </div>
+
+         {/* Blur Elements for specific cards */}
+
+         <BlurElement 
+          position="top" 
+          positionValue="10%" 
+          zIndex={-5}
+          opacity={0.6}
+          size="300px" 
+          blur="80px"
+          className="right-[25%] top-[20%]" 
+        />
+
+         <BlurElement 
+          position="top" 
+          positionValue="10%" 
+          zIndex={-5}
+          opacity={0.7}
+          size="200px" 
+          blur="60px"
+          className="left-[2%] top-[75%]" 
+        />
+       
 
         {/* Services Grid - 2x2 Layout */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
