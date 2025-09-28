@@ -183,54 +183,50 @@ export const HERO_CONTENT = {
 // Core Services content
 export const PRODUCTS = {
   title: "Core Cybersecurity Awareness Training Services",
-  description: "Improve your teams with engaging, real-world cybersecurity training tailored to roles and risk levels. We make security a daily mindset.",
+  description: "Empower your team with engaging, real-world cybersecurity training tailored to roles and risk levels. We make awareness interactive, relatable, and memorable, far beyond boring slide shows. Engaging, industry-tailored sessions designed to make  security a part of your team’s daily mindset. Delivered live or on-demand.",
   services: [
     {
       id: "cybersecurity-awareness-training",
       name: "Cybersecurity Awareness Training",
       description: "Engaging, micro-learning content for all roles",
-      icon: "Shield",
+      icon: "/images/shield_icon.svg",
       features: [
-        "Engaging, micro-learning content for all roles",
-        "Customizable to your industry and risk profile",
-        "Regular updates to stay ahead of threats",
-        "Interactive modules and real-world examples"
+        "Engaging, scenario-based sessions to make security second nature for your team.",
+        "Tailored content designed for your industry and specific team roles.",
+        "Easy-to-understand, non-technical approach with real-world examples."
       ]
     },
     {
       id: "phishing-simulation-campaigns",
       name: "Phishing Simulation Campaigns",
       description: "Realistic phishing tests to gauge vulnerability",
-      icon: "Mail",
+      icon: "/images/hacker_icon.svg",
       features: [
-        "Realistic phishing emails sent to your team",
-        "Customizable templates and scenarios",
-        "Automated reporting and remediation",
-        "Continuous improvement  results"
+        "Realistic mock emails to test and strengthen your team's ability to spot threats.",
+        "Immediate, practical micro-training to boost defence after each simulation.",
+        "Track and measure improvements in your team's awareness over time.",
       ]
     },
     {
       id: "cybersecurity-culture-development",
       name: "Cybersecurity Culture & Behavioural Change",
       description: "Instill a security-first mindset in your organization",
-      icon: "Brain",
+      icon: "/images/security_icon.svg",
       features: [
-        "Instill a security-first mindset in your organization",
-        "Develop positive security habits and practices",
-        "Leadership engagement and champion programs",
-        "Measure and track cultural improvement over time"
+        "Shift from awareness to action by shaping secure habits across your organization.",
+        "Build a security-first mindset with long-term strategies and champion programs.",
+        "Embed security into your workplace DNA for lasting cultural transformation.",
       ]
     },
     {
       id: "strategic-consulting",
       name: "Strategic Consulting & Advisory",
       description: "Develop a comprehensive human risk program",
-      icon: "Users",
+      icon: "/images/consulting_icon.svg",
       features: [
-        "Develop a comprehensive human risk program",
-        "Align security strategy with business objectives",
-        "Expert guidance on policy and compliance",
-        "Roadmap for long-term security maturity"
+        "Expert guidance for building people-first security policies and programs.",
+        "Align cybersecurity strategy with your business goals, compliance, and culture.",
+        "Develop future-proof security roadmaps and crisis preparedness plans."
       ]
     }
   ]

@@ -11,11 +11,11 @@ export default function Company() {
     <>
       <Hero />
       <WhyHumanCentric />
-      {/* <Products />
-      <Testimonials />
+      <Products />
+      {/* <Testimonials />
       <PricePlans />
       <FreeResources />
-      <ContactForm /> */}
+      <ContactForm />  */}
     </>
   )
 }
