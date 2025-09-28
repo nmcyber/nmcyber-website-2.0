@@ -8,7 +8,7 @@ export const COMPANY_INFO = {
   longDescription: "NMCYBER helps Small and Medium Businesses transform their employees into cyber-aware defenders through custom, human-centric cybersecurity training. We replace boring check-the-box courses with interactive, role-based programs that build real behavioural change, reducing cyber risk at its human source.",
   email: "info@nmcyber.com.au",
   website: "https://nmcyber.com.au",
-  phone: "+61-XXX-XXX-XXX", // Replace with actual phone number
+  phone: "+61-XXX-XXX-XXX"
 }
 
 // Navigation structure
@@ -21,6 +21,30 @@ export const MAIN_NAVIGATION = [
   { name: "Academy", href: "/academy" },
   { name: "Contact Us", href: "/contact-us" },
 ]
+
+// Why Human-Centric Cybersecurity content
+export const WHY_HUMAN_CENTRIC = {
+  title: "Why Human-Centric Cybersecurity?",
+  description: "Your People Are the First Line of Defence. You can make them your strongest (or weakest) link. Your cybersecurity is only as strong as your least aware employee.",
+  explanation: "Traditional tech-focused approaches miss the human element. We at NMCYBER help your team stay alert, aware, and cyber-resilient. We help your team think like cyber defenders, not just employees.",
+  intro: "At NMCYBER, we pride ourselves on turning your workforce into cyber defenders. Our innovative approach to cybersecurity awareness and training doesn't just protect your data, it transforms your entire organisation to thrive through:",
+  benefits: [
+    "Reduced Risk of Data Breaches",
+    "Confident, Security-Conscious Employees", 
+    "Training that is Aligned with Your Business and Culture",
+    "Empowering your team with real-world knowledge",
+    "Reduced human error-based cyber incidents",
+    "Build a lasting security culture that scales with your business"
+  ],
+  human_head: {
+    image: "/images/cybersecurity-concept-illustration.webp",
+    title: "Human Head"
+  },
+  video:  {
+    image: "/images/team_video.webp",
+    title: "Watch Our Team in Action"
+  }
+}
 
 // Service packages
 export const SERVICE_PACKAGES = [
@@ -97,7 +121,7 @@ export const SERVICES = [
       "Easy-to-understand, non-technical approach",
       "Real-world examples and interactivity"
     ],
-    icon: "Shield", // This would correspond to an icon in your Icons component
+    icon: "Shield", 
     href: "/services/cybersecurity-awareness-training"
   },
   {
@@ -109,7 +133,7 @@ export const SERVICES = [
       "Post-simulation micro-training",
       "Track improvements over time"
     ],
-    icon: "Mail", // This would correspond to an icon in your Icons component
+    icon: "Mail", 
     href: "/services/phishing-simulation-campaigns"
   },
   {
@@ -121,7 +145,7 @@ export const SERVICES = [
       "Executive briefings with strategic insights",
       "Aligns with compliance frameworks"
     ],
-    icon: "Users", // This would correspond to an icon in your Icons component
+    icon: "Users", 
     href: "/services/role-based-security-training"
   },
   {
@@ -133,10 +157,204 @@ export const SERVICES = [
       "Microlearning and behavior nudges",
       "Long-term cultural change strategy"
     ],
-    icon: "Brain", // This would correspond to an icon in your Icons component
+    icon: "Brain", 
     href: "/services/cybersecurity-culture-development"
   }
 ]
+
+// Hero section content 
+export const HERO_CONTENT = {
+  title: "Empowering Humans. Protecting Businesses.",
+  subtitle: "Custom cyber security awareness training built for humans, not robots.",
+  description: "NMCYBER is a leading Cyber Security Awareness and Human Risk Management (HRM) provider. We deliver custom cyber security awareness training programs that are tailored to your roles and risk levels. We make security a daily mindset, empowering your team to become your strongest line of defence against cyber threats. We also offer a wide range of other cyber security services to protect your business.",
+  cta: {
+    primary: "Book a Free Strategy Call Today",
+    secondary: "Download Free Cybersecurity Checklist"
+  },
+  trustedBy: "Trusted by 3,200+ partners",
+  partners: [
+    { name: "SOPHOS", logo: "/images/sophos.svg" },
+    { name: "CA ANZ", logo: "/images/chartere-accountants-australia-logo-2-1024x236_1.svg" },
+    { name: "Huntress", logo: "/images/huntress_security.svg" },
+    { name: "Proofpoint", logo: "/images/Proofpoint_R_Logo-2048x417.svg" }
+  ]
+}
+
+// Core Services content
+export const PRODUCTS = {
+  title: "Core Cybersecurity Awareness Training Services",
+  description: "Improve your teams with engaging, real-world cybersecurity training tailored to roles and risk levels. We make security a daily mindset.",
+  services: [
+    {
+      id: "cybersecurity-awareness-training",
+      name: "Cybersecurity Awareness Training",
+      description: "Engaging, micro-learning content for all roles",
+      icon: "Shield",
+      features: [
+        "Engaging, micro-learning content for all roles",
+        "Customizable to your industry and risk profile",
+        "Regular updates to stay ahead of threats",
+        "Interactive modules and real-world examples"
+      ]
+    },
+    {
+      id: "phishing-simulation-campaigns",
+      name: "Phishing Simulation Campaigns",
+      description: "Realistic phishing tests to gauge vulnerability",
+      icon: "Mail",
+      features: [
+        "Realistic phishing emails sent to your team",
+        "Customizable templates and scenarios",
+        "Automated reporting and remediation",
+        "Continuous improvement  results"
+      ]
+    },
+    {
+      id: "cybersecurity-culture-development",
+      name: "Cybersecurity Culture & Behavioural Change",
+      description: "Instill a security-first mindset in your organization",
+      icon: "Brain",
+      features: [
+        "Instill a security-first mindset in your organization",
+        "Develop positive security habits and practices",
+        "Leadership engagement and champion programs",
+        "Measure and track cultural improvement over time"
+      ]
+    },
+    {
+      id: "strategic-consulting",
+      name: "Strategic Consulting & Advisory",
+      description: "Develop a comprehensive human risk program",
+      icon: "Users",
+      features: [
+        "Develop a comprehensive human risk program",
+        "Align security strategy with business objectives",
+        "Expert guidance on policy and compliance",
+        "Roadmap for long-term security maturity"
+      ]
+    }
+  ]
+}
+
+// Testimonials content 
+export const TESTIMONIALS = {
+  title: "What Our Clients Say",
+  testimonials: [
+    {
+      id: 1,
+      text: "NMCYBER helped us reduce phishing clicks by 83% in 6 months. Our team loved the training!",
+      author: "Manager",
+      company: "NextGen Technologies",
+      rating: 5
+    },
+    {
+      id: 2,
+      text: "NMCYBER helped us go from constant phishing click rates to near-zero in 3 months. The team enjoyed the training, and they benefited.",
+      author: "Managing Director",
+      company: "AccuTech Co.",
+      rating: 5
+    }
+  ]
+}
+
+// Pricing plans content  
+export const PRICING_PLANS = {
+  title: "Packages for Everyone",
+  plans: [
+    {
+      name: "CULTURE SPARK",
+      tagline: "STARTER",
+      price: "$9",
+      frequency: "/mo",
+      bestFor: "New to training",
+      features: [
+        "100+ micro-learning",
+        "1 program",
+        "1 campaign",
+        "1 reporting"
+      ],
+      cta: "Get Started",
+      popular: false
+    },
+    {
+      name: "CULTURELOCK",
+      tagline: "PREMIUM",
+      price: "$29",
+      frequency: "/mo",
+      bestFor: "Growing businesses",
+      features: [
+        "Customizable",
+        "Unlimited programs",
+        "Unlimited campaigns",
+        "Unlimited reporting"
+      ],
+      cta: "Get Started",
+      popular: true
+    },
+    {
+      name: "HUMANSHIELD",
+      tagline: "PRO",
+      price: "$19",
+      frequency: "/mo",
+      bestFor: "Advanced needs",
+      features: [
+        "500+ micro-learning",
+        "5 programs",
+        "5 campaigns",
+        "5 reporting"
+      ],
+      cta: "Get Started",
+      popular: false
+    }
+  ],
+  compareText: "Contact us to get a Custom Quote"
+}
+
+// Free resources content  
+export const FREE_RESOURCES = {
+  title: "Free Resources",
+  description: "Download our free cybersecurity resources to start building a stronger security culture today.",
+  resources: [
+    {
+      id: 1,
+      title: "10 Cyber Traps SMBs Fall For (and How to Prevent them)",
+      description: "Learn the most common cybersecurity mistakes small businesses make and how to avoid them.",
+      icon: "Laptop",
+      type: "Guide",
+      downloadUrl: "/resources/cyber-traps-guide.pdf",
+      featured: true
+    },
+    {
+      id: 2,
+      title: "Free Cybersecurity Culture Checklist",
+      description: "A comprehensive checklist to assess and improve your organization's security culture.",
+      icon: "FileText",
+      type: "Checklist",
+      downloadUrl: "/resources/security-culture-checklist.pdf"
+    },
+    {
+      id: 3,
+      title: "Interactive Team Risk Quiz",
+      description: "Test your team's cybersecurity knowledge with our interactive assessment tool.",
+      icon: "File",
+      type: "Quiz",
+      downloadUrl: "/resources/team-risk-quiz.pdf"
+    }
+  ]
+}
+
+// Contact form content  
+export const CONTACT_FORM = {
+  title: "Ready to Build Your Human Firewall?",
+  description: "Get a free cybersecurity assessment and discover how we can transform your team into cyber defenders. No obligation, just expert insights tailored to your business.",
+  benefits: [
+    "Free security assessment",
+    "Expert insights",
+    "Tailored recommendations"
+  ],
+  cta: "Get a Free Quote",
+  formCta: "Get Your Quote"
+}
 
 // SEO keywords by page
 export const SEO_KEYWORDS = {
