@@ -1,7 +1,7 @@
 import PageWrapper from "@/components/wrapper/page-wrapper";
 import StructuredData from "@/components/structured-data";
 import { generateCompanyStructuredData } from "@/utils/structured-data";
-import Hero from "@/components/home/hero";  
+import Hero from "@/components/company/hero";  
 
 export default function Home() {
   // Generate the structured data for the homepage

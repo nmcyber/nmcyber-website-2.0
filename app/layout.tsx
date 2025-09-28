@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { GeistSans } from 'geist/font/sans'
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
+import NavBar from "@/components/wrapper/navbar"
 
 const plusJakartaSans = Plus_Jakarta_Sans({ 
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${GeistSans.className} ${plusJakartaSans.variable} dark`}>
+          <NavBar />
           {children}
           <Toaster />
           <Analytics />
