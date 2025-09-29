@@ -7,7 +7,7 @@ export default function WhyNMCyber() {
 
 
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-b from-transparent to-primary-green-80/5">
+    <section className="relative py-20 px-6 bg-gradient-to-b from-transparent to-primary-green-80/5 z-20">
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
         <div className="text-left mb-4">
