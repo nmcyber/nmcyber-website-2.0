@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
+import { Toggle } from '@radix-ui/react-toggle';
 import { MAIN_NAVIGATION, COMPANY_INFO } from "@/utils/constants";
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -9,7 +10,7 @@ import { useState } from 'react';
 export default function NavBar() {
     const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    
+    const [showPhone, setShowPhone] = useState(false);
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
@@ -46,10 +47,48 @@ export default function NavBar() {
                     ))}
                 </div>
                 
-                 {/* Mobile Hamburger Button */}
-                 <button
-                        className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
-                        onClick={toggleMobileMenu}
+                 
+
+                {/* Right side - Contact & Mobile Menu */}
+                <div className="flex items-center space-x-1">
+                        <div className="relative">
+                            {/* Desktop: show icon + number, no toggle */}
+                            <div className="hidden md:flex items-center gap-1 text-muted-foreground">
+                                <Image 
+                                    src="/images/phoneicon.svg" 
+                                    alt="phoneicon" 
+                                    width={22} 
+                                    height={22} 
+                                    className="w-6 h-6 sm:w-[22px] sm:h-[22px]"
+                                />
+                                <span className="text-sm font-medium">{COMPANY_INFO.phone}</span>
+                            </div>
+
+                            {/* Mobile: toggle controls showing the number inside the button */}
+                            <Toggle
+                                pressed={showPhone}
+                                onPressedChange={setShowPhone}
+                                className="md:hidden border border-accent text-white hover:bg-accent/10 rounded-full h-9 px-3 data-[state=on]:bg-accent/10"
+                                aria-label="Show phone number"
+                            >
+                                <div className="flex items-center gap-2 text-muted-foreground">
+                                    <Image 
+                                        src="/images/phoneicon.svg" 
+                                        alt="phoneicon" 
+                                        width={22} 
+                                        height={22} 
+                                        className="w-6 h-6 sm:w-[22px] sm:h-[22px]"
+                                    />  
+                                    {showPhone && (
+                                        <span className="text-sm font-medium">{COMPANY_INFO.phone}</span>
+                                    )}
+                                </div>
+                            </Toggle>
+                        </div>
+                    {/* Mobile Hamburger Button moved next to phone toggle */}
+                    <button
+                            className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+                            onClick={toggleMobileMenu}
                     >
                         <Image 
                             src="/images/navhamberg_icon.svg" 
@@ -59,27 +98,6 @@ export default function NavBar() {
                             className="w-6 h-6"
                         />
                     </button>
-
-                {/* Right side - Contact & Mobile Menu */}
-                <div className="flex items-center space-x-1">
-                    {/* Phone Button */}
-                    <Button 
-                        size="sm" 
-                        variant="outline"
-                        className="border-accent text-white hover:bg-accent/10 rounded-full"
-                    >
-                        <div className="flex items-center gap-1 text-muted-foreground">
-                            <Image 
-                                src="/images/phoneicon.svg" 
-                                alt="phoneicon" 
-                                width={22} 
-                                height={22} 
-                                className="w-6 h-6 sm:w-[22px] sm:h-[22px]"
-                            />  
-                            <span className="text-sm font-medium">{COMPANY_INFO.phone}</span>
-                        </div>
-                    
-                    </Button>   
                 </div>
             </nav>
 
