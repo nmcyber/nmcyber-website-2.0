@@ -6,9 +6,12 @@ import PricePlans from '@/components/company/price-plans';
 import FreeResources from '@/components/company/free-resources';
 import ContactForm from '@/components/company/contact-form';
 import WhyNMCyber from '@/components/company/why-nmcyber';
+import PageWrapper from '@/components/wrapper/page-wrapper';
+
 export default function Company() {
   return (
     <>
+      <PageWrapper>
       <Hero />
       <WhyHumanCentric />
       <Products />
@@ -17,6 +20,7 @@ export default function Company() {
       {/* <PricePlans />
       <FreeResources />
       <ContactForm />  */} 
+      </PageWrapper>
     </>
   )
 }
