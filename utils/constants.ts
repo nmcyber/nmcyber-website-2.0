@@ -232,6 +232,37 @@ export const PRODUCTS = {
   ]
 }
 
+
+// Why NMCYber content
+export const WHY_NMCYBER = {
+  title: "Why NMCYber?",
+  subtitle: "What Our Clients Say",
+  description: "Empower your team with engaging, real-world cybersecurity training tailored to roles and risk levels. We make awareness interactive, relatable, and memorable.",
+  accordionItems: [
+    {
+      id: "discover",
+      title: "Discover",
+      content: "Uncover hidden vulnerabilities in your organization's security posture through comprehensive assessments and gap analysis." // TODO: confirm content with team
+    },
+    {
+      id: "transform", 
+      title: "Transform",
+      content: "Transform your workforce into cyber-aware defenders through engaging, role-based training programs that build lasting behavioral change." // TODO: confirm content with team
+    },
+    {
+      id: "thrive",
+      title: "Thrive", 
+      content: "Thrive in a security-first culture where your team becomes your strongest line of defense against cyber threats." // TODO: confirm content with team
+    }
+  ],
+  graphics: {
+    drone: "/images/drone.png",
+    looper: "/images/looper.svg"
+  }
+}
+
+
+
 // Testimonials content 
 export const TESTIMONIALS = {
   title: "What Our Clients Say",
