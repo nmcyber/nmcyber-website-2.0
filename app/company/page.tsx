@@ -17,8 +17,9 @@ export default function Company() {
       <Products />
       <WhyNMCyber />
       <PricePlans />
-      {/* <Testimonials />
       <FreeResources />
+      {/* <Testimonials />
+      
       <ContactForm />    */}
       </PageWrapper>
     </>

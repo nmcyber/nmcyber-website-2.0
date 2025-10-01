@@ -313,30 +313,27 @@ export const PRICING_PLANS = {
 // Free resources content  
 export const FREE_RESOURCES = {
   title: "Free Resources",
-  description: "Download our free cybersecurity resources to start building a stronger security culture today.",
   resources: [
     {
       id: 1,
       title: "10 Cyber Traps SMBs Fall For (and How to Prevent them)",
-      description: "Learn the most common cybersecurity mistakes small businesses make and how to avoid them.",
+      description: "Engaging, scenario-based sessions are designed to make security second nature for your  team. Delivered live, virtually, or as eLearning.",
       icon: "Laptop",
-      type: "Guide",
-      downloadUrl: "/resources/cyber-traps-guide.pdf",
+      image: "/images/cybersecurity_desktop.png",
+      downloadUrl: "/resources/cybersecurity-traps-guide.pdf",
       featured: true
     },
     {
       id: 2,
       title: "Free Cybersecurity Culture Checklist",
-      description: "A comprehensive checklist to assess and improve your organization's security culture.",
-      icon: "FileText",
+      icon: "/images/pdf_icon.svg",
       type: "Checklist",
-      downloadUrl: "/resources/security-culture-checklist.pdf"
+      downloadUrl: "/resources/FreeCybersecurityCultureChecklist.pdf"
     },
     {
       id: 3,
       title: "Interactive Team Risk Quiz",
-      description: "Test your team's cybersecurity knowledge with our interactive assessment tool.",
-      icon: "File",
+      icon: "/images/doc_icon.svg",
       type: "Quiz",
       downloadUrl: "/resources/team-risk-quiz.pdf"
     }
