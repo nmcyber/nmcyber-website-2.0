@@ -3,6 +3,8 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { PRICING_PLANS } from "@/utils/constants";
 import { Check, ArrowRight } from "lucide-react";
 import { Badge } from "../ui/badge";
+import Image from "next/image";
+import BlurElement from "../shared/blur-element";
 
 export default function PricePlans() {
   return (
@@ -15,6 +17,7 @@ export default function PricePlans() {
             <span className="text-accent/80 text-sm font-medium tracking-wider uppercase">PRICE & PLANS</span>
             <div className="h-px bg-accent/60 w-16"></div>
           </div>
+          
           <h2 className="mt-5 text-4xl md:text-6xl font-extrabold leading-tight">
             <span className="bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent">
               {PRICING_PLANS.title}
@@ -94,6 +97,43 @@ export default function PricePlans() {
           </Button>
         </div>
       </div>
+
+      {/* Background Elements */}
+      <div className="absolute inset-0 -z-10">
+        {/* World Map Image */}
+        <Image 
+          src="/images/world_map.svg" 
+          alt="World Map" 
+          width={412} 
+          height={393}
+          style={{ 
+            objectFit: 'contain', 
+            objectPosition: 'center bottom' 
+          }} 
+          quality={90} 
+          priority 
+          className="absolute top-6 left-20" 
+        />
+      </div>
+       {/* Blur Elements */}
+       <BlurElement 
+        position="top" 
+        positionValue="10%" 
+        zIndex={-5}
+        opacity={0.4}
+        size="250px" 
+        blur="60px"
+        className="left-[20%] top-[5%]" 
+      />
+      <BlurElement 
+        position="top" 
+        positionValue="10%" 
+        zIndex={-5}
+        opacity={0.5}
+        size="300px" 
+        blur="60px"
+        className="right-[20%] top-[40%]" 
+      />
     </section>
   );
 }
