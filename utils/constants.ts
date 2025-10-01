@@ -262,76 +262,49 @@ export const WHY_NMCYBER = {
 }
 
 
-
-// Testimonials content 
-export const TESTIMONIALS = {
-  title: "What Our Clients Say",
-  testimonials: [
-    {
-      id: 1,
-      text: "NMCYBER helped us reduce phishing clicks by 83% in 6 months. Our team loved the training!",
-      author: "Manager",
-      company: "NextGen Technologies",
-      rating: 5
-    },
-    {
-      id: 2,
-      text: "NMCYBER helped us go from constant phishing click rates to near-zero in 3 months. The team enjoyed the training, and they benefited.",
-      author: "Managing Director",
-      company: "AccuTech Co.",
-      rating: 5
-    }
-  ]
-}
-
 // Pricing plans content  
 export const PRICING_PLANS = {
   title: "Packages for Everyone",
   plans: [
     {
-      name: "CULTURE SPARK",
-      tagline: "STARTER",
+      name: "CYBERSPARK (STARTER)",
+      bestFor: "Small teams starting out",
       price: "$9",
       frequency: "/mo",
-      bestFor: "New to training",
       features: [
-        "100+ micro-learning",
-        "1 program",
-        "1 campaign",
-        "1 reporting"
+        "Awareness training",
+        "Hygiene",
+        "1 phishing test",
       ],
       cta: "Get Started",
-      popular: false
+      popular: false,
     },
     {
-      name: "CULTURELOCK",
-      tagline: "PREMIUM",
+      name: "CULTURELOCK (PREMIUM)",
+      bestFor: "Culture-first or compliance-driven",
       price: "$29",
       frequency: "/mo",
-      bestFor: "Growing businesses",
       features: [
-        "Customizable",
-        "Unlimited programs",
-        "Unlimited campaigns",
-        "Unlimited reporting"
+        "Custom content",
+        "Policy support",
+        "Analytics",
+        "Consulting"
       ],
       cta: "Get Started",
-      popular: true
+      popular: true,
     },
     {
-      name: "HUMANSHIELD",
-      tagline: "PRO",
+      name: "HUMANSHIELD (PRO)",
+      bestFor: "Growing businesses",
       price: "$19",
       frequency: "/mo",
-      bestFor: "Advanced needs",
       features: [
-        "500+ micro-learning",
-        "5 programs",
-        "5 campaigns",
-        "5 reporting"
+        "Role-based training",
+        "Champions",
+        "Microlearning",
       ],
       cta: "Get Started",
-      popular: false
+      popular: false,
     }
   ],
   compareText: "Contact us to get a Custom Quote"
@@ -366,6 +339,27 @@ export const FREE_RESOURCES = {
       icon: "File",
       type: "Quiz",
       downloadUrl: "/resources/team-risk-quiz.pdf"
+    }
+  ]
+}
+
+// Testimonials content 
+export const TESTIMONIALS = {
+  title: "What Our Clients Say",
+  testimonials: [
+    {
+      id: 1,
+      text: "NMCYBER helped us reduce phishing clicks by 83% in 6 months. Our team loved the training!",
+      author: "Manager",
+      company: "NextGen Technologies",
+      rating: 5
+    },
+    {
+      id: 2,
+      text: "NMCYBER helped us go from constant phishing click rates to near-zero in 3 months. The team enjoyed the training, and they benefited.",
+      author: "Managing Director",
+      company: "AccuTech Co.",
+      rating: 5
     }
   ]
 }

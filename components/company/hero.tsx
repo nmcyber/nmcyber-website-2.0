@@ -48,7 +48,7 @@ export default function Hero() {
         <div className="flex w-full md:max-w-4xl mx-auto flex-col items-center justify-center gap-4 md:flex-row">
           
           {/* Primary CTA Button */}
-          <Button asChild size="lg" className="h-auto w-full rounded-5xl px-6 py-5 bg-gradient-to-r from-[#045B7D] to-[#64CDF6] sm:w-auto sm:px-10">
+          <Button asChild size="lg" className="h-auto w-full rounded-5xl px-6 py-5 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] sm:w-auto sm:px-10">
             <Link
               href="/contact-us"
               className="text-lg font-semibold leading-tight text-white transition-all duration-300 hover:opacity-95 hover:shadow-xl sm:text-xl sm:leading-[14px]"

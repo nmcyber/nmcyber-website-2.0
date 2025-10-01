@@ -36,6 +36,12 @@
   --blur-gradient-start: #086082;
   --blur-gradient-end: var(--color-accent);
   
+  /* Button Gradient Colors */
+  --button-gradient-start: #045B7D;
+  --button-gradient-end: #64CDF6;
+  --button-gradient-start-hover: #034B73;  /* 10% darker than start */
+  --button-gradient-end-hover:  #4FBEEB;  /* 10% darker than end */
+  
   /* Text Gradient Colors */
   --heading-gradient: linear-gradient(121deg, #FFF 31.34%, rgba(255, 255, 255, 0.00) 99.04%);
   --color-secondary-pink-60: hsla(332, 92%, 29%, 1);

@@ -16,10 +16,10 @@ export default function Company() {
       <WhyHumanCentric />
       <Products />
       <WhyNMCyber />
-      <Testimonials />
-      {/* <PricePlans />
+      <PricePlans />
+      {/* <Testimonials />
       <FreeResources />
-      <ContactForm />  */} 
+      <ContactForm />    */}
       </PageWrapper>
     </>
   )
