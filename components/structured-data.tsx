@@ -19,7 +19,9 @@ export default function StructuredData({ data }: StructuredDataProps) {
 
     // Clean up
     return () => {
-      document.head.removeChild(script);
+      if (script.parentNode === document.head) {
+        document.head.removeChild(script);
+      }
     };
   }, [data]);
 
