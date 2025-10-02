@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 // This function generates JSON-LD structured data for the company
 export function generateCompanyStructuredData() {
@@ -6,7 +6,8 @@ export function generateCompanyStructuredData() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'NMCYBER',
-    description: 'NMCYBER helps Small and Medium Businesses transform their employees into cyber-aware defenders through custom, human-centric cybersecurity training.',
+    description:
+      'NMCYBER helps Small and Medium Businesses transform their employees into cyber-aware defenders through custom, human-centric cybersecurity training.',
     url: 'https://nmcyber.com.au',
     logo: 'https://nmcyber.com.au/logo.png',
     email: 'info@nmcyber.com.au',
@@ -28,24 +29,26 @@ export function generateCompanyStructuredData() {
       {
         '@type': 'Service',
         name: 'Cybersecurity Awareness Training',
-        description: 'Custom cybersecurity awareness training tailored for small and medium businesses.',
+        description:
+          'Custom cybersecurity awareness training tailored for small and medium businesses.',
         offers: {
           '@type': 'Offer',
           price: '499',
           priceCurrency: 'AUD',
           availability: 'https://schema.org/InStock',
-        }
+        },
       },
       {
         '@type': 'Service',
         name: 'Phishing Simulation Campaigns',
-        description: 'Realistic phishing tests followed by practical micro-training to boost defense.',
+        description:
+          'Realistic phishing tests followed by practical micro-training to boost defense.',
         offers: {
           '@type': 'Offer',
           price: '250',
           priceCurrency: 'AUD',
           availability: 'https://schema.org/InStock',
-        }
+        },
       },
       {
         '@type': 'Service',
@@ -54,15 +57,15 @@ export function generateCompanyStructuredData() {
         offers: {
           '@type': 'Offer',
           availability: 'https://schema.org/InStock',
-        }
-      }
-    ]
+        },
+      },
+    ],
   };
 }
 
 // This function generates JSON-LD structured data for a service page
 export function generateServiceStructuredData(
-  serviceName: string, 
+  serviceName: string,
   serviceDescription: string,
   serviceUrl: string,
   price?: string,
@@ -76,7 +79,7 @@ export function generateServiceStructuredData(
     provider: {
       '@type': 'Organization',
       name: 'NMCYBER',
-      url: 'https://nmcyber.com.au'
+      url: 'https://nmcyber.com.au',
     },
     url: serviceUrl,
     ...(imageUrl && { image: imageUrl }),
@@ -85,24 +88,24 @@ export function generateServiceStructuredData(
         '@type': 'Offer',
         price: price,
         priceCurrency: 'AUD',
-      }
-    })
+      },
+    }),
   };
 }
 
 // This function generates JSON-LD structured data for FAQs
-export function generateFAQStructuredData(faqs: Array<{question: string, answer: string}>) {
+export function generateFAQStructuredData(faqs: Array<{ question: string; answer: string }>) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqs.map(faq => ({
+    mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
         '@type': 'Answer',
-        text: faq.answer
-      }
-    }))
+        text: faq.answer,
+      },
+    })),
   };
 }
 
@@ -123,7 +126,7 @@ export function generateProductStructuredData(
     ...(imageUrl && { image: imageUrl }),
     brand: {
       '@type': 'Brand',
-      name: 'NMCYBER'
+      name: 'NMCYBER',
     },
     ...(price && {
       offers: {
@@ -134,10 +137,10 @@ export function generateProductStructuredData(
         url: productUrl,
         seller: {
           '@type': 'Organization',
-          name: 'NMCYBER'
-        }
-      }
-    })
+          name: 'NMCYBER',
+        },
+      },
+    }),
   };
 }
 
@@ -160,9 +163,9 @@ export function generateServicePageMetadata(
           width: 1200,
           height: 630,
           alt: `NMCYBER ${serviceName}`,
-        }
+        },
       ],
-    }
+    },
   };
 }
 
@@ -185,8 +188,8 @@ export function generateProductPageMetadata(
           width: 1200,
           height: 630,
           alt: `NMCYBER ${productName}`,
-        }
+        },
       ],
-    }
+    },
   };
 }

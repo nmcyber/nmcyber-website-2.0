@@ -1,0 +1,14 @@
+# Shadcn components
+components/ui/**/*
+
+# Build output
+.next/**/*
+dist/**/*
+
+# CSS files (not supported yet)
+app/globals.css
+**/*.css
+*.css
+
+# Node modules
+node_modules/**/*
