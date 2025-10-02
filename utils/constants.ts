@@ -256,19 +256,19 @@ export const WHY_NMCYBER = {
       id: 'discover',
       title: 'Discover',
       content:
-        "Uncover hidden vulnerabilities in your organization's security posture through comprehensive assessments and gap analysis.", // TODO: confirm content with team
+        "Uncover hidden vulnerabilities in your organization's security posture through comprehensive assessments and gap analysis.",
     },
     {
       id: 'transform',
       title: 'Transform',
       content:
-        'Transform your workforce into cyber-aware defenders through engaging, role-based training programs that build lasting behavioral change.', // TODO: confirm content with team
+        'Transform your workforce into cyber-aware defenders through engaging, role-based training programs that build lasting behavioral change.',
     },
     {
       id: 'thrive',
       title: 'Thrive',
       content:
-        'Thrive in a security-first culture where your team becomes your strongest line of defense against cyber threats.', // TODO: confirm content with team
+        'Thrive in a security-first culture where your team becomes your strongest line of defense against cyber threats.',
     },
   ],
   graphics: {
