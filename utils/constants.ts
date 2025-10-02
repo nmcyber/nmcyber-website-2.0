@@ -1,4 +1,4 @@
-export const TITLE_TAILWIND_CLASS = 'text-2xl sm:text-2xl md:text-3xl lg:text-4xl';
+export const RESPONSIVE_TITLE_CLASSES = 'text-2xl sm:text-2xl md:text-3xl lg:text-4xl';
 
 // Company information
 export const COMPANY_INFO = {
