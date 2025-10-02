@@ -6,10 +6,11 @@ import { COMPANY_INFO } from '@/utils/constants';
 import BlurElement from '../shared/blur-element';
 
 // Star rating component for cleaner code
+const STAR_COUNT = 5;
 const StarRating = () => (
   <div className="flex">
-    {['star1', 'star2', 'star3', 'star4', 'star5'].map((key) => (
-      <Star key={key} className="w-4 h-4 text-yellow-400 fill-current" aria-hidden="true" />
+    {Array.from({ length: STAR_COUNT }, (_, i) => (
+      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" aria-hidden="true" />
     ))}
   </div>
 );
