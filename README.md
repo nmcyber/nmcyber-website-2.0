@@ -2,15 +2,11 @@
 
 ## Prerequisites
 - Node.js and yarn/bun installed
-- Accounts and API keys for:
-  - Supabase
-  
-  - Clerk (if using authentication)
 
 ## Setup
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone <repository-url>
    cd <project-directory>
    ```
@@ -18,67 +14,89 @@
 2. Install dependencies:
    ```
    yarn
+   # or
+   bun install
    ```
 
-3. Set up environment variables:
-   Create a `.env` file in the root directory with the following variables:
-   ```
-   SUPABASE_URL=<your-supabase-project-url>
-   SUPABASE_SERVICE_KEY=<your-supabase-service-key>
-
-   # Stripe/payment setup removed
-
-   # If using Clerk
-   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<your-clerk-publishable-key>
-   CLERK_SECRET_KEY=<your-clerk-secret-key>
-   NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-   NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-   NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
-   ```
-
-4. Configure features:
-   In `config.ts`, set the desired features:
-   ```typescript
-   const config = {
-     auth: {
-       enabled: true, // Set to false if not using Clerk
-     },
-   // payments config removed
-     }
-   };
-   ```
-
-5. Set up the database:
-   Run Prisma migrations:
-   ```
-   npx prisma migrate dev
-   ```
-
-6. Start the development server:
+3. Start the development server:
    ```
    yarn dev
+   # or
+   bun run dev
    ```
 
-7. Open your browser and navigate to `http://localhost:3000` to see your application running.
+4. Open your browser and navigate to `http://localhost:3000` to see your application running.
 
-## Additional Configuration
+---
 
-- Webhooks: Set up webhooks for Clerk (if using auth) at `/api/auth/webhook`.
-- Customize the landing page, dashboard, and other components as needed.
-- Modify the Prisma schema in `prisma/schema.prisma` if you need to change the database structure.
+## Code Quality: Biome Commands
 
-## Important Security Notes
+- **Check code:**
+  ```bash
+  bun run check
+  ```
+- **Format code:**
+  ```bash
+  bun run format
+  ```
+- **Lint code:**
+  ```bash
+  bun run lint
+  ```
 
-- Enable Row Level Security (RLS) in your Supabase project to ensure data protection at the database level.
-- Always make Supabase calls on the server-side (in API routes or server components) to keep your service key secure.
+## Creating a New Page
 
-## Learn More
+1. Add a new folder under `app/` (e.g., `app/new-page/`).
+2. Create a `page.tsx` file inside your folder:
+   ```tsx
+   export default function NewPage() {
+     return <section>New Page Content</section>;
+   }
+   ```
+3. Your page will automatically use the global layout (navbar, wrapper, footer).
 
-Refer to the documentation of the individual technologies used in this project for more detailed information:
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Supabase Documentation](https://supabase.io/docs)
-- [Prisma Documentation](https://www.prisma.io/docs)
-- [Clerk Documentation](https://clerk.dev/docs) (if using auth)
- 
+## PageWrapper Usage
+
+- The `PageWrapper` layout is now applied globally via `app/layout.tsx`.
+- You do **not** need to import or wrap your page components with `PageWrapper`.
+- All pages automatically get the consistent layout and blur background.
+
+## Using the BlurElement Component
+
+The `BlurElement` is a customizable, reusable blur effect for backgrounds and highlights.
+
+**Import:**
+```tsx
+import BlurElement from '@/components/shared/blur-element';
+```
+
+**Props:**
+- `position`: `'left' | 'top' | 'right' | 'bottom' | 'inset'` (default: `'inset'`)
+- `positionValue`: string (default: `'0'`)
+- `zIndex`: number (default: `0`)
+- `opacity`: number (default: `0.5`)
+- `size`: string (default: `'100px'`)
+- `blur`: string (default: `'40px'`)
+- `className`: string (optional)
+
+**Usage Example:**
+```tsx
+<BlurElement
+  position="left"
+  positionValue="10"
+  size="200px"
+  blur="60px"
+  opacity={0.7}
+  zIndex={-1}
+  className="custom-blur"
+/>
+```
+
+**How it works:**
+- Renders an absolutely positioned, blurred, rounded div with a gradient background.
+- Easily place and style background blurs anywhere in your layout.
+
+---
+
+For more details, see the code comments and explore the `components/` folder.
+
