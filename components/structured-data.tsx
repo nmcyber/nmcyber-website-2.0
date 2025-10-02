@@ -4,7 +4,7 @@
 import { useEffect } from 'react';
 
 interface StructuredDataProps {
-  data: any;
+  data: Record<string, unknown>;
 }
 
 export default function StructuredData({ data }: StructuredDataProps) {
@@ -13,16 +13,16 @@ export default function StructuredData({ data }: StructuredDataProps) {
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(data);
-    
+
     // Add the script to the head
     document.head.appendChild(script);
-    
+
     // Clean up
     return () => {
       document.head.removeChild(script);
     };
   }, [data]);
-  
+
   // This component doesn't render anything
   return null;
 }

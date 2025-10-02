@@ -21,7 +21,7 @@
   --color-border: hsl(240 3.7% 15.9%);
   --color-input: hsl(240 3.7% 15.9%);
   --color-ring: hsl(240 4.9% 83.9%);
-  
+
   /* Chart colors */
   --color-chart-1: hsl(220 70% 50%);
   --color-chart-2: hsl(160 60% 45%);
@@ -31,19 +31,19 @@
 
   /* Custom NMCyber Figma Design Color Palette */
   --color-additional-blury-blue: hsla(214, 100%, 9%, 0.51);
-  
+
   /* Blur Element Gradient Colors */
   --blur-gradient-start: #086082;
   --blur-gradient-end: var(--color-accent);
-  
+
   /* Button Gradient Colors */
-  --button-gradient-start: #045B7D;
-  --button-gradient-end: #64CDF6;
-  --button-gradient-start-hover: #034B73;  /* 10% darker than start */
-  --button-gradient-end-hover:  #4FBEEB;  /* 10% darker than end */
-  
+  --button-gradient-start: #045b7d;
+  --button-gradient-end: #64cdf6;
+  --button-gradient-start-hover: #034b73; /* 10% darker than start */
+  --button-gradient-end-hover: #4fbeeb; /* 10% darker than end */
+
   /* Text Gradient Colors */
-  --heading-gradient: linear-gradient(121deg, #FFF 31.34%, rgba(255, 255, 255, 0.00) 99.04%);
+  --heading-gradient: linear-gradient(121deg, #fff 31.34%, rgba(255, 255, 255, 0) 99.04%);
   --color-secondary-pink-60: hsla(332, 92%, 29%, 1);
   --color-secondary-pink-50: hsla(331, 85%, 46%, 1);
   --color-secondary-pink-40: hsla(347, 94%, 73%, 1);
@@ -63,7 +63,7 @@
     background-color: theme(colors.background);
     color: theme(colors.foreground);
   }
-  
+
   /* Gradient Heading Styles */
   h1.gradient-heading {
     text-align: center;
@@ -78,7 +78,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
+
   /* Responsive styles for the gradient heading */
   @media (max-width: 768px) {
     h1.gradient-heading {

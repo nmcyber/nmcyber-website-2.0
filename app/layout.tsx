@@ -1,22 +1,18 @@
-import { Toaster } from "@/components/ui/sonner"
-import { Analytics } from "@vercel/analytics/react"
-import { GeistSans } from 'geist/font/sans'
-import { Plus_Jakarta_Sans } from 'next/font/google'
-import './globals.css'
-import NavBar from "@/components/wrapper/navbar"
+import { Analytics } from '@vercel/analytics/react';
+import { GeistSans } from 'geist/font/sans';
+import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Toaster } from '@/components/ui/sonner';
+import './globals.css';
+import Footer from '@/components/wrapper/footer';
+import NavBar from '@/components/wrapper/navbar';
 
-const plusJakartaSans = Plus_Jakarta_Sans({ 
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
-  variable: '--font-plus-jakarta-sans'
-})
+  variable: '--font-plus-jakarta-sans',
+});
 
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -32,11 +28,15 @@ export default function RootLayout({
         />
       </head>
       <body className={`${GeistSans.className} ${plusJakartaSans.variable} dark`}>
-          <NavBar />
+        <NavBar />
+        <main className="flex relative flex-col pt-[4rem] items-center dark:bg-background bg-background justify-between">
+          <div className="absolute inset-0 bg-additional-blury-blue z-10 w-full h-full" />
           {children}
-          <Toaster />
-          <Analytics />
+        </main>
+        <Footer className="relative w-full" />
+        <Toaster />
+        <Analytics />
       </body>
     </html>
-  )
+  );
 }

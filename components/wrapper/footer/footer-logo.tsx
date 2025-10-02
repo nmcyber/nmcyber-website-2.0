@@ -11,10 +11,10 @@ export function FooterLogo() {
         <h3 className="text-xl font-bold text-white">
           NM<span className="text-cyan-400">CYBER</span>
         </h3>
-        <p className="text-sm" style={{ color: "hsl(240, 5%, 64.9%)" }}>
+        <p className="text-sm" style={{ color: 'hsl(240, 5%, 64.9%)' }}>
           Turning Cyber Security Pains into Gains
         </p>
       </div>
     </div>
-  )
+  );
 }

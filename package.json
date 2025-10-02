@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "license": "LICENSED",
+  "author": "Alexander Chepkiyeng",
   "type": "module",
   "engines": {
     "node": ">=20.0.0"
@@ -11,7 +12,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "biome lint .",
+    "format": "biome format . --write",
+    "check": "biome check .",
+    "fix": "biome check --write ."
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
@@ -43,6 +47,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.2.4",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",

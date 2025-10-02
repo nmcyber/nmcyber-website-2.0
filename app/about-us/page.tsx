@@ -1,7 +1,7 @@
-import React from 'react'
-
 export default function AboutUs() {
   return (
-    <section>About us page</section>
-  )
+    <section className="flex justify-center items-center h-screen">
+      <h1>About Us</h1>
+    </section>
+  );
 }
