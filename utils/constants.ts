@@ -350,18 +350,19 @@ export const TESTIMONIALS = {
     {
       id: 1,
       text: 'NMCYBER helped us reduce phishing clicks by 83% in 6 months. Our team loved the training!',
-      author: 'Manager',
-      company: 'NextGen Technologies',
-      rating: 5,
+      author: 'IT Manager, NextGen Technologies',
+      leftcomma:'/images/leftcomma.png',
+      rightcomma:'/images/rightcomma.png',
     },
     {
       id: 2,
       text: 'NMCYBER helped us go from constant phishing click rates to near-zero in 3 months. The team enjoyed the training, and they benefited.',
-      author: 'Managing Director',
-      company: 'AccuTech Co.',
-      rating: 5,
+      author: 'Managing Director, AccuTech Co.',
+      leftcomma:'/images/leftcomma.png',
+      rightcomma:'/images/rightcomma.png',
     },
   ],
+  backgroud1:'/images/map.svg',
 };
 
 // Contact form content
