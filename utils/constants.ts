@@ -1,3 +1,5 @@
+import { Description } from "@radix-ui/react-dialog";
+
 export const RESPONSIVE_TITLE_CLASSES = 'text-2xl sm:text-2xl md:text-3xl lg:text-4xl';
 
 // Company information
@@ -368,11 +370,18 @@ export const TESTIMONIALS = {
 // Contact form content
 export const CONTACT_FORM = {
   title: 'Ready to Build Your Human Firewall?',
-  description:
-    'Get a free cybersecurity assessment and discover how we can transform your team into cyber defenders. No obligation, just expert insights tailored to your business.',
-  benefits: ['Free security assessment', 'Expert insights', 'Tailored recommendations'],
-  cta: 'Get a Free Quote',
-  formCta: 'Get Your Quote',
+  description: 'Book a Free Strategy Call Today',
+  email: 'info@nmcyber.com.au',
+  website: 'https://nmcyber.com.au',
+  cta: 'Book A Call With Us',
+  formaName: 'Name',
+  formEmail: 'Email Address',
+  formCompany: 'Company',
+  numberOfEmployees: 'Number of Employees',
+  formMessage: 'Enter Your Message',
+  formCta: 'Get A Free Support',
+  chatbot:'/images/chatbot.svg',
+
 };
 
 // SEO keywords by page

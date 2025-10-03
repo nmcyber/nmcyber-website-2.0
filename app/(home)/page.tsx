@@ -7,6 +7,7 @@ import WhyNMCyber from '@/components/landing/why-nmcyber';
 import StructuredData from '@/components/structured-data';
 import { generateCompanyStructuredData } from '@/utils/structured-data';
 import Testimonials from '@/components/landing/testimonials';
+import ContactForm from '@/components/landing/contact-form';
 
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <PricePlans />
       <FreeResources />
       <Testimonials />
+      <ContactForm />
     </>
   );
 }
