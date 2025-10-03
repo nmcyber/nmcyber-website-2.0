@@ -28,30 +28,30 @@ export default function Testimonials() {
             >
               <CardContent className="p-8 relative z-20">
                 {/* Left Quote Mark */}
-                <div className="absolute top-6 left-6 z-10">
+                <div className="absolute top-4 left-4 z-10">
                   <Image 
                     src={testimonial.leftcomma} 
                     alt="leftcomma" 
-                    width={40} 
-                    height={40}
+                    width={50} 
+                    height={50}
                     className="opacity-70"
                   />
                 </div>
 
                 {/* Right Quote Mark */}
-                <div className="absolute bottom-6 right-6 z-10">
+                <div className="absolute bottom-4 right-4 z-10">
                   <Image 
                     src={testimonial.rightcomma} 
                     alt="rightcomma" 
-                    width={40} 
-                    height={40}
+                    width={50} 
+                    height={50}
                     className="opacity-70"
                   />
                 </div>
 
                 {/* Testimonial Text */}
-                <div className="text-center px-8 py-4">
-                  <blockquote className="text-lg text-white/95 leading-relaxed mb-6">
+                <div className="px-16 py-8">
+                  <blockquote className="text-lg text-white/95 leading-relaxed mb-6 text-justify">
                     {testimonial.text}
                   </blockquote>
                   
