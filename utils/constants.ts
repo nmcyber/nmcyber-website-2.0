@@ -25,6 +25,25 @@ export const MAIN_NAVIGATION = [
   { name: 'Contact Us', href: '/contact-us' },
 ];
 
+// Footer Sitemap
+export const quickLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Pricing', href: '/products' },
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/' },
+  { label: 'Contact Us', href: '/' },
+];
+
+export const platformLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Pricing', href: '/products' },  
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/' },
+  { label: 'Contact Us', href: '/' },
+];
+
 // Why Human-Centric Cybersecurity content
 export const WHY_HUMAN_CENTRIC = {
   title: 'Why Human-Centric Cybersecurity?',

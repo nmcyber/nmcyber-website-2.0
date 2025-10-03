@@ -14,16 +14,17 @@ const socialLinks = [
 export function SocialLinks() {
   return (
     <div className="flex gap-3 pt-4">
-      {socialLinks.map((social) => {
+      {socialLinks.map((social,idx) => {
         const Icon = social.icon;
-        return (
+        return ( // replace 'key' with 'idx' as key requires unique requirement
           <a
-            key={social.href}
-            href={social.href}
-            className={`w-8 h-8 bg-secondary rounded-md flex items-center justify-center transition-colors ${social.className}`}
-          >
-            <Icon className="w-4 h-4 text-white" />
-          </a>
+          key={`${social.label ?? 'social'}-${idx}`}
+          href={social.href}
+          className={`w-8 h-8 bg-secondary rounded-md flex items-center justify-center transition-colors ${social.className}`}
+          aria-label={social.label ?? 'social link'}
+        >
+          <Icon className="w-4 h-4" />
+        </a>
         );
       })}
     </div>
