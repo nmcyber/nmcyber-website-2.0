@@ -406,3 +406,19 @@ export const SEO_KEYWORDS = {
     'cybersecurity training company',
   ],
 };
+
+// About Us Page content
+export const ABOUT_US = {
+  title: 'About Us',
+  subtitle: 'WHO WE ARE',
+  description: {
+    paragraph1: "At NMCYBER, we believe cybersecurity starts with people, not technology. Founded by a seasoned Human-Centric Cybersecurity Consultant with experience delivering security training for Australia's largest companies, NMCYBER was created to bring world-class, customised, and engaging cybersecurity awareness programs to Small and Medium Businesses (SMBs).",
+    paragraph2: "We don't just teach teams how to avoid cyber threats, we train them to think, act, and respond like true cyber defenders. From phishing simulations and executive coaching to full culture transformation strategies, we help your business build security from the inside out. With NMCYBER, cybersecurity becomes part of your company culture, not just a once-a-year training. We focus on behaviour change, continuous learning, and practical application that fits your business, your people, and your goals.",
+  },
+  tagline: "Empowering Humans. Protecting Businesses. That's the NMCYBER way.",
+  video: {
+    thumbnail: '/images/about-us-skyscraper.png',
+    title: 'Watch Our Team in Action',
+  }
+
+};
