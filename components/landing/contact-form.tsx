@@ -13,7 +13,7 @@ export default function ContactForm() {
     <section className="relative z-20 py-20 px-6 bg-gradient-to-b from-transparent to-primary-green-80/5">
       <div className="max-w-7xl mx-auto">
         {/* Main Card Container */}
-        <Card className="bg-slate-800/20 backdrop-blur-sm outline outline-1 outline-transparent transition-all duration-300
+        <Card className="bg-slate-800/20 backdrop-blur-sm outline outline-transparent transition-all duration-300
              hover:outline-accent hover:outline-1 relative shadow-2xl">
           {/* Blue Glow Effect using CSS variables */}
           <div className="absolute inset-0 bg-gradient-to-r from-accent/10 to-accent/5 rounded-2xl"></div>
@@ -76,7 +76,7 @@ export default function ContactForm() {
                       id="name"
                       type="text"
                       placeholder="Name"
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:border-accent focus:ring-accent/20 rounded-5xl h-12"
+                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
                       required
                     />
                   </div>
@@ -87,7 +87,7 @@ export default function ContactForm() {
                       id="email"
                       type="email"
                       placeholder="Email address"
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:border-accent focus:ring-accent/20 rounded-5xl h-12"
+                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
                       required
                     />
                   </div>
@@ -99,7 +99,7 @@ export default function ContactForm() {
                         id="company"
                         type="text"
                         placeholder="Company"
-                        className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:border-accent focus:ring-accent/20 rounded-5xl h-12 pr-12"
+                        className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12 pr-12"
                         required
                       />
                       <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/50" />
@@ -112,7 +112,7 @@ export default function ContactForm() {
                       id="employees"
                       type="text"
                       placeholder="Number of Employees"
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:border-accent focus:ring-accent/20 rounded-5xl h-12"
+                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
                     />
                   </div>
 
@@ -122,7 +122,7 @@ export default function ContactForm() {
                       id="message"
                       placeholder="Enter your message"
                       rows={4}
-                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:border-accent focus:ring-accent/20 resize-none rounded-lg"
+                      className="bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 resize-none rounded-lg"
                     />
                   </div>
 

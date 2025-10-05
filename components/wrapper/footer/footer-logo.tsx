@@ -9,7 +9,7 @@ export function FooterLogo() {
         alt="NMCyber icon" 
         width={200}
         height={100}
-        className="object-top object-cover left-2 top-5" />
+        className="object-top object-cover" />
       </div>
     </div>
 
