@@ -1,5 +1,3 @@
-import { Badge } from '@/components/ui/badge';
-
 export function FooterBottom() {
   return (
     <div
