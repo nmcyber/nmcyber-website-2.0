@@ -7,13 +7,16 @@ import BlurElement from '../shared/blur-element';
 
 // Star rating component for cleaner code
 const STAR_COUNT = 5;
-const StarRating = () => (
-  <div className="flex">
-    {Array.from({ length: STAR_COUNT }, (_, i) => (
-      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" aria-hidden="true" />
-    ))}
-  </div>
-);
+const StarRating = () => {
+  const stars = Array.from({ length: STAR_COUNT }, (_, i) => `star-${i}`);
+  return (
+    <div className="flex">
+      {stars.map((starKey) => (
+        <Star key={starKey} className="w-4 h-4 text-yellow-400 fill-current" aria-hidden="true" />
+      ))}
+    </div>
+  );
+};
 
 // Partner logos data for easier maintenance
 const partnerLogos = [
