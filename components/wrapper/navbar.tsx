@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { COMPANY_INFO, MAIN_NAVIGATION } from '@/utils/constants';
+import { COMPANY_INFO, MAIN_NAV_LINKS } from '@/utils/constants';
 
 export default function NavBar() {
   const pathname = usePathname();
@@ -31,7 +31,7 @@ export default function NavBar() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
-          {MAIN_NAVIGATION.slice(0, -1).map((item) => (
+          {MAIN_NAV_LINKS.slice(0, -1).map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -103,7 +103,7 @@ export default function NavBar() {
           <div className="flex justify-start">
             <div className="bg-background/95 backdrop-blur-sm">
               <div className="flex flex-col space-y-2 py-4">
-                {MAIN_NAVIGATION.slice(0, -1).map((item) => (
+                {MAIN_NAV_LINKS.slice(0, -1).map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}

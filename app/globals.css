@@ -22,13 +22,6 @@
   --color-input: hsl(240 3.7% 15.9%);
   --color-ring: hsl(240 4.9% 83.9%);
 
-  /* Chart colors */
-  --color-chart-1: hsl(220 70% 50%);
-  --color-chart-2: hsl(160 60% 45%);
-  --color-chart-3: hsl(30 80% 55%);
-  --color-chart-4: hsl(280 65% 60%);
-  --color-chart-5: hsl(340 75% 55%);
-
   /* Custom NMCyber Figma Design Color Palette */
   --color-additional-blury-blue: hsla(214, 100%, 9%, 0.51);
 
@@ -53,6 +46,10 @@
 
   /* Custom radius */
   --radius-5xl: 56px;
+
+  /* Custom Font */
+  --text-2lg: 20px;
+  --text-7xl: 96px;
 }
 
 @layer base {
@@ -64,15 +61,27 @@
     color: theme(colors.foreground);
   }
 
+  h1 {
+    @apply text-white text-[96px] font-semibold leading-[-1.92px] text-center;
+  }
+
+  h2 {
+      @apply text-4xl text-white md:text-6xl leading-tight font-bold;
+    }
+
+  p {
+      @apply font-[poppins] text-[20px];
+  }
+
+  section {
+    @apply relative z-20 flex w-full flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-20;
+  }
+
   /* Gradient Heading Styles */
-  h1.gradient-heading {
-    text-align: center;
+  .gradient-heading {
     font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), sans-serif;
-    font-size: 96px;
     font-style: normal;
-    font-weight: 600;
     line-height: 106px; /* 110.417% */
-    letter-spacing: -1.92px;
     background: var(--heading-gradient);
     background-clip: text;
     -webkit-background-clip: text;
@@ -81,7 +90,7 @@
 
   /* Responsive styles for the gradient heading */
   @media (max-width: 768px) {
-    h1.gradient-heading {
+    .gradient-heading {
       font-size: 48px;
       line-height: 58px;
       letter-spacing: -1px;

@@ -1,7 +1,3 @@
-import { Description } from "@radix-ui/react-dialog";
-
-export const RESPONSIVE_TITLE_CLASSES = 'text-2xl sm:text-2xl md:text-3xl lg:text-4xl';
-
 // Company information
 export const COMPANY_INFO = {
   name: 'NMCYBER',
@@ -15,7 +11,7 @@ export const COMPANY_INFO = {
 };
 
 // Navigation structure
-export const MAIN_NAVIGATION = [
+export const MAIN_NAV_LINKS = [
   { name: 'Company', href: '/company' },
   { name: 'About Us', href: '/about-us' },
   { name: 'Products', href: '/products' },
@@ -26,7 +22,7 @@ export const MAIN_NAVIGATION = [
 ];
 
 // Footer Sitemap
-export const quickLinks = [
+export const QUICK_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Pricing', href: '/products' },
@@ -35,7 +31,7 @@ export const quickLinks = [
   { label: 'Contact Us', href: '/' },
 ];
 
-export const platformLinks = [
+export const PLATFORM_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Pricing', href: '/products' },  

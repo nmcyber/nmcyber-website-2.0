@@ -30,7 +30,7 @@ const partnerLogos = [
 
 export default function Hero() {
   return (
-    <section className="relative z-20 flex w-full flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-20">
+    <section>
       <div className="mx-auto w-full max-w-7xl text-center space-y-6 sm:space-y-10">
         {/* Hero Headlines */}
         <div className="space-y-4 sm:space-y-6">
