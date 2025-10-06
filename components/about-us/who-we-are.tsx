@@ -2,14 +2,11 @@
 import Image from 'next/image';
 import { ABOUT_US } from '@/utils/constants';
 import { BlurElement } from '../shared/blur-element';
-import { Play } from 'lucide-react';
-import { useState } from 'react';
 
 
 
 
 export default function WhoWeAre() {
-  const [isPlaying, setIsPlaying] = useState(false);
   return (
     
     <section className="relative z-20 flex w-full flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-20">
@@ -55,42 +52,18 @@ export default function WhoWeAre() {
 
       {/* Video */}
       <div className="pt-8 sm:pt-12">
-          <div className="relative mx-auto max-w-4xl">
-            <div className="relative aspect-video">
-              {!isPlaying ? (
-                <>
-                  {/* Video Thumbnail */}
-                  <Image
-                    src={ABOUT_US.video.thumbnail}
-                    alt={ABOUT_US.video.title}
-                    fill
-                    className="object-center"
-                    priority
-                  />
-                  {/* Overlay Button */}
-                  <button
-                    type="button"
-                    onClick={() => setIsPlaying(true)}
-                    aria-label="Play video"
-                    className="absolute inset-0 grid place-items-center bg-black/30 hover:bg-black/40 transition-colors"
-                  >
-                    <div className="w-20 h-20 sm:w-24 sm:h-24 bg-accent rounded-full grid place-items-center shadow-2xl">
-                      <Play className="w-10 h-10 sm:w-12 sm:h-12 text-white ml-1" />
-                    </div>
-                  </button>
-                </>
-              ) : (
-                <iframe
-                  src="https://www.youtube.com/watch?v=6oqU4zANZf8"
-                  title="Intro"
-                  allow="autoplay; encrypted-media; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 h-full w-full"
-                />
-              )}
-            </div>
+        <div className="relative mx-auto max-w-4xl">
+          <div className="relative aspect-video">
+            <iframe
+              src={ABOUT_US.video.url}
+              title="Watch Our Team in Action"
+              allow="encrypted-media; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full rounded-lg"
+            />
           </div>
         </div>
+      </div>
       </div>
 
       {/* Background Elements */}

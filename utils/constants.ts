@@ -417,8 +417,8 @@ export const ABOUT_US = {
   },
   tagline: "Empowering Humans. Protecting Businesses. That's the NMCYBER way.",
   video: {
-    thumbnail: '/images/about-us-skyscraper.png',
     title: 'Watch Our Team in Action',
+    url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
   }
 
 };
