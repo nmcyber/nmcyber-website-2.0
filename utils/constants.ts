@@ -34,7 +34,7 @@ export const QUICK_LINKS = [
 export const PLATFORM_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'Pricing', href: '/products' },  
+  { label: 'Pricing', href: '/products' },
   { label: 'Services', href: '/services' },
   { label: 'Blog', href: '/' },
   { label: 'Contact Us', href: '/' },
@@ -368,18 +368,18 @@ export const TESTIMONIALS = {
       id: 1,
       text: 'NMCYBER helped us reduce phishing clicks by 83% in 6 months. Our team loved the training!',
       author: 'IT Manager, NextGen Technologies',
-      leftcomma:'/images/leftcomma.png',
-      rightcomma:'/images/rightcomma.png',
+      leftcomma: '/images/leftcomma.png',
+      rightcomma: '/images/rightcomma.png',
     },
     {
       id: 2,
       text: 'NMCYBER helped us go from constant phishing click rates to near-zero in 3 months. The team enjoyed the training, and they benefited.',
       author: 'Managing Director, AccuTech Co.',
-      leftcomma:'/images/leftcomma.png',
-      rightcomma:'/images/rightcomma.png',
+      leftcomma: '/images/leftcomma.png',
+      rightcomma: '/images/rightcomma.png',
     },
   ],
-  backgroud1:'/images/map.svg',
+  backgroud1: '/images/map.svg',
 };
 
 // Contact form content
@@ -395,8 +395,7 @@ export const CONTACT_FORM = {
   numberOfEmployees: 'Number of Employees',
   formMessage: 'Enter Your Message',
   formCta: 'Get A Free Support',
-  chatbot:'/images/chatbot.svg',
-
+  chatbot: '/images/chatbot.svg',
 };
 
 // SEO keywords by page

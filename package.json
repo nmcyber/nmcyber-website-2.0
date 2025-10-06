@@ -15,7 +15,9 @@
     "lint": "biome lint .",
     "format": "biome format . --write",
     "check": "biome check .",
-    "fix": "biome check --write ."
+    "fix": "biome check --write .",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
@@ -54,6 +56,7 @@
     "autoprefixer": "latest",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "husky": "^9.1.7",
     "postcss": "latest",
     "tailwindcss": "4.0.0",
     "typescript": "latest"

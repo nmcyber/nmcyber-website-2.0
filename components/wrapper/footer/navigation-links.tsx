@@ -13,10 +13,7 @@ export function NavigationLinks({ title, links }: NavigationLinksProps) {
       <ul className="space-y-3">
         {links.map((link, index) => (
           <li key={`${title}-${link.label}-${index}`}>
-            <a
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-accent"
-            >
+            <a href={link.href} className="text-sm text-muted-foreground hover:text-accent">
               {link.label}
             </a>
           </li>
