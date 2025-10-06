@@ -9,7 +9,12 @@ const socialLinks = [
     href: '#',
     className: 'bg-[var(--color-secondary-pink-50)] hover:bg-[var(--color-secondary-pink-60)]',
   },
-  { icon: Linkedin, href: 'https://www.linkedin.com/company/nmcyber', className: 'hover:bg-blue-700' },];
+  {
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/company/nmcyber',
+    className: 'hover:bg-blue-700',
+  },
+];
 
 export function SocialLinks() {
   return (
