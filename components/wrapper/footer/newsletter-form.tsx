@@ -5,13 +5,13 @@ import { Input } from '@/components/ui/input';
 export function NewsletterForm() {
   return (
     <div className="space-y-3">
-      <h4
-        className="text-xs font-medium uppercase tracking-wider"
-        style={{ color: 'hsl(240, 5%, 64.9%)' }}
+      <span
+        className="uppercase tracking-wider text-sm text-muted-foreground font-semibold lg:sm:text-nowrap mb-4 leading-tight"
+        style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
       >
         Subscribe to our newsletter
-      </h4>
-      <div className="flex gap-2">
+      </span>
+      <div className="flex gap-1">
         <Input
           type="email"
           placeholder="Enter your e-mail"

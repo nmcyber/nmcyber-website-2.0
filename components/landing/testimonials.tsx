@@ -12,12 +12,12 @@ export default function Testimonials() {
         <div className="text-center mb-16">
           <div className="flex items-center justify-start gap-4 text-blue-300/80 mb-6">
             <div className="h-px bg-accent/60 w-16"></div>
-            <span className="text-accent/80 text-sm font-medium tracking-wider uppercase">
+            <span className="text-accent/80 text-sm font-bold font-[Poppins] leading-[14px] uppercase">
               TESTIMONIALS
             </span>
             <div className="h-px bg-accent/60 w-16"></div>
           </div>
-          <h2 className="gradient-heading text-left">{TESTIMONIALS.title}</h2>
+          <h2 className="gradient-heading2 text-left pb-2">{TESTIMONIALS.title}</h2>
         </div>
 
         {/* Testimonial Cards Grid */}
@@ -90,7 +90,7 @@ export default function Testimonials() {
       />
 
       {/* Map Background */}
-      <div className="absolute right-0 -z-10 top-15 h-[90dvh] outline-0 outline-fuchsia-500 w-3/10">
+      <div className="absolute right-0 -z-10 top-15 h-[90dvh] outline-0 outline-fuchsia-500 w-3/10 hidden md:block">
         <Image
           src="/images/map.svg"
           alt="map Background"

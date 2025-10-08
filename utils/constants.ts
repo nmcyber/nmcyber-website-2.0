@@ -2,7 +2,7 @@
 export const COMPANY_INFO = {
   name: 'NMCYBER',
   tagline: 'Empowering Humans. Protecting Businesses.',
-  shortDescription: 'Custom Human-Centric Cybersecurity Training for Small and Medium Businesses',
+  shortDescription: 'Custom Cybersecurity Awareness Training Built for Humans, Not  Hackers. ',
   longDescription:
     'NMCYBER helps Small and Medium Businesses transform their employees into cyber-aware defenders through custom, human-centric cybersecurity training. We replace boring check-the-box courses with interactive, role-based programs that build real behavioural change, reducing cyber risk at its human source.',
   email: 'info@nmcyber.com.au',
@@ -62,7 +62,7 @@ export const WHY_HUMAN_CENTRIC = {
     title: 'Human Head',
   },
   video: {
-    image: '/images/team_video.webp',
+    url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
     title: 'Watch Our Team in Action',
   },
 };
@@ -260,6 +260,7 @@ export const PRODUCTS = {
       ],
     },
   ],
+  background: '/images/Looper2.svg',
 };
 
 // Why NMCYber content

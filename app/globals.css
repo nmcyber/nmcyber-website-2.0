@@ -36,7 +36,9 @@
   --button-gradient-end-hover: #4fbeeb; /* 10% darker than end */
 
   /* Text Gradient Colors */
-  --heading-gradient: linear-gradient(121deg, #fff 31.34%, rgba(255, 255, 255, 0) 99.04%);
+  --heading-gradient1: linear-gradient(121deg, #fff 31.34%, rgba(255, 255, 255, 0) 99.04%);
+  --heading-gradient2: linear-gradient(140.49deg, #FFFFFF 22.6%, rgba(255, 255, 255, 0) 85.3%);
+  --heading-gradient3: linear-gradient(147.42deg, #FFFFFF 19.49%, rgba(255, 255, 255, 0) 113.95%); /* product title gradient */
   --color-secondary-pink-60: hsla(332, 92%, 29%, 1);
   --color-secondary-pink-50: hsla(331, 85%, 46%, 1);
   --color-secondary-pink-40: hsla(347, 94%, 73%, 1);
@@ -61,14 +63,6 @@
     color: theme(colors.foreground);
   }
 
-  h1 {
-    @apply text-white text-[96px] font-semibold leading-[-1.92px] text-center;
-  }
-
-  h2 {
-      @apply text-4xl text-white md:text-6xl leading-tight font-bold;
-    }
-
   p {
       @apply font-[poppins] text-[20px];
   }
@@ -77,29 +71,88 @@
     @apply relative z-20 flex w-full flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-20;
   }
 
+
+}
+
+
   /* Gradient Heading Styles */
-  .gradient-heading {
+  @layer components {
+  .nav-link {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;         /* SemiBold */
+    font-size: 20px;
+    line-height: 24px;        
+    letter-spacing: 0;
+    text-align: center;
+    vertical-align: bottom;   
+  }
+  /* Gradient Heading1 Styles (H1) */
+  .gradient-heading1 {
     font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), sans-serif;
-    font-style: normal;
     line-height: 106px; /* 110.417% */
-    background: var(--heading-gradient);
+    background: var(--heading-gradient1);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 96px;
+    letter-spacing: -1px;
   }
 
-  /* Responsive styles for the gradient heading */
+  /* Responsive styles for the gradient heading(H1) */
   @media (max-width: 768px) {
-    .gradient-heading {
+    .gradient-heading1 {
       font-size: 48px;
       line-height: 58px;
       letter-spacing: -1px;
+    }
+    
+  }
+/* Gradient Heading2 Styles (H2) */
+.gradient-heading2 {
+  font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), sans-serif;
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 130%;
+  letter-spacing: 0;
+  background: var(--heading-gradient2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Responsive styles for the gradient heading(H2) */
+@media (max-width: 768px) {
+  .gradient-heading2 {
+    font-size: 36px;
+    line-height: 110%;
+    }
+  }
+  /* Gradient Heading3 Styles (H2) */
+.gradient-heading3 {
+  font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), sans-serif;
+  font-weight: 700;
+  font-size: 55px;
+  line-height: 130%;
+  letter-spacing: 0;
+  background: var(--heading-gradient3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+  
+/* Responsive styles for the gradient heading(H3) */
+@media (max-width: 768px) {
+  .gradient-heading3 {
+    font-size: 32px;
+    line-height: 130%;
     }
   }
 }
 
 @layer utilities {
   .gradient-text {
+    font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), sans-serif;
     background: var(--heading-gradient);
     background-clip: text;
     -webkit-background-clip: text;

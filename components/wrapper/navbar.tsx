@@ -16,7 +16,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="flex h-24 min-w-full fixed items-center justify-between px-4 z-30 backdrop-blur-sm sm:text-nowrap">
+      <nav className="flex h-24 min-w-full fixed items-center justify-between px-2 sm:px-4 z-30 backdrop-blur-sm sm:text-nowrap">
         {/* Logo */}
         <Link href="/" className="flex items-center justify-center h-full mt-5 md:mt-13">
           <Image
@@ -29,16 +29,16 @@ export default function NavBar() {
           />
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        {/* Desktop Navigation (from md and up) */}
+        <div className="hidden md:flex items-center space-x-3 lg:space-x-5 xl:space-x-8">
           {MAIN_NAV_LINKS.slice(0, -1).map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-all px-4 py-2 rounded ${
+              className={`nav-link transition-all px-3 md:px-2 lg:px-3 py-2 rounded ${
                 pathname === item.href
-                  ? 'text-white shadow-[0px_2px_0px_0px_var(--color-accent)] bg-gradient-to-b from-transparent to-white/14 w-24 h-9 flex items-center justify-center'
-                  : 'text-muted-foreground hover:text-white hover:shadow-[0px_2px_0px_0px_var(--color-accent)]'
+                  ? 'font-[Poppins] text-sm md:text-[13px] lg:text-base xl:text-lg font-semibold text-white shadow-[0px_2px_0px_0px_var(--color-accent)] bg-gradient-to-b from-transparent to-white/14 w-fit h-9 flex items-center justify-center'
+                  : 'font-[Poppins] text-xs md:text-[13px] lg:text-sm xl:text-base font-normal text-muted-foreground hover:text-white hover:shadow-[0px_2px_0px_0px_var(--color-accent)]'
               }`}
             >
               {item.name}
@@ -47,25 +47,27 @@ export default function NavBar() {
         </div>
 
         {/* Right side - Contact & Mobile Menu */}
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-1 md:ml-4 lg:ml-8">
           <div className="relative">
             {/* Desktop: show icon + number, no toggle */}
-            <div className="hidden md:flex items-center gap-1 text-muted-foreground">
+            <div className="hidden md:flex outline outline-accent rounded-5xl px-2 md:px-3 lg:px-4 py-1.5 md:py-2 items-center gap-1 text-muted-foreground">
               <Image
                 src="/images/phoneicon.svg"
                 alt="phoneicon"
                 width={22}
                 height={22}
-                className="w-6 h-6 sm:w-[22px] sm:h-[22px]"
+                className="w-6 h-6 sm:w-[24px] sm:h-[24px]"
               />
-              <span className="text-sm font-medium">{COMPANY_INFO.phone}</span>
+              <span className="font-[poppins] text-nowrap text-sm md:text-[13px] lg:text-base xl:text-xl font-medium">
+                {COMPANY_INFO.phone}
+              </span>
             </div>
 
             {/* Mobile: toggle controls showing the number inside the button */}
             <Toggle
               pressed={showPhone}
               onPressedChange={setShowPhone}
-              className="md:hidden border border-accent text-white hover:bg-accent/10 rounded-full h-9 px-3 data-[state=on]:bg-accent/10"
+              className="md:hidden outline outline-accent text-white font-[poppins] hover:bg-accent/10 rounded-5xl h-9 px-1 data-[state=on]:bg-accent/10"
               aria-label="Show phone number"
             >
               <div className="flex items-center gap-2 text-muted-foreground">
@@ -74,7 +76,7 @@ export default function NavBar() {
                   alt="phoneicon"
                   width={22}
                   height={22}
-                  className="w-6 h-6 sm:w-[22px] sm:h-[22px]"
+                  className="w-4 h-4 md:w-[20px] md:h-[20px]"
                 />
                 {showPhone && <span className="text-sm font-medium">{COMPANY_INFO.phone}</span>}
               </div>
@@ -107,10 +109,10 @@ export default function NavBar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`text-base font-medium transition-all py-3 px-4 rounded ${
+                    className={`nav-link transition-all py-3 px-4 rounded ${
                       pathname === item.href
-                        ? 'text-white bg-accent/20 border-l-4 border-accent'
-                        : 'text-muted-foreground hover:text-white hover:bg-white/10'
+                        ? 'text-white bg-accent/20 border-l-4 border-accent font-[Poppins] font-semibold text-xl'
+                        : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-normal text-base'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
