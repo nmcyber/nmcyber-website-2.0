@@ -22,15 +22,13 @@ export default function Testimonials() {
 
         {/* Testimonial Cards Grid */}
         <div className="grid md:grid-cols-2 gap-8 ">
-          {TESTIMONIALS.testimonials.map((testimonial) => (
+          {TESTIMONIALS.testimonials.map((testimonial, index) => (
             <SpotlightCard
+              key={testimonial.id ?? `${testimonial.author}-${index}`}
               className="!rounded-2xl custom-spotlight-card"
               spotlightColor="rgba(0, 229, 255, 0.2)"
             >
-              <Card
-                key={testimonial.id}
-                className="relative h-full bg-white/5 backdrop-blur-[2px] border border-white/10 rounded-2xl p-8 hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300"
-              >
+              <Card className="relative h-full bg-white/5 backdrop-blur-[2px] border border-white/10 rounded-2xl p-8 hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
                 <CardContent className="p-8 relative z-20">
                   {/* Left Quote Mark */}
                   <div className="absolute top-4 left-4 z-10">
