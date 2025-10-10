@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main className="flex relative flex-col pt-[4rem] items-center justify-between">
               {children}
             </main>
-            <Footer className="relative w-full" />
+            <Footer />
           </div>
         </div>
         <Toaster />
