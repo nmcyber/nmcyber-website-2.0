@@ -59,7 +59,7 @@ export default function WhyHumanCentric() {
         <div className="grid lg:grid-cols-2 gap-10 mb-16">
           {/* Column 3: Video Thumbnail */}
           <div className="col-span-1 h-full">
-            <Card className="bg-transparent border-none shadow-none h-full">
+            <Card className="bg-transparent border-none shadow-none h-full hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
               <div className="relative mx-auto h-full">
                 <div className="relative h-full group">
                   <iframe
@@ -69,7 +69,7 @@ export default function WhyHumanCentric() {
                     allowFullScreen
                     className="absolute inset-0 w-full h-full rounded-[20px]"
                   />
-                  <div className="absolute inset-0 rounded-[20px] pointer-events-none border-t-2 border-r-2 border-l-2 border-t-transparent border-r-transparent border-l-transparent group-hover:border-t-accent/50 group-hover:border-r-accent/50 group-hover:border-l-accent/50 transition-all duration-300" />
+                  {/* <div className="absolute inset-0 rounded-[20px] pointer-events-none border-t-2 border-r-2 border-l-2 border-t-transparent border-r-transparent border-l-transparent group-hover:border-t-accent/50 group-hover:border-r-accent/50 group-hover:border-l-accent/50 transition-all duration-300" /> */}
                 </div>
               </div>
             </Card>
