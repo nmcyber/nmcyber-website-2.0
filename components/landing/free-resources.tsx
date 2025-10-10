@@ -18,7 +18,7 @@ export default function FreeResources() {
       <div className="mx-auto max-w-5xl">
         {/* Heading */}
         <div className="mb-10 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">{FREE_RESOURCES.title}</h2>
+          <h2 className="gradient-heading2 text-left md:text-center">{FREE_RESOURCES.title}</h2>
         </div>
 
         {/* Featured card */}
@@ -37,9 +37,11 @@ export default function FreeResources() {
 
             {/* Content */}
             <div className="flex-1">
-              <h3 className="text-xl md:text-2xl font-semibold text-white">{featured.title}</h3>
+              <h3 className="text-xl md:text-2xl font-[Poppins] font-semibold text-white leading-[1.78]">
+                {featured.title}
+              </h3>
               {'description' in featured && featured.description && (
-                <p className="mt-3 text-white/75">{featured.description}</p>
+                <p className="mt-3 text-muted-foreground">{featured.description}</p>
               )}
 
               <div className="mt-5 flex items-center gap-3">
@@ -69,12 +71,14 @@ export default function FreeResources() {
                 <div className="grid h-10 w-10 place-items-center rounded-lg bg-blue-500/15 text-xs font-semibold text-blue-300">
                   <Image src={r.icon} alt={r.title} width={70} height={80} />
                 </div>
-                <p className="text-white md:text-lg">{r.title}</p>
+                <p className="text-xl md:text-2xl font-[Poppins] font-semibold text-white">
+                  {r.title}
+                </p>
               </div>
 
               <Button
                 asChild
-                className="h-10 w-10 rounded-full bg-accent text-white hover:bg-accent/90"
+                className="h-10 w-10 rounded-full bg-accent text-white hover:bg-accent/90 text-base md:text-xl font-[Poppins] font-semibold"
                 aria-label={`Download ${r.title}`}
                 title={`Download ${r.title}`}
               >

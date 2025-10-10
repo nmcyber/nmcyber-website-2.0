@@ -1,0 +1,40 @@
+name: Pull Request
+
+on: [pull_request]
+
+jobs:
+  lint:
+    name: ⚡ Biome
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🥟 Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📥 Install dependencies
+        run: bun install
+
+      - name: 🔬 Run Biome check
+        run: bun run check
+
+  type-check:
+    name: ʦ TypeScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🥟 Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📥 Install dependencies
+        run: bun install
+
+      - name: 🔎 Type check
+        run: bun run type-check
