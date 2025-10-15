@@ -7,10 +7,7 @@ export function NavigationLinks({ title, links }: NavigationLinksProps) {
   return (
     <div>
       <div className="mb-6">
-        <span
-          className="text-xl  font-semibold text-white lg:sm:text-nowrap mb-4 sm:text-2xl leading-tight"
-          style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
-        >
+        <span className="text-xl  font-semibold text-white lg:sm:text-nowrap mb-4 sm:text-2xl leading-tight font-plus-jakarta-sans">
           {title}
         </span>
         <div className="mt-1 h-[3px] w-16 bg-accent rounded-full" />

@@ -5,7 +5,7 @@ import { BlurElement } from '../shared/blur-element';
 export default function ProductsContactCTA() {
   return (
     <section className="relative">
-      <div className="w-full max-w-7xl py-20 text-center space-y-8 sm:space-y-12 gradient-bg1 backdrop-blur-[2px] border border-white/10 rounded-2xl p-8 hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
+      <div className="w-full max-w-7xl py-20 text-center space-y-8 sm:space-y-12 gradient-bg1 backdrop-blur-[108.8px] border border-white/10 rounded-2xl p-8 hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
         {/* Header Section */}
         <div className="space-y-4 sm:space-y-6">
           {/* Subtitle */}

@@ -36,13 +36,13 @@ export default function ProductsHero() {
           alt="Hero Background"
           fill
           style={{
-            objectFit: 'contain',
-            objectPosition: 'center bottom',
-            opacity: 0.4,
+            objectFit: 'cover',
+            objectPosition: 'center top',
+            opacity: 0.5,
           }}
           quality={90}
           priority
-          className="translate-y-1/4"
+          className="translate-y-1/5 scale-[1.25]"
         />
       </div>
     </section>

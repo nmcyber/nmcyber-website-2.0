@@ -5,10 +5,7 @@ import { Input } from '@/components/ui/input';
 export function NewsletterForm() {
   return (
     <div className="space-y-3">
-      <span
-        className="uppercase tracking-wider text-sm text-muted-foreground font-semibold lg:sm:text-nowrap mb-4 leading-tight"
-        style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
-      >
+      <span className="uppercase tracking-wider text-sm text-muted-foreground font-semibold lg:sm:text-nowrap mb-4 leading-tight font-plus-jakarta-sans">
         Subscribe to our newsletter
       </span>
       <div className="flex gap-1">

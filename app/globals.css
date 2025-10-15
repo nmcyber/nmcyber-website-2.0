@@ -86,6 +86,11 @@
     text-align: center;
     vertical-align: bottom;   
   }
+
+  /* Plus Jakarta Sans Font Utility */
+  .font-plus-jakarta-sans {
+    font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), sans-serif;
+  }
   /* Gradient Heading1 Styles (H1) */
   .gradient-heading1 {
     font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans"), sans-serif;
@@ -161,4 +166,5 @@
   .gradient-bg1 {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 2.69%, rgba(255, 255, 255, 0) 102.69%);
   }
+
 }
