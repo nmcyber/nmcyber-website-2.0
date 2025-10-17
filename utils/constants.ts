@@ -448,3 +448,104 @@ export const ABOUT_US = {
     url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
   },
 };
+
+// Products Page content
+export const PRODUCTS_PAGE = {
+  hero: {
+    subtitle: 'PRODUCTS',
+    title: 'NMCYBER Products',
+    description:
+      'NMCYBER offers a suite of human-centric cybersecurity products designed specifically for small and medium businesses. Our products are built to educate, empower, and enable your workforce to proactively defend against cyber threats with confidence.',
+  },
+  lineup: {
+    title: 'Our Product Lineup',
+    products: [
+      {
+        id: 'cyber-awareness-toolkit',
+        title: 'Cyber Awareness Toolkit',
+        description:
+          'An all-in-one package of posters, infographics, email templates, and security reminders designed to keep cybersecurity top-of-mind across your organisation.',
+        icon: '/images/cyber-awareness-toolkit.svg',
+        linkText: 'Read More →',
+        linkHref: '/products/cyber-awareness-toolkit',
+      },
+      {
+        id: 'phishing-simulation-platform',
+        title: 'Phishing Simulation Platform',
+        description:
+          'A user-friendly platform that lets you run customised phishing simulations and track employee responses. Identify risk areas and train staff in real-time.',
+        icon: '/images/phishing.svg',
+        linkText: 'Read More →',
+        linkHref: '/products/phishing-simulation-platform',
+      },
+      {
+        id: 'microlearning-email-series',
+        title: 'Microlearning Email Series',
+        description:
+          "Deliver continuous cybersecurity education straight to your team's inbox. Each series includes digestible lessons, interactive prompts, and behaviour nudges.",
+        icon: '/images/email.svg',
+        linkText: 'Read More →',
+        linkHref: '/products/microlearning-email-series',
+      },
+      {
+        id: 'role-based-learning-modules',
+        title: 'Role-Based Learning Modules',
+        description:
+          'Targeted training for different departments—Finance, HR, IT, Customer Service—so every team member learns what matters most for their role.',
+        icon: '/images/video-marketing.svg',
+        linkText: 'Read More →',
+        linkHref: '/products/role-based-learning-modules',
+      },
+      {
+        id: 'behavioural-analytics-dashboard',
+        title: 'Behavioural Analytics Dashboard',
+        description:
+          'A centralised platform that provides visibility into user progress, training effectiveness, and human risk levels across your business.',
+        icon: '/images/dashboard.svg',
+        linkText: 'Read More →',
+        linkHref: '/products/behavioural-analytics-dashboard',
+      },
+      {
+        id: 'branded-cybersecurity-content-packs',
+        title: 'Branded Cybersecurity Content Packs',
+        description:
+          "Customised awareness materials branded to your organisation's look and feel. Includes banners, videos, printable guides, and digital assets.",
+        icon: '/images/antivirus.svg',
+        linkText: 'Read More →',
+        linkHref: '/products/branded-cybersecurity-content-packs',
+      },
+      {
+        id: 'nmcyber-academy-access',
+        title: 'NMCYBER Academy Access',
+        description:
+          'On-demand access to our full range of interactive courses, learning paths, and simulations through NMCYBER Academy. Scalable for teams of all sizes.',
+        icon: '/images/school.svg',
+        linkText: 'Read More →',
+        linkHref: '/products/nmcyber-academy-access',
+      },
+    ],
+  },
+  whyChoose: {
+    title: 'Why Choose NMCYBER Products?',
+    points: [
+      'Designed for non-technical users—simple, clear, and effective',
+      'Focused on changing behaviour, not just delivering information',
+      'Ready-to-use and easy to deploy within SMB environments',
+      'Supported by expert consultation and customisation options',
+    ],
+    video: {
+      title: 'Watch Our Products in Action',
+      url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
+    },
+  },
+  cta: {
+    subtitle: 'CONTACT US',
+    title: 'Ready to Equip Your Team?',
+    description:
+      "Explore our products to find the perfect fit for your team's needs. Whether you're building a culture of cybersecurity from scratch or upgrading your existing efforts, NMCYBER has the tools to help.",
+    email: '/images/blue-email.svg',
+    contactText: 'Contact us at info@nmcyber.com.au to request a product demo or pricing.',
+    background1: '/images/Looper2.svg',
+    background2: '/images/chatbot.svg',
+  },
+};

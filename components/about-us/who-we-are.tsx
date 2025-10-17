@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { ABOUT_US } from '@/utils/constants';
+import { ABOUT_US, PRODUCTS_PAGE } from '@/utils/constants';
 import { BlurElement } from '../shared/blur-element';
 
 export default function WhoWeAre() {
@@ -48,7 +48,7 @@ export default function WhoWeAre() {
         <div className="relative mx-auto max-w-4xl pt-8 sm:pt-12">
           <div className="relative aspect-video group hover:border-t-2 hover:border-r-2 hover:border-l-2 hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300 rounded-lg overflow-hidden">
             <iframe
-              src={ABOUT_US.video.url}
+              src={PRODUCTS_PAGE.whyChoose.video.url}
               title="Watch Our Team in Action"
               allow="encrypted-media; picture-in-picture"
               allowFullScreen
