@@ -107,7 +107,7 @@ export default function ServicesHero() {
       </div>
 
       {/* Background Elements */}
-      <div className="absolute inset-0 -z-10 hidden md:block mt-16 hidden md:block">
+      <div className="absolute inset-0 -z-10 hidden md:block mt-16">
         {/* Hero Net Background Image */}
         <Image
           src={servicesHero.backgroundHero}
