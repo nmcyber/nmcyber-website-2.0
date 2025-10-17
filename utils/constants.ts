@@ -1055,3 +1055,84 @@ export const SERVICES_PAGE = {
     email: 'info@nmcyber.com.au',
   },
 };
+// Resources Page content
+export const RESOURCES_PAGE = {
+  resourcesHero: {
+    subtitle: 'RESOURCES',
+    title: 'NMCYBER Resources',
+    description:
+      'Welcome to the NMCYBER Resources Hub, your go-to destination for practical, people-first cybersecurity tools and insights. Our mission is to empower small and medium businesses with the knowledge and resources they need to strengthen their human firewall and build lasting cyber resilience.',
+    backgroundHero: '/images/hero-bg.svg',
+    backgroundBinary: '/images/binary.svg',
+  },
+  availableResources: {
+    title: 'Available Resources',
+    resources: [
+      {
+        id: 1,
+        title: 'Cyber Risk Checklists',
+        description:
+          'Easy-to-use checklists that help you assess and address key cybersecurity risks in your organisation. Perfect for quick audits or internal reviews.',
+        icon: '/images/checklist.svg',
+        items: [
+          'Human Risk Assessment Checklist',
+          'Remote Work Cyber Hygiene Checklist',
+          'Phishing Readiness Scorecard',
+        ],
+      },
+      {
+        id: 2,
+        title: 'Awareness Quizzes & Challenges',
+        description:
+          'Engage your team with interactive cybersecurity quizzes and knowledge checks. Designed to reinforce key concepts in a fun and practical way.',
+        icon: '/images/dart.svg',
+        items: [
+          '5-Minute Phishing Awareness Quiz',
+          'Monthly Cyber Behaviour Challenge',
+          'Password Strength Self-Test',
+        ],
+      },
+      {
+        id: 3,
+        title: 'Free Microlearning Series',
+        description:
+          'Bite-sized training delivered over email or intranet to keep awareness sharp and continuous. Each series focuses on real-world behaviours and common threats.',
+        icon: '/images/chapter.svg',
+        items: [
+          '5-Day Human Firewall Mini-Course',
+          'Security Culture Starter Series',
+          'Executive Cyber Habits Toolkit',
+        ],
+      },
+      {
+        id: 4,
+        title: 'Templates & Toolkits',
+        description:
+          'Plug-and-play tools to help you implement strong cybersecurity practices without needing a technical background.',
+        icon: '/images/template.svg',
+        items: [
+          'Cybersecurity Policy Templates (SMB-friendly)',
+          'Incident Response Communication Template',
+          'Monthly Security Awareness Campaign Toolkit',
+        ],
+      },
+    ],
+  },
+  howToUseResources: {
+    title: 'How to Use These Resources?',
+    description:
+      'All ABC-CYBER resources are built to be practical, easy to understand, and ready to deploy. Use them to complement our training programs, kickstart internal conversations, or build new initiatives around human-centric security.',
+    shieldIcon: '/images/shield-check.png',
+    looperIcon: '/images/looper.svg',
+  },
+  contactUs: {
+    subtitle: 'CONTACT US',
+    title: 'Get More from NMCYBER',
+    description:
+      'Looking for custom resources for your industry, team, or security goals? We offer personalised toolkits, awareness campaigns, and learning paths tailored to your business.',
+    email: 'info@nmcyber.com.au',
+    ctaText:
+      'Contact us at info@nmcyber.com.au to learn more or request access to premium resources.',
+    icon: '/images/chatbot.svg',
+  },
+};

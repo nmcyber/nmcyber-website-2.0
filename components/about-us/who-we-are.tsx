@@ -12,7 +12,7 @@ export default function WhoWeAre() {
           {/* Subtitle */}
           <div className="flex items-center justify-center gap-3">
             <div className="h-px bg-accent/60 w-16"></div>
-            <span className="text-accent/80 text-sm font-bold font-[Poppins] leading-[14px] uppercase">
+            <span className="text-accent/80 text-sm font-bold font-plus-jakarta-sans leading-[14px] uppercase">
               {ABOUT_US.subtitle}
             </span>
             <div className="h-px bg-accent/60 w-16"></div>
