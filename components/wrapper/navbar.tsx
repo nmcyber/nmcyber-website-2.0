@@ -22,10 +22,10 @@ export default function NavBar() {
           <Image
             src="/images/NMCyber.svg"
             alt="NMCyber logo"
-            width={226}
-            height={193}
+            width={110}
+            height={110}
             quality={90}
-            className="h-8 md:h-full w-auto transform scale-165"
+            className="h-8 md:h-full w-auto"
           />
         </Link>
 

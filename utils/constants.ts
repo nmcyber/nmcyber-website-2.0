@@ -549,3 +549,509 @@ export const PRODUCTS_PAGE = {
     background2: '/images/chatbot.svg',
   },
 };
+
+// Services Page content
+export const SERVICES_PAGE = {
+  servicesHero: {
+    subtitle: 'SERVICES',
+    title: 'NMCYBER Services',
+    backgroundHero: '/images/hero-bg.svg',
+    backgroundBinary: '/images/binary.svg',
+  },
+  coreServicesCarousel: {
+    services: [
+      {
+        id: 1,
+        title: 'Core Cybersecurity Awareness Training Services',
+        includes: [
+          {
+            title: 'Customised Cybersecurity Awareness Programs',
+            description:
+              'We offer Programs that are tailored to industry, business size, risk profile, and team roles.',
+          },
+          {
+            title: 'Phishing Simulation Campaigns',
+            description: 'We offer realistic phishing tests followed by learning sessions.',
+          },
+          {
+            title: 'Interactive Workshops and Webinars',
+            description:
+              'We deliver scenario-based, gamified, or storytelling formats to drive home key concepts.',
+          },
+          {
+            title: 'Executive Cybersecurity Briefings',
+            description:
+              'This focuses on risks, compliance, and strategic impact for the C-suite and boards.',
+          },
+          {
+            title: 'Role-Based Security Training',
+            description: 'We offer separate modules for finance, HR, IT, customer support, etc.',
+          },
+          {
+            title: 'Cyber Hygiene Essentials Training',
+            description: 'Password practices, device protection, Wi-Fi use, secure browsing, etc.',
+          },
+        ],
+      },
+      {
+        id: 2,
+        title: 'Behavioural and Cultural Change Services',
+        includes: [
+          {
+            title: 'Cybersecurity Culture Assessments',
+            description: 'Diagnose the current security mindset and awareness levels.',
+          },
+          {
+            title: 'Security Behaviour Nudging',
+            description:
+              'Implement nudges (e.g., prompts, visuals, reminders) to encourage secure behaviours.',
+          },
+          {
+            title: 'Cybersecurity Champions Program',
+            description: 'Train internal ambassadors to promote secure behaviour peer-to-peer.',
+          },
+          {
+            title: 'Microlearning Campaigns',
+            description: 'Ongoing bite-sized education delivered via email, Slack, etc.',
+          },
+        ],
+      },
+      {
+        id: 3,
+        title: 'Onboarding & Continuous Learning Programs',
+        includes: [
+          {
+            title: 'New Employee Cybersecurity Onboarding',
+            description: 'First-day training for ingraining security culture.',
+          },
+          {
+            title: 'Quarterly Refresher Courses',
+            description: 'Keep teams updated with evolving threats and policies.',
+          },
+          {
+            title: 'Gamified Learning Paths',
+            description: 'Points, badges, and leaderboards to drive engagement.',
+          },
+        ],
+      },
+      {
+        id: 4,
+        title: 'Custom Content Creation',
+        includes: [
+          {
+            title: 'Branded Cybersecurity Training Materials',
+            description: 'Videos, PDFs, infographics, posters tailored to client branding.',
+          },
+          {
+            title: 'Industry-Specific Scenarios',
+            description: 'E.g., retail, healthcare, legal, government, education, manufacturing.',
+          },
+          {
+            title: 'Crisis Communication and Incident Simulation Exercises',
+            description: 'Human-focused tabletop exercises for breach response.',
+          },
+        ],
+      },
+      {
+        id: 5,
+        title: 'Measurement and Reporting',
+        includes: [
+          {
+            title: 'Security Behaviour Analytics and Reporting',
+            description: 'Measure training impact, behavioural change, and areas of risk.',
+          },
+          {
+            title: 'Training Effectiveness Reviews',
+            description: 'Data-driven insights to refine and improve training programs.',
+          },
+          {
+            title: 'Employee Risk Profiling and Segmentation',
+            description: 'Identify high-risk roles or users for targeted intervention.',
+          },
+        ],
+      },
+      {
+        id: 6,
+        title: 'Consulting and Advisory Services',
+        includes: [
+          {
+            title: 'Cybersecurity Policy Development (Human-Focused)',
+            description: 'Help write policies employees will actually follow.',
+          },
+          {
+            title: 'Security Culture Transformation Strategy',
+            description: 'Long-term programs to shift the mindset, not just deliver training.',
+          },
+          {
+            title: 'SMB Cybersecurity Maturity Roadmap',
+            description: 'Align security training with business growth and compliance goals.',
+          },
+        ],
+      },
+      {
+        id: 7,
+        title: 'Add-On/Unique Value Services',
+        includes: [
+          {
+            title: 'Cyber Hygiene Check-ups for Individuals',
+            description: '1:1 coaching or assessments for key employees or execs.',
+          },
+          {
+            title: 'Awareness Campaign Kits',
+            description: 'Monthly security themes with posters, email templates, and quizzes.',
+          },
+          {
+            title: 'Cybersecurity and Mental Health Sessions',
+            description:
+              'Exploring burnout, vigilance fatigue, and the human toll of cyber threats.',
+          },
+          {
+            title: 'Secure Remote Work Training',
+            description: 'Especially valuable for hybrid/remote teams.',
+          },
+          {
+            title: 'Third-Party Risk Awareness',
+            description: 'Training staff on evaluating and interacting with vendors securely.',
+          },
+          {
+            title: 'Compliance-Focused Training Modules',
+            description: 'Aligning to ISO 27001, NIST, GDPR, ACSC Essential Eight, etc.',
+          },
+        ],
+      },
+    ],
+    flashIcon: '/images/flash.svg',
+    arrowsIcon: '/images/carousel_arrow.svg',
+  },
+  packageHeader: {
+    subtitle: 'SERVICES',
+    title: 'NMCYBER Service Packages',
+  },
+  servicePackagesCarousel: {
+    packages: [
+      {
+        id: 1,
+        title: 'Cyber-Aware Team',
+        description:
+          'Designed to build basic cybersecurity awareness and create a baseline culture of security. Perfect for SMBs new to cybersecurity training.',
+        includes: [
+          'Foundational Cybersecurity Awareness Training (Customised)',
+          'Cyber Hygiene Essentials Training',
+          'One Phishing Simulation Campaign',
+          'Basic Onboarding Module for New Staff',
+          'Awareness Posters and Tips Pack (Digital)',
+        ],
+      },
+      {
+        id: 2,
+        title: 'Security-First Organization',
+        description:
+          'Advanced training program for organizations ready to implement comprehensive cybersecurity culture and advanced threat protection.',
+        includes: [
+          'Advanced Cybersecurity Training Modules',
+          'Multi-layered Phishing Simulations',
+          'Executive Security Briefings',
+          'Incident Response Training',
+          'Custom Security Policies & Procedures',
+        ],
+      },
+      {
+        id: 3,
+        title: 'Enterprise Security Excellence',
+        description:
+          'Complete cybersecurity transformation package for large organizations requiring enterprise-level security awareness and compliance.',
+        includes: [
+          'Enterprise-wide Security Training',
+          'Compliance-focused Training Modules',
+          'Advanced Threat Simulation',
+          'Security Culture Assessment',
+          'Ongoing Security Monitoring & Support',
+        ],
+      },
+    ],
+    flashIcon: '/images/flash.svg',
+    arrowsIcon: '/images/carousel_arrow.svg',
+  },
+  servicePackages: {
+    title: 'NMCYBER Service Packages',
+    teams: [
+      {
+        name: 'Cyber‑Aware Team',
+        description:
+          'Foundational program to build cyber awareness and safe habits across your organisation.',
+        points: [
+          'Foundational awareness training (customised)',
+          'Cyber hygiene essentials',
+          'One phishing simulation',
+          'Basic onboarding module',
+          'Awareness posters and tips (digital)',
+        ],
+      },
+      {
+        name: 'HumanShield Team',
+        description:
+          'Scale behaviour change with role-based programs, champions, and microlearning.',
+        points: [
+          'Role-based training program',
+          'Quarterly refreshers',
+          'Three phishing simulations / year',
+          'Champions program',
+          'Behaviour nudging toolkit',
+          'Reporting dashboard access',
+        ],
+      },
+    ],
+    notes: [
+      'Pricing shown are monthly plans; annual commitment saves 10%.',
+      'Flexible bundles and add‑ons available to tailor to your team.',
+    ],
+    arrowsIcon: '/images/arrows.svg',
+  },
+  packagesForEveryone: {
+    title: 'Packages for Everyone',
+    subtitle: 'PRICE & PLANS',
+    packages: [
+      {
+        name: 'STARTER PACK (CYBERSPARK)',
+      },
+      {
+        name: 'PRO PACK (HUMANSHIELD)',
+      },
+      {
+        name: 'PREMIUM PACK (CULTURELOCK)',
+      },
+    ],
+    features: [
+      {
+        name: 'Cyber-Aware Team',
+        starter: { included: true, note: 'Available' },
+        pro: { included: true, note: 'Available' },
+        premium: { included: true, note: 'Available' },
+      },
+      {
+        name: 'Human Firewall Development Kit',
+        starter: { included: false, note: '--' },
+        pro: { included: true, note: 'Available' },
+        premium: { included: true, note: 'Available' },
+      },
+      {
+        name: 'Cyber Culture Transformation Suite',
+        starter: { included: false, note: '--' },
+        pro: { included: false, note: '--' },
+        premium: { included: true, note: 'Available' },
+      },
+      {
+        name: 'Customised Cybersecurity Awareness Training Services',
+        starter: { included: true, note: 'Basic' },
+        pro: { included: false, note: '--' },
+        premium: { included: true, note: 'Role + Risk-Based' },
+      },
+      {
+        name: 'Onboarding and Continuous Learning Programs',
+        starter: { included: true, note: 'Basic' },
+        pro: { included: false, note: '--' },
+        premium: { included: true, note: 'Role + Risk-Based' },
+      },
+      {
+        name: 'Phishing Simulations',
+        starter: { included: true, note: '2/year' },
+        pro: { included: true, note: '4/year' },
+        premium: { included: true, note: '6/year + Custom Scenarios' },
+      },
+      {
+        name: 'Cyber Hygiene Essentials',
+        starter: { included: true, note: 'Available' },
+        pro: { included: true, note: 'Available' },
+        premium: { included: true, note: 'Deep Dive' },
+      },
+      {
+        name: 'Executive Cybersecurity Briefing',
+        starter: { included: true, note: '1/year' },
+        pro: { included: true, note: '2/year' },
+        premium: { included: true, note: '4/year' },
+      },
+      {
+        name: 'Microlearning Campaigns',
+        starter: { included: false, note: '--' },
+        pro: { included: true, note: 'Monthly' },
+        premium: { included: true, note: 'Monthly + Engagement Tracking' },
+      },
+      {
+        name: 'Cybersecurity Champions Program',
+        starter: { included: false, note: '--' },
+        pro: { included: true, note: 'Launch Kit' },
+        premium: { included: true, note: 'Launch + Coaching' },
+      },
+      {
+        name: 'Measurement and Reporting (Reporting Dashboard)',
+        starter: { included: false, note: '--' },
+        pro: { included: true, note: 'Basic Analytics' },
+        premium: { included: true, note: 'Advanced Behaviour Analytics' },
+      },
+      {
+        name: 'Behavioural and Cultural Change Services (Security Culture Assessment)',
+        starter: { included: false, note: '--' },
+        pro: { included: false, note: '--' },
+        premium: { included: true, note: 'Full Culture and Behaviour Assessment and Review' },
+      },
+      {
+        name: 'Crisis Simulation Workshops',
+        starter: { included: false, note: '--' },
+        pro: { included: false, note: '--' },
+        premium: { included: true, note: 'Incident Response Training' },
+      },
+      {
+        name: 'Custom Content Creation (Video/Docs/Posters)',
+        starter: { included: false, note: '--' },
+        pro: { included: true, note: 'Templates' },
+        premium: { included: true, note: 'Fully Branded' },
+      },
+      {
+        name: 'Cyber Maturity Roadmap',
+        starter: { included: false, note: '--' },
+        pro: { included: false, note: '--' },
+        premium: { included: true, note: 'Available' },
+      },
+      {
+        name: 'Policy Development and Review/Consulting',
+        starter: { included: true, note: 'Two-time' },
+        pro: { included: true, note: 'Four-time' },
+        premium: { included: true, note: 'Ongoing' },
+      },
+      {
+        name: 'Consulting and Advisory Services (Strategy Support and Advisory)',
+        starter: { included: true, note: 'Email' },
+        pro: { included: true, note: 'Email + 2x Calls/Year' },
+        premium: { included: true, note: 'Dedicated Consultant (Quarterly Sessions)' },
+      },
+    ],
+    bonuses: [
+      'First month free on annual plans ($99 setup and commitment fee only, Non-refundable)',
+      'Referral bonus: $100 credit for both parties if you refer someone to us.',
+      'Bundle Service Tiers + Add-ons = 10% off for both',
+    ],
+    checkIcon: '/images/Package-Checked.svg',
+    backgroundImage: '/images/world_map.svg',
+  },
+  pricingStrategy: {
+    subtitle: 'SERVICES',
+    title: 'Pricing Strategy For Our Services',
+    note: 'Our Guiding Principles:',
+    bullets: [
+      {
+        title: 'Value-based pricing:',
+        description: 'Value-based pricing aligned with impact and outcomes',
+      },
+      {
+        title: 'Flexible scaling:',
+        description: 'Flexible scaling by team size and risk profile',
+      },
+      {
+        title: 'Subscription model:',
+        description: 'Bundle discounts for multi-service engagements',
+      },
+    ],
+    monthlyPricing: {
+      title: 'Monthly pricing (Based On Team Size 1–50 Employees)',
+      headers: {
+        tier: 'TIER',
+        monthly: 'MONTHLY',
+        annual: 'ANNUAL (SAVE ~15%)',
+        bestFor: 'BEST FOR',
+      },
+      rows: [
+        {
+          tier: 'CyberSpark (Starter)',
+          monthly: '$9/month',
+          annual: '$119/year',
+          bestFor: 'New to training',
+        },
+        {
+          tier: 'HumanShield (Pro)',
+          monthly: '$99/month',
+          annual: '$299/year',
+          bestFor: 'Growing businesses',
+        },
+        {
+          tier: 'CultureLock (Premium)',
+          monthly: '$199/month',
+          annual: '$499/year',
+          bestFor: 'High-risk,  compliance-driven',
+        },
+      ],
+    },
+    flashIcon: '/images/flash.svg',
+    looper: '/images/looper.svg',
+  },
+
+  addonUnique: {
+    title: 'Add-On/Unique Value Services',
+    services: [
+      {
+        title: 'Cyber Hygiene Check-ups for Individuals',
+        description: '1:1 coaching or assessments for key employees or execs.',
+      },
+      {
+        title: 'Awareness Campaign Kits',
+        description: 'Monthly security themes with posters, email templates, and quizzes.',
+      },
+      {
+        title: 'Cybersecurity and Mental Health Sessions',
+        description: 'Exploring burnout, vigilance fatigue, and the human toll of cyber threats.',
+      },
+      {
+        title: 'Secure Remote Work Training',
+        description: 'Especially valuable for hybrid/remote teams.',
+      },
+      {
+        title: 'Third-Party Risk Awareness',
+        description: 'Training staff on evaluating and interacting with vendors securely.',
+      },
+      {
+        title: 'Compliance-Focused Training Modules',
+        description: 'Aligning to ISO 27001, NIST, GDPR, ACSC Essential Eight, etc.',
+      },
+    ],
+    pricingNote:
+      'Add-on/Unique Value Services: $10 - $20 per additional employee per month after the 50-person base.',
+    flashIcon: '/images/flash.svg',
+    backgroundBinary: '/images/binary.svg',
+  },
+  addOns: {
+    title: 'Add-Ons',
+    services: [
+      {
+        title: 'Extra Phishing Simulations',
+        price: '$50 each',
+      },
+      {
+        title: 'Executive Cybersecurity Training/Coaching',
+        price: '$50 each',
+      },
+      {
+        title: 'Branded Training Video',
+        price: '$200 (one-off per Module)',
+      },
+      {
+        title: 'Crisis Simulation Workshop/Webinar',
+        price: '$500 (per event)',
+      },
+      {
+        title: 'Unique Value Services Workshop/Webinar',
+        price: '$600 (per event)',
+      },
+      {
+        title: 'Cybersecurity Policy Support and Consulting',
+        price: '$10/hour',
+      },
+    ],
+    plusIcon: '/images/Plus.svg',
+    chatbotIcon: '/images/chatbot.svg',
+  },
+
+  footerCta: {
+    title: 'Ready to get started?',
+    subtitle: 'Book a free strategy call',
+    email: 'info@nmcyber.com.au',
+  },
+};

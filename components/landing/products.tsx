@@ -45,10 +45,7 @@ export default function Products() {
                     className="w-10 h-10"
                   />
                 </div>
-                <span
-                  className="text-lg  font-semibold text-white lg:sm:text-nowrap mb-4 sm:text-2xl leading-tight"
-                  style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
-                >
+                <span className="text-lg  font-semibold text-white lg:sm:text-nowrap mb-4 sm:text-2xl leading-tight font-plus-jakarta-sans">
                   {service.name}
                 </span>
               </CardHeader>

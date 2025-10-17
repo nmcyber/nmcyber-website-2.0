@@ -12,7 +12,7 @@ export default function ContactForm() {
     <section>
       <div className="max-w-7xl mx-auto">
         {/* Main Card Container */}
-        <Card className="gradient-bg1 backdrop-blur-sm hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
+        <Card className="gradient-bg1 backdrop-blur-[108.8px] hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
           <CardContent className="p-0 relative z-10">
             <div className="grid lg:grid-cols-2 min-h-[600px]">
               {/* Left Section - Contact Info & CTA */}
@@ -26,10 +26,7 @@ export default function ContactForm() {
                         CONTACT US
                       </span>
                     </div>
-                    <span
-                      className="text-4xl font-bold text-white mb-4 sm:text-6xl leading-tight"
-                      style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
-                    >
+                    <span className="text-4xl font-bold text-white mb-4 sm:text-6xl leading-tight font-plus-jakarta-sans">
                       {CONTACT_FORM.title}
                     </span>
                   </div>

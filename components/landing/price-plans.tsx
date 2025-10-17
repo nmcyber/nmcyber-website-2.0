@@ -46,10 +46,7 @@ export default function PricePlans() {
                 )}
 
                 <CardHeader className="text-center">
-                  <span
-                    className="text-base font-bold text-white lg:text-nowrap mb-4 sm:text-xl leading-tight"
-                    style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
-                  >
+                  <span className="text-base font-bold text-white lg:text-nowrap mb-4 sm:text-xl leading-tight font-plus-jakarta-sans">
                     {pkg.name}
                   </span>
                   <p className="mt-1 text-muted-foreground font-medium text-sm">{pkg.bestFor}</p>
@@ -58,10 +55,7 @@ export default function PricePlans() {
                       {pkg.price.startsWith('$') ? '$' : ''}
                     </span>
                     {pkg.price.replace('$', '')}
-                    <span
-                      className="ml-2 align-baseline text-lg font-medium text-white lg:text-nowrap mb-4 sm:text-2xl leading-tight"
-                      style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
-                    >
+                    <span className="ml-2 align-baseline text-lg font-medium text-white lg:text-nowrap mb-4 sm:text-2xl leading-tight font-plus-jakarta-sans">
                       {pkg.frequency}
                     </span>
                   </div>
