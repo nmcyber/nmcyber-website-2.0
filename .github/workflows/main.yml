@@ -1,0 +1,36 @@
+name: Sync Repositories
+
+on:
+  push:
+    branches:
+      # This triggers the workflow when code is pushed directly to 'dev'
+      - dev
+      # This triggers the workflow when 'dev' is merged into 'main'
+      - main
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Perform one-way mirror sync
+        run: |
+          # ... (rest of your sync commands here)
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Clone the source repository with the PAT for authentication
+          git clone --bare https://${{ secrets.SYNC_TOKEN }}@github.com/nmcyber-Solutions/website.git
+          
+          cd website.git
+          
+          # Set the destination URL to use the PAT for pushing
+          git remote add destination https://${{ secrets.SYNC_TOKEN }}@github.com/nmcyber/nmcyber-website-2.0.git
+          
+          # Fetch all updates from the source repo
+          git fetch origin --prune
+          
+          # Push all changes (including all branches and tags) to the destination
+          git push destination --mirror
