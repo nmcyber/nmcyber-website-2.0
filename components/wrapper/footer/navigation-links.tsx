@@ -6,14 +6,21 @@ interface NavigationLinksProps {
 export function NavigationLinks({ title, links }: NavigationLinksProps) {
   return (
     <div>
-      <h4 className="text-lg font-semibold text-white mb-6">{title}</h4>
+      <div className="mb-6">
+        <span
+          className="text-xl  font-semibold text-white lg:sm:text-nowrap mb-4 sm:text-2xl leading-tight"
+          style={{ fontFamily: 'var(--font-plus-jakarta-sans)' }}
+        >
+          {title}
+        </span>
+        <div className="mt-1 h-[3px] w-16 bg-accent rounded-full" />
+      </div>
       <ul className="space-y-3">
-        {links.map((link) => (
-          <li key={link.href}>
+        {links.map((link, index) => (
+          <li key={`${title}-${link.label}-${index}`}>
             <a
               href={link.href}
-              className="text-sm transition-colors hover:text-white"
-              style={{ color: 'hsl(240, 5%, 64.9%)' }}
+              className="text-sm font-[Poppins] font-medium md:text-base text-muted-foreground"
             >
               {link.label}
             </a>

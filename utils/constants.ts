@@ -1,10 +1,8 @@
-export const RESPONSIVE_TITLE_CLASSES = 'text-2xl sm:text-2xl md:text-3xl lg:text-4xl';
-
 // Company information
 export const COMPANY_INFO = {
   name: 'NMCYBER',
   tagline: 'Empowering Humans. Protecting Businesses.',
-  shortDescription: 'Custom Human-Centric Cybersecurity Training for Small and Medium Businesses',
+  shortDescription: 'Custom Cybersecurity Awareness Training Built for Humans, Not  Hackers. ',
   longDescription:
     'NMCYBER helps Small and Medium Businesses transform their employees into cyber-aware defenders through custom, human-centric cybersecurity training. We replace boring check-the-box courses with interactive, role-based programs that build real behavioural change, reducing cyber risk at its human source.',
   email: 'info@nmcyber.com.au',
@@ -13,7 +11,7 @@ export const COMPANY_INFO = {
 };
 
 // Navigation structure
-export const MAIN_NAVIGATION = [
+export const MAIN_NAV_LINKS = [
   { name: 'Company', href: '/company' },
   { name: 'About Us', href: '/about-us' },
   { name: 'Products', href: '/products' },
@@ -21,6 +19,25 @@ export const MAIN_NAVIGATION = [
   { name: 'Resources', href: '/resources' },
   { name: 'Academy', href: '/academy' },
   { name: 'Contact Us', href: '/contact-us' },
+];
+
+// Footer Sitemap
+export const QUICK_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Pricing', href: '/products' },
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/' },
+  { label: 'Contact Us', href: '/' },
+];
+
+export const PLATFORM_LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Pricing', href: '/products' },
+  { label: 'Services', href: '/services' },
+  { label: 'Blog', href: '/' },
+  { label: 'Contact Us', href: '/' },
 ];
 
 // Why Human-Centric Cybersecurity content
@@ -45,7 +62,7 @@ export const WHY_HUMAN_CENTRIC = {
     title: 'Human Head',
   },
   video: {
-    image: '/images/team_video.webp',
+    url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
     title: 'Watch Our Team in Action',
   },
 };
@@ -243,6 +260,7 @@ export const PRODUCTS = {
       ],
     },
   ],
+  background: '/images/Looper2.svg',
 };
 
 // Why NMCYber content
@@ -350,28 +368,35 @@ export const TESTIMONIALS = {
     {
       id: 1,
       text: 'NMCYBER helped us reduce phishing clicks by 83% in 6 months. Our team loved the training!',
-      author: 'Manager',
-      company: 'NextGen Technologies',
-      rating: 5,
+      author: 'IT Manager, NextGen Technologies',
+      leftcomma: '/images/leftcomma.png',
+      rightcomma: '/images/rightcomma.png',
     },
     {
       id: 2,
       text: 'NMCYBER helped us go from constant phishing click rates to near-zero in 3 months. The team enjoyed the training, and they benefited.',
-      author: 'Managing Director',
-      company: 'AccuTech Co.',
-      rating: 5,
+      author: 'Managing Director, AccuTech Co.',
+      leftcomma: '/images/leftcomma.png',
+      rightcomma: '/images/rightcomma.png',
     },
   ],
+  backgroud1: '/images/map.svg',
 };
 
 // Contact form content
 export const CONTACT_FORM = {
   title: 'Ready to Build Your Human Firewall?',
-  description:
-    'Get a free cybersecurity assessment and discover how we can transform your team into cyber defenders. No obligation, just expert insights tailored to your business.',
-  benefits: ['Free security assessment', 'Expert insights', 'Tailored recommendations'],
-  cta: 'Get a Free Quote',
-  formCta: 'Get Your Quote',
+  description: 'Book a Free Strategy Call Today',
+  email: 'info@nmcyber.com.au',
+  website: 'https://nmcyber.com.au',
+  cta: 'Book A Call With Us',
+  formaName: 'Name',
+  formEmail: 'Email Address',
+  formCompany: 'Company',
+  numberOfEmployees: 'Number of Employees',
+  formMessage: 'Enter Your Message',
+  formCta: 'Get A Free Support',
+  chatbot: '/images/chatbot.svg',
 };
 
 // SEO keywords by page

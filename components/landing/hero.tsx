@@ -7,16 +7,14 @@ import BlurElement from '../shared/blur-element';
 
 // Star rating component for cleaner code
 const STAR_COUNT = 5;
-const StarRating = () => {
-  const stars = Array.from({ length: STAR_COUNT }, (_, i) => `star-${i}`);
-  return (
-    <div className="flex">
-      {stars.map((starKey) => (
-        <Star key={starKey} className="w-4 h-4 text-yellow-400 fill-current" aria-hidden="true" />
-      ))}
-    </div>
-  );
-};
+const starIds = Array.from({ length: STAR_COUNT }, (_, i) => `star-${i + 1}`);
+const StarRating = () => (
+  <div className="flex">
+    {starIds.map((id) => (
+      <Star key={id} className="w-4 h-4 text-yellow-400 fill-current" aria-hidden="true" />
+    ))}
+  </div>
+);
 
 // Partner logos data for easier maintenance
 const partnerLogos = [
@@ -33,16 +31,18 @@ const partnerLogos = [
 
 export default function Hero() {
   return (
-    <section className="relative z-20 flex w-full flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-20">
+    <section>
       <div className="mx-auto w-full max-w-7xl text-center space-y-6 sm:space-y-10">
         {/* Hero Headlines */}
         <div className="space-y-4 sm:space-y-6">
-          <h1 className="gradient-heading py-2">{COMPANY_INFO.tagline}</h1>
-          <h2 className="text-xl font-semibold sm:text-2xl">{COMPANY_INFO.shortDescription}</h2>
+          <h1 className="gradient-heading1 py-2">{COMPANY_INFO.tagline}</h1>
+          <p className="font-medium text-center text-lg leading-[1.82] md:text-2xl md:leading-[2.16]">
+            {COMPANY_INFO.shortDescription}
+          </p>
         </div>
 
         {/* Company Description */}
-        <p className="mx-auto text-base text-muted-foreground sm:text-lg lg:max-w-5xl">
+        <p className="mx-auto font-normal text-center text-muted-foreground text-base leading-[1.89] sm:text-xl md:leading-[1.78] lg:max-w-5xl">
           {COMPANY_INFO.longDescription}
         </p>
 
@@ -56,7 +56,7 @@ export default function Hero() {
           >
             <Link
               href="/contact-us"
-              className="text-lg font-semibold leading-tight text-white transition-all duration-300 hover:opacity-95 hover:shadow-xl sm:text-xl sm:leading-[14px]"
+              className="text-sm font-[poppins] font-medium leading-[1] text-white sm:text-xl"
             >
               Book a Free Strategy Call Today
             </Link>
@@ -66,7 +66,7 @@ export default function Hero() {
           <Button
             asChild
             variant="outline"
-            className="h-auto w-full p-0 overflow-hidden border-none outline outline-accent bg-transparent rounded-5xl sm:w-auto"
+            className="h-auto w-full p-0 overflow-hidden border-none outline outline-accent bg-transparent rounded-5xl sm:w-fit hover:bg-black/50"
           >
             <Link
               href="/resources/checklist"
@@ -74,13 +74,13 @@ export default function Hero() {
               aria-label="Download the Cybersecurity Risk Checklist"
             >
               {/* Text Section */}
-              <span className="flex flex-1 items-center justify-center px-4 py-3 text-center backdrop-blur-[2px] outline outline-accent rounded-l-5xl font-semibold text-base text-accent  sm:flex-none sm:px-8 sm:text-nowrap sm:text-xl md:text-lg">
+              <span className="flex flex-1 items-center justify-center px-4 py-3 text-center backdrop-blur-[2px] outline outline-accent rounded-l-5xl font-[poppins] font-semibold text-base text-accent  sm:flex-none sm:px-4 sm:text-nowrap sm:text-xl md:text-lg">
                 <span className="block sm:hidden">Get Checklist</span>
                 <span className="hidden sm:block">Download the Cybersecurity Risk Checklist</span>
               </span>
 
               {/* Icon Section */}
-              <div className="flex aspect-square w-10 items-center justify-center bg-accent outline outline-accent sm:w-12">
+              <div className="flex aspect-square w-12 items-center justify-center bg-accent outline outline-accent sm:w-12">
                 <Image
                   src="/images/download-icon.svg"
                   alt="Download"
@@ -122,8 +122,8 @@ export default function Hero() {
       </div>
 
       {/* Background Elements */}
-      <div className="absolute inset-0 -z-10">
-        {/* Hero Background Image */}
+      <div className="absolute inset-0 -z-10 hidden md:block">
+        {/* Hero Net Background Image */}
         <Image
           src="/images/hero-bg.svg"
           alt="Hero Background"
@@ -131,10 +131,11 @@ export default function Hero() {
           style={{
             objectFit: 'contain',
             objectPosition: 'center bottom',
+            opacity: 0.4,
           }}
           quality={90}
           priority
-          className="translate-y-10"
+          className="translate-y-1/4"
         />
 
         {/* Binary Background */}
@@ -147,7 +148,6 @@ export default function Hero() {
           />
         </div>
       </div>
-
       {/* Blur Elements */}
       <BlurElement
         position="top"

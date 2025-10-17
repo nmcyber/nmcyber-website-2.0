@@ -1,19 +1,40 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 export function FooterLogo() {
   return (
-    <div className="flex items-center space-x-3">
-      <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg flex items-center justify-center">
-        <div className="text-white font-bold text-lg">
-          <span>N</span>
-          <span className="text-sm">M</span>
-        </div>
+    <div className="grid grid-cols-2 items-center gap-2">
+      {/* left */}
+      <div className="flex justify-start">
+        <Link
+          href="/"
+          className="relative overflow-hidden -ml-15 -mt-5 w-[200px] sm:w-[220px] md:w-[240px] h-[100px] sm:h-[110px] md:h-[120px]"
+          aria-label="go to home page"
+        >
+          <Image
+            src="/images/NMCyber.svg"
+            alt="NMCyber icon"
+            width={200}
+            height={100}
+            className="object-top object-cover"
+          />
+        </Link>
       </div>
-      <div>
-        <h3 className="text-xl font-bold text-white">
-          NM<span className="text-cyan-400">CYBER</span>
-        </h3>
-        <p className="text-sm" style={{ color: 'hsl(240, 5%, 64.9%)' }}>
-          Turning Cyber Security Pains into Gains
-        </p>
+
+      {/* right） */}
+      <div className="min-w-0 w-full h-full">
+        <div className="flex items-baseline gap-1">
+          <span className="text-white font-[Poppins] font-semibold text-[22px] sm:text-[26px] leading-none">
+            NM
+          </span>
+          <span className="text-accent font-[Poppins] font-semibold text-[22px] sm:text-[26px] leading-none">
+            CYBER
+          </span>
+        </div>
+        <div className="w-fit mt-1 text-xs sm:text-sm text-white font-[Poppins] leading-snug text-center">
+          <span>Turning Cyber Security</span>
+          <span>Pains Into Gains</span>
+        </div>
       </div>
     </div>
   );

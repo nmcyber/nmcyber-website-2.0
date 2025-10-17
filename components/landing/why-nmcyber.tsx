@@ -10,13 +10,13 @@ import { BlurElement } from '../shared/blur-element';
 
 export default function WhyNMCyber() {
   return (
-    <section className="relative py-20 px-6 bg-gradient-to-b from-transparent to-primary-green-80/5 z-20">
+    <section>
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
         <div className="text-left mb-4">
           <div className="inline-flex items-center gap-4">
             <div className="h-px bg-accent/60 w-16"></div>
-            <span className="text-accent/80 text-sm font-medium tracking-wider uppercase">
+            <span className="text-accent/80 text-sm font-bold font-[Poppins] leading-[14px] uppercase">
               WHY NMCYBER
             </span>
             <div className="h-px bg-accent/60 w-16"></div>
@@ -28,12 +28,10 @@ export default function WhyNMCyber() {
           {/* Left Side - Content Area (2/3 width) */}
           <div className="lg:col-span-2 space-y-8">
             {/* Title */}
-            <h2 className="text-4xl md:text-5xl font-bold text-white gradient-text">
-              {WHY_NMCYBER.subtitle}
-            </h2>
+            <h2 className="gradient-heading2">{WHY_NMCYBER.subtitle}</h2>
 
             {/* Description */}
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-sm sm:text-xl font-normal text-muted-foreground leading-[2.16]">
               {WHY_NMCYBER.description}
             </p>
 
@@ -62,9 +60,9 @@ export default function WhyNMCyber() {
           </div>
 
           {/* Right Side - Graphics Area (1/3 width) */}
-          <div className="lg:col-span-1 translate-x-60 relative overflow-visible hidden md:block">
+          <div className="lg:col-span-1 relative overflow-visible hidden sm:block">
             {/* Background Pattern */}
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 scale-120">
               <Image
                 src={WHY_NMCYBER.graphics.looper}
                 alt="Background loop pattern"
