@@ -1,0 +1,8 @@
+on:
+  push:
+    branches:
+      # Only run the sync when code is pushed to the 'dev' branch
+      - dev
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:

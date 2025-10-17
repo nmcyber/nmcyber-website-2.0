@@ -1,10 +1,5 @@
 const config = {
-  auth: {
-    enabled: false,
-  },
-  payments: {
-    enabled: true,
-  },
+  // All authentication and payment configuration removed
 };
 
 export default config;
