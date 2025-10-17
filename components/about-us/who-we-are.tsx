@@ -37,7 +37,7 @@ export default function WhoWeAre() {
           {/* Tagline */}
           <div className="pt-4">
             <span className="font-medium font-[Poppins] text-center text-lg leading-[1.82] md:text-2xl md:leading-[2.16]">
-              <span>Empowering Humans. Protecting Businesses. That's the</span>
+              <span>Empowering Humans. Protecting Businesses. That&#39;s the</span>
               <span className="text-accent font-semibold"> NMCYBER </span>
               <span>way.</span>
             </span>
