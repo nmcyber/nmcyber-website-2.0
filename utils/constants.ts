@@ -595,63 +595,127 @@ export const SERVICES_PAGE = {
       },
       {
         id: 2,
-        title: 'Advanced Security Training Services',
+        title: 'Behavioural and Cultural Change Services',
         includes: [
           {
-            title: 'Advanced Cybersecurity Training Modules',
-            description:
-              'Comprehensive training programs for experienced teams looking to enhance their security posture.',
+            title: 'Cybersecurity Culture Assessments',
+            description: 'Diagnose the current security mindset and awareness levels.',
           },
           {
-            title: 'Multi-layered Phishing Simulations',
+            title: 'Security Behaviour Nudging',
             description:
-              'Advanced phishing tests with multiple attack vectors and sophisticated scenarios.',
+              'Implement nudges (e.g., prompts, visuals, reminders) to encourage secure behaviours.',
           },
           {
-            title: 'Executive Security Briefings',
-            description:
-              'Strategic security briefings tailored for C-suite executives and board members.',
+            title: 'Cybersecurity Champions Program',
+            description: 'Train internal ambassadors to promote secure behaviour peer-to-peer.',
           },
           {
-            title: 'Incident Response Training',
-            description:
-              'Hands-on training for security incident detection, response, and recovery procedures.',
-          },
-          {
-            title: 'Custom Security Policies & Procedures',
-            description:
-              'Development of tailored security policies and procedures for your organization.',
+            title: 'Microlearning Campaigns',
+            description: 'Ongoing bite-sized education delivered via email, Slack, etc.',
           },
         ],
       },
       {
         id: 3,
-        title: 'Enterprise Security Excellence',
+        title: 'Onboarding & Continuous Learning Programs',
         includes: [
           {
-            title: 'Enterprise-wide Security Training',
-            description:
-              'Comprehensive security training programs designed for large organizations and enterprise environments.',
+            title: 'New Employee Cybersecurity Onboarding',
+            description: 'First-day training for ingraining security culture.',
           },
           {
-            title: 'Compliance-focused Training Modules',
-            description:
-              'Specialized training modules aligned with industry compliance requirements and standards.',
+            title: 'Quarterly Refresher Courses',
+            description: 'Keep teams updated with evolving threats and policies.',
           },
           {
-            title: 'Advanced Threat Simulation',
-            description:
-              'Sophisticated threat simulation exercises to test and improve organizational security readiness.',
+            title: 'Gamified Learning Paths',
+            description: 'Points, badges, and leaderboards to drive engagement.',
+          },
+        ],
+      },
+      {
+        id: 4,
+        title: 'Custom Content Creation',
+        includes: [
+          {
+            title: 'Branded Cybersecurity Training Materials',
+            description: 'Videos, PDFs, infographics, posters tailored to client branding.',
           },
           {
-            title: 'Security Culture Assessment',
-            description:
-              'Comprehensive assessment of organizational security culture and recommendations for improvement.',
+            title: 'Industry-Specific Scenarios',
+            description: 'E.g., retail, healthcare, legal, government, education, manufacturing.',
           },
           {
-            title: 'Ongoing Security Monitoring & Support',
+            title: 'Crisis Communication and Incident Simulation Exercises',
+            description: 'Human-focused tabletop exercises for breach response.',
+          },
+        ],
+      },
+      {
+        id: 5,
+        title: 'Measurement and Reporting',
+        includes: [
+          {
+            title: 'Security Behaviour Analytics and Reporting',
+            description: 'Measure training impact, behavioural change, and areas of risk.',
+          },
+          {
+            title: 'Training Effectiveness Reviews',
+            description: 'Data-driven insights to refine and improve training programs.',
+          },
+          {
+            title: 'Employee Risk Profiling and Segmentation',
+            description: 'Identify high-risk roles or users for targeted intervention.',
+          },
+        ],
+      },
+      {
+        id: 6,
+        title: 'Consulting and Advisory Services',
+        includes: [
+          {
+            title: 'Cybersecurity Policy Development (Human-Focused)',
+            description: 'Help write policies employees will actually follow.',
+          },
+          {
+            title: 'Security Culture Transformation Strategy',
+            description: 'Long-term programs to shift the mindset, not just deliver training.',
+          },
+          {
+            title: 'SMB Cybersecurity Maturity Roadmap',
+            description: 'Align security training with business growth and compliance goals.',
+          },
+        ],
+      },
+      {
+        id: 7,
+        title: 'Add-On/Unique Value Services',
+        includes: [
+          {
+            title: 'Cyber Hygiene Check-ups for Individuals',
+            description: '1:1 coaching or assessments for key employees or execs.',
+          },
+          {
+            title: 'Awareness Campaign Kits',
+            description: 'Monthly security themes with posters, email templates, and quizzes.',
+          },
+          {
+            title: 'Cybersecurity and Mental Health Sessions',
             description:
-              'Continuous security monitoring and support services to maintain optimal security posture.',
+              'Exploring burnout, vigilance fatigue, and the human toll of cyber threats.',
+          },
+          {
+            title: 'Secure Remote Work Training',
+            description: 'Especially valuable for hybrid/remote teams.',
+          },
+          {
+            title: 'Third-Party Risk Awareness',
+            description: 'Training staff on evaluating and interacting with vendors securely.',
+          },
+          {
+            title: 'Compliance-Focused Training Modules',
+            description: 'Aligning to ISO 27001, NIST, GDPR, ACSC Essential Eight, etc.',
           },
         ],
       },

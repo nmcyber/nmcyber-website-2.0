@@ -49,7 +49,7 @@ export default function ServicePackages() {
                 <p className="text-white/90 text-lg leading-relaxed mb-8">
                   {servicePackagesCarousel.packages[currentSlide].description}
                 </p>
-
+                <p className="font-bold font-plus-jakarta-sans text-base sm:text-xl">Include:</p>
                 {/* Includes Section */}
                 <div className="space-y-3">
                   {servicePackagesCarousel.packages[currentSlide].includes.map((item, index) => (
@@ -57,7 +57,7 @@ export default function ServicePackages() {
                       key={`package-include-${item.slice(0, 20)}-${index}`}
                       className="flex items-start gap-3"
                     >
-                      <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-accent" />
+                      <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                       <p className="text-white text-base">{item}</p>
                     </div>
                   ))}
