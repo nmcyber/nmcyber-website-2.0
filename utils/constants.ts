@@ -1136,3 +1136,14 @@ export const RESOURCES_PAGE = {
     icon: '/images/chatbot.svg',
   },
 };
+
+//404 page content
+export const NOT_FOUND_PAGE = {
+  title: 'Resource Not Found',
+  notFoundImage: '/images/404-NotFound.png',
+  brandLogo: '/images/NMCyber.svg',
+  brandLogo2: '/images/NMCyber_OPT.svg',
+  backgroundHero: '/images/hero-bg.svg',
+  backgroundBinary: '/images/binary.svg',
+  backgroundLooper: '/images/looper.svg',
+};
