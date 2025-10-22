@@ -14,7 +14,7 @@ export default function PricePlans() {
         <div className="text-center mb-14">
           <div className="flex items-center justify-center gap-4 text-blue-300/80">
             <div className="h-px bg-accent/60 w-16"></div>
-            <span className="text-accent/80 text-sm font-bold font-[Poppins] leading-[14px] uppercase">
+            <span className="text-accent/80 text-sm font-bold font-plus-jakarta-sans leading-[14px] uppercase">
               PRICE & PLANS
             </span>
             <div className="h-px bg-accent/60 w-16"></div>

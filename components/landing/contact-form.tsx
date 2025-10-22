@@ -22,7 +22,7 @@ export default function ContactForm() {
                   <div className="space-y-6">
                     <div className="flex items-center gap-3">
                       <div className="h-px bg-accent w-12"></div>
-                      <span className="text-accent/80 text-sm font-bold font-[Poppins] leading-[14px] uppercase">
+                      <span className="text-accent/80 text-sm font-bold font-plus-jakarta-sans leading-[14px] uppercase">
                         CONTACT US
                       </span>
                     </div>

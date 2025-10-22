@@ -55,7 +55,7 @@ export default function ServicesAddOns() {
           >
             <a
               href={`mailto:${footerCta.email}`}
-              className="text-sm font-[poppins] font-medium leading-[1] text-white sm:text-xl"
+              className="text-sm font-plus-jakarta-sans font-medium leading-[1] text-white sm:text-xl"
             >
               {footerCta.subtitle}
             </a>

@@ -13,7 +13,7 @@ export default function Products() {
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-4">
             <div className="h-px bg-accent/60 w-16"></div>
-            <span className="text-accent/80 text-sm font-bold font-[Poppins] leading-[14px] uppercase">
+            <span className="text-accent/80 text-sm font-bold font-plus-jakarta-sans leading-[14px] uppercase">
               PRODUCTS
             </span>
             <div className="h-px bg-accent/60 w-16"></div>
