@@ -19,7 +19,7 @@ const poppins = Poppins({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link
           rel="preload"
@@ -38,16 +38,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ${plusJakartaSans.variable} 
           ${poppins.variable} 
           dark 
-          relative h-screen overflow-x-hidden dark:bg-background bg-background
+          dark:bg-background bg-background
         `}
-        suppressHydrationWarning
       >
         <div className="pointer-events-none fixed inset-0 z-0 bg-additional-blury-blue" />
         <header className="relative z-50">
           <NavBar />
         </header>
 
-        <main className="flex relative z-10 flex-col pt-[4rem] items-center justify-between">
+        <main className="flex relative w-full z-10 flex-col pt-[4rem] items-center justify-between">
           {children}
         </main>
 

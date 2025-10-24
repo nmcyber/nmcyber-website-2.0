@@ -16,7 +16,7 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="flex flex-row h-20 min-w-full fixed items-center justify-between px-2 sm:px-4 z-30 backdrop-blur-sm sm:text-nowrap">
+      <nav className="flex flex-row h-20 w-full fixed items-center justify-between px-2 sm:px-4 z-30 backdrop-blur-sm sm:text-nowrap">
         {/* Logo */}
         <Link href="/" className="flex flex-row items-center justify-center h-full">
           <Image
@@ -101,7 +101,7 @@ export default function NavBar() {
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-24 bg-black/80 backdrop-blur-sm z-50 md:hidden">
+        <div className="fixed overflow-hidden inset-0 top-24 bg-black/80 backdrop-blur-sm z-50 md:hidden">
           <div className="flex justify-start">
             <div className="bg-background/95 backdrop-blur-sm">
               <div className="flex flex-col space-y-2 py-4">

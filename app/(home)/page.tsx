@@ -14,11 +14,8 @@ export default function Home() {
 
   return (
     <>
-      {/* Add structured data for SEO */}
       <StructuredData data={structuredData} />
-      {/* Sections for the Landing Page should be added here */}
       <Hero />
-      {/* Add the rest of the sections here */}
       <WhyHumanCentric />
       <Products />
       <WhyNMCyber />

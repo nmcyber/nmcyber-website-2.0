@@ -57,23 +57,28 @@
 @layer base {
   * {
     border-color: theme(colors.border);
+     /* outline: 1px solid red; */
   }
+  
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
   body {
     background-color: theme(colors.background);
     color: theme(colors.foreground);
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   p {
       @apply font-[poppins] text-[20px];
   }
-
   section {
     @apply relative z-20 flex w-full flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-20;
   }
-
-
 }
-
 
   /* Gradient Heading Styles */
   @layer components {
