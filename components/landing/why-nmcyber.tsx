@@ -17,7 +17,7 @@ export default function WhyNMCyber() {
           <div className="inline-flex items-center gap-4">
             <div className="h-px bg-accent/60 w-16"></div>
             <span className="text-accent/80 text-sm font-bold font-plus-jakarta-sans leading-[14px] uppercase">
-              WHY NMCYBER
+              {WHY_NMCYBER.subtitle}
             </span>
             <div className="h-px bg-accent/60 w-16"></div>
           </div>
@@ -28,7 +28,7 @@ export default function WhyNMCyber() {
           {/* Left Side - Content Area (2/3 width) */}
           <div className="lg:col-span-2 space-y-8">
             {/* Title */}
-            <h2 className="gradient-heading2">{WHY_NMCYBER.subtitle}</h2>
+            <h2 className="gradient-heading2">{WHY_NMCYBER.title}</h2>
 
             {/* Description */}
             <p className="text-sm sm:text-xl font-normal text-muted-foreground leading-[2.16]">
@@ -38,20 +38,18 @@ export default function WhyNMCyber() {
             {/* Accordion Items */}
             <Accordion type="single" collapsible className="space-y-4">
               {WHY_NMCYBER.accordionItems.map((item) => (
-                <AccordionItem
-                  key={item.id}
-                  value={item.id}
-                  className="border border-border/50 rounded-md bg-card/50 backdrop-blur-sm"
-                >
-                  <AccordionTrigger className="px-6 py-4 text-left hover:bg-accent/5">
+                <AccordionItem key={item.id} value={item.id}>
+                  <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
                     <div className="flex items-center gap-4">
-                      <span className="w-6 h-6 bg-accent rounded-full text-white flex items-center justify-center transition-transform">
+                      <span className="w-6 h-6 bg-slate-800 text-accent rounded-full flex items-center justify-center transition-transform font-bold text-sm">
                         +
                       </span>
-                      <span className="text-accent text-lg font-medium">{item.title}</span>
+                      <span className="text-accent text-lg font-medium font-[Poppins]">
+                        {item.title}
+                      </span>
                     </div>
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-6 pt-2 text-muted-foreground border-t border-border/30">
+                  <AccordionContent className="px-6 pb-6 pt-2 font-[Poppins] text-muted-foreground border-t border-border/30">
                     {item.content}
                   </AccordionContent>
                 </AccordionItem>

@@ -265,8 +265,8 @@ export const PRODUCTS = {
 
 // Why NMCYber content
 export const WHY_NMCYBER = {
-  title: 'Why NMCYber?',
-  subtitle: 'What Our Clients Say',
+  title: ' Core  Cybersecurity  Awareness  Training  Services',
+  subtitle: 'Why NMCYber',
   description:
     'Empower your team with engaging, real-world cybersecurity training tailored to roles and risk levels. We make awareness interactive, relatable, and memorable.',
   accordionItems: [
