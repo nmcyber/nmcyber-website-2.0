@@ -68,10 +68,16 @@ export default function FreeResources() {
             >
               <div className="flex items-center gap-4">
                 {/* Simple file type badge */}
-                <div className="grid h-10 w-10 place-items-center rounded-lg bg-blue-500/15 text-xs font-semibold text-blue-300">
-                  <Image src={r.icon} alt={r.title} width={70} height={80} />
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg text-xs font-semibold text-blue-300">
+                  <Image
+                    src={r.icon}
+                    alt={r.title}
+                    width={64}
+                    height={64}
+                    className="object-contain"
+                  />
                 </div>
-                <p className="text-xl md:text-2xl font-[Poppins] font-semibold text-white">
+                <p className="text-xl md:text-2xl font-[Poppins] font-semibold text-white flex-1">
                   {r.title}
                 </p>
               </div>

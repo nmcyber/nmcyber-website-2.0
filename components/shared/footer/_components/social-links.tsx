@@ -1,25 +1,10 @@
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import Link from 'next/link';
-
-const socialLinks = [
-  { icon: Facebook, href: 'https://facebook.com', className: 'hover:bg-blue-600' },
-  { icon: Twitter, href: 'https://x.com', className: 'hover:bg-blue-400' },
-  {
-    icon: Instagram,
-    href: '#',
-    className: 'bg-[var(--color-secondary-pink-50)] hover:bg-[var(--color-secondary-pink-60)]',
-  },
-  {
-    icon: Linkedin,
-    href: 'https://www.linkedin.com/company/nmcyber',
-    className: 'hover:bg-blue-700',
-  },
-];
+import { SOCIAL_LINKS } from '@/utils/constants';
 
 export function SocialLinks() {
   return (
     <div className="flex gap-3 pt-4">
-      {socialLinks.map((social) => {
+      {SOCIAL_LINKS.map((social) => {
         const Icon = social.icon;
         return (
           <Link

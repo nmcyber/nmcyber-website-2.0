@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { PRICING_PLANS } from '@/utils/constants';
 import BlurElement from '../shared/blur-element';
-import { Badge } from '../ui/badge';
 
 export default function PricePlans() {
   return (
@@ -32,30 +31,19 @@ export default function PricePlans() {
             return (
               <Card
                 key={pkg.name}
-                className={[
-                  'relative rounded-2xl bg-transparent backdrop-blur-sm transition-transform duration-200 outline outline-accent',
-                  popular
-                    ? 'ring-1 ring-blue-400/30 border-blue-400/50 bg-gradient-to-b from-blue-500/15 to-blue-900/0 shadow-[0_10px_40px_-10px_rgba(59,130,246,0.45)] md:scale-105'
-                    : 'border-white/10 hover:border-blue-400/40 hover:shadow-[0_10px_30px_-10px_rgba(59,130,246,0.25)]',
-                ].join(' ')}
+                className="gradient-bg1 hover:border-l-accent hover:border-t-accent hover:border-r-accent"
               >
-                {popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] text-white outline outline-accent shadow">
-                    Most Popular
-                  </Badge>
-                )}
-
                 <CardHeader className="text-center">
                   <span className="text-base font-bold text-white lg:text-nowrap mb-4 sm:text-xl leading-tight font-plus-jakarta-sans">
                     {pkg.name}
                   </span>
                   <p className="mt-1 text-muted-foreground font-medium text-sm">{pkg.bestFor}</p>
                   <div className="mt-4 text-5xl md:text-6xl font-extrabold text-white">
-                    <span className="align-top text-2xl mr-1">
+                    <span className="align-top text-2xl mr-1 font-plus-jakarta-sans">
                       {pkg.price.startsWith('$') ? '$' : ''}
                     </span>
                     {pkg.price.replace('$', '')}
-                    <span className="ml-2 align-baseline text-lg font-medium text-white lg:text-nowrap mb-4 sm:text-2xl leading-tight font-plus-jakarta-sans">
+                    <span className="ml-2 align-baseline text-lg font-semibold font-plus-jakarta-sans text-white lg:text-nowrap mb-4 sm:text-2xl leading-tight ">
                       {pkg.frequency}
                     </span>
                   </div>

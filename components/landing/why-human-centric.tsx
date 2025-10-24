@@ -43,7 +43,7 @@ export default function WhyHumanCentric() {
 
           {/* Column 2: Human Head Graphic */}
           <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="w-full flex items-center justify-center scale-170 md:scale-200 items-left">
+            <CardContent className="w-full flex items-center justify-center md:scale-150 items-left">
               <Image
                 src={WHY_HUMAN_CENTRIC.human_head.image}
                 alt={WHY_HUMAN_CENTRIC.human_head.title}

@@ -1,3 +1,5 @@
+import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+
 // Company information
 export const COMPANY_INFO = {
   name: 'NMCYBER',
@@ -38,6 +40,21 @@ export const PLATFORM_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Blog', href: '/' },
   { label: 'Contact Us', href: '/' },
+];
+
+export const SOCIAL_LINKS = [
+  { icon: Facebook, href: 'https://facebook.com', className: 'hover:bg-blue-600' },
+  { icon: Twitter, href: 'https://x.com', className: 'hover:bg-blue-400' },
+  {
+    icon: Instagram,
+    href: '#',
+    className: 'bg-[var(--color-secondary-pink-50)] hover:bg-[var(--color-secondary-pink-60)]',
+  },
+  {
+    icon: Linkedin,
+    href: 'https://www.linkedin.com/company/nmcyber',
+    className: 'hover:bg-blue-700',
+  },
 ];
 
 // Why Human-Centric Cybersecurity content
