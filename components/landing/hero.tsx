@@ -74,7 +74,7 @@ export default function Hero() {
               aria-label="Download the Cybersecurity Risk Checklist"
             >
               {/* Text Section */}
-              <span className="flex flex-1 items-center justify-center px-4 py-3 text-center backdrop-blur-[2px] outline outline-accent rounded-l-5xl font-[poppins] font-semibold text-base text-accent  sm:flex-none sm:px-4 sm:text-nowrap sm:text-xl md:text-lg">
+              <span className="flex flex-1 items-center justify-center px-4 py-3 text-center backdrop-blur-[2px] rounded-l-5xl font-[poppins] font-semibold text-base text-accent  sm:flex-none sm:px-4 sm:text-nowrap sm:text-xl md:text-lg">
                 <span className="block sm:hidden">Get Checklist</span>
                 <span className="hidden sm:block">Download the Cybersecurity Risk Checklist</span>
               </span>
