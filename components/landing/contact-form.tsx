@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { CONTACT_FORM } from '@/utils/constants';
-import { BlurElement } from '../shared/blur-element';
+import BlurElement from '../shared/blur-element';
 
 export default function ContactForm() {
   return (

@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { PLATFORM_LINKS, QUICK_LINKS } from '@/utils/constants';
-import { AwardsBadge } from './footer/awards-badge';
-import { ContactInfo } from './footer/contact-info';
-import { FooterBottom } from './footer/footer-bottom';
-import { FooterLogo } from './footer/footer-logo';
-import { NavigationLinks } from './footer/navigation-links';
-import { NewsletterForm } from './footer/newsletter-form';
-import { SocialLinks } from './footer/social-links';
+import { AwardsBadge } from './_components/awards-badge';
+import { ContactInfo } from './_components/contact-info';
+import { FooterBottom } from './_components/footer-bottom';
+import { FooterLogo } from './_components/footer-logo';
+import { NavigationLinks } from './_components/navigation-links';
+import { NewsletterForm } from './_components/newsletter-form';
+import { SocialLinks } from './_components/social-links';
 
 export default function Footer({ className = '' }: { className?: string }) {
   return (

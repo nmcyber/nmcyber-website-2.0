@@ -1,10 +1,9 @@
 import { Analytics } from '@vercel/analytics/react';
 import { GeistSans } from 'geist/font/sans';
 import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
-import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
-import Footer from '@/components/wrapper/footer';
-import NavBar from '@/components/wrapper/navbar';
+import Footer from '@/components/shared/footer/footer';
+import NavBar from '@/components/shared/navbar';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -39,11 +38,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           ${plusJakartaSans.variable} 
           ${poppins.variable} 
           dark 
-          relative min-h-screen overflow-x-hidden dark:bg-background bg-background
+          relative h-screen overflow-x-hidden dark:bg-background bg-background
         `}
+        suppressHydrationWarning
       >
         <div className="pointer-events-none fixed inset-0 z-0 bg-additional-blury-blue" />
-        <header className="relative z-10">
+        <header className="relative z-50">
           <NavBar />
         </header>
 
@@ -52,8 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
 
         <Footer />
-
-        <Toaster />
         <Analytics />
       </body>
     </html>

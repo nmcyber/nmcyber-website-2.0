@@ -1,6 +1,6 @@
 import Image from 'next/image';
+import BlurElement from '@/components/shared/blur-element';
 import { PRODUCTS_PAGE } from '@/utils/constants';
-import { BlurElement } from '../shared/blur-element';
 
 export default function ProductsContactCTA() {
   return (

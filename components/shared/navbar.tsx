@@ -16,16 +16,16 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="flex h-24 min-w-full fixed items-center justify-between px-2 sm:px-4 z-30 backdrop-blur-sm sm:text-nowrap">
+      <nav className="flex flex-row h-20 min-w-full fixed items-center justify-between px-2 sm:px-4 z-30 backdrop-blur-sm sm:text-nowrap">
         {/* Logo */}
-        <Link href="/" className="flex items-center justify-center h-full mt-5 md:mt-13">
+        <Link href="/" className="flex flex-row items-center justify-center h-full">
           <Image
             src="/images/NMCyber.svg"
             alt="NMCyber logo"
             width={110}
             height={110}
             quality={90}
-            className="h-8 md:h-full w-auto"
+            className="h-12 lg:h-14 w-fit"
           />
         </Link>
 
@@ -47,7 +47,7 @@ export default function NavBar() {
         </div>
 
         {/* Right side - Contact & Mobile Menu */}
-        <div className="flex items-center space-x-1 md:ml-4 lg:ml-8">
+        <div className="flex items-center space-x-1 ">
           <div className="relative">
             {/* Desktop: show icon + number, no toggle */}
             <div className="hidden md:flex outline outline-accent rounded-5xl px-2 md:px-3 lg:px-4 py-1.5 md:py-2 items-center gap-1 text-muted-foreground">
