@@ -5,7 +5,7 @@ import { BlurElement } from '../shared/blur-element';
 
 export default function WhoWeAre() {
   return (
-    <section>
+    <section id="who-we-are">
       <div className="mx-auto w-full max-w-7xl text-center space-y-8 sm:space-y-12">
         {/* Header Section */}
         <div className="space-y-4 sm:space-y-6">

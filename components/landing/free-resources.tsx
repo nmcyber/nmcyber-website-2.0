@@ -14,7 +14,7 @@ export default function FreeResources() {
   const others = FREE_RESOURCES.resources.filter((r) => r !== featured);
 
   return (
-    <section className="relative py-20 px-6 z-20">
+    <section id="resources" className="relative py-20 px-6 z-20">
       <div className="mx-auto max-w-5xl">
         {/* Heading */}
         <div className="mb-10 text-center">

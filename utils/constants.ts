@@ -12,15 +12,69 @@ export const COMPANY_INFO = {
   phone: '+61-XXX-XXX-XXX',
 };
 
-// Navigation structure
-export const MAIN_NAV_LINKS = [
-  { name: 'Company', href: '/company' },
-  { name: 'About Us', href: '/about-us' },
-  { name: 'Products', href: '/products' },
-  { name: 'Services', href: '/services' },
-  { name: 'Resources', href: '/resources' },
-  { name: 'Academy', href: '/academy' },
-  { name: 'Contact Us', href: '/contact-us' },
+// Navigation structure with submenus
+export const NAVIGATION_WITH_SUBMENUS = [
+  {
+    name: 'Company',
+    href: '/company',
+    submenus: [
+      { name: 'Our Story', href: '/company#hero' },
+      { name: 'Why Human-Centric', href: '/company#why-human-centric' },
+      { name: 'Our Products', href: '/company#products' },
+      { name: 'Why NMCYBER', href: '/company#why-nmcyber' },
+      { name: 'Pricing Plans', href: '/company#pricing' },
+      { name: 'Free Resources', href: '/company#resources' },
+      { name: 'Testimonials', href: '/company#testimonials' },
+      { name: 'Contact Us', href: '/company#contact' },
+    ],
+  },
+  {
+    name: 'About Us',
+    href: '/about-us',
+    submenus: [
+      { name: 'Who We Are', href: '/about-us#who-we-are' },
+      { name: 'Contact Us', href: '/about-us#contact' },
+    ],
+  },
+  {
+    name: 'Products',
+    href: '/products',
+    submenus: [
+      { name: 'Product Overview', href: '/products#hero' },
+      { name: 'Product Lineup', href: '/products#product-lineup' },
+      { name: 'Why Choose NMCYBER', href: '/products#why-choose' },
+      { name: 'Contact Us', href: '/products#contact' },
+    ],
+  },
+  {
+    name: 'Services',
+    href: '/services',
+    submenus: [
+      { name: 'Services Overview', href: '/services#hero' },
+      { name: 'Service Packages', href: '/services#packages' },
+      { name: 'Packages for Everyone', href: '/services#packages-everyone' },
+      { name: 'Pricing Strategy', href: '/services#pricing' },
+      { name: 'Add-On Services', href: '/services#addons' },
+    ],
+  },
+  {
+    name: 'Resources',
+    href: '/resources',
+    submenus: [
+      { name: 'Resources Overview', href: '/resources#hero' },
+      { name: 'Available Resources', href: '/resources#available' },
+      { name: 'How to Use Resources', href: '/resources#how-to-use' },
+      { name: 'Contact Us', href: '/resources#contact' },
+    ],
+  },
+  {
+    name: 'Academy',
+    href: '/academy',
+    submenus: [
+      { name: 'Coming Soon', href: '/academy' },
+      { name: 'Contact Us', href: '/academy#contact' },
+    ],
+  },
 ];
 
 // Footer Sitemap

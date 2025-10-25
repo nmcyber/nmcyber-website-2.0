@@ -8,7 +8,7 @@ export default function AvailableResources() {
   const { availableResources } = RESOURCES_PAGE;
 
   return (
-    <section>
+    <section id="available">
       <div className="mx-auto w-full text-center space-y-8 sm:space-y-12">
         {/* Header Section */}
         <div className="space-y-4 sm:space-y-6">

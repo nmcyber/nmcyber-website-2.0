@@ -3,7 +3,7 @@ import { PRODUCTS_PAGE } from '@/utils/constants';
 
 export default function ProductsHero() {
   return (
-    <section className="relative">
+    <section id="hero" className="relative">
       <div className="mx-auto w-full max-w-7xl text-center space-y-8 sm:space-y-12">
         {/* Header Section */}
         <div className="space-y-4 sm:space-y-6">

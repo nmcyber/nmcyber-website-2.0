@@ -9,7 +9,7 @@ import BlurElement from '../shared/blur-element';
 
 export default function ContactForm() {
   return (
-    <section>
+    <section id="contact">
       <div className="max-w-7xl mx-auto">
         {/* Main Card Container */}
         <Card className="gradient-bg1 backdrop-blur-[108.8px] hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">

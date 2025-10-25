@@ -6,7 +6,7 @@ export default function ContactUs() {
   const { contactUs } = RESOURCES_PAGE;
 
   return (
-    <section>
+    <section id="contact">
       <div className="mx-auto max-w-6xl p-12 sm:p-20 gradient-bg1 opacity-90 backdrop-blur-[108.8px] border border-white/10 rounded-2xl  hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
         <div className="space-y-4 sm:space-y-6">
           {/* Subtitle */}

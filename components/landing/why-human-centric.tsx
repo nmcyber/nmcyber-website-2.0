@@ -6,7 +6,7 @@ import { BlurElement } from '../shared/blur-element';
 
 export default function WhyHumanCentric() {
   return (
-    <section>
+    <section id="why-human-centric">
       <div className="mx-auto w-full max-w-7xl space-y-6 sm:space-y-10">
         {/* Top Row - 2 columns */}
         <div className="grid lg:grid-cols-2 gap-9 mb-16">

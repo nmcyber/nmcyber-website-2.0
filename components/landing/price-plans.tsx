@@ -7,7 +7,7 @@ import BlurElement from '../shared/blur-element';
 
 export default function PricePlans() {
   return (
-    <section>
+    <section id="pricing">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-14">
