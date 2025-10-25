@@ -1,6 +1,6 @@
 'use client';
 import { Toggle } from '@radix-ui/react-toggle';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -50,7 +50,7 @@ export default function NavBar() {
 
         {/* Desktop Navigation (from md and up) */}
         <div className="hidden md:flex items-center space-x-3 lg:space-x-5 xl:space-x-8">
-          {NAVIGATION_WITH_SUBMENUS.slice(0, -1).map((item) => {
+          {NAVIGATION_WITH_SUBMENUS.map((item) => {
             const hasSubmenus = item.submenus && item.submenus.length > 0;
             return (
               <div key={item.name} className="relative group">
@@ -63,9 +63,6 @@ export default function NavBar() {
                   }`}
                 >
                   {item.name}
-                  {hasSubmenus && (
-                    <ChevronDown className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity" />
-                  )}
                 </Link>
 
                 {/* Desktop Dropdown */}
@@ -196,11 +193,6 @@ export default function NavBar() {
                           }}
                         >
                           <span>{item.name}</span>
-                          {hasSubmenus && (
-                            <ChevronDown
-                              className={`w-3 h-3 transition-transform ${isExpanded ? 'rotate-180' : ''} opacity-60`}
-                            />
-                          )}
                         </Link>
                       </div>
 
