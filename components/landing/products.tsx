@@ -7,7 +7,7 @@ import { BlurElement } from '../shared/blur-element';
 
 export default function Products() {
   return (
-    <section>
+    <section id="products">
       <div className="max-w-7xl mx-auto w-full px-4">
         {/* Section Label */}
         <div className="text-center mb-4">

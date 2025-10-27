@@ -6,7 +6,7 @@ import SpotlightCard from '../ui/SpotlightCard';
 
 export default function Testimonials() {
   return (
-    <section className="outline-0 outline-amber-500">
+    <section id="testimonials" className="outline-0 outline-amber-500">
       <div className="max-w-7xl mx-auto outline-0 outline-lime-500">
         {/* Header */}
         <div className="text-center mb-16">

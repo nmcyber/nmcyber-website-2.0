@@ -4,7 +4,7 @@ import { PRODUCTS_PAGE } from '@/utils/constants';
 
 export default function WhyChooseNMCyberProducts() {
   return (
-    <section className="relative">
+    <section id="why-choose" className="relative">
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}

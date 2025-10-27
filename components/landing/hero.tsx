@@ -31,7 +31,7 @@ const partnerLogos = [
 
 export default function Hero() {
   return (
-    <section>
+    <section id="hero">
       <div className="mx-auto w-full max-w-7xl text-center space-y-6 sm:space-y-10">
         {/* Hero Headlines */}
         <div className="space-y-4 sm:space-y-6">

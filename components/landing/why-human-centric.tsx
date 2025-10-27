@@ -6,7 +6,7 @@ import { BlurElement } from '../shared/blur-element';
 
 export default function WhyHumanCentric() {
   return (
-    <section>
+    <section id="why-human-centric">
       <div className="mx-auto w-full max-w-7xl space-y-6 sm:space-y-10">
         {/* Top Row - 2 columns */}
         <div className="grid lg:grid-cols-2 gap-9 mb-16">
@@ -43,7 +43,7 @@ export default function WhyHumanCentric() {
 
           {/* Column 2: Human Head Graphic */}
           <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="w-full flex items-center justify-center scale-170 md:scale-200 items-left">
+            <CardContent className="w-full flex items-center justify-center md:scale-150 items-left">
               <Image
                 src={WHY_HUMAN_CENTRIC.human_head.image}
                 alt={WHY_HUMAN_CENTRIC.human_head.title}

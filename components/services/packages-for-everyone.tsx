@@ -34,7 +34,7 @@ export default function PackagesForEveryone() {
   };
 
   return (
-    <section className="relative">
+    <section id="packages-everyone" className="relative">
       <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 sm:py-20">
         {/* Header Section */}
         <div className="text-center space-y-4 sm:space-y-6 mb-12">

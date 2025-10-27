@@ -17,7 +17,7 @@ export default function ServicesHero() {
   };
 
   return (
-    <section>
+    <section id="hero">
       <div className="mx-auto w-full text-center space-y-8 sm:space-y-12">
         {/* Header Section */}
         <div className="space-y-4 sm:space-y-6">
