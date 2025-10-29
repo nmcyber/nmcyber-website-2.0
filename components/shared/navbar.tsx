@@ -147,19 +147,26 @@ export default function NavBar() {
             <div className="bg-background/95 backdrop-blur-sm w-full max-w-sm h-full flex flex-col relative z-10">
               {/* Menu Header */}
               <div className="border-b border-gray-200/20 px-4 py-2">
-                <div className="flex items-center justify-between">
-                  <Image
-                    src="/images/NMCyber.svg"
-                    alt="NMCyber logo"
-                    width={60}
-                    height={60}
-                    quality={90}
-                    className="h-6 w-fit"
-                  />
+                <div className="flex flex-row items-center justify-between h-full">
+                  <Link
+                    href="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center"
+                  >
+                    <Image
+                      src="/images/NMCyber.svg"
+                      alt="NMCyber logo"
+                      width={60}
+                      height={60}
+                      quality={90}
+                      className="h-6 w-fit"
+                    />
+                  </Link>
                   <button
                     type="button"
                     className="p-1 text-white hover:bg-white/10 rounded-lg transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label="Close mobile navigation menu"
                   >
                     <X className="w-3 h-3" aria-label="Close menu" />
                   </button>
@@ -168,7 +175,7 @@ export default function NavBar() {
 
               {/* Navigation Menu */}
               <div className="flex flex-col py-2">
-                {NAVIGATION_WITH_SUBMENUS.slice(0, -1).map((item) => {
+                {NAVIGATION_WITH_SUBMENUS.map((item) => {
                   const isExpanded = expandedMenus.has(item.name);
                   const hasSubmenus = item.submenus && item.submenus.length > 0;
 
