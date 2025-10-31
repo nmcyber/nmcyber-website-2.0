@@ -128,7 +128,7 @@ function ContactInfo() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-accent flex-shrink-0" />
-          <span className="text-xs sm:text-sm font-[Poppins] font-medium text-gray-400 break-all">
+          <span className="text-xs sm:text-sm font-[Poppins] font-medium text-gray-400 break-words">
             info@nmcyber.com.au
           </span>
         </div>
