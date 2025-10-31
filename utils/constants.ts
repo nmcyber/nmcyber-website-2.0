@@ -18,7 +18,7 @@ export const NAVIGATION_WITH_SUBMENUS = [
     name: 'Company',
     href: '/company',
     submenus: [
-      { name: 'Our Story', href: '/company#hero' },
+      { name: 'Our Mission', href: '/company#hero' },
       { name: 'Why Human-Centric', href: '/company#why-human-centric' },
       { name: 'Our Products', href: '/company#products' },
       { name: 'Why NMCYBER', href: '/company#why-nmcyber' },

@@ -13,7 +13,7 @@ import BlurElement from '../shared/blur-element';
 export default function ServicesPricingStrategy() {
   const { pricingStrategy } = SERVICES_PAGE;
   return (
-    <section id="pricing">
+    <section>
       <div className="w-full max-w-7xl mx-auto">
         <h2 className="gradient-heading2 text-center mb-12">{pricingStrategy.title}</h2>
         <p className="text-left text-base sm:text-xl text-white font-bold font-plus-jakarta-sans mb-3">

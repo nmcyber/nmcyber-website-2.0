@@ -21,7 +21,7 @@ export default function NotFound() {
 
           <h1 className="gradient-heading1 py-2">{NOT_FOUND_PAGE.title}</h1>
 
-          <div className="mt-10 flex items-center gap-3">
+          <div className="mt-10 flex items-center justify-center gap-3">
             <Image src={NOT_FOUND_PAGE.brandLogo} alt="NMCyber Logo" width={100} height={100} />
             <Image src={NOT_FOUND_PAGE.brandLogo2} alt="NMCyber Logo2" width={200} height={200} />
           </div>

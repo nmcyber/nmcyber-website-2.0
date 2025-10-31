@@ -77,7 +77,7 @@ export default function ServicesHero() {
             <button
               type="button"
               onClick={nextSlide}
-              className="absolute -right-4 top-1/2 -translate-y-1/2 transition-all duration-200 hover:scale-70 md:hover:scale-110"
+              className="absolute -right-4 top-1/2 -translate-y-1/2 transition-all duration-200 scale-80 hover:scale-90"
             >
               <Image
                 src={coreServicesCarousel.arrowsIcon}
