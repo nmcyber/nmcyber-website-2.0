@@ -27,8 +27,8 @@ export default function AcademyComingSoon() {
             Coming Soon
           </div>
           {/* Features Preview */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12 card-shadow">
-            <div className="border border-gray-200/20 rounded-lg p-6">
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="card-shadow border border-gray-200/20 rounded-lg p-6">
               <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center mb-4 mx-auto">
                 <Image
                   src="/images/chapter.svg"
