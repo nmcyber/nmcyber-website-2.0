@@ -168,11 +168,12 @@ function SocialLinks() {
 
 // Footer Bottom Component
 function FooterBottom() {
+  const currentYear = new Date().getFullYear();
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 items-center justify-center text-xs sm:text-sm">
       {/* Row 1: Copyright Text */}
       <div className="leading-[1.75] tracking-normal font-[Poppins] font-normal text-muted-foreground text-center sm:text-left">
-        © 2024 NMCYBER. All Rights Reserved
+        &copy; {currentYear} NMCYBER. All Rights Reserved
       </div>
 
       {/* Row 2: Terms & Policies */}

@@ -110,6 +110,7 @@ export default function Hero() {
                   alt={logo.alt}
                   width={logo.width}
                   height={logo.height}
+                  // Solution for LCP
                   className="h-auto w-auto max-w-[120px] object-contain sm:max-w-none"
                   style={{
                     maxHeight: `${Math.min(logo.height, 44)}px`,

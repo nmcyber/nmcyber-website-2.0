@@ -62,6 +62,7 @@ export default function WhyHumanCentric() {
             <Card className="bg-transparent border-none shadow-none h-full hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
               <div className="relative mx-auto h-full">
                 <div className="relative h-full group">
+                  {/* Handling videos in Nextjs */}
                   <iframe
                     src={WHY_HUMAN_CENTRIC.video.url}
                     title={WHY_HUMAN_CENTRIC.video.title}

@@ -1,4 +1,4 @@
-import { Globe, Mail, Phone, Search } from 'lucide-react';
+import { Mail, Phone, Search } from 'lucide-react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +8,18 @@ import { CONTACT_FORM } from '@/utils/constants';
 import BlurElement from '../shared/blur-element';
 
 export default function ContactForm() {
+  // TODO: Create a form, recommend using shadcn forms
+  // TODO: Validate the form inputs using zod and full typescript types
+  // TODO: Create submit function that sends the email address only --> Console.log to see the output
+  // https://ui.shadcn.com/docs/components/field#form
+
+  // TODO: Write a Server Actions - Nextjs15 --> Docs -->
+  // https://nextjs.org/docs/14/app/building-your-application/data-fetching/server-actions-and-mutations
+
+  // FOR LATER AFTER FORM IS BUILT
+  // TODO: Recieve a reponse from the the Backend service and implement success and error handling
+  // TODO: Postgress + Drizzle ORM to store the contact requests
+
   return (
     <section id="contact">
       <div className="max-w-7xl mx-auto">
@@ -54,12 +66,14 @@ export default function ContactForm() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 text-white">
                       <Mail className="w-5 h-5 text-accent" />
-                      <p className="text-sm font-medium text-white">{CONTACT_FORM.email}</p>
+                      <Button className="text-sm bg-transparent font-medium text-white">
+                        {CONTACT_FORM.email}
+                      </Button>
                     </div>
-                    <div className="flex items-center gap-3 text-white">
+                    {/* <div className="flex items-center gap-3 text-white">
                       <Globe className="w-5 h-5 text-accent" />
                       <p className="text-sm font-medium text-white">{CONTACT_FORM.website}</p>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
