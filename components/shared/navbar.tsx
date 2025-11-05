@@ -134,8 +134,9 @@ export default function NavBar() {
             type="button"
             className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
             onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
           >
-            <Menu className="w-6 h-6" aria-label="Menu" />
+            <Menu className="w-6 h-6" aria-hidden="true" />
           </button>
         </div>
       </nav>

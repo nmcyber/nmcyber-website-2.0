@@ -36,7 +36,7 @@ export default function ServicesHero() {
 
         {/* Service Packages Carousel */}
         <div className="space-y-6 sm:space-y-8">
-          <div className="mx-auto max-w-7xl items-center justify-center relative">
+          <div className="mx-auto max-w-6xl items-center justify-center relative">
             {/* Main Package Card */}
             <div className="w-full p-8 space-y-8 sm:space-y-12 gradient-bg1 opacity-90 backdrop-blur-[108.8px] border border-white/10 rounded-2xl hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
               <div className="space-y-6 text-left">
@@ -95,11 +95,16 @@ export default function ServicesHero() {
                   key={`dot-${service.title.slice(0, 10)}-${index}`}
                   type="button"
                   onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                    index === currentSlide ? 'bg-white' : 'bg-white/40'
-                  }`}
-                  aria-label={`Go to package ${index + 1}`}
-                />
+                  className="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full transition-all duration-200 p-3"
+                  aria-label={`Go to service ${index + 1}`}
+                >
+                  <span
+                    className={`w-2 h-2 rounded-full ${
+                      index === currentSlide ? 'bg-white' : 'bg-white/40'
+                    }`}
+                    aria-hidden="true"
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -118,8 +123,8 @@ export default function ServicesHero() {
             objectPosition: 'center top',
             opacity: 0.6,
           }}
-          quality={90}
-          priority
+          quality={75}
+          loading="lazy"
         />
       </div>
       {/* Binary Background */}
@@ -129,6 +134,7 @@ export default function ServicesHero() {
           alt="Binary Background"
           fill
           style={{ objectFit: 'contain', opacity: 0.4 }}
+          loading="lazy"
         />
       </div>
       <BlurElement

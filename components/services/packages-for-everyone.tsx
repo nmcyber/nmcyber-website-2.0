@@ -223,8 +223,8 @@ export default function PackagesForEveryone() {
             objectFit: 'contain',
             objectPosition: 'center bottom',
           }}
-          quality={90}
-          priority
+          quality={75}
+          loading="lazy"
           className="absolute top-6 left-120"
         />
       </div>

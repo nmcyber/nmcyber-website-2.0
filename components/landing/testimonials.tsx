@@ -82,8 +82,8 @@ export default function Testimonials() {
           objectFit: 'contain',
           objectPosition: 'center bottom',
         }}
-        quality={90}
-        priority
+        quality={75}
+        loading="lazy"
         className="absolute right-0 -z-10 translate-y-10 opacity-40"
       />
 
@@ -95,6 +95,7 @@ export default function Testimonials() {
           width={1300}
           height={700}
           style={{ objectFit: 'contain' }}
+          loading="lazy"
         />
       </div>
 

@@ -2,7 +2,7 @@ import { Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { COMPANY_INFO } from '@/utils/constants';
+import { COMPANY_INFO, HERO_CONTENT } from '@/utils/constants';
 import BlurElement from '../shared/blur-element';
 
 // Star rating component for cleaner code
@@ -42,7 +42,7 @@ export default function Hero() {
         </div>
 
         {/* Company Description */}
-        <p className="mx-auto font-normal text-center text-muted-foreground text-base leading-[1.89] sm:text-xl md:leading-[1.78] lg:max-w-5xl">
+        <p className="mx-auto font-normal text-center text-muted-foreground text-base leading-[1.89] sm:text-xl md:leading-[1.78] lg:max-w-5xl min-h-[90px] sm:min-h-[100px] md:min-h-[95px]">
           {COMPANY_INFO.longDescription}
         </p>
 
@@ -55,10 +55,10 @@ export default function Hero() {
             className="h-auto w-full rounded-5xl px-6 py-5 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] sm:w-auto sm:px-10"
           >
             <Link
-              href="/contact-us"
+              href={HERO_CONTENT.cta.primaryHref}
               className="text-sm font-[poppins] font-medium leading-[1] text-white sm:text-xl"
             >
-              Book a Free Strategy Call Today
+              {HERO_CONTENT.cta.primary}
             </Link>
           </Button>
 
@@ -69,14 +69,14 @@ export default function Hero() {
             className="h-auto w-full p-0 overflow-hidden border-none outline outline-accent bg-transparent rounded-5xl sm:w-fit hover:bg-black/50"
           >
             <Link
-              href="/resources/checklist"
+              href={HERO_CONTENT.cta.secondaryHref}
               className="flex items-stretch transition-opacity duration-200 hover:opacity-95"
               aria-label="Download the Cybersecurity Risk Checklist"
             >
               {/* Text Section */}
               <span className="flex flex-1 items-center justify-center px-4 py-3 text-center backdrop-blur-[2px] rounded-l-5xl font-[poppins] font-semibold text-base text-accent  sm:flex-none sm:px-4 sm:text-nowrap sm:text-xl md:text-lg">
                 <span className="block sm:hidden">Get Checklist</span>
-                <span className="hidden sm:block">Download the Cybersecurity Risk Checklist</span>
+                <span className="hidden sm:block">{HERO_CONTENT.cta.secondary}</span>
               </span>
 
               {/* Icon Section */}
@@ -86,6 +86,7 @@ export default function Hero() {
                   alt="Download"
                   width={30}
                   height={30}
+                  loading="lazy"
                   className="w-6 h-6 sm:w-[30px] sm:h-[30px]"
                 />
               </div>
@@ -103,14 +104,16 @@ export default function Hero() {
 
           {/* Partner Logos Grid */}
           <div className="mx-auto flex max-w-full flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
-            {partnerLogos.map((logo) => (
+            {partnerLogos.map((logo, index) => (
               <div key={logo.src} className="flex-shrink-0">
                 <Image
                   src={logo.src}
                   alt={logo.alt}
                   width={logo.width}
                   height={logo.height}
-                  // Solution for LCP
+                  // Solution for LCP - prioritize first logo, lazy load others
+                  priority={index === 0}
+                  loading={index === 0 ? undefined : 'lazy'}
                   className="h-auto w-auto max-w-[120px] object-contain sm:max-w-none"
                   style={{
                     maxHeight: `${Math.min(logo.height, 44)}px`,
@@ -134,8 +137,8 @@ export default function Hero() {
             objectPosition: 'center bottom',
             opacity: 0.4,
           }}
-          quality={90}
-          priority
+          quality={75}
+          loading="lazy"
           className="translate-y-1/4"
         />
 
@@ -146,6 +149,7 @@ export default function Hero() {
             alt="Binary Background"
             fill
             style={{ objectFit: 'contain' }}
+            loading="lazy"
           />
         </div>
       </div>

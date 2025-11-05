@@ -84,8 +84,9 @@ function NewsletterForm() {
         <Button
           size="sm"
           className="bg-accent hover:bg-accent/90 text-black px-2 py-1 rounded-r-xl sm:rounded-r-2xl rounded-l-none h-8 sm:h-10 border-l-0"
+          aria-label="Subscribe to newsletter"
         >
-          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-black" />
+          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-black" aria-hidden="true" />
         </Button>
         <Mail className="absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
       </div>
@@ -157,6 +158,7 @@ function SocialLinks() {
             key={social.href}
             href={social.href}
             className={`w-7 h-7 sm:w-8 sm:h-8 bg-secondary rounded-md flex items-center justify-center transition-colors ${social.className}`}
+            aria-label={social.label}
           >
             <Icon className="w-3 h-3 sm:w-4 sm:h-4 aspect-square text-white" />
           </Link>

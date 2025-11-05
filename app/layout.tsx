@@ -1,37 +1,40 @@
 import { Analytics } from '@vercel/analytics/react';
 import { GeistSans } from 'geist/font/sans';
+import type { Viewport } from 'next';
 import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
 import './globals.css';
-import Footer from '@/components/shared/footer/footer';
+import Footer from '@/components/shared/footer';
 import NavBar from '@/components/shared/navbar';
+import { SITE_METADATA } from '@/utils/constants';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-plus-jakarta-sans',
+  display: 'swap', // Prevents render-blocking, shows fallback font immediately
+  preload: true, // Preload critical fonts
+  adjustFontFallback: true, // Reduces layout shift by matching font metrics
 });
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   variable: '--font-poppins',
+  display: 'swap', // Prevents render-blocking, shows fallback font immediately
+  preload: true, // Preload critical fonts
+  adjustFontFallback: true, // Reduces layout shift by matching font metrics
 });
+
+export const metadata = SITE_METADATA;
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="preload"
-          href="https://utfs.io/f/31dba2ff-6c3b-4927-99cd-b928eaa54d5f-5w20ij.png"
-          as="image"
-        />
-        <link
-          rel="preload"
-          href="https://utfs.io/f/69a12ab1-4d57-4913-90f9-38c6aca6c373-1txg2.png"
-          as="image"
-        />
-      </head>
       <body
         className={`
           ${GeistSans.className} 
