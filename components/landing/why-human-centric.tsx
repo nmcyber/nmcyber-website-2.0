@@ -7,9 +7,9 @@ import { BlurElement } from '../shared/blur-element';
 export default function WhyHumanCentric() {
   return (
     <section id="why-human-centric">
-      <div className="mx-auto w-full max-w-7xl space-y-6 sm:space-y-10">
+      <div className="mx-auto w-full max-w-7xl space-y-6 sm:space-y-14">
         {/* Top Row - 2 columns */}
-        <div className="grid lg:grid-cols-2 gap-9 mb-16">
+        <div className="grid lg:grid-cols-2 gap-9 lg:gap-36 mb-24">
           {/* Column 1: Text Content */}
           <div className="col-span-1 p-0 space-y-9">
             <h2 className="gradient-heading2 py-2">{WHY_HUMAN_CENTRIC.title}</h2>
@@ -37,18 +37,19 @@ export default function WhyHumanCentric() {
               opacity={0.3}
               size="650px"
               blur="60px"
-              className="right-0 top-[2%]"
+              className="right-[8%] top-[2%]"
             />
           </div>
 
           {/* Column 2: Human Head Graphic */}
           <Card className="bg-transparent border-none shadow-none">
-            <CardContent className="w-full flex items-center justify-center md:scale-150 items-left">
+            <CardContent className="w-full flex items-center justify-center lg:scale-110">
               <Image
                 src={WHY_HUMAN_CENTRIC.human_head.image}
                 alt={WHY_HUMAN_CENTRIC.human_head.title}
                 width={1252}
                 height={856}
+                loading="lazy"
                 className="object-contain w-full h-auto transform -translate-x-[6%] -translate-y-[-20%] md:-translate-x-[8%] md:-translate-y-[-10%]"
               />
             </CardContent>
@@ -68,6 +69,7 @@ export default function WhyHumanCentric() {
                     title={WHY_HUMAN_CENTRIC.video.title}
                     allow="encrypted-media; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full rounded-[20px]"
                   />
                   {/* <div className="absolute inset-0 rounded-[20px] pointer-events-none border-t-2 border-r-2 border-l-2 border-t-transparent border-r-transparent border-l-transparent group-hover:border-t-accent/50 group-hover:border-r-accent/50 group-hover:border-l-accent/50 transition-all duration-300" /> */}

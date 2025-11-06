@@ -161,6 +161,7 @@ export default function ContactForm() {
             alt="Background Pattern"
             width={1600}
             height={800}
+            loading="lazy"
             className="w-full h-auto object-right"
           />
         </div>

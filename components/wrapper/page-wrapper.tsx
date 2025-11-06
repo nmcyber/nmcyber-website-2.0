@@ -1,4 +1,4 @@
-import Footer from '../shared/footer/footer';
+import Footer from '../shared/footer';
 import NavBar from '../shared/navbar';
 
 export default function PageWrapper({ children }: { children: React.ReactNode }) {

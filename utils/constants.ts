@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import type { Metadata } from 'next';
 
 // Company information
 export const COMPANY_INFO = {
@@ -75,6 +76,11 @@ export const NAVIGATION_WITH_SUBMENUS = [
       { name: 'Contact Us', href: '/academy#contact' },
     ],
   },
+  {
+    name: 'Contact',
+    href: '/contact-us',
+    submenus: [{ name: 'Contact Us', href: '/contact-us#contact' }],
+  },
 ];
 
 // Footer Sitemap
@@ -84,7 +90,7 @@ export const QUICK_LINKS = [
   { label: 'Pricing', href: '/products' },
   { label: 'Services', href: '/services' },
   { label: 'Blog', href: '/' },
-  { label: 'Contact Us', href: '/' },
+  { label: 'Contact Us', href: '/contact-us' },
 ];
 
 export const PLATFORM_LINKS = [
@@ -93,21 +99,33 @@ export const PLATFORM_LINKS = [
   { label: 'Pricing', href: '/products' },
   { label: 'Services', href: '/services' },
   { label: 'Blog', href: '/' },
-  { label: 'Contact Us', href: '/' },
+  { label: 'Contact Us', href: '/contact-us' },
 ];
 
 export const SOCIAL_LINKS = [
-  { icon: Facebook, href: 'https://facebook.com', className: 'hover:bg-blue-600' },
-  { icon: Twitter, href: 'https://x.com', className: 'hover:bg-blue-400' },
+  {
+    icon: Facebook,
+    href: 'https://facebook.com',
+    className: 'hover:bg-blue-600',
+    label: 'Visit our Facebook page',
+  },
+  {
+    icon: Twitter,
+    href: 'https://x.com',
+    className: 'hover:bg-blue-400',
+    label: 'Visit our X (Twitter) page',
+  },
   {
     icon: Instagram,
-    href: '#',
+    href: 'https://www.instagram.com',
     className: 'bg-[var(--color-secondary-pink-50)] hover:bg-[var(--color-secondary-pink-60)]',
+    label: 'Visit our Instagram page',
   },
   {
     icon: Linkedin,
     href: 'https://www.linkedin.com/company/nmcyber',
     className: 'hover:bg-blue-700',
+    label: 'Visit our LinkedIn page',
   },
 ];
 
@@ -129,7 +147,7 @@ export const WHY_HUMAN_CENTRIC = {
     'Build a lasting security culture that scales with your business',
   ],
   human_head: {
-    image: '/images/cybersecurity-concept-illustration.webp',
+    image: '/images/cybersecurity-concept-illustration.svg',
     title: 'Human Head',
   },
   video: {
@@ -270,6 +288,8 @@ export const HERO_CONTENT = {
   cta: {
     primary: 'Book a Free Strategy Call Today',
     secondary: 'Download Free Cybersecurity Checklist',
+    primaryHref: '/contact-us',
+    secondaryHref: '/resources',
   },
   trustedBy: 'Trusted by 3,200+ partners',
   partners: [
@@ -1208,6 +1228,40 @@ export const RESOURCES_PAGE = {
   },
 };
 
+// Academy page content
+export const ACADEMY = {
+  title: 'NMCYBER Academy',
+  description: {
+    paragraph1:
+      "We're building something amazing! NMCYBER Academy will be your comprehensive learning hub for cybersecurity awareness and training.",
+    paragraph2:
+      'Get ready for interactive courses, certifications, and hands-on learning experiences designed to transform your team into cyber defenders.',
+  },
+  badge: {
+    text: 'Coming Soon',
+  },
+  features: [
+    {
+      id: 1,
+      title: 'Interactive Courses',
+      description: 'Engaging, scenario-based learning modules tailored to your role and industry.',
+      icon: '/images/chapter.svg',
+    },
+    {
+      id: 2,
+      title: 'Progress Tracking',
+      description:
+        'Monitor your learning journey with detailed analytics and achievement tracking.',
+      icon: '/images/dashboard.svg',
+    },
+  ],
+  background: {
+    heroBg: '/images/hero-bg.svg',
+    binary: '/images/binary.svg',
+    footerWave: '/images/footer_wave.svg',
+  },
+};
+
 //404 page content
 export const NOT_FOUND_PAGE = {
   title: 'Resource Not Found',
@@ -1217,4 +1271,77 @@ export const NOT_FOUND_PAGE = {
   backgroundHero: '/images/hero-bg.svg',
   backgroundBinary: '/images/binary.svg',
   backgroundLooper: '/images/looper.svg',
+};
+
+// Site metadata for SEO - includes HTML title and meta tags
+export const SITE_METADATA: Metadata = {
+  metadataBase: new URL('https://nmcyber.com.au'),
+  title: {
+    default: 'NMCYBER | Human-Centric Cybersecurity Training for SMBs',
+    template: `%s | NMCYBER`,
+  },
+  description:
+    'NMCYBER helps Small and Medium Businesses transform employees into cyber-aware defenders through custom, human-centric cybersecurity training that builds real behavioral change.',
+  keywords: [
+    'cybersecurity training',
+    'human-centric cybersecurity',
+    'SMB security awareness',
+    'cybersecurity for small business',
+    'phishing simulation',
+    'security culture',
+    'cyber awareness',
+    'employee security training',
+    'cyber risk management',
+    'human firewall',
+  ],
+  authors: [{ name: 'NMCYBER' }],
+  creator: 'NMCYBER',
+  publisher: 'NMCYBER',
+  formatDetection: {
+    email: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-AU': '/',
+    },
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    url: 'https://nmcyber.com.au',
+    title: 'NMCYBER | Empowering Humans. Protecting Businesses.',
+    description:
+      'Custom Human-Centric Cybersecurity Training for Small and Medium Businesses. Transform your team into cyber-aware defenders.',
+    siteName: 'NMCYBER',
+    images: [
+      {
+        url: '/images/NMCyber.svg',
+        width: 1200,
+        height: 630,
+        alt: 'NMCYBER - Human-Centric Cybersecurity',
+      },
+    ],
+  },
+
+  category: 'Cybersecurity',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'google-site-verification-code', // Replace with actual code from Google Search Console after production
+  },
+  other: {
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'theme-color': '#086082',
+  },
 };

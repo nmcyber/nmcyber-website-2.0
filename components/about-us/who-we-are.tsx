@@ -52,6 +52,7 @@ export default function WhoWeAre() {
               title="Watch Our Team in Action"
               allow="encrypted-media; picture-in-picture"
               allowFullScreen
+              loading="lazy"
               className="absolute inset-0 h-full w-full"
             />
           </div>
@@ -69,8 +70,8 @@ export default function WhoWeAre() {
             objectFit: 'contain',
             objectPosition: 'center top',
           }}
-          quality={90}
-          priority
+          quality={75}
+          loading="lazy"
         />
         {/* Left Binary Background  */}
         <div className="absolute left-0 bottom-0 h-[90dvh] w-2/10">
@@ -79,6 +80,7 @@ export default function WhoWeAre() {
             alt="Binary Background"
             fill
             style={{ objectFit: 'contain' }}
+            loading="lazy"
           />
         </div>
       </div>
