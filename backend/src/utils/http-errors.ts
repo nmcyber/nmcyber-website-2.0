@@ -1,0 +1,47 @@
+export class HttpError extends Error {
+  constructor(
+    public status: number,
+    message: string,
+    public details?: unknown
+  ) {
+    super(message);
+    this.name = this.constructor.name;
+    Error.captureStackTrace?.(this, this.constructor);
+  }
+}
+
+export class BadRequestError extends HttpError {
+  constructor(message: string, details?: unknown) {
+    super(400, message, details);
+  }
+}
+
+export class UnauthorizedError extends HttpError {
+  constructor(message = 'Unauthorized') {
+    super(401, message);
+  }
+}
+
+export class ForbiddenError extends HttpError {
+  constructor(message = 'Forbidden') {
+    super(403, message);
+  }
+}
+
+export class NotFoundError extends HttpError {
+  constructor(message = 'Not found') {
+    super(404, message);
+  }
+}
+
+export class ConflictError extends HttpError {
+  constructor(message = 'Conflict') {
+    super(409, message);
+  }
+}
+
+export class RateLimitError extends HttpError {
+  constructor(message = 'Too many requests') {
+    super(429, message);
+  }
+}
