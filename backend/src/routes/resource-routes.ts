@@ -1,3 +1,4 @@
+// Resource API routes
 import { Router } from 'express';
 import { consumeToken, requestResource } from '../controllers/resource-controller';
 

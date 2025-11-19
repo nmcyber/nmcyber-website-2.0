@@ -9,6 +9,7 @@ Express + TypeScript service for gated resource delivery with email-based downlo
 - Rate limiting (5 requests/hour per email)
 - PostgreSQL database with Prisma ORM
 - Email tracking and request management
+- UTC timezone for all timestamps (stored as TIMESTAMPTZ in PostgreSQL)
 
 ---
 
@@ -59,6 +60,9 @@ bun run prisma:generate
 # Create tables
 bun run prisma:push
 
+# Set PostgreSQL timezone to UTC (recommended)
+# Run in PostgreSQL: ALTER DATABASE nmcyber SET timezone = 'UTC';
+
 # Seed sample data
 bun run prisma:seed
 ```
@@ -85,6 +89,9 @@ DOWNLOAD_TOKEN_SECRET=your-64-character-hex-key-here
 RESEND_API_KEY=re_your_api_key_here
 EMAIL_FROM_ADDRESS=valid_domain_email_address
 EMAIL_FROM_NAME=NMCyber
+
+# Email Validation - ZeroBounce (Optional but recommended)
+ZEROBOUNCE_API_KEY=your_zerobounce_api_key_here
 
 # Application URLs
 APP_BASE_URL=http://localhost:3000
@@ -121,6 +128,33 @@ API_BASE_URL=http://localhost:4000
 3. Copy API key to `.env`
 4. For testing, use `EMAIL_FROM_ADDRESS=valid dev domain email address`
 5. For production, add valid production domain email address in Resend dashboard
+
+### Email Validation (ZeroBounce) - Optional but Recommended
+
+**Validation Flow:**
+1. **Format check** (instant, free) - basic email syntax validation
+2. **Disposable domain check** (instant, free) - blocks common temp email services
+3. **ZeroBounce API** (if configured) - comprehensive domain/MX/DNS/SMTP validation
+4. **Fallback** - allows emails passing basic checks if API unavailable
+
+**ZeroBounce Features:**
+- Domain existence, MX records, DNS, SMTP verification
+- Disposable email and spam trap detection
+- Accepts `valid` and `catch-all` statuses (QQ, corporate domains use catch-all)
+- Free: 100 credits on signup - https://www.zerobounce.net
+- API Docs: https://www.zerobounce.net/docs/email-validation-api-quickstart/
+
+**Status Handling:**
+- **Accepts:** `valid`, `catch-all` (legitimate providers)
+- **Rejects:** `invalid`, `unknown`, `spamtrap`, `abuse`, `do_not_mail`
+- **Note:** Free email providers (Gmail, Yahoo) are NOT marked as disposable
+
+**Setup:**
+1. Sign up at https://www.zerobounce.net
+2. Get API key from dashboard
+3. Add `ZEROBOUNCE_API_KEY=your_key` to `.env`
+
+**Without ZeroBounce:** System uses format + disposable domain checks only
 
 ---
 
@@ -212,17 +246,18 @@ Download the resource file.
 - Tokens are single-use only
 - Make a new request to get a new token
 
+**"Invalid email address" or "Disposable email addresses are not allowed"**
+- Email validation rejected the address
+- Check if email format is correct
+- Disposable/temporary emails are blocked
+- If using ZeroBounce, check API key is configured correctly
+
 ---
 
 
 
 
 ---
-## To do
-- **Email Validation:** Add `KICKBOX_API_KEY` to `.env`
-
-
 ## Optional Features
 - **Bot Protection:** Add `TURNSTILE_SECRET_KEY` to `.env` or widget
-- **Cloud Storage:** 
 

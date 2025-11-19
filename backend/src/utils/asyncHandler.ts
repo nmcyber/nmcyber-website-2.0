@@ -1,3 +1,4 @@
+// Wrapper for async route handlers to catch errors
 import type { NextFunction, Request, Response } from 'express';
 
 type AsyncHandler = (req: Request, res: Response, next: NextFunction) => Promise<unknown>;

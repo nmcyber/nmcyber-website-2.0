@@ -1,10 +1,9 @@
+// Email service using Resend API
 import { Resend } from 'resend';
 import { config } from '../config';
 
-// Resend client instance
 let resendClient: Resend | null = null;
 
-// Initialize Resend client
 function getResendClient(): Resend {
   if (resendClient) {
     return resendClient;
@@ -45,7 +44,7 @@ export async function sendEmail({ to, subject, html, text }: SendEmailOptions): 
     to,
     subject,
     html,
-    text: text || html.replace(/<[^>]*>/g, ''), // Strip HTML for text version
+    text: text || html.replace(/<[^>]*>/g, ''),
   });
 
   console.log(`Email sent via Resend:`, result);

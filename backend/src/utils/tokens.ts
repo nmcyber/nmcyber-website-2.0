@@ -1,6 +1,8 @@
+// Download token generation and verification (JWT)
 import { createHash, randomUUID } from 'node:crypto';
 import jwt from 'jsonwebtoken';
 import { config } from '../config';
+import { addMinutesUTC, getCurrentUTCDate } from './dates';
 
 export type DownloadTokenPayload = {
   tokenId: string;
@@ -10,7 +12,7 @@ export type DownloadTokenPayload = {
 
 export function createDownloadToken(requestId: string, assetId: string) {
   const tokenId = randomUUID();
-  const expiresAt = new Date(Date.now() + config.DOWNLOAD_TOKEN_TTL_MINUTES * 60 * 1000);
+  const expiresAt = addMinutesUTC(getCurrentUTCDate(), config.DOWNLOAD_TOKEN_TTL_MINUTES);
   const token = jwt.sign(
     {
       tokenId,

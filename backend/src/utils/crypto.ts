@@ -1,3 +1,4 @@
+// Cryptographic utilities
 import { createHash } from 'node:crypto';
 
 export function hashEmail(input: string): string {

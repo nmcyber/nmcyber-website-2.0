@@ -1,14 +1,16 @@
+// Resource request and download token management
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import type { Prisma } from '@prisma/client';
 import { ResourceRequestStatus } from '@prisma/client';
-import { addMinutes, isBefore } from 'date-fns';
 import { config } from '../config';
 import { prisma } from '../lib/prisma';
 import { hashEmail } from '../utils/crypto';
+import { addMinutesUTC, getCurrentUTCDate, isBeforeUTC } from '../utils/dates';
 import { BadRequestError, NotFoundError, RateLimitError } from '../utils/http-errors';
 import { createDownloadToken, hashToken, verifyDownloadToken } from '../utils/tokens';
 import { sendDownloadLinkEmail } from './email-service';
+import { getRejectionReason, shouldRejectEmail, validateEmail } from './email-validation-service';
 
 const DEFAULT_METADATA_KEYS = ['userAgent', 'ip'] as const;
 
@@ -38,6 +40,12 @@ export async function createResourceRequest({
   userAgent,
   metadata,
 }: CreateResourceRequestInput) {
+  const emailValidation = await validateEmail(email);
+
+  if (shouldRejectEmail(emailValidation)) {
+    throw new BadRequestError(getRejectionReason(emailValidation) || 'Invalid email address');
+  }
+
   const asset = await prisma.resourceAsset.findFirst({
     where: {
       OR: [{ id: assetIdentifier }, { slug: assetIdentifier }],
@@ -50,7 +58,7 @@ export async function createResourceRequest({
   }
 
   const emailHash = hashEmail(email);
-  const windowStart = addMinutes(new Date(), -config.REQUEST_WINDOW_MINUTES);
+  const windowStart = addMinutesUTC(getCurrentUTCDate(), -config.REQUEST_WINDOW_MINUTES);
   const existingCount = await prisma.resourceRequest.count({
     where: {
       emailHash,
@@ -78,7 +86,7 @@ export async function createResourceRequest({
       data: {
         assetId: asset.id,
         emailHash,
-        emailEncrypted: new Uint8Array(0), // Empty buffer - email encryption not used
+        emailEncrypted: new Uint8Array(0),
         consentVersion,
         requestIp: requestIp ?? null,
         status: ResourceRequestStatus.PENDING_VERIFICATION,
@@ -111,32 +119,26 @@ export async function createResourceRequest({
     };
   });
 
-  // Send email with download link (outside transaction to avoid blocking)
-  // Build download URL
   const downloadUrl = `${config.API_BASE_URL}/api/resources/token/${encodeURIComponent(token)}/consume`;
 
-  // Send email asynchronously - don't fail the request if email fails
   sendDownloadLinkEmail(email, downloadUrl, asset.title || asset.slug)
     .then(async () => {
       console.log(`Email sent successfully to ${email} for request ${request.id}`);
-      // Update status to LINK_SENT after successful email
       await prisma.resourceRequest.update({
         where: { id: request.id },
         data: {
           status: ResourceRequestStatus.LINK_SENT,
-          firstSentAt: new Date(),
-          lastSentAt: new Date(),
+          firstSentAt: getCurrentUTCDate(),
+          lastSentAt: getCurrentUTCDate(),
         },
       });
     })
     .catch((error) => {
-      // Log error but don't fail the request
       console.error(`Failed to send email for request ${request.id}:`, error);
       console.error(`Error details:`, error.message || error);
       if (error.response) {
         console.error(`Resend API response:`, error.response);
       }
-      // Status remains READY_TO_SEND, can be retried later
     });
 
   return {
@@ -150,6 +152,11 @@ export async function createResourceRequest({
         DEFAULT_METADATA_KEYS.includes(key as (typeof DEFAULT_METADATA_KEYS)[number])
       )
     ),
+    validation: {
+      provider: emailValidation.provider,
+      isValid: emailValidation.isValid,
+      isDisposable: emailValidation.isDisposable,
+    },
   };
 }
 
@@ -176,7 +183,7 @@ export async function consumeDownloadToken(rawToken: string): Promise<ConsumeTok
     throw new BadRequestError('Token mismatch');
   }
 
-  if (isBefore(tokenRecord.expiresAt, new Date())) {
+  if (isBeforeUTC(tokenRecord.expiresAt, getCurrentUTCDate())) {
     throw new BadRequestError('Token expired');
   }
 
@@ -188,7 +195,7 @@ export async function consumeDownloadToken(rawToken: string): Promise<ConsumeTok
     throw new BadRequestError('Token already used');
   }
 
-  const now = new Date();
+  const now = getCurrentUTCDate();
 
   const shouldRevoke = tokenRecord.useCount + 1 >= tokenRecord.maxUses;
 

@@ -1,3 +1,4 @@
+// API endpoints for resource requests and downloads
 import { createReadStream, statSync } from 'node:fs';
 import { pipeline } from 'node:stream';
 import { promisify } from 'node:util';
@@ -6,6 +7,7 @@ import { z } from 'zod';
 import type { CreateResourceRequestInput } from '../services/resource-service';
 import { consumeDownloadToken, createResourceRequest } from '../services/resource-service';
 import { asyncHandler } from '../utils/asyncHandler';
+import { formatAsUTCISO } from '../utils/dates';
 import { BadRequestError } from '../utils/http-errors';
 
 const streamPipeline = promisify(pipeline);
@@ -55,8 +57,9 @@ export const requestResource = asyncHandler(async (req: Request, res: Response) 
     requestId: result.requestId,
     status: result.status,
     assetId: result.assetId,
-    expiresAt: result.expiresAt.toISOString(),
+    expiresAt: formatAsUTCISO(result.expiresAt),
     metadata: result.metadata,
+    validation: result.validation,
     devToken: result.devToken,
   });
 });

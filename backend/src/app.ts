@@ -1,3 +1,4 @@
+// Express app configuration and middleware
 import express, { type Request, type Response } from 'express';
 import morgan from 'morgan';
 import { errorHandler } from './middleware/error-handler';

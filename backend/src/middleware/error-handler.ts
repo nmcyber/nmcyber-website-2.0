@@ -1,3 +1,4 @@
+// Global error handler middleware
 import type { NextFunction, Response } from 'express';
 import { config } from '../config';
 import { HttpError } from '../utils/http-errors';

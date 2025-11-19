@@ -1,3 +1,4 @@
+// HTTP error classes for API responses
 export class HttpError extends Error {
   constructor(
     public status: number,
