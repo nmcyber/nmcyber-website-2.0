@@ -232,7 +232,13 @@ export async function consumeDownloadToken(rawToken: string): Promise<ConsumeTok
     : path.resolve(process.cwd(), request.asset.storageKey);
 
   if (!fs.existsSync(resolvedPath)) {
-    throw new NotFoundError('Resource file is unavailable');
+    console.error('File not found:', {
+      storageKey: request.asset.storageKey,
+      resolvedPath,
+      cwd: process.cwd(),
+      exists: fs.existsSync(resolvedPath),
+    });
+    throw new NotFoundError(`Resource file is unavailable: ${resolvedPath}`);
   }
 
   const fileName = path.basename(resolvedPath);

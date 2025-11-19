@@ -1,9 +1,9 @@
 // Global error handler middleware
-import type { NextFunction, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 import { config } from '../config';
 import { HttpError } from '../utils/http-errors';
 
-export function errorHandler(err: unknown, res: Response, _next: NextFunction) {
+export function errorHandler(err: unknown, _req: Request, res: Response, _next: NextFunction) {
   if (err instanceof HttpError) {
     if (config.isDevelopment) {
       // eslint-disable-next-line no-console

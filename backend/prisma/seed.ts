@@ -3,36 +3,64 @@ import path from 'node:path';
 import { prisma } from '../src/lib/prisma';
 
 async function main() {
-  const storageRelativePath = 'storage/sample-resource.txt';
-  const storageAbsolutePath = path.resolve(process.cwd(), storageRelativePath);
+  const assets = [
+    {
+      slug: '1',
+      title: '10 Cyber Traps SMBs Fall For and How to Prevent them',
+      description:
+        'Engaging, scenario-based sessions are designed to make security second nature for your team. Delivered live, virtually, or as eLearning.',
+      storageKey: 'storage/10 Cyber Traps SMBs Fall For and How to Prevent them.pdf',
+      mimeType: 'application/pdf',
+    },
+    {
+      slug: '2',
+      title: 'Free Cybersecurity Culture Checklist',
+      description:
+        'A comprehensive checklist to help build a strong cybersecurity culture in your organization.',
+      storageKey: 'storage/FreeCybersecurityCultureChecklist.pdf',
+      mimeType: 'application/pdf',
+    },
+    {
+      slug: '3',
+      title: 'Interactive Team Risk Quiz',
+      description:
+        "Test your team's cybersecurity awareness with this interactive risk assessment quiz.",
+      storageKey: 'storage/Interactive Team Risk Quiz.pdf',
+      mimeType: 'application/pdf',
+    },
+  ];
 
-  let sizeBytes: number | null = null;
-  if (fs.existsSync(storageAbsolutePath)) {
-    const stats = fs.statSync(storageAbsolutePath);
-    sizeBytes = stats.size;
+  for (const asset of assets) {
+    const storageAbsolutePath = path.resolve(process.cwd(), asset.storageKey);
+    let sizeBytes = 0;
+
+    if (fs.existsSync(storageAbsolutePath)) {
+      const stats = fs.statSync(storageAbsolutePath);
+      sizeBytes = stats.size;
+    }
+
+    await prisma.resourceAsset.upsert({
+      where: { slug: asset.slug },
+      update: {
+        title: asset.title,
+        description: asset.description,
+        storageKey: asset.storageKey,
+        mimeType: asset.mimeType,
+        sizeBytes,
+        active: true,
+      },
+      create: {
+        slug: asset.slug,
+        title: asset.title,
+        description: asset.description,
+        storageKey: asset.storageKey,
+        mimeType: asset.mimeType,
+        sizeBytes,
+        active: true,
+        retentionDays: 30,
+      },
+    });
   }
-
-  await prisma.resourceAsset.upsert({
-    where: { slug: 'sample-resource' },
-    update: {
-      title: 'Sample Downloadable Resource',
-      description: 'Placeholder asset for local testing.',
-      storageKey: storageRelativePath,
-      mimeType: 'text/plain',
-      sizeBytes: sizeBytes ?? 0,
-      active: true,
-    },
-    create: {
-      slug: 'sample-resource',
-      title: 'Sample Downloadable Resource',
-      description: 'Placeholder asset for local testing.',
-      storageKey: storageRelativePath,
-      mimeType: 'text/plain',
-      sizeBytes: sizeBytes ?? 0,
-      active: true,
-      retentionDays: 30,
-    },
-  });
 }
 
 main()

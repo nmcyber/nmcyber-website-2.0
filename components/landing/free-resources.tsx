@@ -1,17 +1,32 @@
+'use client';
+
 // website/components/company/free-resources.tsx
 
 import { Download } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import type { FeaturedResource } from '@/types/resources';
 import { FREE_RESOURCES } from '@/utils/constants';
 import { BlurElement } from '../shared/blur-element';
+import { DownloadDialog } from './download-dialog';
 
 export default function FreeResources() {
   const featured = (FREE_RESOURCES.resources.find(
     (r) => 'featured' in r && r.image !== undefined
   ) ?? FREE_RESOURCES.resources[0]) as FeaturedResource;
   const others = FREE_RESOURCES.resources.filter((r) => r !== featured);
+
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [selectedResource, setSelectedResource] = useState<{
+    title: string;
+    assetId: string;
+  } | null>(null);
+
+  const handleDownloadClick = (resource: { id: number; title: string }) => {
+    setSelectedResource({ title: resource.title, assetId: resource.id.toString() });
+    setDialogOpen(true);
+  };
 
   return (
     <section id="resources" className="relative py-20 px-6 z-20">
@@ -46,13 +61,11 @@ export default function FreeResources() {
 
               <div className="mt-5 flex items-center gap-3">
                 <Button
-                  asChild
+                  onClick={() => handleDownloadClick(featured)}
                   className="h-11 rounded-full px-8 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] hover:from-[var(--button-gradient-start-hover)] hover:to-[var(--button-gradient-end-hover)] text-white"
                 >
-                  <a href={featured.downloadUrl} download>
-                    <span className="mr-2">Download Now</span>
-                    <Download className="h-5 w-5" />
-                  </a>
+                  <span className="mr-2">Download Now</span>
+                  <Download className="h-5 w-5" />
                 </Button>
               </div>
             </div>
@@ -83,14 +96,12 @@ export default function FreeResources() {
               </div>
 
               <Button
-                asChild
+                onClick={() => handleDownloadClick(r)}
                 className="h-10 w-10 rounded-full bg-accent text-white hover:bg-accent/90 text-base md:text-xl font-[Poppins] font-semibold"
                 aria-label={`Download ${r.title}`}
                 title={`Download ${r.title}`}
               >
-                <a href={r.downloadUrl} download>
-                  <Download className="h-5 w-5 shrink-0" />
-                </a>
+                <Download className="h-5 w-5 shrink-0" />
               </Button>
             </div>
           ))}
@@ -137,6 +148,15 @@ export default function FreeResources() {
         blur="60px"
         className="right-[-15%] top-[2%]"
       />
+
+      {selectedResource && (
+        <DownloadDialog
+          open={dialogOpen}
+          onOpenChange={setDialogOpen}
+          resourceTitle={selectedResource.title}
+          assetId={selectedResource.assetId}
+        />
+      )}
     </section>
   );
 }

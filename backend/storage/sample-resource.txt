@@ -1,2 +1,0 @@
-This is a placeholder asset for testing the downloadable resource workflow.
-Replace this file with an actual asset before production deployment.
