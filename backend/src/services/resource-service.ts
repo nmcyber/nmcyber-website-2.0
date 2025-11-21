@@ -1,7 +1,7 @@
 // Resource request and download token management
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import type { Prisma } from '@prisma/client';
+import type { Prisma, PrismaClient } from '@prisma/client';
 import { ResourceRequestStatus } from '@prisma/client';
 import { config } from '../config';
 import { prisma } from '../lib/prisma';
@@ -11,6 +11,12 @@ import { BadRequestError, NotFoundError, RateLimitError } from '../utils/http-er
 import { createDownloadToken, hashToken, verifyDownloadToken } from '../utils/tokens';
 import { sendDownloadLinkEmail } from './email-service';
 import { getRejectionReason, shouldRejectEmail, validateEmail } from './email-validation-service';
+
+// Type for Prisma transaction client
+type PrismaTransaction = Omit<
+  PrismaClient,
+  '$connect' | '$disconnect' | '$on' | '$transaction' | '$use' | '$extends'
+>;
 
 const DEFAULT_METADATA_KEYS = ['userAgent', 'ip'] as const;
 
@@ -81,7 +87,7 @@ export async function createResourceRequest({
     Object.entries(trackedMetadata).filter(([, value]) => value !== undefined)
   ) as Prisma.JsonObject;
 
-  const { request, token, expiresAt } = await prisma.$transaction(async (tx) => {
+  const { request, token, expiresAt } = await prisma.$transaction(async (tx: PrismaTransaction) => {
     const createdRequest = await tx.resourceRequest.create({
       data: {
         assetId: asset.id,
@@ -199,7 +205,7 @@ export async function consumeDownloadToken(rawToken: string): Promise<ConsumeTok
 
   const shouldRevoke = tokenRecord.useCount + 1 >= tokenRecord.maxUses;
 
-  const { request } = await prisma.$transaction(async (tx) => {
+  const { request } = await prisma.$transaction(async (tx: PrismaTransaction) => {
     await tx.resourceToken.update({
       where: { id: tokenRecord.id },
       data: {
