@@ -3,8 +3,8 @@ name: Pull Request
 on: [pull_request]
 
 jobs:
-  lint:
-    name: ⚡ Biome
+  frontend-lint:
+    name: ⚡ Frontend Biome
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -21,8 +21,8 @@ jobs:
       - name: 🔬 Run Biome check
         run: bun run check
 
-  type-check:
-    name: ʦ TypeScript
+  frontend-type-check:
+    name: ʦ Frontend TypeScript
     runs-on: ubuntu-latest
     steps:
       - name: ⬇️ Checkout repo
@@ -37,4 +37,28 @@ jobs:
         run: bun install
 
       - name: 🔎 Type check
+        run: bun run type-check
+
+  backend-type-check:
+    name: ʦ Backend TypeScript
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🥟 Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📥 Install backend dependencies
+        run: bun install
+
+      - name: 🔮 Generate Prisma Client
+        run: bun run prisma:generate
+
+      - name: 🔎 Type check backend
         run: bun run type-check
