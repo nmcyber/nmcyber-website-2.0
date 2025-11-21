@@ -29,6 +29,9 @@ const envSchema = z.object({
   REQUEST_WINDOW_MINUTES: z.coerce.number().positive().default(60),
 
   // Application URLs
+  // IMPORTANT: Don't modify defaults! Set via environment variables in production.
+  // Development defaults: localhost:3000 and localhost:4000
+  // Production: Set APP_BASE_URL=https://www.nmcyber.com and API_BASE_URL=https://www.nmcyber.com
   APP_BASE_URL: z.string().url().default('http://localhost:3000'),
   API_BASE_URL: z.string().url().default('http://localhost:4000'),
 });

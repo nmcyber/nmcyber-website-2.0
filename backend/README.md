@@ -40,7 +40,6 @@ bun install
 ### 2. Setup Environment
 ```bash
 cp env.simple.template .env
-# Edit .env with your credentials
 ```
 
 ### 3. Generate Security Keys
@@ -126,10 +125,9 @@ API_BASE_URL=http://localhost:4000
 1. Sign up at https://resend.com (free)
 2. Go to API Keys → Create API Key
 3. Copy API key to `.env`
-4. For testing, use `EMAIL_FROM_ADDRESS=valid dev domain email address`
-5. For production, add valid production domain email address in Resend dashboard
+4. 
 
-### Email Validation (ZeroBounce) - Optional but Recommended
+### Email Validation (ZeroBounce) - It refreshes 100 free email validations each month; more validations can be bought at $45 dollars/5000 validations
 
 **Validation Flow:**
 1. **Format check** (instant, free) - basic email syntax validation
@@ -203,7 +201,7 @@ Create a resource request.
 ```json
 {
   "email": "user@example.com",
-  "consentVersion": "2024-10-terms",
+  "consentVersion": "2024-10-terms", // need to be updated with the actual one
   "metadata": { "utmCampaign": "spring" }
 }
 ```
@@ -252,12 +250,5 @@ Download the resource file.
 - Disposable/temporary emails are blocked
 - If using ZeroBounce, check API key is configured correctly
 
----
 
-
-
-
----
-## Optional Features
-- **Bot Protection:** Add `TURNSTILE_SECRET_KEY` to `.env` or widget
 

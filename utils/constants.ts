@@ -290,6 +290,10 @@ export const HERO_CONTENT = {
     secondary: 'Download Free Cybersecurity Checklist',
     primaryHref: '/contact-us',
     secondaryHref: '/resources',
+    downloadResource: {
+      id: 1,
+      title: 'Cybersecurity Checklist',
+    },
   },
   trustedBy: 'Trusted by 3,200+ partners',
   partners: [
@@ -426,7 +430,7 @@ export const FREE_RESOURCES = {
   title: 'Free Resources',
   resources: [
     {
-      id: 1,
+      id: 2,
       title: '10 Cyber Traps SMBs Fall For (and How to Prevent them)',
       description:
         'Engaging, scenario-based sessions are designed to make security second nature for your  team. Delivered live, virtually, or as eLearning.',
@@ -436,14 +440,14 @@ export const FREE_RESOURCES = {
       featured: true,
     },
     {
-      id: 2,
+      id: 3,
       title: 'Free Cybersecurity Culture Checklist',
       icon: '/images/pdf_icon.svg',
       type: 'Checklist',
       downloadUrl: '/resources/FreeCybersecurityCultureChecklist.pdf',
     },
     {
-      id: 3,
+      id: 4,
       title: 'Interactive Team Risk Quiz',
       icon: '/images/doc_icon.svg',
       type: 'Quiz',

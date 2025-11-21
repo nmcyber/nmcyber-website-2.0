@@ -1,9 +1,13 @@
+'use client';
+
 import { Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { COMPANY_INFO, HERO_CONTENT } from '@/utils/constants';
 import BlurElement from '../shared/blur-element';
+import { DownloadDialog } from './download-dialog';
 
 // Star rating component for cleaner code
 const STAR_COUNT = 5;
@@ -30,6 +34,12 @@ const partnerLogos = [
 ];
 
 export default function Hero() {
+  const [dialogOpen, setDialogOpen] = useState(false);
+
+  const handleDownloadClick = () => {
+    setDialogOpen(true);
+  };
+
   return (
     <section id="hero">
       <div className="mx-auto w-full max-w-7xl text-center space-y-6 sm:space-y-10">
@@ -66,13 +76,11 @@ export default function Hero() {
           <Button
             asChild
             variant="outline"
+            onClick={handleDownloadClick}
+            aria-label="Download the Cybersecurity Risk Checklist"
             className="h-auto w-full p-0 overflow-hidden border-none outline outline-accent bg-transparent rounded-5xl sm:w-fit hover:bg-black/50"
           >
-            <Link
-              href={HERO_CONTENT.cta.secondaryHref}
-              className="flex items-stretch transition-opacity duration-200 hover:opacity-95"
-              aria-label="Download the Cybersecurity Risk Checklist"
-            >
+            <div className="flex items-stretch transition-opacity duration-200 hover:opacity-95">
               {/* Text Section */}
               <span className="flex flex-1 items-center justify-center px-4 py-3 text-center backdrop-blur-[2px] rounded-l-5xl font-[poppins] font-semibold text-base text-accent  sm:flex-none sm:px-4 sm:text-nowrap sm:text-xl md:text-lg">
                 <span className="block sm:hidden">Get Checklist</span>
@@ -90,7 +98,7 @@ export default function Hero() {
                   className="w-6 h-6 sm:w-[30px] sm:h-[30px]"
                 />
               </div>
-            </Link>
+            </div>
           </Button>
         </div>
 
@@ -171,6 +179,14 @@ export default function Hero() {
         size="650px"
         blur="60px"
         className="right-0 top-[2%]"
+      />
+
+      {/* Download Dialog */}
+      <DownloadDialog
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
+        resourceTitle={HERO_CONTENT.cta.downloadResource.title}
+        assetId={HERO_CONTENT.cta.downloadResource.id.toString()}
       />
     </section>
   );

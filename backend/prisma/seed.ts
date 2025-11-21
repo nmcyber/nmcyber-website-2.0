@@ -6,6 +6,14 @@ async function main() {
   const assets = [
     {
       slug: '1',
+      title: 'Cybersecurity Checklist',
+      description:
+        'Essential cybersecurity checklist to help protect your business from common threats and vulnerabilities.',
+      storageKey: 'storage/CybersecurityChecklist.pdf',
+      mimeType: 'application/pdf',
+    },
+    {
+      slug: '2',
       title: '10 Cyber Traps SMBs Fall For and How to Prevent them',
       description:
         'Engaging, scenario-based sessions are designed to make security second nature for your team. Delivered live, virtually, or as eLearning.',
@@ -13,7 +21,7 @@ async function main() {
       mimeType: 'application/pdf',
     },
     {
-      slug: '2',
+      slug: '3',
       title: 'Free Cybersecurity Culture Checklist',
       description:
         'A comprehensive checklist to help build a strong cybersecurity culture in your organization.',
@@ -21,7 +29,7 @@ async function main() {
       mimeType: 'application/pdf',
     },
     {
-      slug: '3',
+      slug: '4',
       title: 'Interactive Team Risk Quiz',
       description:
         "Test your team's cybersecurity awareness with this interactive risk assessment quiz.",
