@@ -45,6 +45,9 @@ jobs:
     defaults:
       run:
         working-directory: ./backend
+    env:
+      # Dummy DATABASE_URL for Prisma schema validation (not used for actual DB connection)
+      DATABASE_URL: postgresql://user:password@localhost:5432/nmcyber_ci?schema=public
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
