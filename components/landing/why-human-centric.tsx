@@ -1,10 +1,18 @@
-import { Check } from 'lucide-react';
+'use client';
+import { Check, Play } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { WHY_HUMAN_CENTRIC } from '@/utils/constants';
 import { BlurElement } from '../shared/blur-element';
 
 export default function WhyHumanCentric() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  const handleVideoClick = () => {
+    setVideoLoaded(true);
+  };
+
   return (
     <section id="why-human-centric">
       <div className="mx-auto w-full max-w-7xl space-y-6 sm:space-y-14">
@@ -21,6 +29,7 @@ export default function WhyHumanCentric() {
                 {WHY_HUMAN_CENTRIC.explanation}
               </p>
             </div>
+            {/* Blur Elements */}
             <BlurElement
               position="top"
               positionValue="10%"
@@ -57,23 +66,45 @@ export default function WhyHumanCentric() {
         </div>
 
         {/* Bottom Row - 2 columns */}
-        <div className="grid lg:grid-cols-2 gap-10 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6">
           {/* Column 3: Video Thumbnail */}
           <div className="col-span-1 h-full">
-            <Card className="bg-transparent border-none shadow-none h-full hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
-              <div className="relative mx-auto h-full">
-                <div className="relative h-full group">
-                  {/* Handling videos in Nextjs */}
+            <Card className="bg-transparent border-none shadow-none">
+              <div className="relative aspect-video group hover:border-t-2 hover:border-r-2 hover:border-l-2 hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300 rounded-[20px] overflow-hidden">
+                {!videoLoaded ? (
+                  <>
+                    {/* Video Thumbnail Background */}
+                    {WHY_HUMAN_CENTRIC.video.thumbnail && (
+                      <Image
+                        src={WHY_HUMAN_CENTRIC.video.thumbnail}
+                        alt={WHY_HUMAN_CENTRIC.video.title}
+                        fill
+                        className="object-cover"
+                        priority
+                      />
+                    )}
+                    <button
+                      type="button"
+                      onClick={handleVideoClick}
+                      className="absolute inset-0 w-full h-full flex items-center justify-center bg-black/40 hover:bg-black/50 transition-colors cursor-pointer z-10"
+                      aria-label={WHY_HUMAN_CENTRIC.video.title}
+                    >
+                      <div className="relative flex items-center justify-center">
+                        <div className="absolute w-14 h-14 mb-5 bg-accent rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300" />
+                        <Play className="w-9 h-9 text-white fill-white relative z-10 ml-0.5 mb-4" />
+                      </div>
+                    </button>
+                  </>
+                ) : (
                   <iframe
-                    src={WHY_HUMAN_CENTRIC.video.url}
+                    src={`${WHY_HUMAN_CENTRIC.video.url}&autoplay=1`}
                     title={WHY_HUMAN_CENTRIC.video.title}
-                    allow="encrypted-media; picture-in-picture"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full rounded-[20px]"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="absolute inset-0 h-full w-full border-0"
                   />
-                  {/* <div className="absolute inset-0 rounded-[20px] pointer-events-none border-t-2 border-r-2 border-l-2 border-t-transparent border-r-transparent border-l-transparent group-hover:border-t-accent/50 group-hover:border-r-accent/50 group-hover:border-l-accent/50 transition-all duration-300" /> */}
-                </div>
+                )}
               </div>
             </Card>
           </div>
@@ -81,15 +112,15 @@ export default function WhyHumanCentric() {
           {/* Column 4: Benefits List */}
           <div className="col-span-1 h-full">
             <Card className="bg-transparent border-none shadow-none h-full">
-              <CardContent className="p-0 space-y-6 h-full">
-                <p className="mx-auto text-base font-normal leading-[2.16] text-muted-foreground sm:text-xl lg:max-w-5xl">
+              <CardContent className="p-0 space-y-3 h-full">
+                <p className="mx-auto text-base font-normal leading-[2] text-muted-foreground sm:text-xl lg:max-w-5xl">
                   {WHY_HUMAN_CENTRIC.intro}
                 </p>
-                <div className="space-y-6">
+                <div className="space-y-3">
                   {WHY_HUMAN_CENTRIC.benefits.map((benefit) => (
-                    <div key={benefit} className="flex items-start gap-4">
-                      <Check className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                      <p className="text-sm font-semibold text-white leading-[1.7] sm:text-[22px] lg:max-w-5xl">
+                    <div key={benefit} className="flex items-start gap-3">
+                      <Check className="w-4 h-4 text-accent mt-0.5 flex-shrink-0" />
+                      <p className="text-sm font-semibold text-white leading-[1] sm:text-base lg:max-w-5xl">
                         {benefit}
                       </p>
                     </div>

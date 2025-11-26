@@ -153,6 +153,7 @@ export const WHY_HUMAN_CENTRIC = {
   video: {
     url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
     title: 'Watch Our Team in Action',
+    thumbnail: '/images/team_video.webp',
   },
 };
 
@@ -541,6 +542,7 @@ export const ABOUT_US = {
   video: {
     title: 'Watch Our Team in Action',
     url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
+    thumbnail: '/images/about-us-skyscraper.png',
   },
 };
 
@@ -631,6 +633,7 @@ export const PRODUCTS_PAGE = {
     video: {
       title: 'Watch Our Products in Action',
       url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
+      thumbnail: '/images/product-video-thumbnail.png',
     },
   },
   cta: {

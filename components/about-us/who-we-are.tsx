@@ -1,9 +1,16 @@
 'use client';
+import { Play } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 import { ABOUT_US } from '@/utils/constants';
 import { BlurElement } from '../shared/blur-element';
 
 export default function WhoWeAre() {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  const handleVideoClick = () => {
+    setVideoLoaded(true);
+  };
   return (
     <section id="who-we-are">
       <div className="mx-auto w-full max-w-7xl text-center space-y-8 sm:space-y-12">
@@ -47,14 +54,40 @@ export default function WhoWeAre() {
         {/* Video */}
         <div className="relative mx-auto max-w-4xl pt-8 sm:pt-12">
           <div className="relative aspect-video group hover:border-t-2 hover:border-r-2 hover:border-l-2 hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300 rounded-lg overflow-hidden">
-            <iframe
-              src={ABOUT_US.video.url}
-              title="Watch Our Team in Action"
-              allow="encrypted-media; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-              className="absolute inset-0 h-full w-full"
-            />
+            {!videoLoaded ? (
+              <>
+                {/* Video Thumbnail Background */}
+                {ABOUT_US.video.thumbnail && (
+                  <Image
+                    src={ABOUT_US.video.thumbnail}
+                    alt={ABOUT_US.video.title}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                )}
+                <button
+                  type="button"
+                  onClick={handleVideoClick}
+                  className="absolute inset-0 w-full h-full flex items-center justify-center bg-black/40 hover:bg-black/50 transition-colors cursor-pointer z-10"
+                  aria-label={ABOUT_US.video.title}
+                >
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-14 h-14 bg-accent rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300" />
+                    <Play className="w-8 h-8 text-white fill-white relative z-10" />
+                  </div>
+                </button>
+              </>
+            ) : (
+              <iframe
+                src={`${ABOUT_US.video.url}&autoplay=1`}
+                title={ABOUT_US.video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0 h-full w-full"
+              />
+            )}
           </div>
         </div>
       </div>
