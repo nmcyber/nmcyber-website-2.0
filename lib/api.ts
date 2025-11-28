@@ -24,6 +24,25 @@ export type ResourceRequestError = {
   details?: unknown;
 };
 
+export type ContactRequestResponse = {
+  message: string;
+  contactId: string;
+  status: 'success';
+};
+
+export type ContactRequestError = {
+  error: string;
+  details?: unknown;
+};
+
+export type ContactFormData = {
+  name: string;
+  email: string;
+  company?: string;
+  employeeCount?: number | string; // Accept both for flexibility
+  message?: string;
+};
+
 export async function requestResource(
   assetId: string,
   email: string,
@@ -52,4 +71,24 @@ export async function requestResource(
   }
 
   return data as ResourceRequestResponse;
+}
+
+export async function submitContactForm(
+  formData: ContactFormData
+): Promise<ContactRequestResponse> {
+  const response = await fetch(`${API_BASE_URL}/api/contact`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error((data as ContactRequestError).error || 'Failed to submit contact form');
+  }
+
+  return data as ContactRequestResponse;
 }

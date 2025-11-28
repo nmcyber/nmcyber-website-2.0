@@ -44,7 +44,12 @@ cp env.simple.template .env
 
 ### 3. Generate Security Keys
 ```bash
-bun run generate-keys
+# Generate DOWNLOAD_TOKEN_SECRET (64 hex characters)
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
+# Generate EMAIL_ENCRYPTION_KEY (64 hex characters)
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+
 # Copy the generated keys to .env
 ```
 
@@ -81,8 +86,9 @@ Server runs on `http://localhost:4000`
 # Database
 DATABASE_URL=postgresql://dbuser:password@localhost:5432/dbname
 
-# Security (generate with: bun run generate-keys)
+# Security (generate with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")
 DOWNLOAD_TOKEN_SECRET=your-64-character-hex-key-here
+EMAIL_ENCRYPTION_KEY=your-64-character-hex-key-here
 
 # Email Service - Resend
 RESEND_API_KEY=re_your_api_key_here

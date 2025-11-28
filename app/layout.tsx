@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { GeistSans } from 'geist/font/sans';
 import type { Viewport } from 'next';
 import { Plus_Jakarta_Sans, Poppins } from 'next/font/google';
+import { Toaster } from 'sonner';
 import './globals.css';
 import Footer from '@/components/shared/footer';
 import NavBar from '@/components/shared/navbar';
@@ -55,6 +56,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <Footer />
         <Analytics />
+        <div className="fixed inset-0 pointer-events-none z-[100]">
+          <Toaster position="bottom-right" richColors />
+        </div>
       </body>
     </html>
   );

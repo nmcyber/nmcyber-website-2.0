@@ -11,6 +11,7 @@ const envSchema = z.object({
 
   // Security & Encryption
   DOWNLOAD_TOKEN_SECRET: z.string().min(32, 'DOWNLOAD_TOKEN_SECRET must be at least 32 characters'),
+  EMAIL_ENCRYPTION_KEY: z.string().min(32, 'EMAIL_ENCRYPTION_KEY must be at least 32 characters'),
 
   // Email Service - Resend (Required)
   RESEND_API_KEY: z.string().min(1, 'RESEND_API_KEY is required'),

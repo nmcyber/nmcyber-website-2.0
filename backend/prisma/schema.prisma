@@ -35,7 +35,7 @@ model ResourceRequest {
   id              String                  @id @default(uuid())
   assetId         String
   emailHash       String
-  emailEncrypted  Bytes
+  emailEncrypted  Bytes?  // Encrypted email address (nullable for old records)
   consentVersion  String
   requestIp       String?
   status          ResourceRequestStatus   @default(PENDING_VERIFICATION)
@@ -82,4 +82,23 @@ enum ResourceRequestStatus {
   REJECTED_INVALID
   REJECTED_RATE_LIMIT
   FULFILLED
+}
+
+model ContactRequest {
+  id          String   @id @default(uuid())
+  name        String
+  emailHash   String
+  emailEncrypted Bytes?  // Encrypted email address (nullable for migration)
+  company     String?
+  employeeCount Int?   // Number of employees
+  message     String?
+  requestIp   String?
+  userAgent   String?
+  metadata    Json?
+
+  createdAt   DateTime @default(now()) @db.Timestamptz
+  updatedAt   DateTime @updatedAt @db.Timestamptz
+
+  @@index([emailHash])
+  @@index([createdAt])
 }

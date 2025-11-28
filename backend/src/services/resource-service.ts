@@ -5,7 +5,7 @@ import type { Prisma, PrismaClient } from '@prisma/client';
 import { ResourceRequestStatus } from '@prisma/client';
 import { config } from '../config';
 import { prisma } from '../lib/prisma';
-import { hashEmail } from '../utils/crypto';
+import { encryptEmail, hashEmail } from '../utils/crypto';
 import { addMinutesUTC, getCurrentUTCDate, isBeforeUTC } from '../utils/dates';
 import { BadRequestError, NotFoundError, RateLimitError } from '../utils/http-errors';
 import { createDownloadToken, hashToken, verifyDownloadToken } from '../utils/tokens';
@@ -87,12 +87,15 @@ export async function createResourceRequest({
     Object.entries(trackedMetadata).filter(([, value]) => value !== undefined)
   ) as Prisma.JsonObject;
 
+  // Encrypt email before storing
+  const emailEncrypted = Buffer.from(encryptEmail(email, config.EMAIL_ENCRYPTION_KEY));
+
   const { request, token, expiresAt } = await prisma.$transaction(async (tx: PrismaTransaction) => {
     const createdRequest = await tx.resourceRequest.create({
       data: {
         assetId: asset.id,
         emailHash,
-        emailEncrypted: new Uint8Array(0),
+        emailEncrypted,
         consentVersion,
         requestIp: requestIp ?? null,
         status: ResourceRequestStatus.PENDING_VERIFICATION,

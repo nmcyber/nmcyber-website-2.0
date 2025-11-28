@@ -1,24 +1,71 @@
+'use client';
+
 import { Mail, Phone, Search } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
+import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { submitContactForm } from '@/lib/api';
 import { CONTACT_FORM } from '@/utils/constants';
 import BlurElement from '../shared/blur-element';
 
 export default function ContactForm() {
-  // TODO: Create a form, recommend using shadcn forms
-  // TODO: Validate the form inputs using zod and full typescript types
-  // TODO: Create submit function that sends the email address only --> Console.log to see the output
-  // https://ui.shadcn.com/docs/components/field#form
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    employeeCount: '',
+    message: '',
+  });
 
-  // TODO: Write a Server Actions - Nextjs15 --> Docs -->
-  // https://nextjs.org/docs/14/app/building-your-application/data-fetching/server-actions-and-mutations
+  const handleEmployeeCountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Only allow numbers
+    if (value === '' || /^\d+$/.test(value)) {
+      setFormData((prev) => ({ ...prev, employeeCount: value }));
+    }
+  };
 
-  // FOR LATER AFTER FORM IS BUILT
-  // TODO: Recieve a reponse from the the Backend service and implement success and error handling
-  // TODO: Postgress + Drizzle ORM to store the contact requests
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await submitContactForm({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company || undefined,
+        employeeCount: formData.employeeCount ? parseInt(formData.employeeCount, 10) : undefined,
+        message: formData.message || undefined,
+      });
+
+      toast.success("Thank you! We've received your message and will get back to you soon.");
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        employeeCount: '',
+        message: '',
+      });
+    } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Failed to submit form. Please try again.';
+      toast.error(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
   return (
     <section id="contact">
@@ -80,15 +127,21 @@ export default function ContactForm() {
 
               {/* Right Section - Contact Form */}
               <div className="bg-slate-800/30 p-12 flex flex-col justify-center ">
-                <form className="space-y-6 outline outline-gray-400/30 rounded-5xl p-6">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6 outline outline-gray-400/30 rounded-5xl p-6"
+                >
                   {/* Name Field */}
                   <div className="space-y-2">
                     <Input
                       id="name"
                       type="text"
                       placeholder="Name"
+                      value={formData.name}
+                      onChange={handleChange}
                       className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -98,8 +151,11 @@ export default function ContactForm() {
                       id="email"
                       type="email"
                       placeholder="Email address"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -110,8 +166,11 @@ export default function ContactForm() {
                         id="company"
                         type="text"
                         placeholder="Company"
+                        value={formData.company}
+                        onChange={handleChange}
                         className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12 pr-12"
                         required
+                        disabled={isSubmitting}
                       />
                       <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/50" />
                     </div>
@@ -120,10 +179,14 @@ export default function ContactForm() {
                   {/* Number of Employees */}
                   <div className="space-y-2">
                     <Input
-                      id="employees"
-                      type="text"
+                      id="employeeCount"
+                      type="number"
                       placeholder="Number of Employees"
+                      value={formData.employeeCount}
+                      onChange={handleEmployeeCountChange}
+                      min="1"
                       className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
+                      disabled={isSubmitting}
                     />
                   </div>
 
@@ -133,17 +196,21 @@ export default function ContactForm() {
                       id="message"
                       placeholder="Enter your message"
                       rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
                       className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 resize-none rounded-lg"
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   {/* Submit Button using hero style */}
                   <Button
                     type="submit"
-                    className="h-auto w-full rounded-5xl px-6 py-5 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] sm:px-10"
+                    disabled={isSubmitting}
+                    className="h-auto w-full rounded-5xl px-6 py-5 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] sm:px-10 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     <span className="font-[Poppins] text-lg font- leading-tight text-white transition-all duration-300 hover:opacity-95 hover:shadow-xl sm:text-xl sm:leading-[14px]">
-                      {CONTACT_FORM.formCta}
+                      {isSubmitting ? 'Submitting...' : CONTACT_FORM.formCta}
                     </span>
                   </Button>
                 </form>

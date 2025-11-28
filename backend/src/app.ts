@@ -5,6 +5,7 @@ import express, { type Request, type Response } from 'express';
 import morgan from 'morgan';
 import { config } from './config';
 import { errorHandler } from './middleware/error-handler';
+import { contactRouter } from './routes/contact-routes';
 import { resourceRouter } from './routes/resource-routes';
 
 const app = express();
@@ -24,6 +25,7 @@ app.get('/healthz', (_req: Request, res: Response) => {
 });
 
 app.use('/api', resourceRouter);
+app.use('/api', contactRouter);
 
 app.use((_req: Request, res: Response) => {
   res.status(404).json({ error: 'Not found' });

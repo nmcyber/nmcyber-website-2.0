@@ -50,7 +50,7 @@ async function setTimezone() {
       `SELECT setting FROM pg_settings WHERE name = 'timezone' AND context = 'database'`
     );
 
-    if (result.length > 0) {
+    if (result.length > 0 && result[0]) {
       console.log(`Verified: Database timezone is set to: ${result[0].setting}`);
     }
 
