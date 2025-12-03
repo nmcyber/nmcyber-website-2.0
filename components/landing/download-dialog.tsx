@@ -116,7 +116,7 @@ export function DownloadDialog({
                 </div>
                 <p id="email-help" className="text-xs text-muted-foreground">
                   By submitting, you agree to receive the download link via email. We respect your
-                  privacy and won't spam you.
+                  privacy and will not spam you.
                 </p>
               </div>
               <DialogFooter>
@@ -147,7 +147,7 @@ export function DownloadDialog({
                 Check Your Email
               </DialogTitle>
               <DialogDescription className="font-[Poppins]">
-                We've sent a download link to <strong>{email}</strong>
+                We have sent a download link to <strong>{email}</strong>
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
