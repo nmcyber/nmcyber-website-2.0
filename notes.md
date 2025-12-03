@@ -1,9 +1,9 @@
 UI / UX refinement
 
-- Navigation dropdowns with subtle glassmorphism
-- Active navbar item underline to be fully straight ( no rounded edges )
-- Activate the dots on hover or when active ( Explore a unique approach to the Navbar UI )
-- Video handling on Nextjs
+- ✅ Navigation dropdowns with subtle glassmorphism (Enhanced: backdrop-blur-xl, better transparency, gradient overlay)
+- ✅ Active navbar item underline to be fully straight ( no rounded edges ) (Implemented: straight border-bottom with no border-radius)
+- ✅ Activate the dots on hover or when active ( Explore a unique approach to the Navbar UI ) (Implemented: dots only appear on hover/active states with smooth transitions)
+- ✅Video handling on Nextjs(Added thumbnail and aspect ratio)
 
 -->  <div className="relative h-full group">
                   {/* Handling videos in Nextjs */}
@@ -17,10 +17,10 @@ UI / UX refinement
                   {/* <div className="absolute inset-0 rounded-[20px] pointer-events-none border-t-2 border-r-2 border-l-2 border-t-transparent border-r-transparent border-l-transparent group-hover:border-t-accent/50 group-hover:border-r-accent/50 group-hover:border-l-accent/50 transition-all duration-300" /> */}
                 </div>
 
--- Carousel navigation
+✅Carousel navigation
 
 
-Downloadable resources user-journey
+✅Downloadable resources user-journey
 
 - Sent an email to the user with the links and in turn collect their email address.
 - Put a download time limit

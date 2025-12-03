@@ -1,120 +1,150 @@
-# Download Resource Service
+# Download Resource Service (Backend)
 
-Express + TypeScript service for gated resource delivery with email-based download links.
+Express + TypeScript service that sends gated resources (PDFs, etc.) via email with secure, time‑limited links.
 
-## Features
+---
 
-- Secure download tokens (24h expiry, single-use)
-- Automatic email sending via Resend
-- Rate limiting (5 requests/hour per email)
-- PostgreSQL database with Prisma ORM
-- Email tracking and request management
-- UTC timezone for all timestamps (stored as TIMESTAMPTZ in PostgreSQL)
+## What this service does
+
+- **Gated downloads**: user submits an email → receives a one‑time download link.
+- **Security**:
+  - Download tokens: **single‑use**, **24h expiry** (configurable).
+  - Emails are **encrypted + hashed** before storage.
+  - **Rate limiting**: default 5 requests/hour per email.
+- **Integrations**:
+  - **PostgreSQL + Prisma** for persistence.
+  - **Resend** for transactional email.
+  - **ZeroBounce** email validation checks.
 
 ---
 
 ## Project Structure
 
-```
-backend/
-├── src/
-│   ├── controllers/    # Request handlers
-│   ├── services/       # Business logic
-│   ├── routes/         # API routes
-│   ├── utils/          # Helpers
-│   └── config.ts       # Environment config
-├── prisma/
-│   ├── schema.prisma   # Database schema
-│   └── seed.ts         # Sample data
-├── storage/            # Local file storage
-└── .env                # Environment variables
-```
-
-## Quick Start
-
-### 1. Install Dependencies
-```bash
-bun install
-```
-
-### 2. Setup Environment
-```bash
-cp env.simple.template .env
-```
-
-### 3. Generate Security Keys
-```bash
-# Generate DOWNLOAD_TOKEN_SECRET (64 hex characters)
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-
-# Generate EMAIL_ENCRYPTION_KEY (64 hex characters)
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-
-# Copy the generated keys to .env
-```
-
-### 4. Setup Database
-```bash
-# Install PostgreSQL locally (https://www.postgresql.org/download/)
-# Create database: CREATE DATABASE nmcyber;
-
-# Generate Prisma client
-bun run prisma:generate
-
-# Create tables
-bun run prisma:push
-
-# Set PostgreSQL timezone to UTC (recommended)
-# Run in PostgreSQL: ALTER DATABASE nmcyber SET timezone = 'UTC';
-
-# Seed sample data
-bun run prisma:seed
-```
-
-### 5. Start Server
-```bash
-bun run dev
-```
-
-Server runs on `http://localhost:4000`
+- Tech stack: **Node (Bun)**, **Express**, **TypeScript**, **Prisma**, **PostgreSQL**.
+- Local URL: **`http://localhost:4000`**.
+- Frontend calls this service via **`/api/resources/*`** and **`/api/contact/*`**.
 
 ---
 
-## Required Environment Variables
+## Project structure (high level)
+
+```text
+backend/
+├── src/
+│   ├── app.ts          # Express app + middleware
+│   ├── server.ts       # HTTP server bootstrap
+│   ├── controllers/    # HTTP handlers (thin)
+│   ├── services/       # Business logic (tokens, email, validation)
+│   ├── routes/         # Route definitions
+│   ├── utils/          # Shared helpers (crypto, dates, errors)
+│   └── config.ts       # Env parsing + typed config
+├── prisma/
+│   ├── schema.prisma   # DB schema (Resource*, ContactRequest)
+│   └── seed.ts         # Sample data
+├── storage/            # Resource files for local dev
+└── .env                # Environment variables (not committed)
+```
+
+---
+
+## Quick start (local development)
+
+From `website/backend`:
+
+```bash
+# 1. Install dependencies
+bun install
+
+# 2. Create .env from template
+cp env.simple.template .env
+
+# 3. Generate secrets (once) and paste into .env
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"  # DOWNLOAD_TOKEN_SECRET
+node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"  # EMAIL_ENCRYPTION_KEY
+
+# 4. Prepare PostgreSQL (once)
+# - Install PostgreSQL
+# - Create DB:  CREATE DATABASE nmcyber;
+
+# 5. Prisma setup (once, or when schema changes)
+bun run prisma:generate
+bun run prisma:push
+bun run prisma:seed   # optional sample data
+
+# 6. Run the dev server
+bun run dev
+```
+
+Server runs on `http://localhost:4000`.
+
+---
+
+## Environment variables (minimum)
+
+Put these in `backend/.env`:
 
 ```env
 # Database
 DATABASE_URL=postgresql://dbuser:password@localhost:5432/dbname
 
-# Security (generate with: node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")
-DOWNLOAD_TOKEN_SECRET=your-64-character-hex-key-here
-EMAIL_ENCRYPTION_KEY=your-64-character-hex-key-here
+# Security (64‑character hex strings)
+DOWNLOAD_TOKEN_SECRET=...
+EMAIL_ENCRYPTION_KEY=...
 
-# Email Service - Resend
-RESEND_API_KEY=re_your_api_key_here
-EMAIL_FROM_ADDRESS=valid_domain_email_address
+# Email (Resend)
+RESEND_API_KEY=re_...
+EMAIL_FROM_ADDRESS=hello@yourdomain.com
 EMAIL_FROM_NAME=NMCyber
 
-# Email Validation - ZeroBounce (Optional but recommended)
+# Optional: ZeroBounce email validation
 ZEROBOUNCE_API_KEY=your_zerobounce_api_key_here
 
-# Application URLs
-APP_BASE_URL=http://localhost:3000
-API_BASE_URL=http://localhost:4000
+# URLs
+APP_BASE_URL=http://localhost:3000   # Frontend
+API_BASE_URL=http://localhost:4000   # This service
 ```
 
-**Get Resend API Key:** https://resend.com/api-keys
+Notes:
+- Without `ZEROBOUNCE_API_KEY`, the service still works using built‑in format + disposable checks only.
+- `APP_BASE_URL` / `API_BASE_URL` must be set correctly in production.
 
 ---
 
-## Setup Details
+## Core flows (high level)
 
-### Database (PostgreSQL)
+### 1. Resource download flow
 
-1. **Install PostgreSQL:** https://www.postgresql.org/download/windows/
-   - Select: PostgreSQL Server, pgAdmin 4, Command Line Tools
-   - Port: `5432` (default)
-   - Set password for `postgres` user
+1. Frontend calls **`POST /api/resources/:assetId/request`** with:
+   - `email`
+   - `consentVersion`
+   - optional `metadata` (e.g. UTM tags).
+2. Service:
+   - Validates + de‑duplicates email (hash).
+   - Applies **rate limiting**.
+   - Encrypts email and stores `ResourceRequest`.
+   - Generates a **signed, single‑use token** and stores `ResourceToken`.
+   - Sends an email via **Resend** with a link:
+     - `GET /api/resources/token/:tokenId/consume`.
+3. When the user clicks the link:
+   - Token is validated (expiry, single‑use).
+   - Resource file is streamed from `storage/`.
+
+### 2. Contact form flow
+
+1. Frontend calls **`POST /api/contact`** with:
+   - `name`
+   - `email`
+   - optional `company`
+   - optional `employeeCount`
+   - optional `message`
+   - optional `metadata` (e.g. page, UTM tags).
+2. Service:
+   - Validates payload with **Zod**.
+   - Applies **rate limiting** by email hash.
+   - Encrypts + hashes email and stores a `ContactRequest` row.
+   - Sends:
+     - Notification email to NMCyber.
+     - Confirmation email to the user.
 
 2. **Create Database:**
    - Open pgAdmin 4
@@ -197,64 +227,102 @@ Invoke-WebRequest -Uri "http://localhost:4000/api/resources/token/DEV_TOKEN_HERE
 
 ---
 
-## API Endpoints
+## Key API endpoints (for quick reference)
 
-### `POST /api/resources/:assetId/request`
+- **`POST /api/resources/:assetId/request`**
+  - Body:
+    ```json
+    {
+      "email": "user@example.com",
+      "consentVersion": "2024-10-terms",
+      "metadata": { "utmCampaign": "spring" }
+    }
+    ```
+  - Response `202`:
+    ```json
+    {
+      "message": "Request accepted",
+      "requestId": "uuid",
+      "status": "READY_TO_SEND",
+      "devToken": "jwt-token" // only in development
+    }
+    ```
 
-Create a resource request.
+- **`GET /api/resources/token/:tokenId/consume`**
+  - Validates token, streams the file.
 
-**Request:**
-```json
-{
-  "email": "user@example.com",
-  "consentVersion": "2024-10-terms", // need to be updated with the actual one
-  "metadata": { "utmCampaign": "spring" }
-}
-```
+- **`POST /api/contact`**
+  - Body:
+    ```json
+    {
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "company": "Acme Co",
+      "employeeCount": 42,
+      "message": "We'd like to learn more about your services.",
+      "metadata": {
+        "source": "landing-contact-form",
+        "utmCampaign": "spring"
+      }
+    }
+    ```
+  - Response `201`:
+    ```json
+    {
+      "message": "Contact request submitted successfully",
+      "contactId": "uuid",
+      "status": "success"
+    }
+    ```
 
-**Response (202):**
-```json
-{
-  "message": "Request accepted",
-  "requestId": "uuid",
-  "status": "READY_TO_SEND",
-  "devToken": "jwt-token"  // Only in development
-}
-```
-
-### `GET /api/resources/token/:tokenId/consume`
-
-Download the resource file.
-
-**Response:** File stream with `Content-Disposition: attachment`
+Other routes are defined in `src/routes/*` and implemented in `src/controllers/*`.
 
 ---
 
-## Troubleshooting
+## Minimal testing recipes
 
-**"Database connection failed"**
-- Verify PostgreSQL is running (Windows Services)
-- Check `DATABASE_URL` in `.env`
-- Ensure database exists
+With server running on `http://localhost:4000`:
 
-**"Email not received"**
-- Check spam folder
-- Verify `RESEND_API_KEY` is correct
-- Check Resend dashboard for delivery logs
+```powershell
+# Create a resource request (PowerShell)
+Invoke-RestMethod -Uri "http://localhost:4000/api/resources/sample-resource/request" `
+  -Method POST `
+  -ContentType "application/json" `
+  -Body '{"email":"test@example.com","consentVersion":"2024-10-terms"}'
+```
 
-**"Request limit reached"**
-- Rate limit: 5 requests per email per hour
-- Wait 60 minutes or use a different email
+Then:
+- Check inbox for the email.
+- Click the download link (or use `devToken` from the JSON response in dev).
 
-**"Token already used"**
-- Tokens are single-use only
-- Make a new request to get a new token
+Expected:
+- HTTP `202` on request.
+- Email arrives with download link.
+- File downloads once; subsequent uses of the same token are rejected.
 
-**"Invalid email address" or "Disposable email addresses are not allowed"**
-- Email validation rejected the address
-- Check if email format is correct
-- Disposable/temporary emails are blocked
-- If using ZeroBounce, check API key is configured correctly
+---
 
+## Common issues (quick checklist)
 
+- **DB connection errors**
+  - Is PostgreSQL running?
+  - Is `DATABASE_URL` correct?
+  - Has `prisma:push` been run?
 
+- **No emails**
+  - Is `RESEND_API_KEY` valid?
+  - Is `EMAIL_FROM_ADDRESS` a verified sender/domain in Resend?
+  - Check Resend dashboard/logs.
+
+- **Too many requests**
+  - Rate limit: default **5 requests per email per hour**.
+  - Either wait, or adjust `MAX_REQUESTS_PER_WINDOW` / `REQUEST_WINDOW_MINUTES` in config.
+
+- **Email rejected as invalid / disposable**
+  - Check format and domain.
+  - If using ZeroBounce, confirm `ZEROBOUNCE_API_KEY` is set and valid.
+
+For deeper changes (new models, endpoints, or providers), start from:
+- `prisma/schema.prisma`
+- `src/services/*`
+- `src/routes/*` and `src/controllers/*`

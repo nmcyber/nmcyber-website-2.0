@@ -56,35 +56,51 @@ export default function NavBar() {
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
-                  className={`nav-link transition-all px-3 md:px-2 lg:px-3 py-2 rounded flex items-center gap-1 ${
+                  className={`nav-link transition-all px-3 md:px-2 lg:px-3 py-2 rounded flex items-center gap-1 relative ${
                     pathname === item.href
-                      ? 'font-[Poppins] text-sm md:text-[13px] lg:text-base xl:text-lg font-semibold text-white shadow-[0px_2px_0px_0px_var(--color-accent)] bg-gradient-to-b from-transparent to-white/14 w-fit h-9 flex items-center justify-center'
-                      : 'font-[Poppins] text-xs md:text-[13px] lg:text-sm xl:text-base font-normal text-muted-foreground hover:text-white hover:shadow-[0px_2px_0px_0px_var(--color-accent)]'
+                      ? 'font-[Poppins] text-sm md:text-[13px] lg:text-base xl:text-lg font-semibold text-white bg-gradient-to-b from-transparent to-white/14 w-fit h-9 flex items-center justify-center'
+                      : 'font-[Poppins] text-xs md:text-[13px] lg:text-sm xl:text-base font-normal text-muted-foreground hover:text-white'
                   }`}
                 >
                   {item.name}
+                  {/* Straight underline - no rounded edges */}
+                  <span
+                    className={`absolute bottom-0 left-0 right-0 h-[2px] bg-accent transition-opacity ${
+                      pathname === item.href ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                    }`}
+                  />
                 </Link>
 
-                {/* Desktop Dropdown */}
+                {/* Desktop Dropdown - Enhanced glassmorphism */}
                 {hasSubmenus && (
-                  <div className="absolute top-full left-0 mt-2 min-w-48 w-max max-w-80 bg-background/95 backdrop-blur-md border border-gray-200/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                    <div className="py-2">
-                      {item.submenus.map((submenu) => (
-                        <Link
-                          key={submenu.href}
-                          href={submenu.href}
-                          className={`block px-4 py-2 text-sm transition-colors ${
-                            pathname === submenu.href
-                              ? 'text-white bg-accent/20 border-l-2 border-accent font-[Poppins] font-semibold'
-                              : 'text-white hover:text-white hover:bg-white/10 font-[Poppins] font-medium'
-                          }`}
-                        >
-                          <span className="flex items-start gap-2">
-                            <span className="w-1.5 h-1.5 bg-accent rounded-full opacity-80 mt-1.5 flex-shrink-0"></span>
-                            <span className="text-sm leading-relaxed">{submenu.name}</span>
-                          </span>
-                        </Link>
-                      ))}
+                  <div className="absolute top-full left-0 mt-2 min-w-48 w-max max-w-80 bg-background/80 backdrop-blur-xl border border-white/20 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 before:absolute before:inset-0 before:bg-gradient-to-b before:from-white/5 before:to-transparent before:rounded-lg before:pointer-events-none">
+                    <div className="py-2 relative z-10">
+                      {item.submenus.map((submenu) => {
+                        const isActive = pathname === submenu.href;
+                        return (
+                          <Link
+                            key={submenu.href}
+                            href={submenu.href}
+                            className={`group/submenu block px-4 py-2 text-sm transition-all ${
+                              isActive
+                                ? 'text-white bg-accent/20 border-l-2 border-accent font-[Poppins] font-semibold'
+                                : 'text-white hover:text-white hover:bg-white/10 font-[Poppins] font-medium'
+                            }`}
+                          >
+                            <span className="flex items-start gap-2">
+                              {/* Dot only visible on hover */}
+                              <span
+                                className={`w-1.5 h-1.5 bg-accent rounded-full mt-1.5 flex-shrink-0 transition-opacity duration-200 ${
+                                  isActive
+                                    ? 'opacity-100'
+                                    : 'opacity-0 group-hover/submenu:opacity-100'
+                                }`}
+                              />
+                              <span className="text-sm leading-relaxed">{submenu.name}</span>
+                            </span>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
@@ -212,23 +228,33 @@ export default function NavBar() {
                       >
                         {hasSubmenus && (
                           <div className="py-2">
-                            {item.submenus.map((submenu) => (
-                              <Link
-                                key={submenu.href}
-                                href={submenu.href}
-                                className={`block px-4 py-2 text-xs transition-colors ${
-                                  pathname === submenu.href
-                                    ? 'text-white bg-accent/20 border-l-2 border-accent font-[Poppins] font-semibold'
-                                    : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-normal'
-                                }`}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                              >
-                                <span className="flex items-start gap-2">
-                                  <span className="w-1.5 h-1.5 bg-accent rounded-full opacity-80 mt-1.5 flex-shrink-0"></span>
-                                  <span className="text-sm leading-relaxed">{submenu.name}</span>
-                                </span>
-                              </Link>
-                            ))}
+                            {item.submenus.map((submenu) => {
+                              const isActive = pathname === submenu.href;
+                              return (
+                                <Link
+                                  key={submenu.href}
+                                  href={submenu.href}
+                                  className={`group/submenu block px-4 py-2 text-xs transition-all ${
+                                    isActive
+                                      ? 'text-white bg-accent/20 border-l-2 border-accent font-[Poppins] font-semibold'
+                                      : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-normal'
+                                  }`}
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  <span className="flex items-start gap-2">
+                                    {/* Dot only visible on hover or when active */}
+                                    <span
+                                      className={`w-1.5 h-1.5 bg-accent rounded-full mt-1.5 flex-shrink-0 transition-opacity duration-200 ${
+                                        isActive
+                                          ? 'opacity-100'
+                                          : 'opacity-0 group-hover/submenu:opacity-100'
+                                      }`}
+                                    />
+                                    <span className="text-sm leading-relaxed">{submenu.name}</span>
+                                  </span>
+                                </Link>
+                              );
+                            })}
                           </div>
                         )}
                       </div>
