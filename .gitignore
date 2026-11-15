@@ -45,3 +45,6 @@ next-env.d.ts
 # agent tooling, local only, never tracked
 .claude/
 CLAUDE.md
+
+# local prep/planning docs, never tracked - personal working notes, not for the repo
+work/
