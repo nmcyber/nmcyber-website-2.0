@@ -10,7 +10,7 @@ import { BlurElement } from '../shared/blur-element';
 
 export default function WhyNMCyber() {
   return (
-    <section>
+    <section id="why-nmcyber">
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
         <div className="text-left mb-4">

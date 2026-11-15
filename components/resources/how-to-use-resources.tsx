@@ -7,7 +7,7 @@ export default function HowToUseResources() {
   const { howToUseResources } = RESOURCES_PAGE;
 
   return (
-    <section>
+    <section id="how-to-use">
       <div className="mx-auto w-full space-y-8 sm:space-y-12">
         {/* Content Layout - Text Left, Icon Right */}
         <div className="flex items-cente max-w-5xl mx-auto">

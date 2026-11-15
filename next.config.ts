@@ -11,28 +11,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'seo-heist.s3.amazonaws.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'github.com',
         port: '',
         pathname: '/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'ansubkhan.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'utfs.io',
-        port: '',
-        pathname: '/**',
-      },
+      // Add other image domains as needed
     ],
   },
   allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev'],

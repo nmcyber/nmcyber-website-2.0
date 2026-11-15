@@ -6,7 +6,7 @@ export default function ResourcesHero() {
   const { resourcesHero } = RESOURCES_PAGE;
 
   return (
-    <section>
+    <section id="hero">
       <div className="mx-auto w-full text-center space-y-8 sm:space-y-12">
         {/* Header Section */}
         <div className="space-y-6 sm:space-y-8">

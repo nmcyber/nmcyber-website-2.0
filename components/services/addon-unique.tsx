@@ -8,7 +8,7 @@ export default function AddOnUnique() {
   const { addonUnique } = SERVICES_PAGE;
 
   return (
-    <section className="relative py-12 sm:py-20">
+    <section id="addons" className="relative py-12 sm:py-20">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6">
         {/* Header */}
         <div className="mb-12">

@@ -21,6 +21,7 @@
   --color-border: hsl(240 3.7% 15.9%);
   --color-input: hsl(240 3.7% 15.9%);
   --color-ring: hsl(240 4.9% 83.9%);
+  
 
   /* Custom NMCyber Figma Design Color Palette */
   --color-additional-blury-blue: hsla(214, 100%, 9%, 0.51);
@@ -171,5 +172,7 @@
   .gradient-bg1 {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 2.69%, rgba(255, 255, 255, 0) 102.69%);
   }
-
+  .gradient-bg2 {
+    background: linear-gradient(180deg, rgba(55, 155, 244, 0.13) 0%, rgba(55, 155, 244, 0) 100%);  
+  }
 }

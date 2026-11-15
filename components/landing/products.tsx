@@ -7,7 +7,7 @@ import { BlurElement } from '../shared/blur-element';
 
 export default function Products() {
   return (
-    <section>
+    <section id="products">
       <div className="max-w-7xl mx-auto w-full px-4">
         {/* Section Label */}
         <div className="text-center mb-4">
@@ -103,7 +103,7 @@ export default function Products() {
         src={PRODUCTS.background}
         alt="Background"
         className="hidden md:block absolute left-0 top-3/4 -translate-y-1/2 w-1/3 h-auto opacity-30"
-        priority
+        loading="lazy"
         width={400}
         height={300}
         sizes="(max-width: 768px) 50vw, 33vw"

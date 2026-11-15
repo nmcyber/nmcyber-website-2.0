@@ -6,7 +6,7 @@ import SpotlightCard from '../ui/SpotlightCard';
 
 export default function Testimonials() {
   return (
-    <section className="outline-0 outline-amber-500">
+    <section id="testimonials" className="outline-0 outline-amber-500">
       <div className="max-w-7xl mx-auto outline-0 outline-lime-500">
         {/* Header */}
         <div className="text-center mb-16">
@@ -82,8 +82,8 @@ export default function Testimonials() {
           objectFit: 'contain',
           objectPosition: 'center bottom',
         }}
-        quality={90}
-        priority
+        quality={75}
+        loading="lazy"
         className="absolute right-0 -z-10 translate-y-10 opacity-40"
       />
 
@@ -95,6 +95,7 @@ export default function Testimonials() {
           width={1300}
           height={700}
           style={{ objectFit: 'contain' }}
+          loading="lazy"
         />
       </div>
 

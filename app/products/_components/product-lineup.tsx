@@ -4,7 +4,7 @@ import { PRODUCTS_PAGE } from '@/utils/constants';
 
 export default function ProductLineup() {
   return (
-    <section className="relative">
+    <section id="product-lineup" className="relative">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <div className="text-center mb-12 sm:mb-16">
