@@ -34,7 +34,7 @@ The `<form>` has no `onSubmit`, no `action`. This isn't a guess, the code says o
 
 ## Things the deck describes that don't exist anywhere in this codebase
 
-**Partners section.** Slide 13 calls this out as a "dev version" section that looks good after the hero. There is no `partners.tsx` or anything resembling a partners/logos section anywhere in `components/` or `app/`. Either this lives in a branch that isn't in this repo, a Vercel preview that was never merged, or it's a mockup that hasn't been built yet. Before filing this as a bug, we need to know which - if it's "fix this existing section," there's nothing to point the issue at yet.
+**Partners section - correction, this does exist.** Originally wrote here that no partners/logos section exists anywhere in the codebase. That was wrong - a live preview check (see [vercel-preview-review.md](./vercel-preview-review.md)) showed it rendering right after the hero, and it turned out to be embedded inside `components/landing/hero.tsx` (the `partnerLogos` array and "Trusted by 3,200+ partners" line) and `utils/constants.ts` (`HERO_CONTENT.partners`), not a separate file - that's why the earlier file search missed it. If this section keeps growing it's probably worth pulling out into its own component rather than leaving it inside the hero file.
 
 **Numbers/stats section.** Same situation - slides 16 and 17 reference a numbers section with an award icon that needs removing. No matching component exists in `components/landing/` or elsewhere. Same question applies: does this exist somewhere we haven't looked, or is it still unbuilt?
 

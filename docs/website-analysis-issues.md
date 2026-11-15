@@ -139,11 +139,9 @@ Known items either way:
 
 ---
 
-## Partners section - needs clarification before filing
+## Partners section exists, confirmed working
 
-The deck references a "partners" section on a "dev version" of the site that looks good positioned right after the hero. There is no `partners.tsx` or anything like it anywhere in `components/` or `app/` in this repo right now.
-
-**Before this becomes an issue:** we need to know where this section actually lives - a branch not in this repo, a Vercel preview, or a mockup that was never built. Filing this now would create a ticket with nothing to point it at.
+Correction from an earlier pass: this section does exist, it's just embedded inside `components/landing/hero.tsx` (the `partnerLogos` array) and `utils/constants.ts` (`HERO_CONTENT.partners`) rather than its own file. Confirmed rendering correctly on the live Vercel preview, right after the hero, matching what the deck describes as looking good in this position. Not an issue to file - if anything, worth a follow-up ticket to extract it into its own component for maintainability, but that's a nice-to-have, not a bug.
 
 ---
 
