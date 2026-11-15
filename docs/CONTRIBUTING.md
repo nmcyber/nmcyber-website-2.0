@@ -1,5 +1,14 @@
 # Contributing
 
+## Never edit files in `components/ui/` directly
+
+`components/ui/` is the shadcn/ui primitive set (button, card, dialog, accordion, form, input, etc.). These are generated files, not hand-authored ones. **Do not open one of these files and change it.** If you need different behaviour or styling:
+
+- Wrap it instead - build your own component in `components/shared/`, `components/landing/`, or wherever it belongs, that imports and composes the `ui/` primitive.
+- If you genuinely need to change the primitive itself (a new variant, a prop shadcn doesn't give you), regenerate it through the shadcn CLI (`npx shadcn@latest add <component>`) rather than hand-editing the file, so it stays consistent with how the rest of the design system is maintained.
+
+A PR that edits a file under `components/ui/` directly will be asked to revise.
+
 ## Branch naming
 
 ```
@@ -86,3 +95,12 @@ Add a short entry to [COMPONENTS.md](./COMPONENTS.md) so the next person doesn't
 3. Build out any page-only components under `app/<page-name>/_components/` if they're not reused anywhere else.
 4. Wire it into the nav if it needs to be reachable (`NAVIGATION_WITH_SUBMENUS` in `utils/constants.ts`).
 5. Check `app/sitemap.ts` - make sure the new route is picked up there if it should be indexed.
+
+## Document what you actually did
+
+This matters as much as the code. Whoever reviews your PR, and whoever picks up related work after you, needs to know what changed and why without having to read every diff line by line.
+
+- **PR description:** say plainly what you built or fixed, and call out anything you introduced that wasn't explicitly asked for (a new dependency, a new pattern, a decision you made because the ticket didn't specify one). If you're proposing something rather than shipping it (an idea for a future section, a different approach you didn't have time to finish), say that explicitly in the PR too, don't just leave it half-built with no explanation.
+- **New or changed component:** update [COMPONENTS.md](./COMPONENTS.md) - this is not optional, a PR that adds a shared component without a COMPONENTS.md entry will be asked to revise.
+- **New or changed section/page behaviour:** a one or two line note in the PR description is enough - "added X," "changed Y to do Z instead of what it did before" - but it needs to be there.
+- **Don't let undocumented changes pile up.** If you find yourself explaining a decision in a comment thread on the PR that isn't also in the PR description or COMPONENTS.md, go add it there too. The comment thread disappears from view once the PR merges, the docs don't.
