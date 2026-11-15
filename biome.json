@@ -3,7 +3,13 @@
   "files": {
     "maxSize": 10000000,
     "ignoreUnknown": true,
-    "includes": ["**/*.{ts,tsx,js,jsx,json}"]
+    "includes": [
+      "**/*.{ts,tsx,js,jsx,json}",
+      "!node_modules",
+      "!.next",
+      "!components/ui",
+      "!app/globals.css"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -31,9 +37,10 @@
     "useIgnoreFile": true
   },
   "assist": {
+    "enabled": true,
     "actions": {
       "source": {
-        "organizeImports": "on"
+        "organizeImports": { "level": "on" }
       }
     }
   }
