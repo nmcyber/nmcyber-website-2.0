@@ -105,4 +105,4 @@ If you're changing copy, start in `utils/constants.ts` before touching the compo
 
 ## Deployment
 
-Hosted on Vercel, straight from the `main` branch. `dev` is the integration branch - feature branches get PR'd into `dev`, and `dev` gets merged into `main` when it's ready to ship. There's also a scheduled GitHub Actions workflow (`.github/workflows/sync-yml`) that mirrors this repo to a secondary GitHub remote every hour, separate from the Vercel deploy.
+Hosted on Vercel. The live preview, deployed from `dev`, is at **https://nmcyber-website-2-0.vercel.app/** - this is the most up to date version of the site and where a merged PR actually shows up. `dev` is the integration branch - feature branches get PR'd into `dev`, and `dev` gets merged into `main` when a batch is ready to ship to production. There's also a scheduled GitHub Actions workflow (`.github/workflows/sync-yml` and `dev-sync.yml`) that mirrors this repo to a secondary GitHub remote every hour, separate from the Vercel deploy.

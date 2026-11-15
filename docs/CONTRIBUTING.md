@@ -38,10 +38,9 @@ chore: clean-up; overflow bug
 
 ## Branch flow
 
-- `main` is production, deployed on Vercel.
-- `dev` is the integration branch. Feature and fix branches get PR'd into `dev`.
-- `dev` gets merged into `main` when a batch of work is ready to ship.
-- Don't push straight to `main`.
+- `dev` is the integration branch, and it's what's deployed to the live preview: **https://nmcyber-website-2-0.vercel.app/**. Feature and fix branches get PR'd into `dev`.
+- Check the preview link after your PR merges to confirm your change actually made it in.
+- `main` gets merged from `dev` when a batch of work is ready to ship to production. Don't push straight to `main` or `dev`.
 
 ## Before opening a PR
 

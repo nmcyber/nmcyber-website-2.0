@@ -4,6 +4,14 @@ NMCyber's marketing site.
 
 Built with **Next.js**, **Tailwind CSS 4**, and **shadcn/ui** on Radix. Uses **Bun** for package management and script execution, **Biome** for linting and formatting.
 
+## Live preview
+
+The most up to date version of the site is deployed here:
+
+**https://nmcyber-website-2-0.vercel.app/**
+
+This is where `dev` gets previewed once a PR is reviewed and merged. Use this link to check your work made it in, not the old production domain.
+
 ## Quick start
 
 ```bash
