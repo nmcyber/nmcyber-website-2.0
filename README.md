@@ -1,102 +1,100 @@
-# Getting Started
+# NMCyber Website
 
-## Prerequisites
-- Node.js and yarn/bun installed
+NMCyber's marketing site.
 
-## Setup
+Built with **Next.js**, **Tailwind CSS 4**, and **shadcn/ui** on Radix. Uses **Bun** for package management and script execution, **Biome** for linting and formatting.
 
-1. Clone the repository:
+## Live preview
+
+The most up to date version of the site is deployed here:
+
+**https://nmcyber-website-2-0.vercel.app/**
+
+This is where `dev` gets previewed once a PR is reviewed and merged. Use this link to check your work made it in, not the old production domain.
+
+## First time setup
+
+If this is your first time cloning this repo, do this once before anything else.
+
+### Option A - SSH with an alias (recommended if you work with more than one GitHub account)
+
+This is the setup worth using if you'll ever have more than one GitHub account on your machine (a personal one, a work one, etc) - it lets git know which identity to use for which repo automatically, instead of you having to think about it every time.
+
+1. **Generate a dedicated SSH key for this account:**
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   ssh-keygen -t ed25519 -C "your-email@example.com" -f ~/.ssh/id_ed25519_nmcyber
+   ```
+   Give it a passphrase if you want, or leave it blank.
+
+2. **Add the public key to your GitHub account:** copy the contents of `~/.ssh/id_ed25519_nmcyber.pub`, then on GitHub go to Settings -> SSH and GPG keys -> New SSH key, paste it in.
+
+3. **Add an alias for this key in `~/.ssh/config`** (create the file if it doesn't exist):
+   ```
+   Host github-nmcyber
+       HostName github.com
+       User git
+       IdentityFile ~/.ssh/id_ed25519_nmcyber
    ```
 
-2. Install dependencies:
+4. **Clone using the alias instead of `github.com`:**
+   ```bash
+   git clone git@github-nmcyber:YeborianBusiness/website.git
    ```
-   yarn
-   # or
-   bun install
-   ```
-
-3. Start the development server:
-   ```
-   yarn dev
-   # or
-   bun run dev
+   Notice it's `github-nmcyber` in the clone URL, not `github.com` - that's what tells git to use this specific key for this specific repo. If you already cloned it before setting this up, fix the remote instead:
+   ```bash
+   git remote set-url origin git@github-nmcyber:YeborianBusiness/website.git
    ```
 
-4. Open your browser and navigate to `http://localhost:3000` to see your application running.
+This way, if you also have a personal GitHub account or another work account set up with its own alias (`github-personal`, `github-otherteam`, whatever you call it), each repo you clone just uses whichever alias matches the account it belongs to, and you never get stuck pushing as the wrong person.
 
----
+### Option B - simpler: HTTPS with the GitHub CLI
 
-## Code Quality: Biome Commands
+If the SSH setup above feels like too much right now, this works fine too and takes less setup:
 
-- **Check code:**
-  ```bash
-  bun run check
-  ```
-- **Format code:**
-  ```bash
-  bun run format
-  ```
-- **Lint code:**
-  ```bash
-  bun run lint
-  ```
-
-## Creating a New Page
-
-1. Add a new folder under `app/` (e.g., `app/new-page/`).
-2. Create a `page.tsx` file inside your folder:
-   ```tsx
-   export default function NewPage() {
-     return <section>New Page Content</section>;
-   }
+1. Install the [GitHub CLI](https://cli.github.com/) if you don't have it.
+2. Run `gh auth login` and follow the prompts (choose HTTPS when asked).
+3. Clone normally:
+   ```bash
+   git clone https://github.com/YeborianBusiness/website.git
    ```
-3. Your page will automatically use the global layout (navbar, wrapper, footer).
 
-## PageWrapper Usage
+`gh` handles authentication for you after that, no key management needed. The tradeoff is this is per-machine, not per-repo - if you only ever use one GitHub account on this machine, that's not a problem.
 
-- The `PageWrapper` layout is now applied globally via `app/layout.tsx`.
-- You do **not** need to import or wrap your page components with `PageWrapper`.
-- All pages automatically get the consistent layout and blur background.
+## Quick start
 
-## Using the BlurElement Component
-
-The `BlurElement` is a customizable, reusable blur effect for backgrounds and highlights.
-
-**Import:**
-```tsx
-import BlurElement from '@/components/shared/blur-element';
+```bash
+bun install
+bun run dev
 ```
 
-**Props:**
-- `position`: `'left' | 'top' | 'right' | 'bottom' | 'inset'` (default: `'inset'`)
-- `positionValue`: string (default: `'0'`)
-- `zIndex`: number (default: `0`)
-- `opacity`: number (default: `0.5`)
-- `size`: string (default: `'100px'`)
-- `blur`: string (default: `'40px'`)
-- `className`: string (optional)
+Open `http://localhost:3000`.
 
-**Usage Example:**
-```tsx
-<BlurElement
-  position="left"
-  positionValue="10"
-  size="200px"
-  blur="60px"
-  opacity={0.7}
-  zIndex={-1}
-  className="custom-blur"
-/>
-```
+## Branch rules
 
-**How it works:**
-- Renders an absolutely positioned, blurred, rounded div with a gradient background.
-- Easily place and style background blurs anywhere in your layout.
+- **Always open PRs against `dev`.** Never `main`.
+- **Never commit or push directly to `main` or `dev`.** Every change goes through a feature branch and a PR, even a small one.
+- Branch off `dev`, not `main`, when starting new work.
+- See [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for branch naming, commit message style, and the full PR checklist.
 
----
+## Documentation
 
-For more details, see the code comments and explore the `components/` folder.
+Full documentation is in [/docs](./docs):
 
+- [Architecture](./docs/ARCHITECTURE.md)
+- [Contributing](./docs/CONTRIBUTING.md)
+- [Components](./docs/COMPONENTS.md)
+
+## Scripts
+
+| Script | Description |
+|---|---|
+| `bun run dev` | Start the dev server |
+| `bun run build` | Production build |
+| `bun run start` | Run the production build |
+| `bun run check` | Biome check |
+| `bun run fix` | Biome check with auto-fix |
+| `bun run format` | Biome format, write |
+| `bun run lint` | Biome lint |
+| `bun run type-check` | TypeScript check, no emit |
+
+Both `check` and `type-check` run automatically on commit via husky. Run them yourself before pushing so a failing hook isn't a surprise.
