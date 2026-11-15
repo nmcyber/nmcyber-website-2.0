@@ -22,7 +22,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           # Clone the source repository with the PAT for authentication
-          git clone --bare https://${{ secrets.SYNC_TOKEN }}@github.com/nmcyber-Solutions/website.git
+          git clone --bare https://${{ secrets.SYNC_TOKEN }}@github.com/YeborianBusiness/website.git
           
           cd website.git
           

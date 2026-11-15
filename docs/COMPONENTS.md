@@ -65,8 +65,35 @@ Most landing and page-specific components use a default export (`export default 
 ### `components/shared/`
 - `navbar.tsx` - site nav, pulls from `NAVIGATION_WITH_SUBMENUS`, `SOCIAL_LINKS`
 - `footer.tsx` - site footer, pulls from `QUICK_LINKS`, `PLATFORM_LINKS`
-- `blur-element.tsx` - decorative background blur used behind hero/sections
+- `blur-element.tsx` - decorative background blur used behind hero/sections, see below for props
 - `not-found.tsx` - shared 404 content block
+
+#### `BlurElement` usage
+
+```tsx
+import BlurElement from '@/components/shared/blur-element';
+
+<BlurElement
+  position="left"
+  positionValue="10"
+  size="200px"
+  blur="60px"
+  opacity={0.7}
+  zIndex={-1}
+  className="custom-blur"
+/>
+```
+
+Props:
+- `position`: `'left' | 'top' | 'right' | 'bottom' | 'inset'` (default `'inset'`)
+- `positionValue`: string (default `'0'`)
+- `zIndex`: number (default `0`)
+- `opacity`: number (default `0.5`)
+- `size`: string (default `'100px'`)
+- `blur`: string (default `'40px'`)
+- `className`: string (optional)
+
+Renders an absolutely positioned, blurred, rounded div with a gradient background. Use it anywhere you need a soft background glow.
 
 ### `components/landing/`
 - `hero.tsx` - homepage hero, star rating, CTA

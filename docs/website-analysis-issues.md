@@ -1,112 +1,192 @@
 # Website Analysis - Issues to File
 
-Source: Website_Analuze.pptx. Grouped by area, each one is meant to become its own issue.
+Source: Website_Analuze.pptx, cross-checked against the current `dev` branch. See [website-analysis-devils-advocate.md](./website-analysis-devils-advocate.md) for the full review notes - a few of the deck's findings turned out to already be fixed, and two sections it describes don't exist in this codebase yet. Both are called out below.
 
-## Navbar
-
-**Navbar - Products links are dead**
-Products dropdown has six links: Cybersecurity Awareness, Cybersecurity Readiness, Candidate Screening, Content Creation, Risk Assessments, Industry Training. None of them work.
-
-**Products section only shows 4 of 6 products**
-The Products link in the navbar goes to the Cybersecurity Solutions section, but that section only has 4 of the 6 products listed in the navbar dropdown. Cards have no descriptive text, and the "View more" button does nothing on click. Naming is also inconsistent - navbar says "Products," section is titled "Solutions."
-To do: redesign the section with real descriptive copy per product, make it feel professional and marketable, and fix the naming mismatch.
-
-**Resources tab links are dead, no dedicated section**
-The Resources tab in the navbar lists resources NMCyber offers, but every link is dead and there's no section on the site that actually showcases them.
-To do: build a dedicated resources section.
-
-**Platform and Academy links go nowhere, and they're duplicates**
-Both are dead links, and they point at the same thing conceptually.
-To do: drop one, keep a single link.
-
-**Contact Us navbar link doesn't go to the footer**
-Clicking "Contact Us" in the nav should land on the footer (where contact info / the form lives), but right now it's a dead link.
-
-## Contact form
-
-**Contact form: styling, functionality, and UX issues**
-- Send button color doesn't stand out, should be a different color.
-- Form likely doesn't submit correctly - needs functionality confirmed.
-- No confirmation email sent back to the user after submitting.
-- Layout has an awkward empty/unused space around the form.
-To do: confirm and fix form submission end to end, send a confirmation email on successful submit, fix the empty space in the layout, change the send button color.
-
-## Footer
-
-**Footer: dead social links**
-Social icons in the footer don't link anywhere real.
-
-**Footer: Products/Services and Resources links don't go anywhere useful**
-The Products section is now labeled "Services" in the footer. Clicking either Services or Resources just scrolls to the top of the page instead of going to a real section - functionally dead.
-
-**Footer: Subscribe doesn't work**
-No subscribe/email capture functionality behind the subscribe input.
-
-**Footer: Privacy Policy, Terms of Service, Site Map links are dead**
-None of these pages exist yet, and the links don't go anywhere.
-To do: fix social links, properly link Services and Resources sections, add working subscribe functionality, and write actual content for Privacy Policy, Terms of Service, and Site Map.
-
-## Mobile and responsiveness
-
-**No real mobile design**
-Mobile layout is effectively non-existent right now, and general responsiveness doesn't meet a reasonable standard.
-To do: incorporate proper responsive design as part of any redesign work, not as an afterthought.
-
-## Performance (Lighthouse)
-
-**Google Lighthouse score needs improvement**
-Current Lighthouse scores (performance, accessibility, best practices, SEO - the 4 categories) are being used as the baseline to measure improvement against.
-To do: redesign/fix the site to hit a Lighthouse score of 80+ across these categories.
-
-## SEO
-
-**Confirm Google Search Console setup**
-Need to verify whether the site's domain is already registered in Google Search Console. GSC is how we'll track SEO and traffic over time.
-To do: if the domain isn't in GSC yet, add it and set up SEO tracking.
-
-## Hero section
-
-**Hero section: CTA and copy cleanup**
-- The "Platform/Academy" button combo in the header needs simplifying (ties back to the navbar duplicate-link issue).
-- On the dev version, the CTA buttons are getting visually cut off - needs a layout fix.
-- Title and subtitle are too long / add too much cognitive load - should be tightened up, subtitle ideally down to two lines.
-- CTA accent color works well and should be kept, but the overall accent color should be revisited where it's inconsistent.
-- Centered layout for the hero reads as a positive design choice and should be kept.
-
-## Partners section
-
-**Keep the dev version of the partners section**
-The partners section on the dev environment looks good sitting right after the hero - assuming the numbers shown are ones we can actually back up/defend.
-
-## Awards section
-
-**Decide on awards display: footer badge vs dedicated section**
-If NMCyber only has one award to show, it should just live in the footer. If there are multiple awards, it deserves its own section (reference: how Arctic Wolf handles this).
-To do: confirm how many awards exist, then build whichever version applies.
-
-## Numbers/stats section
-
-**Numbers section: drop the award icon, confirm the stats**
-Keep the section to three key numbers (assuming they're defensible/accurate), and remove the award icon/sign from this section since awards get handled separately above.
-
-## Why Us section
-
-**Redesign the Why Us section**
-Current layout uses an accordion/harmonica style. Should be swapped for a card layout, one clear statement per card, overall more concise than what's there now.
-
-## Marketing / lead gen
-
-**Add email marketing for free resources and newsletter subscribe**
-No email capture flow currently exists for either the "free resources" offer or the general newsletter subscribe in the footer.
+Each heading below is meant to become one GitHub issue. Copy the heading in as the title, the body as the description.
 
 ---
 
-## Suggested timeline (for reference, not individual issues)
+## Navbar - Products dropdown links go nowhere
+
+The Products dropdown in the navbar lists six items: Cybersecurity Awareness, Cybersecurity Readiness, Candidate Screening, Content Creation, Risk Assessments, Industry Training. None of them resolve to a working destination.
+
+**Affected files:** `utils/constants.ts` (`NAVIGATION_WITH_SUBMENUS`), `components/shared/navbar.tsx`
+
+**To do:** give each dropdown item a real `href`, either to a section anchor or a dedicated page, matching whatever the actual product/service structure ends up being (see the Products section issue below, since the two need to agree with each other).
+
+---
+
+## Homepage products section is incomplete and the CTA button does nothing
+
+`components/landing/products.tsx` renders from `PRODUCTS.services` in `utils/constants.ts`, which currently has exactly 4 entries. The navbar dropdown lists 6 different named items, so there's a mismatch between what the nav promises and what the section shows. The cards themselves have no "read more" per card, and the bottom "Read All" button (`components/landing/products.tsx`) is a plain `<Button>` with no `onClick` and no `href` - clicking it is a no-op, confirmed in code, not just by clicking around.
+
+Naming is also inconsistent: the navbar calls this "Products," the section itself is titled "Core Cybersecurity Awareness Training Services" in code, and the deck notes it used to say "Solutions." Pick one name and use it everywhere.
+
+**Affected files:** `components/landing/products.tsx`, `utils/constants.ts` (`PRODUCTS`)
+
+**To do:** decide on final product/service list and naming, bring the homepage section up to the full count, write real descriptive copy per card, and wire the CTA button to an actual destination.
+
+---
+
+## Resources section exists but has no working links yet
+
+Unlike what the deck describes (no dedicated section at all), there's already a real page here: `app/resources/page.tsx`, built from `components/resources/resources-hero.tsx`, `available-resources.tsx`, and `how-to-use-resources.tsx`. The gap is narrower than the original deck suggests - `available-resources.tsx` currently has no `href` or download links on any of the listed resources, so the section is structurally built but nothing in it is clickable yet.
+
+**Affected files:** `components/resources/available-resources.tsx`
+
+**To do:** wire real links (downloads, external pages, whatever the actual resources are) into the existing section. This is a smaller task than "build the section," since the section's already there.
+
+---
+
+## Contact Us navbar link - verify against production
+
+`NAVIGATION_WITH_SUBMENUS` in `utils/constants.ts` already points "Contact" to `/contact-us#contact`, which looks correct. The deck describes this as a dead link, which suggests the deck was reviewing an older build, or the live production site hasn't caught up with `dev` yet.
+
+**To do:** confirm on the actual live site (not just this branch) whether this is still broken. If it's already fine in production too, close this one without any code change.
+
+---
+
+## Contact form doesn't actually submit anything
+
+`components/landing/contact-form.tsx` has this sitting right in the code, lines 11-13:
+
+```
+// TODO: Create a form, recommend using shadcn forms
+// TODO: Validate the form inputs using zod and full typescript types
+// TODO: Create submit function that sends the email address only --> Console.log to see the output
+```
+
+The `<form>` element has no `onSubmit` and no `action`. There's also no email-sending dependency anywhere in `package.json`, so a confirmation email isn't a small addition, it needs an actual service wired in (something like Resend, or an API route that sends through whatever provider we pick).
+
+On top of the functional gap: the send button's color doesn't stand out enough, and there's an awkward empty space in the layout around the form that needs filling.
+
+**Affected files:** `components/landing/contact-form.tsx`
+
+**To do:**
+1. Build the actual submit handler (validate with zod, following the existing TODO comments as the starting point).
+2. Pick and wire up an email service so a confirmation email actually goes out.
+3. Fix the button color and the empty space in the layout.
+
+---
+
+## Newsletter subscribe form in the footer doesn't work
+
+`components/shared/footer.tsx`, the `NewsletterForm` function: the email `Input` has no `value`/`onChange`, and the submit `Button` has no `onClick`. It's laid out correctly but has zero behavior behind it.
+
+**Affected files:** `components/shared/footer.tsx`
+
+**To do:** wire up actual subscribe functionality - needs a destination (mailing list provider, or a simple API route that stores the email) decided first, then the handler built against it.
+
+---
+
+## Footer social links point to generic homepages, not NMCyber's actual profiles
+
+`SOCIAL_LINKS` in `utils/constants.ts`: Facebook goes to `facebook.com`, Twitter/X to `x.com`, Instagram to `instagram.com` - none of these are NMCyber's actual pages. LinkedIn is the one exception and already points to the real company page.
+
+**Affected files:** `utils/constants.ts` (`SOCIAL_LINKS`)
+
+**To do:** get NMCyber's real Facebook, X, and Instagram URLs and swap them in. If any of these platforms genuinely don't have an NMCyber presence yet, drop that icon rather than link to a placeholder.
+
+---
+
+## Footer legal links - scope needs deciding before filing
+
+The deck describes three separate dead links: Privacy Policy, Terms of Service, Site Map. The current footer (`components/shared/footer.tsx`) only has one link, "Terms & Policies," pointing to `/terms-and-policies`, which isn't a real route (no matching folder under `app/`).
+
+This needs a decision before it becomes an issue: are we building one combined terms page, or splitting it back into three separate pages? Those are different amounts of work.
+
+**Affected files:** `components/shared/footer.tsx`, needs a new route under `app/`
+
+**To do:** decide on one page vs three, write the actual legal content, build the route(s), link them up.
+
+---
+
+## Mobile design and responsiveness
+
+General complaint from the deck: mobile layout doesn't really exist yet, and responsiveness across breakpoints isn't consistent. This is cross-cutting rather than tied to one file - every component under `components/` and `app/` uses Tailwind responsive classes inconsistently (some have `sm:`/`md:` variants, some don't).
+
+**To do:** treat this as a pass across the whole site rather than a single fix. Probably worth doing page by page as other sections get redesigned, rather than as one giant ticket.
+
+---
+
+## Google Lighthouse score
+
+Current baseline Lighthouse scores (performance, accessibility, best practices, SEO) are being used as the benchmark for the redesign work.
+
+**To do:** run a fresh Lighthouse audit against the live site to get the actual current numbers, then track against a target of 80+ across all four categories as redesign work lands.
+
+---
+
+## Google Search Console setup
+
+Need to confirm whether the live domain is already registered in Google Search Console.
+
+**To do:** check GSC directly. If the domain isn't there yet, add it and get SEO tracking actually running. This isn't a code change, it's an account/config task.
+
+---
+
+## Hero section cleanup
+
+Two different states get described in the deck - the current production hero (CTA position described as good) and a separate "dev version" (CTA buttons getting cut off, subtitle too long). Worth taking a fresh look at what's actually live and what's in `components/landing/hero.tsx` right now before writing the real ticket, since the deck itself is comparing two different snapshots in time.
+
+Known items either way:
+- Subtitle is too long / adds too much cognitive load - should come down to roughly two lines.
+- CTA buttons should not be visually cut off on any screen size.
+- Centered layout is a positive and should stay.
+- **Accent color - conflicting notes in the source deck itself.** One slide says the CTA accent color is great and should stay, a later slide's to-do list says to change it. Needs a decision before this goes in as a ticket, otherwise someone will "fix" something that didn't need fixing.
+
+**Affected files:** `components/landing/hero.tsx`
+
+---
+
+## Partners section - needs clarification before filing
+
+The deck references a "partners" section on a "dev version" of the site that looks good positioned right after the hero. There is no `partners.tsx` or anything like it anywhere in `components/` or `app/` in this repo right now.
+
+**Before this becomes an issue:** we need to know where this section actually lives - a branch not in this repo, a Vercel preview, or a mockup that was never built. Filing this now would create a ticket with nothing to point it at.
+
+---
+
+## Numbers/stats section - needs clarification before filing
+
+Same situation as Partners - the deck describes a numbers/stats section (three key numbers, plus an award icon that should be removed) as a "dev version," but nothing matching this exists in `components/landing/` or anywhere else in this repo.
+
+**Before this becomes an issue:** same question - need to locate where this section currently lives before writing a ticket against it.
+
+---
+
+## Why Us section still uses an accordion, should be cards
+
+`components/landing/why-nmcyber.tsx` imports and uses `Accordion`/`AccordionItem`/`AccordionTrigger`/`AccordionContent` from `components/ui/accordion`. The deck wants this swapped to a card layout, one clear statement per card, overall more concise than the current accordion copy.
+
+**Affected files:** `components/landing/why-nmcyber.tsx`, `utils/constants.ts` (`WHY_NMCYBER.accordionItems`)
+
+**To do:** redesign as cards instead of an accordion, tighten the copy to one statement per card.
+
+---
+
+## Awards section - likely already handled, confirm before closing
+
+The deck's two options were: one award goes in the footer, multiple awards get a dedicated section. `components/shared/footer.tsx` already renders an `AwardsBadge` with the Belmont award SVG, matching the "one award" path.
+
+**To do:** just confirm there's only the one award to show. If a second one is coming, this needs to move into its own section instead.
+
+---
+
+## Email marketing for free resources and newsletter
+
+No email capture flow exists for either the free-resources offer or the general newsletter subscribe - this is the same underlying gap as the newsletter subscribe issue above, just scoped to the marketing/lead-gen angle (e.g. does signing up for a free resource also subscribe someone to a list, welcome email, etc).
+
+**To do:** decide on an email marketing tool/provider, then build both flows (resource gate + newsletter) against it. Worth bundling with the newsletter subscribe fix above rather than doing twice.
+
+---
+
+## Suggested timeline (for reference, not an individual issue)
 
 | Week | Focus |
 |---|---|
 | 1 | Discovery, brainstorming, analysis |
-| 2 | Fix dead navbar links, build Resources section, fix Hero section |
+| 2 | Fix dead navbar links, finish Resources section, fix Hero section |
 | 3 | Why Us section redesign |
 | 4 | Contact form fix, make it fully functional |
 | 5 | Email marketing for subscribe + free resources |
