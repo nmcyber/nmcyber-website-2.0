@@ -1,16 +1,19 @@
 'use client';
-import { Toggle } from '@radix-ui/react-toggle';
-import { Menu, X } from 'lucide-react';
+import { Menu, Phone, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { COMPANY_INFO, NAVIGATION_WITH_SUBMENUS, SOCIAL_LINKS } from '@/utils/constants';
+import {
+  COMPANY_INFO,
+  CONTACT_CTA_LINK,
+  NAVIGATION_WITH_SUBMENUS,
+  SOCIAL_LINKS,
+} from '@/utils/constants';
 
 export default function NavBar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [showPhone, setShowPhone] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<Set<string>>(new Set());
 
   const toggleMobileMenu = () => {
@@ -94,41 +97,31 @@ export default function NavBar() {
         </div>
 
         {/* Right side - Contact & Mobile Menu */}
-        <div className="flex items-center space-x-1 ">
-          <div className="relative">
-            {/* Desktop: show icon + number, no toggle */}
-            <div className="hidden md:flex outline outline-accent rounded-5xl px-2 md:px-3 lg:px-4 py-1.5 md:py-2 items-center gap-1 text-muted-foreground">
-              <Image
-                src="/images/phoneicon.svg"
-                alt="phoneicon"
-                width={22}
-                height={22}
-                className="w-6 h-6 sm:w-[24px] sm:h-[24px]"
-              />
-              <span className="font-[poppins] text-nowrap text-sm md:text-[13px] lg:text-base xl:text-xl font-medium">
-                {COMPANY_INFO.phone}
-              </span>
-            </div>
+        <div className="flex items-center gap-3">
+          <Link
+            href={CONTACT_CTA_LINK.href}
+            className="
+              flex items-center justify-center gap-2
+              rounded-lg p-2 text-white
+              transition-all duration-300 ease-out
+              hover:bg-white/10
 
-            {/* Mobile: toggle controls showing the number inside the button */}
-            <Toggle
-              pressed={showPhone}
-              onPressedChange={setShowPhone}
-              className="md:hidden outline outline-accent text-white font-[poppins] hover:bg-accent/10 rounded-5xl h-9 px-1 data-[state=on]:bg-accent/10"
-              aria-label="Show phone number"
-            >
-              <div className="flex items-center gap-2 text-muted-foreground">
-                <Image
-                  src="/images/phoneicon.svg"
-                  alt="phoneicon"
-                  width={22}
-                  height={22}
-                  className="w-4 h-4 md:w-[20px] md:h-[20px]"
-                />
-                {showPhone && <span className="text-sm font-medium">{COMPANY_INFO.phone}</span>}
-              </div>
-            </Toggle>
-          </div>
+              sm:rounded-full sm:px-6
+              sm:bg-gradient-to-r
+              sm:from-[var(--button-gradient-start)]
+              sm:to-[var(--button-gradient-end)]
+
+              md:px-10 md:text-lg
+              md:hover:brightness-110
+              md:hover:shadow-lg
+            "
+          >
+            <i className="sm:hidden w-6 h-6 grid place-items-center">
+              <Phone color="white" className="w-5 h-5 text-accent flex-shrink-0" />
+            </i>
+            <span className="hidden sm:block">{CONTACT_CTA_LINK.text}</span>
+          </Link>
+
           {/* Mobile Hamburger Button moved next to phone toggle */}
           <button
             type="button"

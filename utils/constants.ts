@@ -76,11 +76,6 @@ export const NAVIGATION_WITH_SUBMENUS = [
       { name: 'Contact Us', href: '/academy#contact' },
     ],
   },
-  {
-    name: 'Contact',
-    href: '/contact-us',
-    submenus: [{ name: 'Contact Us', href: '/contact-us#contact' }],
-  },
 ];
 
 // Footer Sitemap
@@ -92,6 +87,11 @@ export const QUICK_LINKS = [
   { label: 'Blog', href: '/' },
   { label: 'Contact Us', href: '/contact-us' },
 ];
+
+export const CONTACT_CTA_LINK = {
+  href: '/contact-us#contact',
+  text: 'Contact Us',
+};
 
 export const PLATFORM_LINKS = [
   { label: 'Home', href: '/' },
