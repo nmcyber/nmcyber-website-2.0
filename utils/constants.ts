@@ -70,11 +70,9 @@ export const NAVIGATION_WITH_SUBMENUS = [
   },
   {
     name: 'Academy',
-    href: '/academy',
-    submenus: [
-      { name: 'Coming Soon', href: '/academy' },
-      { name: 'Contact Us', href: '/academy#contact' },
-    ],
+    href: 'https://cyberseclaunchpad.com/',
+    external: true,
+    submenus: [],
   },
   {
     name: 'Contact',
