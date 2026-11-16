@@ -1,5 +1,6 @@
 'use client';
-import { Menu, Phone, X } from 'lucide-react';
+import { Toggle } from '@radix-ui/react-toggle';
+import { ExternalLink, Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -38,9 +39,9 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="flex flex-row h-20 w-full fixed items-center justify-between px-2 sm:px-4 z-30 backdrop-blur-sm sm:text-nowrap">
+      <nav className="flex flex-row h-20 w-full fixed items-center justify-between md:justify-evenly  px-2 sm:px-4 z-30 backdrop-blur-sm sm:text-nowrap">
         {/* Logo */}
-        <Link href="/" className="flex flex-row items-center justify-center h-full">
+        <Link href="/" className="flex flex-row items-center justify-center h-full font-bold">
           <Image
             src="/images/NMCyber.svg"
             alt="NMCyber logo"
@@ -49,6 +50,7 @@ export default function NavBar() {
             quality={90}
             className="h-12 lg:h-14 w-fit"
           />
+          NM<span className="text-accent">Cyber</span>
         </Link>
 
         {/* Desktop Navigation (from md and up) */}
@@ -59,6 +61,8 @@ export default function NavBar() {
               <div key={item.name} className="relative group">
                 <Link
                   href={item.href}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
                   className={`nav-link transition-all px-3 md:px-2 lg:px-3 py-2 rounded flex items-center gap-1 ${
                     pathname === item.href
                       ? 'font-[Poppins] text-sm md:text-[13px] lg:text-base xl:text-lg font-semibold text-white shadow-[0px_2px_0px_0px_var(--color-accent)] bg-gradient-to-b from-transparent to-white/14 w-fit h-9 flex items-center justify-center'
@@ -66,6 +70,7 @@ export default function NavBar() {
                   }`}
                 >
                   {item.name}
+                  {item.external && <ExternalLink className="w-3.5 h-3.5" />}
                 </Link>
 
                 {/* Desktop Dropdown */}
@@ -179,6 +184,8 @@ export default function NavBar() {
                       <div className="flex items-center">
                         <Link
                           href={item.href}
+                          target={item.external ? '_blank' : undefined}
+                          rel={item.external ? 'noopener noreferrer' : undefined}
                           className={`transition-all py-2 px-4 rounded flex items-center justify-between ${
                             pathname === item.href
                               ? 'text-white bg-accent/20 border-l-4 border-accent font-[Poppins] font-semibold text-sm'
@@ -194,6 +201,7 @@ export default function NavBar() {
                           }}
                         >
                           <span>{item.name}</span>
+                          {item.external && <ExternalLink className="w-3.5 h-3.5" />}
                         </Link>
                       </div>
 
