@@ -39,7 +39,16 @@ jobs:
           VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
 
       - name: Build project
-        run: vercel build
+        run: |
+          for i in 1 2 3; do
+            if vercel build; then
+              exit 0
+            fi
+            echo "Build attempt $i failed, retrying..."
+            sleep 10
+          done
+          echo "Build failed after 3 attempts"
+          exit 1
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
