@@ -301,6 +301,35 @@ export const HERO_CONTENT = {
   ],
 };
 
+// Why Us content
+export const WHY_US_CONTENT = {
+  heading: 'Why Human-Centric Cybersecurity?',
+  subheading:
+    'Your security is only as strong as your least aware employee—we turn everyday staff into active cyber defenders.',
+  cards: [
+    {
+      title: 'Human-First Defence',
+      description: 'Tech alone fails when people click. We strengthen your frontline.',
+      icon: 'shield',
+    },
+    {
+      title: 'Zero Boring Slides',
+      description: 'Interactive, real-world scenarios that replace check-the-box compliance.',
+      icon: 'zap',
+    },
+    {
+      title: 'Role-Based Training',
+      description: 'Tailored modules built for how your specific SMB team actually works.',
+      icon: 'users',
+    },
+    {
+      title: 'Defender Mindset',
+      description: 'Lasting behavioural habits that stop threats before they escalate.',
+      icon: 'brain',
+    },
+  ],
+};
+
 // Core Services content
 export const PRODUCTS = {
   title: 'Core Cybersecurity Awareness Training Services',
