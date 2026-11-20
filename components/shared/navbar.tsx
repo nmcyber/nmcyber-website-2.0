@@ -16,7 +16,7 @@ export default function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<Set<string>>(new Set());
 
-  const backdropRef = useRef<HTMLDivElement>(null);
+  const backdropRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const closingAnimation = useRef<Animation | null>(null);
 
@@ -186,14 +186,13 @@ export default function NavBar() {
         <div
           data-mobile-menu-overlay=""
           className="fixed inset-0 z-50 overflow-y-auto overscroll-contain md:hidden"
-          onClick={(event) => {
-            if (event.target === event.currentTarget) closeMobileMenu();
-          }}
         >
-          <div
+          <button
             ref={backdropRef}
-            aria-hidden="true"
-            className="pointer-events-none fixed inset-0 bg-additional-blury-blue backdrop-blur-[3px] motion-safe:animate-mobile-backdrop-in"
+            type="button"
+            aria-label="Close mobile menu"
+            onClick={closeMobileMenu}
+            className="fixed inset-0 h-full w-full bg-additional-blury-blue backdrop-blur-[3px] motion-safe:animate-mobile-backdrop-in"
           />
           <div
             ref={panelRef}
@@ -305,7 +304,7 @@ export default function NavBar() {
                 <li>
                   <a
                     className="h-12 px-5 flex items-center gap-2 text-muted-foreground"
-                    href={'tel:' + COMPANY_INFO.phone}
+                    href={`tel:${COMPANY_INFO.phone}`}
                   >
                     <Phone className="size-4" />
                     <span className="font-[poppins] text-xs">{COMPANY_INFO.phone}</span>
@@ -314,7 +313,7 @@ export default function NavBar() {
                 <li>
                   <a
                     className="h-12 px-5 flex items-center gap-2 text-muted-foreground"
-                    href={'mailto:' + COMPANY_INFO.email}
+                    href={`mailto:${COMPANY_INFO.email}`}
                   >
                     <Mail className="size-4" />
                     <span className="font-[poppins] text-xs">{COMPANY_INFO.email}</span>

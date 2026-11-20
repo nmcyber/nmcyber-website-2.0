@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
+import { Linkedin, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
 
 // Company information
