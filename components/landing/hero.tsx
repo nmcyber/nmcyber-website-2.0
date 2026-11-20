@@ -31,63 +31,68 @@ const partnerLogos = [
 
 export default function Hero() {
   return (
-    <section id="hero">
-      <div className="mx-auto w-full max-w-7xl text-center space-y-6 sm:space-y-10">
+    <section className="pt-8">
+      <div className="mx-auto w-full max-w-7xl text-center space-y-2 sm:space-y-10">
         {/* Hero Headlines */}
-        <div className="space-y-4 sm:space-y-6">
-          <h1 className="gradient-heading1 py-2">{COMPANY_INFO.tagline}</h1>
-          <p className="font-medium text-center text-lg leading-[1.82] md:text-2xl md:leading-[2.16]">
-            {COMPANY_INFO.shortDescription}
-          </p>
+        <div className="space-y-4 sm:space-y-6 mb-7 sm:mb-0">
+          <h1 className="gradient-heading1 mx-auto sm:max-w-2xl lg:max-w-4xl text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.5] py-1">
+            {COMPANY_INFO.tagline}
+          </h1>
+          <div className="mx-auto max-w-[300px] sm:max-w-xl md:max-w-3xl flex justify-center">
+            <div className="inline-flex items-center justify-center gap-2 sm:rounded-full sm:border sm:border-accent/25 sm:bg-accent/[0.06] sm:px-6 sm:py-2.5 sm:backdrop-blur-md">
+              <span className="hidden sm:inline-block h-2 w-2 shrink-0 rounded-full bg-accent animate-pulse shadow-[0_0_8px_var(--accent)]" />
+              <p className="text-center text-sm sm:text-base md:text-lg font-medium text-cyan-200 leading-snug">
+                {COMPANY_INFO.shortDescription}
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Company Description */}
-        <p className="mx-auto font-normal text-center text-muted-foreground text-base leading-[1.89] sm:text-xl md:leading-[1.78] lg:max-w-5xl min-h-[90px] sm:min-h-[100px] md:min-h-[95px]">
-          {COMPANY_INFO.longDescription}
+        <p className="hidden sm:block mx-auto max-w-2xl lg:max-w-3xl font-normal text-center text-muted-foreground text-base md:text-lg leading-relaxed !mt-3 md:!mt-4">
+          {COMPANY_INFO.longDescriptionAlt}
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex w-full md:max-w-4xl mx-auto flex-col items-center justify-center gap-4 md:flex-row">
+        <div className="flex w-full max-w-[300px] sm:max-w-none md:max-w-4xl mx-auto flex-col items-center justify-center gap-3.5 md:flex-row ">
           {/* Primary CTA Button */}
           <Button
             asChild
-            size="lg"
-            className="h-auto w-full rounded-5xl px-6 py-5 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] sm:w-auto sm:px-10"
+            className="!h-12 sm:!h-14 w-full sm:w-auto rounded-5xl px-6 sm:px-8 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] hover:opacity-90 transition-opacity"
           >
             <Link
-              href={HERO_CONTENT.cta.primaryHref}
-              className="text-sm font-[poppins] font-medium leading-[1] text-white sm:text-xl"
+              href="/contact-us"
+              className="flex items-center justify-center text-sm sm:text-base lg:text-lg font-[poppins] font-semibold whitespace-nowrap text-white"
             >
               {HERO_CONTENT.cta.primary}
             </Link>
           </Button>
 
-          {/* Secondary CTA Button - Custom Design */}
+          {/* Secondary CTA Button */}
           <Button
             asChild
             variant="outline"
-            className="h-auto w-full p-0 overflow-hidden border-none outline outline-accent bg-transparent rounded-5xl sm:w-fit hover:bg-black/50"
+            className="!h-12 sm:!h-14 w-full sm:w-auto !p-0 overflow-hidden border border-accent bg-transparent rounded-5xl hover:bg-black/50"
           >
             <Link
-              href={HERO_CONTENT.cta.secondaryHref}
-              className="flex items-stretch transition-opacity duration-200 hover:opacity-95"
+              href="/resources/checklist"
+              className="h-full w-full items-center justify-between transition-opacity duration-200 hover:opacity-95"
               aria-label="Download the Cybersecurity Risk Checklist"
             >
               {/* Text Section */}
-              <span className="flex flex-1 items-center justify-center px-4 py-3 text-center backdrop-blur-[2px] rounded-l-5xl font-[poppins] font-semibold text-base text-accent  sm:flex-none sm:px-4 sm:text-nowrap sm:text-xl md:text-lg">
-                <span className="block sm:hidden">Get Checklist</span>
+              <span className="flex flex-1 items-center justify-center px-5 text-center backdrop-blur-[2px] font-[poppins] font-semibold text-sm sm:text-base lg:text-lg whitespace-nowrap text-accent">
+                <span className="block sm:hidden">{HERO_CONTENT.cta.secondaryMobile}</span>
                 <span className="hidden sm:block">{HERO_CONTENT.cta.secondary}</span>
               </span>
 
               {/* Icon Section */}
-              <div className="flex aspect-square w-12 items-center justify-center bg-accent outline outline-accent sm:w-12">
+              <div className="flex h-full w-12 sm:w-14 shrink-0 items-center justify-center bg-accent">
                 <Image
                   src="/images/download-icon.svg"
                   alt="Download"
-                  width={30}
-                  height={30}
-                  loading="lazy"
-                  className="w-6 h-6 sm:w-[30px] sm:h-[30px]"
+                  width={22}
+                  height={22}
+                  className="w-5 h-5 sm:w-6 sm:h-6"
                 />
               </div>
             </Link>
@@ -95,13 +100,7 @@ export default function Hero() {
         </div>
 
         {/* Trusted Partners Section */}
-        <div className="pt-8 space-y-6 sm:pt-16 sm:space-y-8">
-          {/* Trust Indicator */}
-          <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
-            <span className="text-sm font-medium text-white/60">Trusted by 3,200+ partners</span>
-            <StarRating />
-          </div>
-
+        <div className=" space-y-6 pt-4 sm:pt-0 sm:space-y-8">
           {/* Partner Logos Grid */}
           <div className="mx-auto flex max-w-full flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
             {partnerLogos.map((logo, index) => (
@@ -121,6 +120,11 @@ export default function Hero() {
                 />
               </div>
             ))}
+          </div>
+          {/* Trust Indicator */}
+          <div className="flex flex-col items-center justify-center gap-2 sm:flex-row sm:gap-4">
+            <span className="text-sm font-medium text-white/60">{HERO_CONTENT.trustedBy}</span>
+            <StarRating />
           </div>
         </div>
       </div>
