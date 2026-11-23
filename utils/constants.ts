@@ -97,7 +97,7 @@ export const SOCIAL_LINKS = [
     icon: Youtube,
     href: 'https://www.youtube.com/@nm-cyber/videos',
     className: 'bg-[var(--color-secondary-red-50)] hover:bg-red-600',
-    label: 'Visit our Instagram page',
+    label: 'Visit our YouTube channel',
   },
   {
     icon: Linkedin,
