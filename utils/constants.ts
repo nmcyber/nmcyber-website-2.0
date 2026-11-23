@@ -286,6 +286,54 @@ export const HERO_CONTENT = {
   ],
 };
 
+export const PRODUCTS_ALT_CONTENT = {
+  badge: 'Our Product • CyberSec Launchpad',
+  heading: 'Launch Real-World Cyber Skills',
+  subheading:
+    'Go beyond theory with structured cybersecurity programmes and an interactive training platform built for modern defenders.',
+  cta: {
+    primary: 'Explore Programmes',
+    primaryHref: 'https://cyberseclaunchpad.com/programmes',
+    secondary: 'Open Platform',
+    secondaryHref: 'https://platform.cyberseclaunchpad.com',
+  },
+  features: [
+    {
+      id: 'programmes',
+      shortLabel: 'Programmes',
+      title: 'Structured Career Programmes',
+      description:
+        'Guided pathways designed to take learners from core fundamentals to job-ready cybersecurity proficiency.',
+      icon: 'graduation',
+      url: 'https://cyberseclaunchpad.com/programmes',
+      displayUrl: 'cyberseclaunchpad.com/programmes',
+      image: '/images/launchpad-programmes.webp',
+    },
+    {
+      id: 'platform',
+      shortLabel: 'Platform',
+      title: 'Interactive Learning Platform',
+      description:
+        'Track progress, complete hands-on modules, and build practical muscle memory inside a dedicated portal.',
+      icon: 'laptop',
+      url: 'https://platform.cyberseclaunchpad.com',
+      displayUrl: 'platform.cyberseclaunchpad.com',
+      image: '/images/launchpad-platform.webp',
+    },
+    {
+      id: 'readiness',
+      shortLabel: 'Readiness',
+      title: 'Practical Cyber Readiness',
+      description:
+        'Scenario-driven training that translates directly into confident threat detection and everyday defence.',
+      icon: 'shield',
+      url: 'https://cyberseclaunchpad.com/programmes',
+      displayUrl: 'cyberseclaunchpad.com/programmes',
+      image: '/images/launchpad-readiness.webp',
+    },
+  ],
+};
+
 // Core Services content
 export const PRODUCTS = {
   title: 'Core Cybersecurity Awareness Training Services',
