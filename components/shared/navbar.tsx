@@ -220,7 +220,7 @@ export default function NavBar() {
                 onClick={closeMobileMenu}
                 aria-label="Close mobile navigation menu"
               >
-                <X className="size-5" aria-label="Close menu" />
+                <X className="size-5" aria-hidden="true" />
               </button>
             </div>
 
