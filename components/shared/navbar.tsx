@@ -306,7 +306,7 @@ export default function NavBar() {
                     className="h-12 px-5 flex items-center gap-2 text-muted-foreground"
                     href={`tel:${COMPANY_INFO.phone}`}
                   >
-                    <Phone className="size-4" />
+                    <Phone aria-hidden="true" className="size-4" />
                     <span className="font-[poppins] text-xs">{COMPANY_INFO.phone}</span>
                   </a>
                 </li>
@@ -315,7 +315,7 @@ export default function NavBar() {
                     className="h-12 px-5 flex items-center gap-2 text-muted-foreground"
                     href={`mailto:${COMPANY_INFO.email}`}
                   >
-                    <Mail className="size-4" />
+                    <Mail aria-hidden="true" className="size-4" />
                     <span className="font-[poppins] text-xs">{COMPANY_INFO.email}</span>
                   </a>
                 </li>
@@ -358,10 +358,11 @@ export default function NavBar() {
                     <Link
                       key={social.href}
                       href={social.href}
+                      aria-label={social.label}
                       className={`size-12 bg-secondary rounded-lg grid place-items-center transition-colors ${social.className}`}
                       onClick={closeMobileMenu}
                     >
-                      <Icon className="w-4 aspect-square text-white" />
+                      <Icon aria-hidden="true" className="w-4 aspect-square text-white" />
                     </Link>
                   );
                 })}
