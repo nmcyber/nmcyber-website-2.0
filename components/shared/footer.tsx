@@ -1,12 +1,11 @@
-import { ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, GraduationCap, Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { PLATFORM_LINKS, QUICK_LINKS, SOCIAL_LINKS } from '@/utils/constants';
+import { QUICK_LINKS, SOCIAL_LINKS } from '@/utils/constants';
 
-// Navigation Links Component
 interface NavigationLinksProps {
   title: string;
   links: Array<{ label: string; href: string }>;
@@ -14,22 +13,24 @@ interface NavigationLinksProps {
 
 function NavigationLinks({ title, links }: NavigationLinksProps) {
   return (
-    <div>
-      <div className="mb-4 sm:mb-6">
-        <span className="text-lg sm:text-xl lg:text-2xl font-semibold text-white lg:sm:text-nowrap mb-2 sm:mb-4 leading-tight font-plus-jakarta-sans">
+    <div className="space-y-4">
+      <div>
+        <h3 className="font-[poppins] text-sm font-bold uppercase tracking-wider text-cyan-100">
           {title}
-        </span>
-        <div className="mt-1 h-[2px] sm:h-[3px] w-12 sm:w-16 bg-accent rounded-full" />
+        </h3>
+        <div className="mt-2 h-[2px] w-10 rounded-full bg-accent/80" />
       </div>
-      <ul className="space-y-2 sm:space-y-3">
-        {links.map((link, index) => (
-          <li key={`${title}-${link.label}-${index}`}>
-            <a
+
+      <ul className="space-y-2.5">
+        {links.map((link) => (
+          <li key={link.label}>
+            <Link
               href={link.href}
-              className="text-xs sm:text-sm font-[Poppins] font-medium md:text-base text-muted-foreground hover:text-white transition-colors"
+              className="group inline-flex items-center gap-1.5 font-[poppins] text-sm font-medium text-cyan-200/75 transition-colors duration-200 hover:text-cyan-100"
             >
+              <span className="h-1 w-1 rounded-full bg-accent/0 transition-colors duration-200 group-hover:bg-accent" />
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -37,216 +38,269 @@ function NavigationLinks({ title, links }: NavigationLinksProps) {
   );
 }
 
-// Footer Logo Component
 function FooterLogo() {
   return (
-    <div className="flex gap-1 sm:gap-3 md:gap-5">
-      {/* left */}
-      <div className="flex-shrink-0">
-        <Link href="/" className="relative" aria-label="go to home page">
-          <Image
-            src="/images/NMCyber.svg"
-            alt="NMCyber icon"
-            width={100}
-            height={100}
-            className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 object-contain"
-          />
-        </Link>
-      </div>
-
-      {/* right */}
-      <div className="flex-shrink-0">
-        <Image
-          src="/images/NMCyber_OPT.svg"
-          alt="NMCyber logo"
-          width={200}
-          height={200}
-          className="w-20 h-10 sm:w-24 sm:h-12 md:w-28 md:h-14 lg:w-36 lg:h-18 xl:w-44 xl:h-22 object-contain"
-        />
-      </div>
-    </div>
-  );
-}
-
-// Newsletter Form Component
-function NewsletterForm() {
-  return (
-    <div className="space-y-2">
-      <span className="uppercase tracking-wider text-xs text-muted-foreground font-semibold lg:sm:text-nowrap mb-2 leading-tight font-plus-jakarta-sans">
-        Subscribe to our newsletter
-      </span>
-      <div className="relative flex w-full sm:w-4/5">
-        <Input
-          type="email"
-          placeholder="Enter your e-mail"
-          className="flex-1 h-8 sm:h-10 bg-gray-800 border-gray-800 text-white pl-6 sm:pl-8 pr-0 rounded-xl sm:rounded-l-2xl rounded-r-none text-xs sm:text-sm border-r-0"
-        />
-        <Button
-          size="sm"
-          className="bg-accent hover:bg-accent/90 text-black px-2 py-1 rounded-r-xl sm:rounded-r-2xl rounded-l-none h-8 sm:h-10 border-l-0"
-          aria-label="Subscribe to newsletter"
-        >
-          <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-black" aria-hidden="true" />
-        </Button>
-        <Mail className="absolute left-2 sm:left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 sm:w-4 sm:h-4 text-gray-400" />
-      </div>
-    </div>
-  );
-}
-
-// Awards Badge Component
-function AwardsBadge() {
-  return (
-    <div className="w-full max-w-[120px] sm:max-w-[150px]">
+    <Link
+      href="/"
+      aria-label="Go to NMCYBER home page"
+      className="inline-flex w-fit items-center gap-3.5 transition-opacity hover:opacity-90"
+    >
       <Image
-        src={'/images/31st-Belmont-awards-2024.svg'}
-        alt="Awards Badge"
-        width={150}
-        height={150}
-        className="w-full h-auto object-contain"
+        src="/images/NMCyber.svg"
+        alt="NMCYBER icon"
+        width={64}
+        height={64}
+        className="h-12 w-12 shrink-0 object-contain sm:h-14 sm:w-14"
       />
-    </div>
+      <span className="font-[poppins] text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+        NM<span className="text-accent">CYBER</span>
+      </span>
+    </Link>
   );
 }
 
-// Contact Info Component
-function ContactInfo() {
+function DefenseQuote() {
   return (
-    <div>
-      <div className="mb-4 sm:mb-6">
-        <span className="text-lg sm:text-xl lg:text-2xl font-semibold text-white lg:sm:text-nowrap mb-2 sm:mb-4 leading-tight font-plus-jakarta-sans">
-          Contact Info
-        </span>
-        <div className="mt-1 h-[2px] sm:h-[3px] w-12 sm:w-16 bg-accent rounded-full" />
-      </div>
-      <div className="space-y-2 sm:space-y-3">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <Phone className="w-3 h-3 sm:w-4 sm:h-4 text-accent flex-shrink-0" />
-          <span className="text-xs sm:text-sm font-[Poppins] font-medium text-gray-400">
-            (+806) 000 88 99
-          </span>
-        </div>
+    <figure className="max-w-md border-l-2 border-accent/60 pl-3.5">
+      <blockquote className="font-[poppins] text-sm italic leading-relaxed text-cyan-100/90">
+        &ldquo;It takes 20 years to build a reputation and a few minutes of cyber-incident to ruin
+        it.&rdquo;
+      </blockquote>
+      <figcaption className="mt-1 font-[poppins] text-xs font-medium text-cyan-200/60">
+        &mdash; Stephane Nappo
+      </figcaption>
+    </figure>
+  );
+}
 
-        <div className="flex items-center gap-2 sm:gap-3">
-          <Mail className="w-3 h-3 sm:w-4 sm:h-4 text-accent flex-shrink-0" />
-          <span className="text-xs sm:text-sm font-[Poppins] font-medium text-gray-400 break-words">
-            info@nmcyber.com.au
-          </span>
-        </div>
+function LaunchpadBanner() {
+  return (
+    <div className="w-full lg:space-y-2.5">
+      <p className="hidden pl-4 font-[poppins] text-xs font-semibold uppercase tracking-wider text-cyan-200/80 lg:block">
+        Our Product
+      </p>
 
-        <div className="flex items-start gap-2 sm:gap-3">
-          <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-accent mt-0.5 flex-shrink-0" />
-          <div className="text-xs sm:text-sm font-[Poppins] font-medium text-gray-400">
-            <span>1811 Silverside Rd,</span>
-            <br />
-            <span>Wilmington, DE 19810, USA</span>
+      <a
+        href="https://cyberseclaunchpad.com/programmes"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex w-full items-center justify-between gap-3 rounded-2xl border border-accent/30 bg-accent/[0.08] px-4 py-3 backdrop-blur-md transition-all duration-200 hover:border-accent/60 hover:bg-accent/15 hover:shadow-[0_0_24px_-6px_rgba(34,211,238,0.4)] lg:h-11 lg:rounded-xl lg:px-3.5 lg:py-0"
+      >
+        <div className="flex min-w-0 items-center gap-3 lg:gap-2.5">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-accent/35 bg-accent/15 text-accent shadow-[0_0_12px_-2px_rgba(34,211,238,0.3)] transition-transform duration-200 group-hover:scale-105 lg:h-7 lg:w-7 lg:rounded-lg">
+            <GraduationCap className="h-5 w-5 lg:h-4 lg:w-4" />
+          </span>
+
+          <div className="flex min-w-0 flex-col text-left lg:flex-row lg:items-center lg:gap-2">
+            <p className="shrink-0 font-[poppins] text-sm font-bold leading-tight text-cyan-100 sm:text-base lg:text-sm">
+              CyberSec Launchpad
+            </p>
+            <span className="hidden text-accent/60 lg:inline" aria-hidden="true">
+              &bull;
+            </span>
+            <p className="truncate font-[poppins] text-xs font-medium text-cyan-200/70">
+              Explore training programmes
+            </p>
           </div>
         </div>
+
+        <span className="inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-lg border border-accent/25 bg-slate-950/60 px-2 text-xs font-semibold text-accent transition-all duration-200 group-hover:border-accent/60 group-hover:bg-accent group-hover:text-slate-950 sm:px-3 lg:h-7">
+          <span className="hidden font-[poppins] sm:inline">Explore</span>
+          <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </span>
+      </a>
+    </div>
+  );
+}
+
+function NewsletterForm() {
+  return (
+    <div className="w-full space-y-2.5">
+      <label
+        htmlFor="newsletter-email"
+        className="block pl-4 font-[poppins] text-xs font-semibold uppercase tracking-wider text-cyan-200/80"
+      >
+        Subscribe to our newsletter
+      </label>
+
+      <form
+        aria-label="Newsletter subscription"
+        className="flex flex-col gap-2.5 sm:flex-row sm:items-center"
+      >
+        <div className="group flex h-11 flex-1 items-center rounded-xl border border-accent/25 bg-slate-950/70 px-3.5 backdrop-blur-md transition-all duration-200 focus-within:border-accent/60 focus-within:shadow-[0_0_24px_-6px_rgba(34,211,238,0.4)] hover:border-accent/40">
+          <Mail className="h-4 w-4 shrink-0 text-accent/70 transition-colors group-focus-within:text-accent" />
+
+          <Input
+            id="newsletter-email"
+            type="email"
+            required
+            placeholder="Enter your email"
+            className="h-full flex-1 border-0 bg-transparent px-2.5 font-[poppins] text-sm text-cyan-100 shadow-none placeholder:text-cyan-200/45 focus-visible:ring-0 focus-visible:ring-offset-0"
+          />
+        </div>
+
+        <Button
+          type="submit"
+          aria-label="Subscribe to newsletter"
+          className="group !h-11 w-full shrink-0 gap-1.5 rounded-xl bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] px-5 font-[poppins] text-sm font-semibold text-white shadow-[0_0_20px_-6px_rgba(34,211,238,0.45)] transition-all duration-200 hover:opacity-95 hover:shadow-[0_0_24px_-4px_rgba(34,211,238,0.6)] sm:w-auto"
+        >
+          <span>Subscribe</span>
+          <ArrowRight
+            className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+            aria-hidden="true"
+          />
+        </Button>
+      </form>
+    </div>
+  );
+}
+
+function ContactInfo() {
+  return (
+    <div className="space-y-4">
+      <div>
+        <h3 className="font-[poppins] text-sm font-bold uppercase tracking-wider text-cyan-100">
+          Contact Info
+        </h3>
+        <div className="mt-2 h-[2px] w-10 rounded-full bg-accent/80" />
+      </div>
+
+      <div className="space-y-3 font-[poppins] text-sm font-medium text-cyan-200/75">
+        <a
+          href="tel:+8060008899"
+          className="flex items-center gap-3 transition-colors hover:text-cyan-100"
+        >
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent/10 text-accent">
+            <Phone className="h-3.5 w-3.5" />
+          </span>
+          <span>(+806) 000 88 99</span>
+        </a>
+
+        <a
+          href="mailto:info@nmcyber.com.au"
+          className="flex items-center gap-3 transition-colors hover:text-cyan-100"
+        >
+          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent/10 text-accent">
+            <Mail className="h-3.5 w-3.5" />
+          </span>
+          <span className="break-all">info@nmcyber.com.au</span>
+        </a>
+
+        <div className="flex items-start gap-3">
+          <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent/10 text-accent">
+            <MapPin className="h-3.5 w-3.5" />
+          </span>
+          <span className="leading-relaxed">
+            1811 Silverside Rd,
+            <br />
+            Wilmington, DE 19810, USA
+          </span>
+        </div>
       </div>
     </div>
   );
 }
 
-// Social Links Component
 function SocialLinks() {
   return (
-    <div className="flex gap-2 sm:gap-3 pt-2 sm:pt-4">
+    <div className="flex flex-wrap gap-2.5 pt-1">
       {SOCIAL_LINKS.map((social) => {
         const Icon = social.icon;
         return (
-          <Link
+          <a
             key={social.href}
             href={social.href}
-            className={`w-7 h-7 sm:w-8 sm:h-8 bg-secondary rounded-md flex items-center justify-center transition-colors ${social.className}`}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={social.label}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-accent/25 bg-accent/[0.06] text-cyan-200/80 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-accent/60 hover:bg-accent/15 hover:text-accent hover:shadow-[0_0_15px_-4px_rgba(34,211,238,0.45)]"
           >
-            <Icon className="w-3 h-3 sm:w-4 sm:h-4 aspect-square text-white" />
-          </Link>
+            <Icon className="h-4 w-4" />
+          </a>
         );
       })}
     </div>
   );
 }
 
-// Footer Bottom Component
 function FooterBottom() {
   const currentYear = new Date().getFullYear();
+
   return (
-    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4 items-center justify-center text-xs sm:text-sm">
-      {/* Row 1: Copyright Text */}
-      <div className="leading-[1.75] tracking-normal font-[Poppins] font-normal text-muted-foreground text-center sm:text-left">
-        &copy; {currentYear} NMCYBER. All Rights Reserved
-      </div>
+    <div className="flex flex-col items-center justify-between gap-2.5 text-xs sm:flex-row">
+      <p className="text-center font-[poppins] text-xs text-cyan-200/60 sm:text-left">
+        © {currentYear} NMCYBER. All Rights Reserved.
+      </p>
 
-      {/* Row 2: Terms & Policies */}
-      <div className="flex items-center gap-2 sm:gap-6 text-nowrap justify-center">
-        <a
-          href="/terms-and-policies"
-          className="leading-[1.75] font-[Poppins] font-normal text-muted-foreground hover:text-foreground/70 transition-colors"
-        >
-          Terms & Policies
-        </a>
-      </div>
-
-      {/* Row 3: System Status */}
-      <div className="flex items-center justify-center">
-        <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-3 py-2 sm:px-5 sm:py-3 text-accent backdrop-blur-sm">
-          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full" />
-          <span className="font-[Poppins] font-medium text-xs sm:text-sm">All Systems Normal</span>
-        </div>
-      </div>
+      <Link
+        href="/terms-and-policies"
+        className="whitespace-nowrap font-[poppins] text-cyan-200/75 transition-colors hover:text-cyan-100"
+      >
+        Terms & Policies
+      </Link>
     </div>
   );
 }
 
-// Main Footer Component
 export default function Footer({ className = '' }: { className?: string }) {
   return (
     <footer
       className={cn(
-        `mt-16 sm:mt-20 lg:mt-24 mx-auto ${className} relative z-30 container px-3 sm:px-4 md:px-6 lg:px-8`
+        'relative z-30 mx-auto mt-16 w-full max-w-7xl px-4 pb-8 sm:mt-24 sm:px-6 lg:px-8',
+        className
       )}
     >
-      <div className="relative rounded-2xl sm:rounded-3xl lg:rounded-4xl border border-white/10 gradient-bg2 backdrop-blur-sm overflow-hidden hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300 z-10">
-        <div className="px-4 py-6 sm:px-6 sm:py-8 lg:px-8 lg:py-10 z-10 relative">
-          <div className="grid grid-cols-2 lg:grid-cols-9 gap-6 lg:gap-10">
-            {/* Column 1: Company Info & Newsletter - Wider */}
-            <div className="flex flex-col gap-4 sm:gap-6 lg:col-span-3">
+      <div className="relative overflow-hidden rounded-3xl border border-accent/25 bg-accent/[0.04] backdrop-blur-md transition-colors duration-300 hover:border-accent/40">
+        {/* Ambient Top Cyan Glow Line */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-20 h-[1px] bg-gradient-to-r from-transparent via-accent/60 to-transparent" />
+
+        <div className="relative z-10 px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+          {/* Mobile keeps exact vertical stack; Desktop locks into a balanced 2-row bento */}
+          <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-8">
+            {/* Row 1 Left: Logo + Vertically Centered Quote */}
+            <div className="flex flex-col gap-5 sm:col-span-2 lg:col-start-1 lg:col-end-6 lg:row-start-1 lg:h-full">
               <FooterLogo />
-              <NewsletterForm />
-              <AwardsBadge />
+              <div className="lg:flex lg:flex-1 lg:items-center">
+                <DefenseQuote />
+              </div>
             </div>
 
-            {/* Column 2: Quick Links */}
-            <div className=" lg:col-span-2">
+            {/* Mobile: directly under quote | Desktop Row 2 Right: aligned flush with NewsletterForm */}
+            <div className="sm:col-span-2 lg:col-start-6 lg:col-end-13 lg:row-start-2 lg:self-end">
+              <LaunchpadBanner />
+            </div>
+
+            {/* Mobile: under Launchpad | Desktop Row 2 Left: flush alongside Launchpad */}
+            <div className="sm:col-span-2 lg:col-start-1 lg:col-end-6 lg:row-start-2 lg:self-end">
+              <NewsletterForm />
+            </div>
+
+            {/* Row 1 Middle: Quick Links */}
+            <div className="lg:col-start-6 lg:col-end-9 lg:row-start-1">
               <NavigationLinks title="Quick Links" links={QUICK_LINKS} />
             </div>
 
-            {/* Column 3: Platform */}
-            <div className=" lg:col-span-2">
-              <NavigationLinks title="Platform" links={PLATFORM_LINKS} />
-            </div>
-
-            {/* Column 4: Contact Info & Social */}
-            <div className="space-y-4 sm:space-y-6 lg:col-span-2">
+            {/* Row 1 Right: Contact Info + Social Icons */}
+            <div className="space-y-5 lg:col-start-9 lg:col-end-13 lg:row-start-1">
               <ContactInfo />
               <SocialLinks />
             </div>
           </div>
 
-          {/* Separator Line */}
-          <div className="w-full h-[1px] sm:h-[2px] bg-gray-400 my-6 sm:my-8"></div>
+          {/* Subtle Gradient Divider */}
+          <div className="my-8 h-[1px] w-full bg-gradient-to-r from-transparent via-accent/25 to-transparent" />
 
-          {/* Bottom Section */}
+          {/* Bottom Bar */}
           <FooterBottom />
         </div>
-        {/* Background inside the constrained container */}
-        <div className="absolute inset-0 z-0 hidden md:block">
+
+        {/* Subtle Background Wave */}
+        <div className="pointer-events-none absolute inset-0 z-0 hidden md:block">
           <Image
-            src={'/images/footer_wave.svg'}
-            alt="Footer Background"
+            src="/images/footer_wave.svg"
+            alt=""
             fill
-            className="absolute bottom-0 left-0 w-full h-full object-cover opacity-30"
+            className="object-cover object-bottom opacity-15"
           />
         </div>
       </div>
