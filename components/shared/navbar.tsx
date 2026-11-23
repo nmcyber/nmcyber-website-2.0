@@ -304,7 +304,7 @@ export default function NavBar() {
                 <li>
                   <a
                     className="h-12 px-5 flex items-center gap-2 text-muted-foreground"
-                    href={`tel:${COMPANY_INFO.phone}`}
+                    href={`tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`}
                   >
                     <Phone aria-hidden="true" className="size-4" />
                     <span className="font-[poppins] text-xs">{COMPANY_INFO.phone}</span>
