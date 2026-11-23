@@ -11,19 +11,21 @@ export default function ServicesHero() {
       <div className="mx-auto w-full max-w-7xl space-y-6 text-center sm:space-y-8">
         <div className="flex items-center justify-center gap-3">
           <span aria-hidden="true" className="h-px w-16 bg-accent/60" />
-          <span className="font-plus-jakarta-sans text-sm font-bold uppercase leading-[14px] text-accent/80">
+          <span className="font-plus-jakarta-sans text-sm font-bold uppercase leading-[14px] text-cyan-200">
             {hero.subtitle}
           </span>
           <span aria-hidden="true" className="h-px w-16 bg-accent/60" />
         </div>
-        <h1 className="gradient-heading1 mx-auto max-w-[22ch] text-balance py-2">{hero.title}</h1>
+        <h1 className="gradient-heading1 services-heading mx-auto max-w-[22ch] text-balance py-2">
+          {hero.title}
+        </h1>
         <p className="mx-auto max-w-4xl text-lg leading-relaxed text-white/80 sm:text-xl">
           {hero.description}
         </p>
         <Button
           asChild
           variant={null}
-          className="has-[>svg]:px-5 py-5 h-auto rounded-5xl bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] font-[family-name:var(--font-poppins)] font-semibold text-white transition-[--tw-gradient-from,--tw-gradient-to] duration-300 ease-in-out motion-reduce:transition-none hover:from-[var(--button-gradient-start-hover)] hover:to-[var(--button-gradient-end-hover)]"
+          className="has-[>svg]:px-5 py-5 h-auto rounded-5xl bg-gradient-to-r from-[var(--button-gradient-start)] to-[#087396] font-[family-name:var(--font-poppins)] font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white transition-[--tw-gradient-from,--tw-gradient-to] duration-300 ease-in-out motion-reduce:transition-none hover:from-[var(--button-gradient-start-hover)] hover:to-[#076786]"
         >
           <a href={`#${SERVICE_DIRECTORY.id}`}>
             <span className="leading-4">{hero.action}</span>

@@ -28,6 +28,7 @@ export default function ServiceCard({ service }: { service: Service }) {
   return (
     <article
       id={service.id}
+      tabIndex={-1}
       aria-labelledby={`${service.id}-title`}
       className="group relative scroll-mt-24 overflow-hidden rounded-2xl border border-accent/25 bg-accent/[0.06] p-5 backdrop-blur-md target:border-accent target:bg-accent/[0.1] hover:border-accent/70 hover:shadow-[0_0_20px_-4px_var(--color-accent)] motion-safe:transition-[border-color,box-shadow] motion-safe:duration-300 motion-safe:ease-in-out sm:row-span-3 sm:grid sm:grid-rows-subgrid sm:gap-y-0 sm:p-6 lg:p-8"
     >

@@ -130,6 +130,17 @@
     letter-spacing: -1px;
   }
 
+  .services-heading {
+    --heading-gradient1: linear-gradient(121deg, #fff 31.34%, #a5e5fa);
+  }
+
+  @media (forced-colors: active) {
+    .services-heading {
+      background: none;
+      -webkit-text-fill-color: CanvasText;
+    }
+  }
+
   /* Responsive styles for the gradient heading(H1) */
   @media (max-width: 768px) {
     .gradient-heading1 {

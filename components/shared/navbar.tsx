@@ -106,7 +106,7 @@ export default function NavBar() {
 
                   {/* Desktop Dropdown */}
                   {hasSubmenus && (
-                    <div className="absolute top-full left-0 mt-2 min-w-48 bg-background/95 backdrop-blur-md border border-gray-200/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-[opacity,visibility] duration-200 z-50">
+                    <div className="absolute top-full left-0 mt-2 min-w-48 bg-background/95 backdrop-blur-md border border-gray-200/30 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:visible group-focus-within:opacity-100 transition-[opacity,visibility] duration-200 z-50">
                       <div className="py-2">
                         {item.submenus.map((submenu) => (
                           <Link
@@ -144,23 +144,24 @@ export default function NavBar() {
           <div className="flex items-center gap-2">
             <Link
               href={CONTACT_CTA_LINK.href}
+              aria-label={CONTACT_CTA_LINK.text}
               className="
-              flex items-center justify-center gap-2
-              rounded-lg p-2 text-white
-              transition-[background-color,filter,box-shadow] duration-300 ease-out
-              hover:bg-white/10
-              size-12
+                flex items-center justify-center gap-2
+                rounded-lg p-2 text-white
+                transition-[background-color,filter,box-shadow] duration-300 ease-out
+                hover:bg-white/10
+                size-12
 
-              sm:rounded-full sm:px-6
-              sm:w-auto
-              sm:bg-gradient-to-r
-              sm:from-[var(--button-gradient-start)]
-              sm:to-[var(--button-gradient-end)]
+                sm:rounded-full sm:px-6
+                sm:w-auto
+                sm:bg-gradient-to-r
+                sm:from-[var(--button-gradient-start)]
+                sm:to-[var(--button-gradient-end)]
 
-              md:px-10 md:text-lg
-              md:hover:brightness-110
-              md:hover:shadow-lg
-            "
+                md:px-10 md:text-lg
+                md:hover:brightness-110
+                md:hover:shadow-lg
+              "
             >
               <i className="sm:hidden size-6 grid place-items-center">
                 <Phone color="white" className="size-5 text-accent shrink-0" />
@@ -173,6 +174,7 @@ export default function NavBar() {
               type="button"
               className="grid place-items-center md:hidden size-12 text-white hover:bg-white/10 rounded-lg transition-colors"
               onClick={() => setIsMobileMenuOpen(true)}
+              aria-expanded={isMobileMenuOpen}
               aria-label="Toggle mobile menu"
             >
               <Menu className="size-6" aria-hidden="true" />
@@ -235,34 +237,45 @@ export default function NavBar() {
                   ? [{ name: item.mobileOverviewLabel, href: item.href }, ...item.submenus]
                   : item.submenus;
 
-                return (
-                  <div key={item.name}>
-                    {/* Main Navigation Item */}
-                    <Link
-                      href={item.href}
-                      target={item.external ? '_blank' : undefined}
-                      rel={item.external ? 'noopener noreferrer' : undefined}
-                      className={`font-[Poppins] font-semibold text-sm transition-[color,background-color,border-color,border-width] px-5 h-12 w-full rounded flex items-center justify-between ${
-                        pathname === item.href
-                          ? 'text-white bg-accent/20 border-l-4 border-accent'
-                          : 'text-muted-foreground hover:text-white hover:bg-white/10'
-                      }`}
-                      onClick={(e) => {
-                        if (hasSubmenus) {
-                          e.preventDefault();
-                          toggleSubmenu(item.name);
-                        } else {
-                          closeMobileMenu();
-                        }
-                      }}
-                    >
-                      {item.name}
-                      {item.external && <ExternalLink className="size-3.5" />}
-                    </Link>
+                  const itemClassName = `transition-all py-2 px-4 rounded flex items-center justify-between ${
+                    pathname === item.href
+                      ? 'text-white bg-accent/20 border-l-4 border-accent font-[Poppins] font-semibold text-sm'
+                      : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-semibold text-sm'
+                  }`;
+
+                  return (
+                    <div key={item.name}>
+                      {/* Main Navigation Item */}
+                      <div className="flex items-center">
+                        {hasSubmenus ? (
+                          <button
+                            type="button"
+                            aria-expanded={isExpanded}
+                            onClick={() => toggleSubmenu(item.name)}
+                            className={itemClassName}
+                          >
+                            {item.name}
+                          </button>
+                        ) : (
+                          <Link
+                            href={item.href}
+                            target={item.external ? '_blank' : undefined}
+                            rel={item.external ? 'noopener noreferrer' : undefined}
+                            className={itemClassName}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {item.name}
+                            {item.external && (
+                              <ExternalLink aria-hidden="true" className="size-3.5" />
+                            )}
+                          </Link>
+                        )}
+                      </div>
 
                     {/* Submenu Items */}
                     {hasSubmenus && (
                       <div
+                        inert={!isExpanded}
                         className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
                           isExpanded ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'
                         }`}
