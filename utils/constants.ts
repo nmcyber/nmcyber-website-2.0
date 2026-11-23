@@ -19,6 +19,8 @@ export const COMPANY_INFO = {
 export const SERVICE_DIRECTORY = {
   id: 'our-services',
   title: 'How we can help',
+  enquiryLabel: 'Ask about',
+  enquiryDestination: { pathname: '/contact-us', hash: 'contact' },
   services: [
     {
       id: 'vulnerability-assessments',
