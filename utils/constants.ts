@@ -36,12 +36,12 @@ export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & { submenus: NavigationL
     name: 'Services',
     href: '/services',
     submenus: [
-      { name: 'Vulnerability Assessments', href: '/services#packages' },
-      { name: 'Penetration Testing', href: '/services#packages-everyone' },
-      { name: 'Threats and Risk Assessment', href: '/services#pricing' },
-      { name: 'Tailored Education and Training', href: '/services#addons' },
-      { name: 'Independent Research Services', href: '/services#research' },
-      { name: 'Candidate screening and onboarding new hires', href: '/services#onboarding' },
+      { name: 'Vulnerability Assessments', href: '/services' },
+      { name: 'Penetration Testing', href: '/services' },
+      { name: 'Threats and Risk Assessment', href: '/services' },
+      { name: 'Tailored Education and Training', href: '/services' },
+      { name: 'Independent Research Services', href: '/services' },
+      { name: 'Candidate screening and onboarding new hires', href: '/services' },
     ],
   },
   {

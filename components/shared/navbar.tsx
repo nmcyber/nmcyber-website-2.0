@@ -110,12 +110,12 @@ export default function NavBar() {
                       <div className="py-2">
                         {item.submenus.map((submenu) => (
                           <Link
-                            key={submenu.href}
+                            key={submenu.name}
                             href={submenu.href}
                             target={submenu.external ? '_blank' : undefined}
                             rel={submenu.external ? 'noopener noreferrer' : undefined}
                             className={`block px-4 py-2 text-sm text-white font-[Poppins] transition-colors ${
-                              pathname === submenu.href
+                              submenu.href !== item.href && pathname === submenu.href
                                 ? 'bg-accent/20 border-l-2 border-accent font-semibold'
                                 : 'hover:bg-white/10 font-medium'
                             }`}
@@ -267,12 +267,12 @@ export default function NavBar() {
                         <div className="py-2">
                           {item.submenus.map((submenu) => (
                             <Link
-                              key={submenu.href}
+                              key={submenu.name}
                               href={submenu.href}
                               target={submenu.external ? '_blank' : undefined}
                               rel={submenu.external ? 'noopener noreferrer' : undefined}
                               className={`flex items-center gap-2 px-4 py-2 text-sm leading-relaxed before:size-1.5 before:shrink-0 before:rounded-full before:bg-accent before:opacity-80 transition-colors ${
-                                pathname === submenu.href
+                                submenu.href !== item.href && pathname === submenu.href
                                   ? 'text-white bg-accent/20 border-l-2 border-accent font-[Poppins] font-semibold'
                                   : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-normal'
                               }`}
