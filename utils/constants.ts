@@ -711,7 +711,7 @@ export const SERVICES_PAGE = {
     backgroundBinary: '/images/binary.svg',
     title: 'Securing your systems and your people',
     description:
-      'Find out where your organisation is exposed and help your team make safer decisions in their everyday work.',
+      'Find out where your organisation is exposed and help your team make safer decisions.',
     action: 'Explore our services',
   },
   coreServicesCarousel: {

@@ -30,11 +30,11 @@ export default function ServiceCard({ service }: { service: Service }) {
       id={service.id}
       tabIndex={-1}
       aria-labelledby={`${service.id}-title`}
-      className="group relative scroll-mt-24 overflow-hidden rounded-2xl border border-accent/25 bg-accent/[0.06] p-5 backdrop-blur-md target:border-accent target:bg-accent/[0.1] hover:border-accent/70 hover:shadow-[0_0_20px_-4px_var(--color-accent)] motion-safe:transition-[border-color,box-shadow] motion-safe:duration-300 motion-safe:ease-in-out sm:row-span-3 sm:grid sm:grid-rows-subgrid sm:gap-y-0 sm:p-6 lg:p-8"
+      className="group relative scroll-mt-24 overflow-hidden rounded-2xl border border-accent/25 bg-accent/[0.06] p-5 backdrop-blur-md target:border-accent target:bg-accent/[0.1] hover:border-accent/70 [&:is(:hover,:focus-within,:target)]:shadow-[0_0_20px_-4px_var(--color-accent)] focus-within:border-accent focus:outline-accent motion-safe:transition-[border-color,box-shadow] motion-safe:duration-300 motion-safe:ease-in-out sm:row-span-3 sm:grid sm:grid-rows-subgrid sm:gap-y-0 sm:p-6 lg:p-8"
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 group-hover:opacity-100 motion-safe:transition-opacity motion-safe:duration-300 motion-safe:ease-in-out"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/60 to-transparent opacity-0 group-[:is(:hover,:focus-within,:target)]:opacity-100 motion-safe:transition-opacity motion-safe:duration-300 motion-safe:ease-in-out"
       />
       <div className="flex items-center gap-4 self-start">
         <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-accent/30 bg-accent/15 text-accent motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-in-out motion-safe:group-hover:scale-105">
