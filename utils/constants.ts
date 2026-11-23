@@ -19,6 +19,11 @@ export const COMPANY_INFO = {
 export const SERVICE_DIRECTORY = {
   id: 'our-services',
   title: 'How we can help',
+  seo: {
+    title: 'Human-Centric Cyber Security Services',
+    description:
+      'Explore NMCyber’s vulnerability assessments, penetration testing, risk assessments, tailored training, independent research and candidate screening.',
+  },
   enquiryLabel: 'Ask about',
   enquiryDestination: { pathname: '/contact-us', hash: 'contact' },
   services: [
