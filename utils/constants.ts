@@ -15,17 +15,91 @@ export const COMPANY_INFO = {
   phone: '+61 421 212 628',
 };
 
-// Navigation structure with submenus
-interface NavigationLink {
-  name: string;
-  href: string;
-  external?: boolean;
-}
+// Working copy for the Services redesign, pending service details from Nick.
+export const SERVICE_DIRECTORY = {
+  id: 'our-services',
+  title: 'How we can help',
+  services: [
+    {
+      id: 'vulnerability-assessments',
+      name: 'Vulnerability Assessments',
+      icon: 'scan',
+      question: 'Where are our systems exposed?',
+      description:
+        'Identify weaknesses in the systems your team relies on and decide which fixes deserve attention first.',
+    },
+    {
+      id: 'penetration-testing',
+      name: 'Penetration Testing',
+      icon: 'shield',
+      question: 'How would our defences hold up?',
+      description:
+        'Explore how a realistic security scenario could affect a system, within an agreed testing scope.',
+    },
+    {
+      id: 'threat-and-risk-assessment',
+      name: 'Threats and Risk Assessment',
+      icon: 'radar',
+      question: 'Which threats could disrupt our business?',
+      description:
+        'Consider what an interruption would mean for your people, customers and day-to-day operations.',
+    },
+    {
+      id: 'education-and-training',
+      name: 'Tailored Education and Training',
+      icon: 'education',
+      question: 'Would our team know when to question a request?',
+      description:
+        'Bring security into everyday decisions, from verifying a change in bank details to reporting a suspicious message.',
+    },
+    {
+      id: 'independent-research',
+      name: 'Independent Research Services',
+      icon: 'research',
+      question: 'What evidence would help us make this decision?',
+      description:
+        'Bring a specific cyber security question and explore what independent research could clarify for your organisation.',
+    },
+    {
+      id: 'screening-and-onboarding',
+      name: 'Candidate screening and onboarding new hires',
+      icon: 'people',
+      question: 'How do we set new starters up for success?',
+      description:
+        'Consider the security expectations of a role, from the candidate conversation through the first days on the job.',
+    },
+  ],
+  contact: {
+    title: 'Have a different question?',
+    description: 'Tell us what your team is working through.',
+    action: 'Talk to NMCyber',
+  },
+};
 
-export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & {
-  submenus: NavigationLink[];
-  mobileOverviewLabel?: string;
-})[] = [
+// Navigation structure with submenus
+export const NAVIGATION_WITH_SUBMENUS = [
+  {
+    name: 'Company',
+    href: '/company',
+    submenus: [
+      { name: 'Our Mission', href: '/company#hero' },
+      { name: 'Why Human-Centric', href: '/company#why-human-centric' },
+      { name: 'Our Products', href: '/company#products' },
+      { name: 'Why NMCYBER', href: '/company#why-nmcyber' },
+      { name: 'Pricing Plans', href: '/company#pricing' },
+      { name: 'Free Resources', href: '/company#resources' },
+      { name: 'Testimonials', href: '/company#testimonials' },
+      { name: 'Contact Us', href: '/company#contact' },
+    ],
+  },
+  {
+    name: 'About Us',
+    href: '/about-us',
+    submenus: [
+      { name: 'Who We Are', href: '/about-us#who-we-are' },
+      { name: 'Contact Us', href: '/about-us#contact' },
+    ],
+  },
   {
     name: 'Products',
     href: '/products',
@@ -40,15 +114,10 @@ export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & {
   {
     name: 'Services',
     href: '/services',
-    mobileOverviewLabel: 'View all services',
-    submenus: [
-      { name: 'Vulnerability Assessments', href: '/services' },
-      { name: 'Penetration Testing', href: '/services' },
-      { name: 'Threats and Risk Assessment', href: '/services' },
-      { name: 'Tailored Education and Training', href: '/services' },
-      { name: 'Independent Research Services', href: '/services' },
-      { name: 'Candidate screening and onboarding new hires', href: '/services' },
-    ],
+    submenus: SERVICE_DIRECTORY.services.map(({ id, name }) => ({
+      name,
+      href: `/services#${id}`,
+    })),
   },
   {
     name: 'Resources',
@@ -630,10 +699,13 @@ export const PRODUCTS_PAGE = {
 // Services Page content
 export const SERVICES_PAGE = {
   servicesHero: {
-    subtitle: 'SERVICES',
-    title: 'NMCYBER Services',
+    subtitle: 'Services',
     backgroundHero: '/images/hero-bg.svg',
     backgroundBinary: '/images/binary.svg',
+    title: 'Securing your systems and your people',
+    description:
+      'Find out where your organisation is exposed and help your team make safer decisions in their everyday work.',
+    action: 'Explore our services',
   },
   coreServicesCarousel: {
     services: [

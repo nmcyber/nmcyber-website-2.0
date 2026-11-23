@@ -79,6 +79,12 @@
     overflow-x: hidden;
     max-width: 100%;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html:has(#our-services) {
+      scroll-behavior: smooth;
+    }
+  }
   
   body {
     background-color: theme(colors.background);
