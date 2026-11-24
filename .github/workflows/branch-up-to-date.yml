@@ -1,0 +1,89 @@
+name: Branch Up To Date Check
+
+on:
+  pull_request:
+    branches: [dev]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: branch-up-to-date-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check-up-to-date:
+    name: Branch is up to date with dev
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Compare PR branch with dev
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -euo pipefail
+          MARKER='<!-- dev-sync-check -->'
+
+          BEHIND=$(gh api "repos/${REPO}/compare/${BASE_REF}...${HEAD_SHA}" --jq '.behind_by')
+          echo "PR branch is ${BEHIND} commit(s) behind ${BASE_REF}"
+
+          if [ "${BEHIND}" -gt 0 ]; then
+            cat > body.md <<EOF
+          ${MARKER}
+          ### Please update your branch with \`${BASE_REF}\` first
+
+          Hi @${AUTHOR}, your branch is **${BEHIND} commit(s) behind \`${BASE_REF}\`**. I can't review it until it has the latest changes, so we don't review code that is going to conflict or break once merged.
+
+          **Quickest way:** scroll to the bottom of this PR and click **Update branch**. That merges \`${BASE_REF}\` into your branch for you.
+
+          **Or from your terminal:**
+          \`\`\`bash
+          git checkout ${HEAD_REF}
+          git fetch origin
+          git merge origin/${BASE_REF}
+          # fix any conflicts, then
+          git push
+          \`\`\`
+
+          This check runs again when you push, and this comment updates by itself. For next time: always \`git pull\` on \`${BASE_REF}\` and branch from it before you start work.
+          EOF
+            VERDICT="behind"
+          else
+            cat > body.md <<EOF
+          ${MARKER}
+          ### Branch is up to date with \`${BASE_REF}\`
+
+          Thanks @${AUTHOR}, nothing to do here. This PR is ready for review.
+          EOF
+            VERDICT="ok"
+          fi
+          sed -i 's/^          //' body.md
+
+          COMMENT_ID=$(gh api "repos/${REPO}/issues/${PR}/comments" --paginate \
+            --jq ".[] | select(.body | contains(\"${MARKER}\")) | .id" | head -n1 || true)
+
+          if [ -n "${COMMENT_ID}" ]; then
+            gh api -X PATCH "repos/${REPO}/issues/comments/${COMMENT_ID}" -F body=@body.md >/dev/null \
+              || echo "::warning::Could not update comment (fork PR or missing permission)"
+          elif [ "${VERDICT}" = "behind" ]; then
+            gh api "repos/${REPO}/issues/${PR}/comments" -F body=@body.md >/dev/null \
+              || echo "::warning::Could not post comment (fork PR or missing permission)"
+          fi
+
+          {
+            echo "### Branch up to date check"
+            echo "Branch \`${HEAD_REF}\` is ${BEHIND} commit(s) behind \`${BASE_REF}\`."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "${VERDICT}" = "behind" ]; then
+            echo "::error::Branch is ${BEHIND} commit(s) behind ${BASE_REF}. Click Update branch or merge ${BASE_REF} into your branch."
+            exit 1
+          fi
