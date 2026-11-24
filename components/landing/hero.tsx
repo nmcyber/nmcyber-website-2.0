@@ -61,7 +61,7 @@ export default function Hero() {
             className="!h-12 sm:!h-14 w-full sm:w-auto rounded-5xl px-6 sm:px-8 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] hover:opacity-90 transition-opacity"
           >
             <Link
-              href="/contact-us"
+              href={HERO_CONTENT.cta.primaryHref}
               className="flex items-center justify-center text-sm sm:text-base lg:text-lg font-[poppins] font-semibold whitespace-nowrap text-white"
             >
               {HERO_CONTENT.cta.primary}
@@ -75,7 +75,7 @@ export default function Hero() {
             className="!h-12 sm:!h-14 w-full sm:w-auto !p-0 overflow-hidden border border-accent bg-transparent rounded-5xl hover:bg-black/50"
           >
             <Link
-              href="/resources/checklist"
+              href={HERO_CONTENT.cta.secondaryHref}
               className="h-full w-full items-center justify-between transition-opacity duration-200 hover:opacity-95"
               aria-label="Download the Cybersecurity Risk Checklist"
             >
