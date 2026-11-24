@@ -9,6 +9,8 @@ export const COMPANY_INFO = {
   longDescription:
     'NMCYBER helps Small and Medium Businesses transform their employees into cyber-aware defenders through custom, human-centric cybersecurity training. We replace boring check-the-box courses with interactive, role-based programs that build real behavioural change, reducing cyber risk at its human source.',
   email: 'info@nmcyber.com.au',
+  longDescriptionAlt:
+    'We turn SMB employees into cyber-aware defenders, replacing check-the-box courses with interactive, role-based training that reduces risk at its human source.',
   website: 'https://nmcyber.com.au',
   phone: '+61 421 212 628',
 };
@@ -266,6 +268,7 @@ export const HERO_CONTENT = {
   cta: {
     primary: 'Book a Free Strategy Call Today',
     secondary: 'Download Free Cybersecurity Checklist',
+    secondaryMobile: 'Get Checklist',
     primaryHref: '/contact-us',
     secondaryHref: '/resources',
   },
