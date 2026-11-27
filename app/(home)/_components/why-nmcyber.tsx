@@ -45,7 +45,7 @@ export default function WhyNMCyber() {
     <section id="why-nmcyber" className="px-4" aria-labelledby="why-nmcyber-title">
       <div className="mx-auto grid w-full max-w-7xl gap-10 lg:grid-cols-[11fr_9fr] lg:gap-16">
         <div>
-          <SectionLabel className="justify-center">Why NMCyber</SectionLabel>
+          <SectionLabel className="justify-center text-sky-300">Why NMCyber</SectionLabel>
           <h2
             id="why-nmcyber-title"
             className="font-plus-jakarta-sans my-8 max-w-[19ch] text-center text-balance text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl"
@@ -78,11 +78,12 @@ export default function WhyNMCyber() {
           <div
             className={`${styles.cover} relative isolate overflow-hidden px-6 pb-6 pt-7 sm:px-9`}
           >
-            <p className="flex items-center gap-2 text-sm font-semibold text-accent">
+            <p className="flex items-center gap-2 text-sm font-semibold text-sky-200">
               <TrophyIcon aria-hidden="true" className="size-4 shrink-0" />
               <span>Illustrative scenario · AI-generated draft</span>
             </p>
             <h3 className="mt-3 text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
+              <span className="sr-only">Illustrative scenario: </span>
               When a supplier changes bank details
             </h3>
           </div>
