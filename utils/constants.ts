@@ -31,6 +31,7 @@ export const SERVICE_DIRECTORY = {
     {
       id: 'vulnerability-assessments',
       name: 'Vulnerability Assessments',
+      cta: 'vulnerability assessments',
       icon: 'scan',
       question: 'Where are our systems exposed?',
       description:
@@ -39,6 +40,7 @@ export const SERVICE_DIRECTORY = {
     {
       id: 'penetration-testing',
       name: 'Penetration Testing',
+      cta: 'pen testing',
       icon: 'shield',
       question: 'How would our defences hold up?',
       description:
@@ -47,6 +49,7 @@ export const SERVICE_DIRECTORY = {
     {
       id: 'threat-and-risk-assessment',
       name: 'Threats and Risk Assessment',
+      cta: 'risk assessments',
       icon: 'radar',
       question: 'Which threats could disrupt our business?',
       description:
@@ -55,6 +58,7 @@ export const SERVICE_DIRECTORY = {
     {
       id: 'education-and-training',
       name: 'Tailored Education and Training',
+      cta: 'team training',
       icon: 'education',
       question: 'Would our team know when to question a request?',
       description:
@@ -63,6 +67,7 @@ export const SERVICE_DIRECTORY = {
     {
       id: 'independent-research',
       name: 'Independent Research Services',
+      cta: 'independent research',
       icon: 'research',
       question: 'What evidence would help us make this decision?',
       description:
@@ -71,6 +76,7 @@ export const SERVICE_DIRECTORY = {
     {
       id: 'screening-and-onboarding',
       name: 'Candidate screening and onboarding new hires',
+      cta: 'candidate screening',
       icon: 'people',
       question: 'How do we set new starters up for success?',
       description:

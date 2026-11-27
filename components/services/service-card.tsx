@@ -60,7 +60,7 @@ export default function ServiceCard({ service }: { service: Service }) {
         className="mt-3 inline-flex min-h-11 items-center gap-1.5 justify-self-start self-end rounded-sm font-[family-name:var(--font-poppins)] text-sm font-semibold text-accent underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
       >
         <span>
-          {SERVICE_DIRECTORY.enquiryLabel} {service.name.toLowerCase()}
+          {SERVICE_DIRECTORY.enquiryLabel} {service.cta}
         </span>
         <ArrowUpRight aria-hidden="true" className="size-4 shrink-0" />
       </Link>
