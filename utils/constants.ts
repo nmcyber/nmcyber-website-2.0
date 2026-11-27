@@ -1,4 +1,4 @@
-import { Linkedin, Youtube } from 'lucide-react';
+import { Linkedin, Mail, Phone, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
 
 // Company information
@@ -14,6 +14,15 @@ export const COMPANY_INFO = {
   website: 'https://nmcyber.com.au',
   phone: '+61 421 212 628',
 };
+
+export const CONTACT_LINKS = [
+  { Icon: Mail, text: COMPANY_INFO.email, href: `mailto:${COMPANY_INFO.email}` },
+  {
+    Icon: Phone,
+    text: COMPANY_INFO.phone,
+    href: `tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`,
+  },
+] as const;
 
 // Navigation structure with submenus
 interface NavigationLink {
