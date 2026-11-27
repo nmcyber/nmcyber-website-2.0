@@ -100,6 +100,7 @@ export const NAVIGATION_WITH_SUBMENUS: NavigationItem[] = [
   {
     name: 'Services',
     href: '/services',
+    mobileOverviewLabel: 'View all services',
     submenus: SERVICE_DIRECTORY.services.map(({ id, name }) => ({
       name,
       href: `/services#${id}`,
@@ -117,6 +118,7 @@ export const NAVIGATION_WITH_SUBMENUS: NavigationItem[] = [
   {
     name: 'About Us',
     href: '/about-us',
+    mobileOverviewLabel: 'About the company',
     submenus: [
       { name: 'Why Choose NMCYBER', href: '/products#why-choose' },
       { name: 'Who We Are', href: '/about-us#who-we-are' },
