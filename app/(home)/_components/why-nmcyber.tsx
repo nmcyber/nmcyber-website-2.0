@@ -50,7 +50,7 @@ export default function WhyNMCyber() {
             id="why-nmcyber-title"
             className="font-plus-jakarta-sans my-8 max-w-[19ch] text-center text-balance text-3xl font-semibold leading-[1.1] tracking-tight sm:text-5xl"
           >
-            Security training for the decisions your people make
+            Cyber security awareness training for everyday decisions
           </h2>
           <ul className="mt-8 divide-y divide-border border-y border-border">
             {pillars.map(({ name, description, icon: Icon }) => (
@@ -71,7 +71,8 @@ export default function WhyNMCyber() {
             ))}
           </ul>
         </div>
-        <article
+        <div
+          data-nosnippet=""
           className={`${styles.panel} ${styles.reveal} overflow-hidden rounded-3xl border border-accent/30 shadow-xl`}
         >
           <div
@@ -79,7 +80,7 @@ export default function WhyNMCyber() {
           >
             <p className="flex items-center gap-2 text-sm font-semibold text-accent">
               <TrophyIcon aria-hidden="true" className="size-4 shrink-0" />
-              <span>Success Case · AI-generated draft</span>
+              <span>Illustrative scenario · AI-generated draft</span>
             </p>
             <h3 className="mt-3 text-2xl font-semibold leading-tight text-foreground sm:text-3xl">
               When a supplier changes bank details
@@ -96,7 +97,7 @@ export default function WhyNMCyber() {
               </div>
             ))}
           </dl>
-        </article>
+        </div>
       </div>
     </section>
   );
