@@ -45,11 +45,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         `}
       >
         <div className="pointer-events-none fixed inset-0 z-0 bg-additional-blury-blue" />
+        <a
+          href="#main-content"
+          className="sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:not-sr-only focus:rounded-md focus:bg-background focus:px-4 focus:py-3 focus:text-white"
+        >
+          Skip to main content
+        </a>
         <header className="relative z-50">
           <NavBar />
         </header>
 
-        <main className="flex relative w-full z-10 flex-col pt-[4rem] items-center justify-between">
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex relative w-full z-10 flex-col pt-[4rem] items-center justify-between"
+        >
           {children}
         </main>
 

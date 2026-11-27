@@ -1,5 +1,6 @@
 import { Linkedin, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
+import type { NavigationItem } from '@/types/navigation';
 
 // Company information
 export const COMPANY_INFO = {
@@ -15,17 +16,82 @@ export const COMPANY_INFO = {
   phone: '+61 421 212 628',
 };
 
-// Navigation structure with submenus
-interface NavigationLink {
-  name: string;
-  href: string;
-  external?: boolean;
-}
+// Working copy for the Services redesign, pending service details from Nick.
+export const SERVICE_DIRECTORY = {
+  id: 'our-services',
+  title: 'How we can help',
+  seo: {
+    title: 'Human-Centric Cyber Security Services',
+    description:
+      'Explore NMCyber’s vulnerability assessments, penetration testing, risk assessments, tailored training, independent research and candidate screening.',
+  },
+  enquiryLabel: 'Ask about',
+  enquiryDestination: { pathname: '/contact-us', hash: 'contact' },
+  services: [
+    {
+      id: 'vulnerability-assessments',
+      name: 'Vulnerability Assessments',
+      cta: 'vulnerability assessments',
+      icon: 'scan',
+      question: 'Where are our systems exposed?',
+      description:
+        'Identify weaknesses in the systems your team relies on and decide which fixes deserve attention first.',
+    },
+    {
+      id: 'penetration-testing',
+      name: 'Penetration Testing',
+      cta: 'pen testing',
+      icon: 'shield',
+      question: 'How would our defences hold up?',
+      description:
+        'Explore how a realistic security scenario could affect a system, within an agreed testing scope.',
+    },
+    {
+      id: 'threat-and-risk-assessment',
+      name: 'Threats and Risk Assessment',
+      cta: 'risk assessments',
+      icon: 'radar',
+      question: 'Which threats could disrupt our business?',
+      description:
+        'Consider what an interruption would mean for your people, customers and day-to-day operations.',
+    },
+    {
+      id: 'education-and-training',
+      name: 'Tailored Education and Training',
+      cta: 'team training',
+      icon: 'education',
+      question: 'Would our team know when to question a request?',
+      description:
+        'Bring security into everyday decisions, from verifying a change in bank details to reporting a suspicious message.',
+    },
+    {
+      id: 'independent-research',
+      name: 'Independent Research Services',
+      cta: 'independent research',
+      icon: 'research',
+      question: 'What evidence would help us make this decision?',
+      description:
+        'Bring a specific cyber security question and explore what independent research could clarify for your organisation.',
+    },
+    {
+      id: 'screening-and-onboarding',
+      name: 'Candidate screening and onboarding new hires',
+      cta: 'candidate screening',
+      icon: 'people',
+      question: 'How do we set new starters up for success?',
+      description:
+        'Consider the security expectations of a role, from the candidate conversation through the first days on the job.',
+    },
+  ],
+  contact: {
+    title: 'Have a different question?',
+    description: 'Tell us what your team is working through.',
+    action: 'Talk to NMCyber',
+  },
+};
 
-export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & {
-  submenus: NavigationLink[];
-  mobileOverviewLabel?: string;
-})[] = [
+// Navigation structure with submenus
+export const NAVIGATION_WITH_SUBMENUS: NavigationItem[] = [
   {
     name: 'Products',
     href: '/products',
@@ -41,14 +107,10 @@ export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & {
     name: 'Services',
     href: '/services',
     mobileOverviewLabel: 'View all services',
-    submenus: [
-      { name: 'Vulnerability Assessments', href: '/services' },
-      { name: 'Penetration Testing', href: '/services' },
-      { name: 'Threats and Risk Assessment', href: '/services' },
-      { name: 'Tailored Education and Training', href: '/services' },
-      { name: 'Independent Research Services', href: '/services' },
-      { name: 'Candidate screening and onboarding new hires', href: '/services' },
-    ],
+    submenus: SERVICE_DIRECTORY.services.map(({ id, name }) => ({
+      name,
+      href: `/services#${id}`,
+    })),
   },
   {
     name: 'Resources',
@@ -62,6 +124,7 @@ export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & {
   {
     name: 'About Us',
     href: '/about-us',
+    mobileOverviewLabel: 'About the company',
     submenus: [
       { name: 'Why Choose NMCYBER', href: '/products#why-choose' },
       { name: 'Who We Are', href: '/about-us#who-we-are' },
@@ -694,10 +757,13 @@ export const PRODUCTS_PAGE = {
 // Services Page content
 export const SERVICES_PAGE = {
   servicesHero: {
-    subtitle: 'SERVICES',
-    title: 'NMCYBER Services',
+    subtitle: 'Services',
     backgroundHero: '/images/hero-bg.svg',
     backgroundBinary: '/images/binary.svg',
+    title: 'Securing your systems and your people',
+    description:
+      'Find out where your organisation is exposed and help your team make safer decisions.',
+    action: 'Explore our services',
   },
   coreServicesCarousel: {
     services: [
