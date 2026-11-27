@@ -24,33 +24,45 @@ export default function WhyHumanCentric() {
               </p>
             </div>
 
-            <div className="mx-auto grid w-full max-w-md grid-cols-2 gap-4 sm:gap-5 lg:mx-0 lg:max-w-none">
-              <div className="rounded-2xl border border-accent/25 bg-accent/[0.06] p-5 text-left backdrop-blur-md">
-                <p className="font-[poppins] text-2xl font-extrabold text-accent sm:text-3xl">
-                  95%
-                </p>
-                <p className="mt-1.5 text-xs leading-snug text-cyan-200/80 sm:text-sm">
-                  of breaches stem from human error
-                </p>
-              </div>
-              <div className="rounded-2xl border border-accent/25 bg-accent/[0.06] p-5 text-left backdrop-blur-md">
-                <p className="font-[poppins] text-2xl font-extrabold text-cyan-100 sm:text-3xl">
-                  100%
-                </p>
-                <p className="mt-1.5 text-xs leading-snug text-cyan-200/80 sm:text-sm">
-                  tailored to your SMB workflows
-                </p>
-              </div>
-            </div>
+            <ul className="mx-auto grid w-full max-w-md grid-cols-2 gap-4 sm:gap-5 lg:mx-0 lg:max-w-none">
+              {WHY_US_CONTENT.stats.map((stat, index) => (
+                <li
+                  key={stat.label}
+                  className="flex flex-col justify-between rounded-2xl border border-accent/25 bg-accent/[0.06] p-5 text-left backdrop-blur-md"
+                >
+                  <div>
+                    <p
+                      className={`font-[poppins] text-2xl font-extrabold sm:text-3xl ${
+                        index === 0 ? 'text-accent' : 'text-cyan-100'
+                      }`}
+                    >
+                      {stat.value}
+                    </p>
+                    <p className="mt-1.5 text-xs leading-snug text-cyan-200/80 sm:text-sm">
+                      {stat.label}
+                    </p>
+                  </div>
+
+                  <a
+                    href={stat.sourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block text-[11px] text-cyan-200/60 underline transition-colors hover:text-cyan-100"
+                  >
+                    Source: {stat.sourceLabel}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Right Column: 4 Equal-Height Glassmorphic Mini-Cards */}
           <div className="lg:col-span-7">
-            <div className="grid h-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+            <ul className="grid h-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
               {WHY_US_CONTENT.cards.map((card) => {
                 const IconComponent = iconMap[card.icon] ?? ShieldCheck;
                 return (
-                  <div
+                  <li
                     key={card.title}
                     className="group relative flex flex-col justify-center overflow-hidden rounded-2xl border border-accent/25 bg-accent/[0.06] p-5 backdrop-blur-md transition-all duration-300 hover:border-accent/50 hover:bg-accent/[0.1] hover:shadow-[0_0_30px_-8px_rgba(34,211,238,0.25)] sm:p-6"
                   >
@@ -71,10 +83,10 @@ export default function WhyHumanCentric() {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

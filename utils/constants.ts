@@ -114,33 +114,6 @@ export const SOCIAL_LINKS = [
   },
 ];
 
-// Why Human-Centric Cybersecurity content
-export const WHY_HUMAN_CENTRIC = {
-  title: 'Why Human-Centric Cybersecurity?',
-  description:
-    'Your People Are the First Line of Defence. You can make them your strongest (or weakest) link. Your cybersecurity is only as strong as your least aware employee.',
-  explanation:
-    'Traditional tech-focused approaches miss the human element. We at NMCYBER help your team stay alert, aware, and cyber-resilient. We help your team think like cyber defenders, not just employees.',
-  intro:
-    "At NMCYBER, we pride ourselves on turning your workforce into cyber defenders. Our innovative approach to cybersecurity awareness and training doesn't just protect your data, it transforms your entire organisation to thrive through:",
-  benefits: [
-    'Reduced Risk of Data Breaches',
-    'Confident, Security-Conscious Employees',
-    'Training that is Aligned with Your Business and Culture',
-    'Empowering your team with real-world knowledge',
-    'Reduced human error-based cyber incidents',
-    'Build a lasting security culture that scales with your business',
-  ],
-  human_head: {
-    image: '/images/cybersecurity-concept-illustration.svg',
-    title: 'Human Head',
-  },
-  video: {
-    url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
-    title: 'Watch Our Team in Action',
-  },
-};
-
 // Service packages
 export const SERVICE_PACKAGES = [
   {
@@ -290,7 +263,21 @@ export const HERO_CONTENT = {
 export const WHY_US_CONTENT = {
   heading: 'Why Human-Centric Cybersecurity?',
   subheading:
-    'Your security is only as strong as your least aware employee—we turn everyday staff into active cyber defenders.',
+    'Your security is only as strong as your least aware employee, we turn everyday staff into active cyber defenders.',
+  stats: [
+    {
+      value: '62%',
+      label: 'of breaches involved the human element',
+      sourceLabel: 'Verizon 2026 DBIR',
+      sourceUrl: 'https://www.verizon.com/business/resources/reports/dbir/',
+    },
+    {
+      value: '48%',
+      label: 'of breaches involved ransomware',
+      sourceLabel: 'Verizon 2026 DBIR',
+      sourceUrl: 'https://www.verizon.com/business/resources/reports/dbir/',
+    },
+  ],
   cards: [
     {
       title: 'Human-First Defence',
