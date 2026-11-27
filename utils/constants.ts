@@ -1,5 +1,6 @@
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Linkedin, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
+import type { NavigationItem } from '@/types/navigation';
 
 // Company information
 export const COMPANY_INFO = {
@@ -12,62 +13,121 @@ export const COMPANY_INFO = {
   longDescriptionAlt:
     'We turn SMB employees into cyber-aware defenders, replacing check-the-box courses with interactive, role-based training that reduces risk at its human source.',
   website: 'https://nmcyber.com.au',
-  phone: '+61-XXX-XXX-XXX',
+  phone: '+61 421 212 628',
+};
+
+// Working copy for the Services redesign, pending service details from Nick.
+export const SERVICE_DIRECTORY = {
+  id: 'our-services',
+  title: 'How we can help',
+  seo: {
+    title: 'Human-Centric Cyber Security Services',
+    description:
+      'Explore NMCyber’s vulnerability assessments, penetration testing, risk assessments, tailored training, independent research and candidate screening.',
+  },
+  enquiryLabel: 'Ask about',
+  enquiryDestination: { pathname: '/contact-us', hash: 'contact' },
+  services: [
+    {
+      id: 'vulnerability-assessments',
+      name: 'Vulnerability Assessments',
+      cta: 'vulnerability assessments',
+      icon: 'scan',
+      question: 'Where are our systems exposed?',
+      description:
+        'Identify weaknesses in the systems your team relies on and decide which fixes deserve attention first.',
+    },
+    {
+      id: 'penetration-testing',
+      name: 'Penetration Testing',
+      cta: 'pen testing',
+      icon: 'shield',
+      question: 'How would our defences hold up?',
+      description:
+        'Explore how a realistic security scenario could affect a system, within an agreed testing scope.',
+    },
+    {
+      id: 'threat-and-risk-assessment',
+      name: 'Threats and Risk Assessment',
+      cta: 'risk assessments',
+      icon: 'radar',
+      question: 'Which threats could disrupt our business?',
+      description:
+        'Consider what an interruption would mean for your people, customers and day-to-day operations.',
+    },
+    {
+      id: 'education-and-training',
+      name: 'Tailored Education and Training',
+      cta: 'team training',
+      icon: 'education',
+      question: 'Would our team know when to question a request?',
+      description:
+        'Bring security into everyday decisions, from verifying a change in bank details to reporting a suspicious message.',
+    },
+    {
+      id: 'independent-research',
+      name: 'Independent Research Services',
+      cta: 'independent research',
+      icon: 'research',
+      question: 'What evidence would help us make this decision?',
+      description:
+        'Bring a specific cyber security question and explore what independent research could clarify for your organisation.',
+    },
+    {
+      id: 'screening-and-onboarding',
+      name: 'Candidate screening and onboarding new hires',
+      cta: 'candidate screening',
+      icon: 'people',
+      question: 'How do we set new starters up for success?',
+      description:
+        'Consider the security expectations of a role, from the candidate conversation through the first days on the job.',
+    },
+  ],
+  contact: {
+    title: 'Have a different question?',
+    description: 'Tell us what your team is working through.',
+    action: 'Talk to NMCyber',
+  },
 };
 
 // Navigation structure with submenus
-export const NAVIGATION_WITH_SUBMENUS = [
-  {
-    name: 'Company',
-    href: '/company',
-    submenus: [
-      { name: 'Our Mission', href: '/company#hero' },
-      { name: 'Why Human-Centric', href: '/company#why-human-centric' },
-      { name: 'Our Products', href: '/company#products' },
-      { name: 'Why NMCYBER', href: '/company#why-nmcyber' },
-      { name: 'Pricing Plans', href: '/company#pricing' },
-      { name: 'Free Resources', href: '/company#resources' },
-      { name: 'Testimonials', href: '/company#testimonials' },
-      { name: 'Contact Us', href: '/company#contact' },
-    ],
-  },
-  {
-    name: 'About Us',
-    href: '/about-us',
-    submenus: [
-      { name: 'Who We Are', href: '/about-us#who-we-are' },
-      { name: 'Contact Us', href: '/about-us#contact' },
-    ],
-  },
+export const NAVIGATION_WITH_SUBMENUS: NavigationItem[] = [
   {
     name: 'Products',
     href: '/products',
     submenus: [
-      { name: 'Product Overview', href: '/products#hero' },
-      { name: 'Product Lineup', href: '/products#product-lineup' },
-      { name: 'Why Choose NMCYBER', href: '/products#why-choose' },
-      { name: 'Contact Us', href: '/products#contact' },
+      {
+        name: 'LaunchPad Platform',
+        href: 'https://cyberseclaunchpad.com/',
+        external: true,
+      },
     ],
   },
   {
     name: 'Services',
     href: '/services',
-    submenus: [
-      { name: 'Services Overview', href: '/services#hero' },
-      { name: 'Service Packages', href: '/services#packages' },
-      { name: 'Packages for Everyone', href: '/services#packages-everyone' },
-      { name: 'Pricing Strategy', href: '/services#pricing' },
-      { name: 'Add-On Services', href: '/services#addons' },
-    ],
+    mobileOverviewLabel: 'View all services',
+    submenus: SERVICE_DIRECTORY.services.map(({ id, name }) => ({
+      name,
+      href: `/services#${id}`,
+    })),
   },
   {
     name: 'Resources',
     href: '/resources',
+    mobileOverviewLabel: 'View all resources',
     submenus: [
-      { name: 'Resources Overview', href: '/resources#hero' },
       { name: 'Available Resources', href: '/resources#available' },
       { name: 'How to Use Resources', href: '/resources#how-to-use' },
-      { name: 'Contact Us', href: '/resources#contact' },
+    ],
+  },
+  {
+    name: 'About Us',
+    href: '/about-us',
+    mobileOverviewLabel: 'About the company',
+    submenus: [
+      { name: 'Why Choose NMCYBER', href: '/products#why-choose' },
+      { name: 'Who We Are', href: '/about-us#who-we-are' },
     ],
   },
   {
@@ -104,22 +164,10 @@ export const PLATFORM_LINKS = [
 
 export const SOCIAL_LINKS = [
   {
-    icon: Facebook,
-    href: 'https://facebook.com',
-    className: 'hover:bg-blue-600',
-    label: 'Visit our Facebook page',
-  },
-  {
-    icon: Twitter,
-    href: 'https://x.com',
-    className: 'hover:bg-blue-400',
-    label: 'Visit our X (Twitter) page',
-  },
-  {
-    icon: Instagram,
-    href: 'https://www.instagram.com',
-    className: 'bg-[var(--color-secondary-pink-50)] hover:bg-[var(--color-secondary-pink-60)]',
-    label: 'Visit our Instagram page',
+    icon: Youtube,
+    href: 'https://www.youtube.com/@nm-cyber/videos',
+    className: 'bg-[var(--color-secondary-red-50)] hover:bg-red-600',
+    label: 'Visit our YouTube channel',
   },
   {
     icon: Linkedin,
@@ -128,33 +176,6 @@ export const SOCIAL_LINKS = [
     label: 'Visit our LinkedIn page',
   },
 ];
-
-// Why Human-Centric Cybersecurity content
-export const WHY_HUMAN_CENTRIC = {
-  title: 'Why Human-Centric Cybersecurity?',
-  description:
-    'Your People Are the First Line of Defence. You can make them your strongest (or weakest) link. Your cybersecurity is only as strong as your least aware employee.',
-  explanation:
-    'Traditional tech-focused approaches miss the human element. We at NMCYBER help your team stay alert, aware, and cyber-resilient. We help your team think like cyber defenders, not just employees.',
-  intro:
-    "At NMCYBER, we pride ourselves on turning your workforce into cyber defenders. Our innovative approach to cybersecurity awareness and training doesn't just protect your data, it transforms your entire organisation to thrive through:",
-  benefits: [
-    'Reduced Risk of Data Breaches',
-    'Confident, Security-Conscious Employees',
-    'Training that is Aligned with Your Business and Culture',
-    'Empowering your team with real-world knowledge',
-    'Reduced human error-based cyber incidents',
-    'Build a lasting security culture that scales with your business',
-  ],
-  human_head: {
-    image: '/images/cybersecurity-concept-illustration.svg',
-    title: 'Human Head',
-  },
-  video: {
-    url: 'https://www.youtube-nocookie.com/embed/6oqU4zANZf8?rel=0&playsinline=1&vq=hd480',
-    title: 'Watch Our Team in Action',
-  },
-};
 
 // Service packages
 export const SERVICE_PACKAGES = [
@@ -301,6 +322,97 @@ export const HERO_CONTENT = {
   ],
 };
 
+export const PRODUCTS_ALT_CONTENT = {
+  badge: 'Our Product • CyberSec Launchpad',
+  heading: 'Launch Real-World Cyber Skills',
+  subheading:
+    'Go beyond theory with structured cybersecurity programmes and an interactive training platform built for modern defenders.',
+  cta: {
+    primary: 'Explore Programmes',
+    primaryHref: 'https://cyberseclaunchpad.com/programmes',
+    secondary: 'Open Platform',
+    secondaryHref: 'https://platform.cyberseclaunchpad.com',
+  },
+  features: [
+    {
+      id: 'programmes',
+      shortLabel: 'Programmes',
+      title: 'Structured Career Programmes',
+      description:
+        'Guided pathways designed to take learners from core fundamentals to job-ready cybersecurity proficiency.',
+      icon: 'graduation',
+      url: 'https://cyberseclaunchpad.com/programmes',
+      displayUrl: 'cyberseclaunchpad.com/programmes',
+      image: '/images/launchpad-programmes.webp',
+    },
+    {
+      id: 'platform',
+      shortLabel: 'Platform',
+      title: 'Interactive Learning Platform',
+      description:
+        'Track progress, complete hands-on modules, and build practical muscle memory inside a dedicated portal.',
+      icon: 'laptop',
+      url: 'https://platform.cyberseclaunchpad.com',
+      displayUrl: 'platform.cyberseclaunchpad.com',
+      image: '/images/launchpad-platform.webp',
+    },
+    {
+      id: 'readiness',
+      shortLabel: 'Readiness',
+      title: 'Practical Cyber Readiness',
+      description:
+        'Scenario-driven training that translates directly into confident threat detection and everyday defence.',
+      icon: 'shield',
+      url: 'https://cyberseclaunchpad.com/programmes',
+      displayUrl: 'cyberseclaunchpad.com/programmes',
+      image: '/images/launchpad-readiness.webp',
+    },
+  ],
+};
+
+// Why Us content
+export const WHY_US_CONTENT = {
+  heading: 'Why Human-Centric Cybersecurity?',
+  subheading:
+    'Your security is only as strong as your least aware employee, we turn everyday staff into active cyber defenders.',
+  stats: [
+    {
+      value: '62%',
+      label: 'of breaches involved the human element',
+      sourceLabel: 'Verizon 2026 DBIR',
+      sourceUrl: 'https://www.verizon.com/business/resources/reports/dbir/',
+    },
+    {
+      value: '48%',
+      label: 'of breaches involved ransomware',
+      sourceLabel: 'Verizon 2026 DBIR',
+      sourceUrl: 'https://www.verizon.com/business/resources/reports/dbir/',
+    },
+  ],
+  cards: [
+    {
+      title: 'Human-First Defence',
+      description: 'Tech alone fails when people click. We strengthen your frontline.',
+      icon: 'shield',
+    },
+    {
+      title: 'Zero Boring Slides',
+      description: 'Interactive, real-world scenarios that replace check-the-box compliance.',
+      icon: 'zap',
+    },
+    {
+      title: 'Role-Based Training',
+      description: 'Tailored modules built for how your specific SMB team actually works.',
+      icon: 'users',
+    },
+    {
+      title: 'Defender Mindset',
+      description: 'Lasting behavioural habits that stop threats before they escalate.',
+      icon: 'brain',
+    },
+  ],
+};
+
 // Core Services content
 export const PRODUCTS = {
   title: 'Core Cybersecurity Awareness Training Services',
@@ -354,6 +466,54 @@ export const PRODUCTS = {
   ],
   background: '/images/Looper2.svg',
 };
+
+export const HOME_WHY_NMCYBER = {
+  label: 'Why NMCyber',
+  title: 'Cyber security awareness training for everyday decisions',
+  pillars: [
+    {
+      id: 'discover',
+      name: 'Discover',
+      description:
+        'We look at how your people handle security decisions and where the next step feels unclear.',
+    },
+    {
+      id: 'transform',
+      name: 'Transform',
+      description:
+        'Your team practises those decisions with scenarios drawn from the work they do.',
+    },
+    {
+      id: 'thrive',
+      name: 'Thrive',
+      description:
+        'We help your team turn what they practise into routines they can use when work gets busy.',
+    },
+  ],
+
+  // Temporary example for the design preview, pending an approved client story.
+  scenario: {
+    label: 'Illustrative scenario',
+    status: 'AI-generated draft',
+    title: 'When a supplier changes bank details',
+    steps: [
+      {
+        label: 'The challenge',
+        detail:
+          'A supplier emails new bank details just before a payment run. The finance team needs a clear way to check the request.',
+      },
+      {
+        label: 'The session',
+        detail:
+          'Staff walk through the request together, practise calling the supplier on a known number and agree who can put the payment on hold.',
+      },
+      {
+        label: 'The takeaway',
+        detail: 'A short verification checklist the team can keep beside its payment approvals.',
+      },
+    ],
+  },
+} as const;
 
 // Why NMCYber content
 export const WHY_NMCYBER = {
@@ -645,10 +805,13 @@ export const PRODUCTS_PAGE = {
 // Services Page content
 export const SERVICES_PAGE = {
   servicesHero: {
-    subtitle: 'SERVICES',
-    title: 'NMCYBER Services',
+    subtitle: 'Services',
     backgroundHero: '/images/hero-bg.svg',
     backgroundBinary: '/images/binary.svg',
+    title: 'Securing your systems and your people',
+    description:
+      'Find out where your organisation is exposed and help your team make safer decisions.',
+    action: 'Explore our services',
   },
   coreServicesCarousel: {
     services: [

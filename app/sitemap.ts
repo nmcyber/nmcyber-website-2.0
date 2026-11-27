@@ -61,32 +61,6 @@ export default async function sitemap(): Promise<SitemapEntry[]> {
       priority: 0.8,
     },
 
-    // Service-specific pages
-    {
-      url: `${baseUrl}/services/cybersecurity-awareness-training`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/phishing-simulation-campaigns`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/role-based-security-training`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/cybersecurity-culture-development`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-
     // Product-specific pages
     {
       url: `${baseUrl}/products/cyber-awareness-toolkit`,
