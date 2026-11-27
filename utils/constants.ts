@@ -467,6 +467,19 @@ export const CONTACT_FORM = {
   description: 'Tell us what you need help with, or contact our team directly.',
   optional: 'Optional',
   formCta: 'Continue via email',
+  draftHint:
+    'Send your enquiry from your email app. If it didn’t open, use the email address on this page.',
+  sendCta: 'Send enquiry',
+  sending: 'Sending…',
+  sendError: 'We couldn’t send your enquiry. Please try again or email us directly.',
+  success: {
+    heading: 'Thanks for getting in touch. Your enquiry has been sent.',
+    nextHeading: 'What happens next',
+    review:
+      'We’ll review your enquiry and get back to you to discuss how we can help. If we need more details, we’ll ask when we reply.',
+    proposal:
+      'If a paid service is a good fit, we’ll confirm the scope, timing and price before you decide whether to go ahead.',
+  },
   fields: [
     {
       name: 'name',
