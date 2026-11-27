@@ -79,6 +79,12 @@
     overflow-x: hidden;
     max-width: 100%;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html:has(#our-services) {
+      scroll-behavior: smooth;
+    }
+  }
   
   body {
     background-color: theme(colors.background);
@@ -122,6 +128,17 @@
     font-weight: 700;
     font-size: 96px;
     letter-spacing: -1px;
+  }
+
+  .services-heading {
+    --heading-gradient1: linear-gradient(121deg, #fff 31.34%, #a5e5fa);
+  }
+
+  @media (forced-colors: active) {
+    .services-heading {
+      background: none;
+      -webkit-text-fill-color: CanvasText;
+    }
   }
 
   /* Responsive styles for the gradient heading(H1) */
