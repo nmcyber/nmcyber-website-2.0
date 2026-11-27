@@ -1,5 +1,6 @@
 import { Linkedin, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
+import type { NavigationItem } from '@/types/navigation';
 
 // Company information
 export const COMPANY_INFO = {
@@ -84,21 +85,7 @@ export const SERVICE_DIRECTORY = {
 };
 
 // Navigation structure with submenus
-export const NAVIGATION_WITH_SUBMENUS = [
-  {
-    name: 'Company',
-    href: '/company',
-    submenus: [
-      { name: 'Our Mission', href: '/company#hero' },
-      { name: 'Why Human-Centric', href: '/company#why-human-centric' },
-      { name: 'Our Products', href: '/company#products' },
-      { name: 'Why NMCYBER', href: '/company#why-nmcyber' },
-      { name: 'Pricing Plans', href: '/company#pricing' },
-      { name: 'Free Resources', href: '/company#resources' },
-      { name: 'Testimonials', href: '/company#testimonials' },
-      { name: 'Contact Us', href: '/company#contact' },
-    ],
-  },
+export const NAVIGATION_WITH_SUBMENUS: NavigationItem[] = [
   {
     name: 'About Us',
     href: '/about-us',

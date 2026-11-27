@@ -237,40 +237,40 @@ export default function NavBar() {
                   ? [{ name: item.mobileOverviewLabel, href: item.href }, ...item.submenus]
                   : item.submenus;
 
-                  const itemClassName = `transition-all py-2 px-4 rounded flex items-center justify-between ${
-                    pathname === item.href
-                      ? 'text-white bg-accent/20 border-l-4 border-accent font-[Poppins] font-semibold text-sm'
-                      : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-semibold text-sm'
-                  }`;
+                const itemClassName = `transition-all py-2 px-4 rounded flex items-center justify-between ${
+                  pathname === item.href
+                    ? 'text-white bg-accent/20 border-l-4 border-accent font-[Poppins] font-semibold text-sm'
+                    : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-semibold text-sm'
+                }`;
 
-                  return (
-                    <div key={item.name}>
-                      {/* Main Navigation Item */}
-                      <div className="flex items-center">
-                        {hasSubmenus ? (
-                          <button
-                            type="button"
-                            aria-expanded={isExpanded}
-                            onClick={() => toggleSubmenu(item.name)}
-                            className={itemClassName}
-                          >
-                            {item.name}
-                          </button>
-                        ) : (
-                          <Link
-                            href={item.href}
-                            target={item.external ? '_blank' : undefined}
-                            rel={item.external ? 'noopener noreferrer' : undefined}
-                            className={itemClassName}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            {item.name}
-                            {item.external && (
-                              <ExternalLink aria-hidden="true" className="size-3.5" />
-                            )}
-                          </Link>
-                        )}
-                      </div>
+                return (
+                  <div key={item.name}>
+                    {/* Main Navigation Item */}
+                    <div className="flex items-center">
+                      {hasSubmenus ? (
+                        <button
+                          type="button"
+                          aria-expanded={isExpanded}
+                          onClick={() => toggleSubmenu(item.name)}
+                          className={itemClassName}
+                        >
+                          {item.name}
+                        </button>
+                      ) : (
+                        <Link
+                          href={item.href}
+                          target={item.external ? '_blank' : undefined}
+                          rel={item.external ? 'noopener noreferrer' : undefined}
+                          className={itemClassName}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                          {item.external && (
+                            <ExternalLink aria-hidden="true" className="size-3.5" />
+                          )}
+                        </Link>
+                      )}
+                    </div>
 
                     {/* Submenu Items */}
                     {hasSubmenus && (
