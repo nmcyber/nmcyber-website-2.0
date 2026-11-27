@@ -102,7 +102,7 @@ Renders an absolutely positioned, blurred, rounded div with a gradient backgroun
 - `price-plans.tsx` - pricing section, pulls from `PRICING_PLANS`
 - `testimonials.tsx` - pulls from `TESTIMONIALS`
 - `free-resources.tsx` - pulls from `FREE_RESOURCES`
-- `contact-form.tsx` - uses react-hook-form, pulls field config from `CONTACT_FORM`
+- `contact-form.tsx` - shared by Home, About Us, Company, Academy and Contact Us. Validates the seven fields with react-hook-form and opens a prefilled email draft. Fields and service options come from `CONTACT_FORM`, contact links from `COMPANY_INFO`.
 
 ### `components/wrapper/`
 - `page-wrapper.tsx` - shared page shell, used by most top-level pages

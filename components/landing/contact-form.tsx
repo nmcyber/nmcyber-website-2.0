@@ -1,201 +1,168 @@
-import { Mail, Phone, Search } from 'lucide-react';
-import Image from 'next/image';
+'use client';
+
+import { ArrowUpRight, ChevronDown, Mail, Phone } from 'lucide-react';
+import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { CONTACT_FORM } from '@/utils/constants';
-import BlurElement from '../shared/blur-element';
+import { COMPANY_INFO, CONTACT_FORM } from '@/utils/constants';
+
+type Enquiry = Record<(typeof CONTACT_FORM.fields)[number]['name'], string>;
+
+const controlStyle =
+  'min-h-12 w-full rounded-lg border border-slate-500/80 bg-[#101e30] px-3.5 py-3 text-base text-white placeholder:text-slate-400 hover:border-accent/70 hover:shadow-[0_0_12px_rgba(70,190,230,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent aria-invalid:border-red-400 motion-safe:transition-[border-color,box-shadow] motion-safe:duration-200 motion-safe:ease-in-out';
+
+function openDraft(values: Enquiry) {
+  const body = CONTACT_FORM.fields
+    .filter(({ name }) => values[name].trim())
+    .map(({ name, label }) => `${label}: ${values[name].trim()}`)
+    .join('\r\n\r\n');
+  window.location.href = `mailto:${COMPANY_INFO.email}?subject=${encodeURIComponent(values.service)}&body=${encodeURIComponent(body)}`;
+}
 
 export default function ContactForm() {
-  // TODO: Create a form, recommend using shadcn forms
-  // TODO: Validate the form inputs using zod and full typescript types
-  // TODO: Create submit function that sends the email address only --> Console.log to see the output
-  // https://ui.shadcn.com/docs/components/field#form
-
-  // TODO: Write a Server Actions - Nextjs15 --> Docs -->
-  // https://nextjs.org/docs/14/app/building-your-application/data-fetching/server-actions-and-mutations
-
-  // FOR LATER AFTER FORM IS BUILT
-  // TODO: Recieve a reponse from the the Backend service and implement success and error handling
-  // TODO: Postgress + Drizzle ORM to store the contact requests
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Enquiry>();
 
   return (
-    <section id="contact">
-      <div className="max-w-7xl mx-auto">
-        {/* Main Card Container */}
-        <Card className="gradient-bg1 backdrop-blur-[108.8px] hover:border-t-accent/50 hover:border-r-accent/50 hover:border-l-accent/50 transition-all duration-300">
-          <CardContent className="p-0 relative z-10">
-            <div className="grid lg:grid-cols-2 min-h-[600px]">
-              {/* Left Section - Contact Info & CTA */}
-              <div className="bg-gradient-to-br from-slate-900/50 to-slate-800/30 p-12 flex flex-col justify-center">
-                <div className="space-y-8">
-                  {/* Header */}
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3">
-                      <div className="h-px bg-accent w-12"></div>
-                      <span className="text-accent/80 text-sm font-bold font-plus-jakarta-sans leading-[14px] uppercase">
-                        CONTACT US
-                      </span>
-                    </div>
-                    <span className="text-4xl font-bold text-white mb-4 sm:text-6xl leading-tight font-plus-jakarta-sans">
-                      {CONTACT_FORM.title}
-                    </span>
-                  </div>
-
-                  {/* CTA Button with Phone Icon */}
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-white text-sm">
-                      <Phone className="w-5 h-5 text-accent" />
-                      <p className="font-semibold text-white text-base">
-                        {CONTACT_FORM.description}
-                      </p>
-                    </div>
-                    <Button
-                      size="sm"
-                      className="h-9 rounded-5xl bg-transparent outline outline-accent"
-                    >
-                      <p className="px-5 text-base leading-tight text-accent">
-                        {CONTACT_FORM.cta} →
-                      </p>
-                    </Button>
-                  </div>
-                  {/* {Separator} */}
-                  <div className="h-px w-7/9 bg-gray-500/30"></div>
-                  {/* Contact Details */}
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3 text-white">
-                      <Mail className="w-5 h-5 text-accent" />
-                      <Button className="text-sm bg-transparent font-medium text-white">
-                        {CONTACT_FORM.email}
-                      </Button>
-                    </div>
-                    {/* <div className="flex items-center gap-3 text-white">
-                      <Globe className="w-5 h-5 text-accent" />
-                      <p className="text-sm font-medium text-white">{CONTACT_FORM.website}</p>
-                    </div> */}
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Section - Contact Form */}
-              <div className="bg-slate-800/30 p-12 flex flex-col justify-center ">
-                <form className="space-y-6 outline outline-gray-400/30 rounded-5xl p-6">
-                  {/* Name Field */}
-                  <div className="space-y-2">
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Name"
-                      className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
-                      required
-                    />
-                  </div>
-
-                  {/* Email Field */}
-                  <div className="space-y-2">
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="Email address"
-                      className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
-                      required
-                    />
-                  </div>
-
-                  {/* Company Field with Search Icon */}
-                  <div className="space-y-2">
-                    <div className="relative">
-                      <Input
-                        id="company"
-                        type="text"
-                        placeholder="Company"
-                        className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12 pr-12"
-                        required
-                      />
-                      <Search className="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-white/50" />
-                    </div>
-                  </div>
-
-                  {/* Number of Employees */}
-                  <div className="space-y-2">
-                    <Input
-                      id="employees"
-                      type="text"
-                      placeholder="Number of Employees"
-                      className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 rounded-5xl h-12"
-                    />
-                  </div>
-
-                  {/* Message Field */}
-                  <div className="space-y-2">
-                    <Textarea
-                      id="message"
-                      placeholder="Enter your message"
-                      rows={4}
-                      className="font-[Poppins] bg-slate-700/50 border-slate-600 text-white placeholder:text-white/50 focus:ring-accent/20 resize-none rounded-lg"
-                    />
-                  </div>
-
-                  {/* Submit Button using hero style */}
-                  <Button
-                    type="submit"
-                    className="h-auto w-full rounded-5xl px-6 py-5 bg-gradient-to-r from-[var(--button-gradient-start)] to-[var(--button-gradient-end)] sm:px-10"
-                  >
-                    <span className="font-[Poppins] text-lg font- leading-tight text-white transition-all duration-300 hover:opacity-95 hover:shadow-xl sm:text-xl sm:leading-[14px]">
-                      {CONTACT_FORM.formCta}
-                    </span>
-                  </Button>
-                </form>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-      {/* Background Elements using CSS variables */}
-      <div className="absolute inset-0 -z-10 hidden md:block">
-        {/* Wavy Pattern */}
-        <div className="absolute z-5 bottom-4 right-[-10%] w-64 h-32 pointer-events-none">
-          <Image
-            src={'/images/looper.svg'}
-            alt="Background Pattern"
-            width={1600}
-            height={800}
-            loading="lazy"
-            className="w-full h-auto object-right"
+    <section id="contact" aria-labelledby="contact-heading">
+      <div className="mx-auto grid w-full max-w-6xl gap-7 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.25fr)] lg:items-start lg:gap-14 xl:gap-20">
+        <div className="relative isolate overflow-hidden px-1 lg:self-stretch lg:pt-10">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 hidden h-[42%] bg-[url('/images/Looper2.svg')] bg-cover bg-center opacity-60 lg:block"
           />
+          <h2
+            id="contact-heading"
+            className="text-balance font-plus-jakarta-sans text-[clamp(2.5rem,4.6vw,3.625rem)] leading-[1.04] font-bold tracking-[-0.055em] text-white"
+          >
+            {CONTACT_FORM.title}
+          </h2>
+          <p className="mt-6 max-w-sm text-base leading-relaxed text-slate-300 sm:text-lg">
+            {CONTACT_FORM.description}
+          </p>
+          <div className="mt-5 grid max-w-sm divide-y divide-white/10 border-y border-white/10 lg:mt-9">
+            {[
+              { Icon: Mail, text: COMPANY_INFO.email, href: `mailto:${COMPANY_INFO.email}` },
+              {
+                Icon: Phone,
+                text: COMPANY_INFO.phone,
+                href: `tel:${COMPANY_INFO.phone.replace(/\s/g, '')}`,
+              },
+            ].map(({ Icon, text, href }) => (
+              <a
+                key={href}
+                href={href}
+                className="group flex min-h-14 items-center gap-3 rounded-sm py-2 font-medium text-slate-100 hover:text-sky-200 focus-visible:outline-2 focus-visible:outline-accent"
+              >
+                <span className="grid size-9 shrink-0 place-items-center rounded-full border border-accent/30 bg-accent/10 text-sky-300">
+                  <Icon aria-hidden="true" size={17} />
+                </span>
+                {text}
+                <ArrowUpRight
+                  aria-hidden="true"
+                  size={15}
+                  className="ml-auto mr-2 text-slate-400 group-hover:text-sky-200"
+                />
+              </a>
+            ))}
+          </div>
         </div>
+        <form
+          noValidate
+          aria-labelledby="enquiry-heading"
+          onSubmit={handleSubmit(openDraft)}
+          className="grid min-w-0 gap-x-5 gap-y-5 rounded-2xl border border-slate-600/70 bg-linear-to-br from-[#192b40] via-[#122134] to-[#101c2c] p-5 hover:border-accent/40 hover:shadow-[0_0_30px_rgba(70,190,230,0.12)] motion-safe:transition-[border-color,box-shadow] sm:grid-cols-2 sm:rounded-3xl sm:p-8 lg:p-9"
+        >
+          <h3
+            id="enquiry-heading"
+            className="border-b border-white/10 pb-5 font-plus-jakarta-sans text-2xl font-semibold tracking-tight text-white sm:col-span-2"
+          >
+            {CONTACT_FORM.heading}
+          </h3>
+          {CONTACT_FORM.fields.map((field) => {
+            const { name, label, placeholder } = field;
+            const required = 'error' in field;
+            const error = errors[name]?.message;
+            const props = {
+              id: `contact-${name}`,
+              placeholder,
+              required,
+              'aria-invalid': Boolean(error),
+              'aria-describedby': error ? `contact-${name}-error` : undefined,
+              className: controlStyle,
+              ...register(name, {
+                validate: (value) => {
+                  if (!required) return true;
+                  if (!value.trim()) return field.error;
+                  if (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()))
+                    return field.error;
+                  return true;
+                },
+              }),
+            };
+            return (
+              <div
+                key={name}
+                className={`min-w-0 space-y-2 ${name === 'message' ? 'sm:col-span-2' : ''}`}
+              >
+                <label htmlFor={props.id} className="block text-sm font-semibold text-white">
+                  {label}
+                  {!required && (
+                    <span className="ml-2 text-xs font-normal text-slate-400">
+                      {CONTACT_FORM.optional}
+                    </span>
+                  )}
+                </label>
+                {field.type === 'select' ? (
+                  <div className="relative">
+                    <select
+                      {...props}
+                      defaultValue=""
+                      className={`${controlStyle} appearance-none truncate pr-10 invalid:text-slate-400`}
+                    >
+                      <option value="" disabled>
+                        {placeholder}
+                      </option>
+                      {CONTACT_FORM.services.map((service) => (
+                        <option key={service}>{service}</option>
+                      ))}
+                    </select>
+                    <ChevronDown
+                      aria-hidden="true"
+                      size={16}
+                      className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-sky-300"
+                    />
+                  </div>
+                ) : field.type === 'textarea' ? (
+                  <Textarea {...props} rows={4} className={`${controlStyle} resize-y`} />
+                ) : (
+                  <Input
+                    {...props}
+                    type={field.type}
+                    autoComplete={'autoComplete' in field ? field.autoComplete : undefined}
+                  />
+                )}
+                {error && (
+                  <p id={`contact-${name}-error`} className="text-sm text-red-300">
+                    {error}
+                  </p>
+                )}
+              </div>
+            );
+          })}
+          <Button
+            type="submit"
+            className="mt-1 min-h-12 rounded-full bg-accent hover:bg-accent hover:opacity-90 transition-opacity duration-200 ease-in-out motion-reduce:transition-none font-semibold text-white has-[>svg]:px-6 sm:col-span-2 sm:justify-self-end"
+          >
+            {CONTACT_FORM.formCta}
+            <ArrowUpRight aria-hidden="true" size={16} />
+          </Button>
+        </form>
       </div>
-
-      {/* Chatbot Icon using CSS variables */}
-      <div className="absolute bottom-0 right-0 z-50">
-        <Image
-          src={CONTACT_FORM.chatbot}
-          alt="Chatbot"
-          width={60}
-          height={60}
-          className="w-full h-full object-contain"
-        />
-      </div>
-      {/* Blur Elements for specific cards */}
-      <BlurElement
-        position="top"
-        positionValue="10%"
-        zIndex={-5}
-        opacity={0.8}
-        size="300px"
-        blur="80px"
-        className="right-[5%] top-[20%]"
-      />
-      <BlurElement
-        position="top"
-        positionValue="10%"
-        zIndex={-5}
-        opacity={0.8}
-        size="300px"
-        blur="80px"
-        className="left-[5%] top-[20%]"
-      />
     </section>
   );
 }
