@@ -340,6 +340,54 @@ export const PRODUCTS = {
   background: '/images/Looper2.svg',
 };
 
+export const HOME_WHY_NMCYBER = {
+  label: 'Why NMCyber',
+  title: 'Cyber security awareness training for everyday decisions',
+  pillars: [
+    {
+      id: 'discover',
+      name: 'Discover',
+      description:
+        'We look at how your people handle security decisions and where the next step feels unclear.',
+    },
+    {
+      id: 'transform',
+      name: 'Transform',
+      description:
+        'Your team practises those decisions with scenarios drawn from the work they do.',
+    },
+    {
+      id: 'thrive',
+      name: 'Thrive',
+      description:
+        'We help your team turn what they practise into routines they can use when work gets busy.',
+    },
+  ],
+
+  // Temporary example for the design preview, pending an approved client story.
+  scenario: {
+    label: 'Illustrative scenario',
+    status: 'AI-generated draft',
+    title: 'When a supplier changes bank details',
+    steps: [
+      {
+        label: 'The challenge',
+        detail:
+          'A supplier emails new bank details just before a payment run. The finance team needs a clear way to check the request.',
+      },
+      {
+        label: 'The session',
+        detail:
+          'Staff walk through the request together, practise calling the supplier on a known number and agree who can put the payment on hold.',
+      },
+      {
+        label: 'The takeaway',
+        detail: 'A short verification checklist the team can keep beside its payment approvals.',
+      },
+    ],
+  },
+} as const;
+
 // Why NMCYber content
 export const WHY_NMCYBER = {
   title: ' Core  Cybersecurity  Awareness  Training  Services',
