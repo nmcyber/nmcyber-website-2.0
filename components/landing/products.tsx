@@ -1,5 +1,6 @@
 import { Check } from 'lucide-react';
 import Image from 'next/image';
+import { SectionLabel } from '@/components/shared/section-label';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { PRODUCTS } from '@/utils/constants';
@@ -9,16 +10,7 @@ export default function Products() {
   return (
     <section id="products">
       <div className="max-w-7xl mx-auto w-full px-4">
-        {/* Section Label */}
-        <div className="text-center mb-4">
-          <div className="inline-flex items-center gap-4">
-            <div className="h-px bg-accent/60 w-16"></div>
-            <span className="text-accent/80 text-sm font-bold font-plus-jakarta-sans leading-[14px] uppercase">
-              PRODUCTS
-            </span>
-            <div className="h-px bg-accent/60 w-16"></div>
-          </div>
-        </div>
+        <SectionLabel centered>Products</SectionLabel>
 
         {/* Header Section */}
         <div className="text-center mb-16">

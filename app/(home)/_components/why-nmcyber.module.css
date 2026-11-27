@@ -1,0 +1,36 @@
+.panel {
+  background: #111e2b;
+}
+
+.cover {
+  background: linear-gradient(110deg, #18394a, #102936);
+  border-bottom: 1px solid rgb(100 205 246 / 22%);
+}
+
+.cover::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: repeating-radial-gradient(circle at 95% 0%, transparent 0 22px, rgb(100 205 246 / 18%) 23px, transparent 24px 36px);
+  mask-image: linear-gradient(to right, transparent 35%, black);
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: arrive linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 48%;
+    }
+  }
+}
+
+@keyframes arrive {
+  from {
+    transform: translateY(12px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
