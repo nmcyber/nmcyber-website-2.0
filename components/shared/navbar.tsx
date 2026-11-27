@@ -231,6 +231,9 @@ export default function NavBar() {
               {NAVIGATION_WITH_SUBMENUS.map((item) => {
                 const isExpanded = expandedMenus.has(item.name);
                 const hasSubmenus = item.submenus && item.submenus.length > 0;
+                const mobileSubmenus = item.mobileOverviewLabel
+                  ? [{ name: item.mobileOverviewLabel, href: item.href }, ...item.submenus]
+                  : item.submenus;
 
                 return (
                   <div key={item.name}>
@@ -261,11 +264,11 @@ export default function NavBar() {
                     {hasSubmenus && (
                       <div
                         className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
-                          isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                          isExpanded ? 'max-h-[32rem] opacity-100' : 'max-h-0 opacity-0'
                         }`}
                       >
                         <div className="py-2">
-                          {item.submenus.map((submenu) => (
+                          {mobileSubmenus.map((submenu) => (
                             <Link
                               key={submenu.name}
                               href={submenu.href}

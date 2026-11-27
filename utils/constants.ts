@@ -22,7 +22,10 @@ interface NavigationLink {
   external?: boolean;
 }
 
-export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & { submenus: NavigationLink[] })[] = [
+export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & {
+  submenus: NavigationLink[];
+  mobileOverviewLabel?: string;
+})[] = [
   {
     name: 'Products',
     href: '/products',
@@ -37,6 +40,7 @@ export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & { submenus: NavigationL
   {
     name: 'Services',
     href: '/services',
+    mobileOverviewLabel: 'View all services',
     submenus: [
       { name: 'Vulnerability Assessments', href: '/services' },
       { name: 'Penetration Testing', href: '/services' },
@@ -49,6 +53,7 @@ export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & { submenus: NavigationL
   {
     name: 'Resources',
     href: '/resources',
+    mobileOverviewLabel: 'View all resources',
     submenus: [
       { name: 'Available Resources', href: '/resources#available' },
       { name: 'How to Use Resources', href: '/resources#how-to-use' },
