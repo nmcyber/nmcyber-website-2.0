@@ -1,6 +1,20 @@
 @import "tailwindcss";
 
 @theme {
+  --animate-mobile-menu-in: mobile-menu-in 240ms ease-in-out;
+
+  --animate-mobile-backdrop-in: mobile-backdrop-in 240ms ease-out;
+
+  @keyframes mobile-backdrop-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes mobile-menu-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
   /* Base colors for UI components */
   --color-background: hsl(221.54 28.89% 8.82%);
   --color-foreground: hsl(0 0% 98%);
@@ -174,5 +188,13 @@
   }
   .gradient-bg2 {
     background: linear-gradient(180deg, rgba(55, 155, 244, 0.13) 0%, rgba(55, 155, 244, 0) 100%);  
+  }
+}
+
+@media (width < theme(--breakpoint-md)) {
+  html:has([data-mobile-menu-overlay]),
+  body:has([data-mobile-menu-overlay]) {
+    overflow: hidden;
+    overscroll-behavior: none;
   }
 }

@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Linkedin, Youtube } from 'lucide-react';
 import type { Metadata } from 'next';
 
 // Company information
@@ -12,62 +12,59 @@ export const COMPANY_INFO = {
   longDescriptionAlt:
     'We turn SMB employees into cyber-aware defenders, replacing check-the-box courses with interactive, role-based training that reduces risk at its human source.',
   website: 'https://nmcyber.com.au',
-  phone: '+61-XXX-XXX-XXX',
+  phone: '+61 421 212 628',
 };
 
 // Navigation structure with submenus
-export const NAVIGATION_WITH_SUBMENUS = [
+interface NavigationLink {
+  name: string;
+  href: string;
+  external?: boolean;
+}
+
+export const NAVIGATION_WITH_SUBMENUS: (NavigationLink & {
+  submenus: NavigationLink[];
+  mobileOverviewLabel?: string;
+})[] = [
   {
-    name: 'Company',
-    href: '/company',
+    name: 'Products',
+    href: '/products',
     submenus: [
-      { name: 'Our Mission', href: '/company#hero' },
-      { name: 'Why Human-Centric', href: '/company#why-human-centric' },
-      { name: 'Our Products', href: '/company#products' },
-      { name: 'Why NMCYBER', href: '/company#why-nmcyber' },
-      { name: 'Pricing Plans', href: '/company#pricing' },
-      { name: 'Free Resources', href: '/company#resources' },
-      { name: 'Testimonials', href: '/company#testimonials' },
-      { name: 'Contact Us', href: '/company#contact' },
+      {
+        name: 'LaunchPad Platform',
+        href: 'https://cyberseclaunchpad.com/',
+        external: true,
+      },
+    ],
+  },
+  {
+    name: 'Services',
+    href: '/services',
+    mobileOverviewLabel: 'View all services',
+    submenus: [
+      { name: 'Vulnerability Assessments', href: '/services' },
+      { name: 'Penetration Testing', href: '/services' },
+      { name: 'Threats and Risk Assessment', href: '/services' },
+      { name: 'Tailored Education and Training', href: '/services' },
+      { name: 'Independent Research Services', href: '/services' },
+      { name: 'Candidate screening and onboarding new hires', href: '/services' },
+    ],
+  },
+  {
+    name: 'Resources',
+    href: '/resources',
+    mobileOverviewLabel: 'View all resources',
+    submenus: [
+      { name: 'Available Resources', href: '/resources#available' },
+      { name: 'How to Use Resources', href: '/resources#how-to-use' },
     ],
   },
   {
     name: 'About Us',
     href: '/about-us',
     submenus: [
-      { name: 'Who We Are', href: '/about-us#who-we-are' },
-      { name: 'Contact Us', href: '/about-us#contact' },
-    ],
-  },
-  {
-    name: 'Products',
-    href: '/products',
-    submenus: [
-      { name: 'Product Overview', href: '/products#hero' },
-      { name: 'Product Lineup', href: '/products#product-lineup' },
       { name: 'Why Choose NMCYBER', href: '/products#why-choose' },
-      { name: 'Contact Us', href: '/products#contact' },
-    ],
-  },
-  {
-    name: 'Services',
-    href: '/services',
-    submenus: [
-      { name: 'Services Overview', href: '/services#hero' },
-      { name: 'Service Packages', href: '/services#packages' },
-      { name: 'Packages for Everyone', href: '/services#packages-everyone' },
-      { name: 'Pricing Strategy', href: '/services#pricing' },
-      { name: 'Add-On Services', href: '/services#addons' },
-    ],
-  },
-  {
-    name: 'Resources',
-    href: '/resources',
-    submenus: [
-      { name: 'Resources Overview', href: '/resources#hero' },
-      { name: 'Available Resources', href: '/resources#available' },
-      { name: 'How to Use Resources', href: '/resources#how-to-use' },
-      { name: 'Contact Us', href: '/resources#contact' },
+      { name: 'Who We Are', href: '/about-us#who-we-are' },
     ],
   },
   {
@@ -104,22 +101,10 @@ export const PLATFORM_LINKS = [
 
 export const SOCIAL_LINKS = [
   {
-    icon: Facebook,
-    href: 'https://facebook.com',
-    className: 'hover:bg-blue-600',
-    label: 'Visit our Facebook page',
-  },
-  {
-    icon: Twitter,
-    href: 'https://x.com',
-    className: 'hover:bg-blue-400',
-    label: 'Visit our X (Twitter) page',
-  },
-  {
-    icon: Instagram,
-    href: 'https://www.instagram.com',
-    className: 'bg-[var(--color-secondary-pink-50)] hover:bg-[var(--color-secondary-pink-60)]',
-    label: 'Visit our Instagram page',
+    icon: Youtube,
+    href: 'https://www.youtube.com/@nm-cyber/videos',
+    className: 'bg-[var(--color-secondary-red-50)] hover:bg-red-600',
+    label: 'Visit our YouTube channel',
   },
   {
     icon: Linkedin,
