@@ -142,9 +142,9 @@ export const NAVIGATION_WITH_SUBMENUS: NavigationItem[] = [
 export const QUICK_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
-  { label: 'Pricing', href: '/products' },
+  // { label: 'Pricing', href: '/products' },
   { label: 'Services', href: '/services' },
-  { label: 'Blog', href: '/' },
+  { label: 'Academy', href: 'https://cyberseclaunchpad.com/' },
   { label: 'Contact Us', href: '/contact-us' },
 ];
 
