@@ -237,10 +237,10 @@ export default function NavBar() {
                   ? [{ name: item.mobileOverviewLabel, href: item.href }, ...item.submenus]
                   : item.submenus;
 
-                const itemClassName = `transition-all py-2 px-4 rounded flex items-center justify-between ${
+                const itemClassName = `font-[Poppins] font-semibold text-sm transition-[color,background-color,border-color,border-width] px-5 h-12 w-full rounded flex items-center justify-between ${
                   pathname === item.href
-                    ? 'text-white bg-accent/20 border-l-4 border-accent font-[Poppins] font-semibold text-sm'
-                    : 'text-muted-foreground hover:text-white hover:bg-white/10 font-[Poppins] font-semibold text-sm'
+                    ? 'text-white bg-accent/20 border-l-4 border-accent'
+                    : 'text-muted-foreground hover:text-white hover:bg-white/10'
                 }`;
 
                 return (
@@ -262,7 +262,7 @@ export default function NavBar() {
                           target={item.external ? '_blank' : undefined}
                           rel={item.external ? 'noopener noreferrer' : undefined}
                           className={itemClassName}
-                          onClick={() => setIsMobileMenuOpen(false)}
+                          onClick={closeMobileMenu}
                         >
                           {item.name}
                           {item.external && (

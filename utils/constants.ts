@@ -87,14 +87,6 @@ export const SERVICE_DIRECTORY = {
 // Navigation structure with submenus
 export const NAVIGATION_WITH_SUBMENUS: NavigationItem[] = [
   {
-    name: 'About Us',
-    href: '/about-us',
-    submenus: [
-      { name: 'Who We Are', href: '/about-us#who-we-are' },
-      { name: 'Contact Us', href: '/about-us#contact' },
-    ],
-  },
-  {
     name: 'Products',
     href: '/products',
     submenus: [
